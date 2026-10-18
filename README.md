@@ -5,6 +5,7 @@ Nap is a native app for building with coding agents: open a project, choose an a
 ## Pages
 
 - `/` — Product landing page.
+- `/about` — Factual product overview and coding workflow.
 - `/blogs` — Blog listing.
 - `/blogs/hello-nap` — Why We Started.
 - `/blogs/why` — Why This?
@@ -49,3 +50,5 @@ Internal links use prefetched client navigation. Product screenshots use build-t
 Run `npm test` for liquid contour, image-outline clipping, animation lifecycle, input-mode, and cleanup regression checks. These checks do not replace real-device testing across Safari, Chrome, Edge, and Firefox. No universal browser/device guarantee is implied; the native cursor and all content remain usable when the decoration is unavailable.
 
 SEO metadata, social cards, publisher entities, and breadcrumb markup are centralized in `app/lib/seo.ts`. Run `npm run check:seo` after a production build to check the actual rendered pages and crawler files. Optional Google/Bing ownership verification tokens are described in `.env.example`; account verification and sitemap submission still happen in the search providers' consoles. See `docs/seo-launch.md` for the remaining external steps.
+
+The About page supplies a readable product definition for people and retrieval agents. Article bylines and related-reading links connect it to the existing blog posts. The rendered SEO checker also verifies that every sitemap page is reachable from the homepage and that the About definition matches its app schema. Unknown product details remain unpublished until confirmed.

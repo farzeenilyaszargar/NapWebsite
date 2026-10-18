@@ -135,3 +135,12 @@
 .nap-footer-right a { font-size: 12px; color: #f3f3ed; }
 .nap-footer-right a:hover { opacity: .65; }
 @media (max-width: 700px) { .nap-footer-bottom { align-items: flex-start; } .nap-footer-right { gap: 14px; } .nap-footer-right span { max-width: 170px; text-align: right; } }
+
+.nap-inline-link:hover, .nap-inline-link:focus-visible { text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+.nap-reading-links { margin-top: 48px; padding-top: 24px; border-top: 1px solid #30302c; }
+.nap-reading-links > div { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 15px; font-size: 14px; }
+.nap-product-facts { margin-top: 32px; }
+.nap-product-facts > div { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 13px 0; border-bottom: 1px solid #30302c; font-size: 14px; line-height: 1.6; }
+.nap-product-facts dt { color: #92928a; }
+.nap-product-facts dd { margin: 0; }
+@media (max-width: 700px) { .nap-product-facts > div { grid-template-columns: 100px 1fr; gap: 12px; font-size: 12px; } }

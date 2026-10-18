@@ -34,6 +34,11 @@ export const pages = {
     description: "Explore how Nap brings AI coding agents into one native Mac app. Open a project, choose an agent, follow the conversation, and review code changes.",
     keywords: ["how Nap works", "AI coding app", "coding agent interface", "Claude Code workspace", "Codex workspace"],
   },
+  about: {
+    path: "/about", title: pageTitle("About"),
+    description: "Learn what Nap is: a native AI coding workspace for Mac that brings coding agents, project conversations, and code review into one app.",
+    keywords: ["about Nap", "what is Nap", "AI coding workspace for Mac", "coding agent interface"],
+  },
 };
 
 type Page = (typeof pages)[keyof typeof pages];
@@ -87,8 +92,9 @@ export function siteSchema() {
 
 function breadcrumbSchema(page: Page) {
   const items = [{ name: "Nap", item: absolute("/") }];
-  if (page.path !== "/") items.push({ name: "Blogs", item: absolute(pages.blogs.path) });
+  if (page.path.startsWith("/blogs")) items.push({ name: "Blogs", item: absolute(pages.blogs.path) });
   if (page === pages.story || page === pages.why) items.push({ name: page === pages.story ? "Why We Started" : "Why This?", item: absolute(page.path) });
+  if (page === pages.about) items.push({ name: "About Nap", item: absolute(page.path) });
   return {
     "@type": "BreadcrumbList", "@id": `${absolute(page.path)}#breadcrumbs`,
     itemListElement: items.map((item, index) => ({ "@type": "ListItem", position: index + 1, ...item })),
@@ -104,13 +110,28 @@ function webPageSchema(page: Page, type = "WebPage") {
   };
 }
 
+function softwareSchema() {
+  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", operatingSystem: "macOS", description: site.description, image: absolute(site.image), screenshot: absolute("/nap-ui-240fdfdf.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"] };
+}
+
 export function homeSchema() {
   const appId = `${site.url}/#app`;
   return {
     "@context": "https://schema.org",
     "@graph": [
       { ...webPageSchema(pages.home), mainEntity: { "@id": appId }, about: { "@id": appId } },
-      { "@type": "SoftwareApplication", "@id": appId, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", operatingSystem: "macOS", description: site.description, image: absolute(site.image), screenshot: absolute("/nap-ui-240fdfdf.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"] },
+      softwareSchema(),
+    ],
+  };
+}
+
+export function aboutSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      { ...webPageSchema(pages.about, "AboutPage"), mainEntity: { "@id": `${site.url}/#app` }, about: { "@id": `${site.url}/#app` } },
+      softwareSchema(),
+      breadcrumbSchema(pages.about),
     ],
   };
 }
@@ -142,7 +163,7 @@ export function articleSchema(page: typeof pages.story | typeof pages.why) {
         image: { "@type": "ImageObject", url: absolute(site.image), width: 1200, height: 630 },
         mainEntityOfPage: { "@id": `${absolute(page.path)}#webpage` },
         author: { "@id": organizationId }, publisher: { "@id": organizationId },
-        isPartOf: { "@id": `${site.url}/blogs#blog` }, inLanguage: "en",
+        isPartOf: { "@id": `${site.url}/blogs#blog` }, about: { "@id": `${site.url}/#app` }, inLanguage: "en",
       },
     ],
   };

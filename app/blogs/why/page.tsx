@@ -1,6 +1,8 @@
 import StructuredData from "../../components/structured-data";
 import { pages, pageMetadata, articleSchema } from "../../lib/seo";
 import NapProductImage from "../../components/nap-product-image";
+import NapReadingLinks from "../../components/nap-reading-links";
+import Link from "next/link";
 import NapHeader from "../../components/nap-header";
 import DeferredLiquidField from "../../components/deferred-liquid-field";
 import "../../contrast.css";
@@ -14,8 +16,9 @@ export default function WhyPost() {
       <NapHeader />
       <section className="nap-hero">
         <article className="nap-blog-article">
-          <span className="nap-blog-label">PRODUCT NOTES · 2 MIN READ</span>
+          <span className="nap-blog-label">BY <Link href={pages.about.path} className="nap-inline-link">NAP</Link> · 2 MIN READ</span>
           <h1>Why This?</h1>
+          <p>Nap is a native AI coding workspace for Mac that brings your coding agents, project conversations, and code review into one app.</p>
           <p>A good coding session has a simple rhythm. You describe a goal, work through it with an agent, and review what changed. Nap puts that rhythm at the center of a native app.</p>
           <p>Your project, the conversation, and the work that follows all share the same space. You can stay with the problem from the first question to the next change.</p>
 
@@ -39,6 +42,7 @@ export default function WhyPost() {
           <h2>Return with your context.</h2>
           <p>Projects rarely happen in one sitting. Keeping sessions organized gives you a place to return to, with the conversation that explains how you got there.</p>
           <p>That is why Nap takes this shape: a native app built around the whole coding session. Open your project, work with your agent, and keep moving.</p>
+          <NapReadingLinks current={pages.why.path} />
         </article>
       </section>
       <DeferredLiquidField />

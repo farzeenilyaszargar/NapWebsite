@@ -12,14 +12,21 @@ const routes = [
   ["blogs", "/blogs", "Nap | Blogs"],
   ["blogs/hello-nap", "/blogs/hello-nap", "Nap | Why We Started"],
   ["blogs/why", "/blogs/why", "Nap | Why This?"],
+  ["about", "/about", "Nap | About"],
 ];
 const decode = (value) => value.replaceAll("&amp;", "&").replaceAll("&quot;", '"').replaceAll("&#x27;", "'");
 function attributes(tag) {
   return Object.fromEntries([...tag.matchAll(/([\w:-]+)="([^"]*)"/g)].map((match) => [match[1], decode(match[2])]));
 }
 const descriptions = new Set();
+const linkGraph = new Map();
 for (const [file, path, title] of routes) {
   const html = readFileSync(resolve(output, `${file}.html`), "utf8");
+  const internal = [...html.matchAll(/<a\b[^>]*>/g)]
+    .map(([tag]) => attributes(tag).href).filter(Boolean)
+    .map((href) => new URL(href, origin + path))
+    .filter((url) => url.origin === origin).map((url) => url.pathname);
+  linkGraph.set(path, internal);
   const titles = [...html.matchAll(/<title>(.*?)<\/title>/g)];
   assert.equal(titles.length, 1, `${path}: one title`);
   assert.equal(decode(titles[0][1]), title);
@@ -47,10 +54,18 @@ for (const [file, path, title] of routes) {
     const breadcrumb = entities.find((entity) => entity["@type"] === "BreadcrumbList");
     assert.equal(breadcrumb.itemListElement.at(-1).item, origin + path);
   }
+  if (path === "/about") {
+    const about = entities.find((entity) => entity["@type"] === "AboutPage");
+    const app = entities.find((entity) => entity["@type"] === "SoftwareApplication");
+    assert.equal(about.mainEntity["@id"], app["@id"]);
+    assert.ok(html.includes(app.description), "the product definition is visible, not just in schema");
+    assert.equal(entities.find((entity) => entity["@type"] === "BreadcrumbList").itemListElement.length, 2);
+  }
   if (path.startsWith("/blogs/")) {
     const article = entities.find((entity) => entity["@type"] === "BlogPosting");
     assert.ok(article.image.url.startsWith(origin));
     assert.ok(article.author["@id"].endsWith("#organization"));
+    assert.ok(internal.includes("/about"), "article publisher information is reachable");
   }
   for (const entity of entities) {
     assert.equal(entity.aggregateRating, undefined, "no invented ratings");
@@ -64,6 +79,20 @@ for (const [file, path, title] of routes) {
   }
   console.log(`✓ ${path}: metadata, canonical, social cards, structured data, headings, and images`);
 }
+const knownPages = new Set(routes.map(([, path]) => path));
+for (const [path, links] of linkGraph) for (const link of links) {
+  assert.ok(knownPages.has(link), `${path}: internal content link ${link} resolves to a known page`);
+}
+const reached = new Set();
+const queue = ["/"];
+while (queue.length) {
+  const path = queue.shift();
+  if (reached.has(path)) continue;
+  reached.add(path);
+  queue.push(...(linkGraph.get(path) ?? []));
+}
+assert.equal(reached.size, knownPages.size, "all sitemap pages are reachable from the homepage");
+console.log("✓ Every sitemap page is reachable; no broken internal content links");
 const missing = readFileSync(resolve(output, "_not-found.html"), "utf8");
 assert.ok(missing.includes('content="noindex'));
 assert.ok(!missing.includes('rel="canonical"'), "404 must not canonicalize to the homepage");
