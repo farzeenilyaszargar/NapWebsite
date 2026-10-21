@@ -1,36 +1,49 @@
 type Props = { kind: "project" | "agent" | "work" };
 
-// Original, rounded line illustrations sized to remain clear at 48–56px.
+// Lightweight SVG loops: no animation runtime or image downloads.
 export default function WorkflowIcon({ kind }: Props) {
   return (
-    <span className="nap-step-symbol" aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" focusable="false">
+    <span className={`nap-step-symbol nap-step-motion nap-step-motion-${kind}`} aria-hidden="true">
+      <svg viewBox="0 0 96 72" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" focusable="false">
         {kind === "project" && (
           <>
-            <path d="M28 51H16a8 8 0 0 1-8-8V20a7 7 0 0 1 7-7h10a5 5 0 0 1 3.6 1.5l4 4A5 5 0 0 0 36 20h12a8 8 0 0 1 8 8v1" />
-            <path d="M8 27h19" opacity=".45" />
-            <rect x="33" y="33" width="24" height="23" rx="6" />
-            <path d="m41 41-3.5 3.5L41 48m8-7 3.5 3.5L49 48" />
+            <path d="M14 56V24a5 5 0 0 1 5-5h15l7 7h34a5 5 0 0 1 5 5v4" opacity=".4" />
+            <g className="nap-project-sheet">
+              <rect x="43" y="9" width="25" height="33" rx="4" fill="#0b0b0b" />
+              <path d="M49 18h13m-13 7h10m-10 7h7" opacity=".6" />
+            </g>
+            <path d="M14 35h68l-8 23a5 5 0 0 1-4.7 3.4H20a6 6 0 0 1-6-6V35Z" fill="#0b0b0b" />
+            <path className="nap-project-tab" d="M24 48h18" opacity=".65" />
           </>
         )}
         {kind === "agent" && (
           <>
-            <circle cx="28" cy="21" r="7.5" />
-            <path d="M14 49v-3a14 14 0 0 1 25-8.7M14 49h19" />
-            <g opacity=".45">
-              <path d="M43 15a6 6 0 1 1 0 12m3 7a11 11 0 0 1 11 8" />
-              <path d="M11 29a5 5 0 0 1 0-10M7 43a10 10 0 0 1 5-8" />
+            <g opacity=".55">
+              <circle cx="20" cy="24" r="6" />
+              <circle cx="48" cy="24" r="6" />
+              <circle cx="76" cy="24" r="6" />
             </g>
-            <circle cx="47" cy="46" r="10" />
-            <path d="m42.5 46 3 3 6-6" />
+            <g opacity=".3">
+              <path d="M20 42v2a6 6 0 0 0 6 6h44a6 6 0 0 0 6-6v-2M48 42v8" />
+              <path d="M48 50v8" />
+            </g>
+            <rect className="nap-agent-selection" x="7" y="11" width="26" height="26" rx="13" />
+            <circle className="nap-agent-signal" cx="48" cy="49" r="2" fill="currentColor" stroke="none" />
+            <path d="M39 62h18" opacity=".65" />
           </>
         )}
         {kind === "work" && (
           <>
-            <path d="M31 45h-9l-10 7v-9a9 9 0 0 1-5-8V21A10 10 0 0 1 17 11h28a10 10 0 0 1 10 10v12" />
-            <path d="M18 23h24m-24 9h15" opacity=".55" />
-            <circle cx="47" cy="46" r="10" />
-            <path d="m42.5 46 3 3 6-6" />
+            <rect x="14" y="10" width="65" height="49" rx="7" opacity=".45" />
+            <path d="M32 10v49" opacity=".25" />
+            <path d="M21 24h5m-5 11h5m-2.5-2.5v5m-2.5 8.5h5" opacity=".4" />
+            <path className="nap-review-line nap-review-line-first" pathLength="1" d="M41 24h25" />
+            <path className="nap-review-line nap-review-line-second" pathLength="1" d="M41 35h18" />
+            <path className="nap-review-line nap-review-line-third" pathLength="1" d="M41 46h12" />
+            <g className="nap-review-confirmation">
+              <circle cx="75" cy="55" r="11" fill="#0b0b0b" />
+              <path className="nap-review-check" pathLength="1" d="m70 55 3.5 3.5 6.5-7" />
+            </g>
           </>
         )}
       </svg>
