@@ -7,6 +7,8 @@
 .nap-waitlist-field + .nap-waitlist-field { margin-top: 22px; }
 .nap-waitlist-field label { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; line-height: 1.4; letter-spacing: -.01em; color: #333; }
 .nap-waitlist-field input { display: block; width: 100%; min-height: 54px; border: 0; border-bottom: 1px solid #dedede; border-radius: 0; background: transparent; color: var(--nap-foreground); padding: 14px 0; font: inherit; font-size: 16px; line-height: 1.5; -webkit-user-select: text; user-select: text; transition: border-color .16s; }
+/* Keep saved-name/email autofill visually identical to the page surface. */
+.nap-waitlist-field input:is(:autofill, :-webkit-autofill) { -webkit-text-fill-color: var(--nap-foreground); caret-color: var(--nap-foreground); -webkit-box-shadow: 0 0 0 1000px var(--nap-background) inset; box-shadow: 0 0 0 1000px var(--nap-background) inset; }
 .nap-waitlist-field input::placeholder { color: #767676; }
 .nap-waitlist-field input:not(:disabled):not(:focus):hover { border-color: #aaa; }
 .nap-waitlist-field input:focus { outline: none; border-bottom-color: var(--nap-foreground); }
