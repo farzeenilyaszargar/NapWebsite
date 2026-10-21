@@ -49,7 +49,7 @@ export default function WaitlistForm() {
             <label htmlFor="waitlist-website">Leave this empty</label>
             <input id="waitlist-website" name="website" tabIndex={-1} autoComplete="off" />
           </div>
-          <button type="submit" disabled={submission.status === "pending"}>{submission.status === "pending" ? "Joining…" : "Join the waitlist"}</button>
+          <button type="submit" disabled={submission.status === "pending"}>{submission.status === "pending" ? "Joining…" : "Join the Waitlist"}</button>
           <p id="waitlist-note" className="nap-waitlist-note">Sign up to receive emails about Nap’s availability and product updates.</p>
           <p id="waitlist-status" className="nap-waitlist-status" role="alert">{submission.status === "error" ? submission.message : ""}</p>
         </form>

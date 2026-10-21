@@ -1,16 +1,16 @@
 type Props = { eager?: boolean; sizes: string; alt: string };
 
-// Build-time variants avoid a cold image-optimizer request on the first visit.
+// Lossless, build-time variants retain screenshot detail without on-demand resizing.
 export default function NapProductImage({ eager = false, sizes, alt }: Props) {
   return (
     <picture>
       <source
         type="image/webp"
-        srcSet="/nap-coding-workspace-480-36495261.webp 480w, /nap-coding-workspace-828-4a87e8f8.webp 828w, /nap-coding-workspace-1448-6553c27d.webp 1448w"
+        srcSet="/nap-coding-workspace-480-95f017cd.webp 480w, /nap-coding-workspace-828-d5875163.webp 828w, /nap-coding-workspace-1448-2e73eecc.webp 1448w"
         sizes={sizes}
       />
       <img
-        src="/nap-coding-workspace-1448-6553c27d.webp"
+        src="/nap-coding-workspace-1448-2e73eecc.webp"
         alt={alt}
         width={1448}
         height={1086}

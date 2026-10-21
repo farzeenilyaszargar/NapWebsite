@@ -123,7 +123,7 @@ function webPageSchema(page: Page, type = "WebPage") {
 }
 
 function softwareSchema() {
-  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", operatingSystem: "macOS", description: site.description, image: absolute(site.image), screenshot: absolute("/nap-coding-workspace-1448-6553c27d.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"] };
+  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", operatingSystem: "macOS", description: site.description, image: absolute(site.image), screenshot: absolute("/nap-coding-workspace-1448-2e73eecc.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"] };
 }
 
 export function homeSchema() {
