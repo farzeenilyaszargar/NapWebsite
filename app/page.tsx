@@ -4,7 +4,7 @@ import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
 import WorkflowIcon from "./components/workflow-icon";
 import NapProductImage from "./components/nap-product-image";
-import NapDownload from "./components/nap-download";
+import NapWaitlistCta from "./components/nap-waitlist-cta";
 import NapHeader from "./components/nap-header";
 import DeferredLiquidField from "./components/deferred-liquid-field";
 import "./contrast.css";
@@ -24,7 +24,7 @@ export default function Home() {
           <div className="nap-hero-bottom">
           <p className="nap-description">Build the software you wish existed. Nap brings your coding agents together in one workspace, giving your biggest ideas room to become real.</p>
           <div className="nap-action">
-            <NapDownload />
+            <NapWaitlistCta />
             <p className="nap-download-note">Your next good idea starts here.</p>
           </div>
           </div>
@@ -60,7 +60,7 @@ export default function Home() {
       <section className="nap-closing" aria-labelledby="closing-title">
         <p className="nap-section-label">YOUR NEXT GOOD IDEA STARTS HERE.</p>
         <h2 id="closing-title">GET INTO<br />YOUR FLOW.</h2>
-        <NapDownload />
+        <NapWaitlistCta />
       </section>
       <footer className="nap-site-footer nap-section">
         <div className="nap-footer-bottom">

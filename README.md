@@ -34,7 +34,7 @@ npm run start
 
 - Homepage: `app/page.tsx`
 - Shared navigation: `app/components/nap-header.tsx`
-- Download button: `app/components/nap-download.tsx`
+- Waitlist CTA: `app/components/nap-waitlist-cta.tsx`
 - Liquid interaction: `app/components/liquid-field.tsx`
 - Site styles: `app/contrast.css`
 - Blog pages: `app/blogs/`
@@ -43,7 +43,7 @@ npm run start
 - Crawler routes: `app/sitemap.ts` and `app/robots.ts`
 - Domain launch checklist: `docs/seo-launch.md`
 
-The download button links to the existing GitHub release asset. Release and installation verification are currently deferred.
+The homepage hero and closing CTA both link to `/waitlist`. Downloads are paused; release and installation verification remain deferred.
 
 Images are served from content-versioned WebP assets. The cursor effect draws native canvas contours in trail-sized surfaces, avoiding SVG blur/threshold filters. It pauses for hidden tabs, reduced motion, and touch-only devices, releases surfaces after the trail expires, and follows the display refresh rate up to 120 Hz. Canvas backing stores are capped at 2048 pixels per side and approximately two megapixels per layer. Sustained slow frames reduce the particle count and refresh rate; continued severe slowdown disables the decorative effect for that mount. Unsupported blending/Path2D, blocked canvases, failed optional chunk loads, and drawing errors fall back to the normal page. Lost canvas contexts pause the effect until restored.
 
@@ -57,4 +57,4 @@ The About page supplies a readable product definition for people and retrieval a
 
 ## Mobile layout
 
-Phones and tablets use responsive spacing, stacked content and forms, and larger reading text. Download CTAs are hidden at widths of 900px or less and on devices with a coarse primary pointer or no hover capability. Desktop download buttons remain available. The 404 home button is independent of the download CTA and stays visible. The liquid renderer is requested only on a viewport wider than 900px with a fine primary pointer and hover support; switching out of that mode unmounts it and removes its pointer activation listener. Touch input, reduced motion, and data-saving mode never activate it.
+Phones and tablets use responsive spacing, stacked content and forms, and larger reading text. Waitlist CTAs are available on desktop, phones, and tablets, with full-width buttons on small screens. There are currently no download buttons. The 404 home button also stays visible. The liquid renderer is requested only on a viewport wider than 900px with a fine primary pointer and hover support; switching out of that mode unmounts it and removes its pointer activation listener. Touch input, reduced motion, and data-saving mode never activate it.
