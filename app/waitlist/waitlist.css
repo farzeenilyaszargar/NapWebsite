@@ -6,11 +6,11 @@
 .nap-waitlist-intro p { margin-top: 12px; color: var(--nap-subtle); font-size: 14px; line-height: 1.6; }
 .nap-waitlist-field + .nap-waitlist-field { margin-top: 22px; }
 .nap-waitlist-field label { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; line-height: 1.4; letter-spacing: -.01em; color: #333; }
-.nap-waitlist-field input { display: block; width: 100%; min-height: 54px; border: 1px solid #dedede; border-radius: 10px; background: #fafafa; color: var(--nap-foreground); padding: 14px 16px; font: inherit; font-size: 16px; line-height: 1.5; -webkit-user-select: text; user-select: text; transition: border-color .16s, background .16s, box-shadow .16s; }
+.nap-waitlist-field input { display: block; width: 100%; min-height: 54px; border: 0; border-bottom: 1px solid #dedede; border-radius: 0; background: transparent; color: var(--nap-foreground); padding: 14px 0; font: inherit; font-size: 16px; line-height: 1.5; -webkit-user-select: text; user-select: text; transition: border-color .16s; }
 .nap-waitlist-field input::placeholder { color: #767676; }
 .nap-waitlist-field input:not(:disabled):not(:focus):hover { border-color: #aaa; }
-.nap-waitlist-field input:focus { outline: none; border-color: var(--nap-foreground); background: #fff; box-shadow: 0 0 0 3px #0b0b0b0a; }
-.nap-waitlist-field input:disabled { background: #f6f6f6; color: var(--nap-subtle); cursor: wait; }
+.nap-waitlist-field input:focus { outline: none; border-bottom-color: var(--nap-foreground); }
+.nap-waitlist-field input:disabled { background: transparent; color: var(--nap-subtle); cursor: wait; }
 .nap-waitlist-form-wrap button { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 54px; margin-top: 28px; border: 0; border-radius: 10px; background: var(--nap-foreground); color: #fff; padding: 15px 20px; font-size: 16px; font-weight: 500; line-height: 1.5; letter-spacing: -.015em; cursor: pointer; box-shadow: 0 1px 2px #00000014; transition: background .16s, transform .16s; }
 .nap-waitlist-form-wrap button:hover:not(:disabled) { background: #292929; }
 .nap-waitlist-form-wrap button:active:not(:disabled) { transform: translateY(1px); }
