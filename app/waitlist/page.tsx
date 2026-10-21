@@ -13,15 +13,7 @@ export default function WaitlistPage() {
     <main className="contrast-page nap-waitlist-page">
       <StructuredData data={waitlistSchema()} />
       <NapHeader />
-      <section className="nap-waitlist-body" aria-labelledby="waitlist-title">
-        <div className="nap-waitlist-panel">
-          <div className="nap-waitlist-intro">
-            <h1 id="waitlist-title">Join the Waitlist</h1>
-            <p>Your next good idea starts here</p>
-          </div>
-          <WaitlistForm />
-        </div>
-      </section>
+      <WaitlistForm />
       <DeferredLiquidField />
     </main>
   );
