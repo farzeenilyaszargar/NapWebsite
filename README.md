@@ -1,6 +1,6 @@
 # Nap Website
 
-Nap is a native app for building with coding agents: open a project, choose an agent, chat, and review code changes in the app. This repository contains the dark product website, UI preview, liquid cursor interaction, and blog articles.
+Nap is a native app for building with coding agents: open a project, choose an agent, chat, and review code changes in the app. This repository contains the light product website, UI preview, liquid cursor interaction, and blog articles.
 
 ## Pages
 

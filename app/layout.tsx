@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0b0b0b",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className="h-full antialiased"
     >
-      <body className="min-h-full flex flex-col bg-black text-white"><StructuredData data={siteSchema()} />{children}</body>
+      <body className="min-h-full flex flex-col bg-white text-black"><StructuredData data={siteSchema()} />{children}</body>
     </html>
   );
 }

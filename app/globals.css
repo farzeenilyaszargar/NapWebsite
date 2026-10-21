@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  background: #0b0b0b;
-  color: #f3f3ed;
+  --nap-background: #fff;
+  --nap-foreground: #0b0b0b;
+  --nap-muted: #555;
+  --nap-subtle: #666;
+  --nap-border: #d5d5d5;
+  --nap-error: #a12620;
+  color-scheme: light;
+  background: var(--nap-background);
+  color: var(--nap-foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #0b0b0b;
-  color: #f3f3ed;
+  background: var(--nap-background);
+  color: var(--nap-foreground);
 }
 
 html { scroll-behavior: smooth; }

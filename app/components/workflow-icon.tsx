@@ -9,10 +9,10 @@ export default function WorkflowIcon({ kind }: Props) {
           <>
             <path d="M14 56V24a5 5 0 0 1 5-5h15l7 7h34a5 5 0 0 1 5 5v4" opacity=".4" />
             <g className="nap-project-sheet">
-              <rect x="43" y="9" width="25" height="33" rx="4" fill="#0b0b0b" />
+              <rect x="43" y="9" width="25" height="33" rx="4" fill="var(--nap-background)" />
               <path d="M49 18h13m-13 7h10m-10 7h7" opacity=".6" />
             </g>
-            <path d="M14 35h68l-8 23a5 5 0 0 1-4.7 3.4H20a6 6 0 0 1-6-6V35Z" fill="#0b0b0b" />
+            <path d="M14 35h68l-8 23a5 5 0 0 1-4.7 3.4H20a6 6 0 0 1-6-6V35Z" fill="var(--nap-background)" />
             <path className="nap-project-tab" d="M24 48h18" opacity=".65" />
           </>
         )}
@@ -41,7 +41,7 @@ export default function WorkflowIcon({ kind }: Props) {
             <path className="nap-review-line nap-review-line-second" pathLength="1" d="M41 35h18" />
             <path className="nap-review-line nap-review-line-third" pathLength="1" d="M41 46h12" />
             <g className="nap-review-confirmation">
-              <circle cx="75" cy="55" r="11" fill="#0b0b0b" />
+              <circle cx="75" cy="55" r="11" fill="var(--nap-background)" />
               <path className="nap-review-check" pathLength="1" d="m70 55 3.5 3.5 6.5-7" />
             </g>
           </>
