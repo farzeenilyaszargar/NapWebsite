@@ -2,7 +2,7 @@
 .contrast-page a { color: inherit; text-decoration: none; }
 .nap-header { position: absolute; top: 28px; left: 4%; right: 4%; display: flex; align-items: center; justify-content: space-between; z-index: 1; }
 .nap-wordmark { font-size: 42px; font-weight: 800; letter-spacing: -3px; line-height: 1; }
-.nap-wordmark span { display: inline-block; font-size: 10px; vertical-align: top; letter-spacing: 0; margin: 4px 0 0 6px; }
+.nap-wordmark-mark { display: inline-block; width: 8px; height: 10.2px; vertical-align: top; margin: 4px 0 0 6px; background: currentColor; mask-image: url("/nap-mark-32b2b19e.webp"); mask-mode: luminance; mask-repeat: no-repeat; mask-size: 14px 14px; mask-position: -3px -1.75px; }
 .nap-docs { display: flex; gap: 20px; font-size: 15px; align-items: center; }
 .nap-docs:hover { opacity: .6; }
 .nap-hero { height: 100%; width: 100%; display: flex; align-items: center; padding: 110px 4% 85px; }
