@@ -33,7 +33,7 @@ export default function Home() {
       </section>
 
       <figure className="nap-full-width-product">
-        <NapProductImage eager alt="Nap’s native coding workspace with project sessions and an AI agent reviewing a Python project." sizes="(max-width: 700px) 90vw, 92vw" />
+        <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 700px) 90vw, 92vw" />
       </figure>
       <section className="nap-agents nap-section" aria-labelledby="agents-title">
         <h2 id="agents-title" className="nap-section-label">WORK WITH YOUR CODING AGENTS, RIGHT INSIDE NAP.</h2>
