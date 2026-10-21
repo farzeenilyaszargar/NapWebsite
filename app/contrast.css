@@ -70,12 +70,12 @@
 .nap-agents .nap-section-label { text-align: center; }
 .nap-agents ul { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 35px; list-style: none; }
 .nap-agents li { display: flex; align-items: center; gap: 12px; white-space: nowrap; font-size: clamp(17px, 2.1vw, 34px); font-weight: 600; letter-spacing: -.055em; }
-.nap-workflow h3 { font-size: clamp(23px, 2.3vw, 36px); font-weight: 500; letter-spacing: -.055em; line-height: 1.15; }
+.nap-workflow h3 { font-size: clamp(23px, 2.3vw, 36px); font-weight: 700; letter-spacing: -.055em; line-height: 1.15; }
 .nap-workflow-steps p { font-size: 14px; color: var(--nap-muted); line-height: 1.8; max-width: 410px; margin-top: 18px; }
 .nap-workflow { padding: 85px 0 110px; }
-.nap-section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; }
-.nap-section-heading h2 { font-size: clamp(36px, 4.5vw, 76px); font-weight: 500; letter-spacing: -.065em; line-height: 1.05; }
-.nap-section-heading p { font-size: 13px; line-height: 1.7; color: var(--nap-muted); }
+.nap-section-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 35px; }
+.nap-section-heading h2 { font-size: clamp(36px, 4.5vw, 76px); font-weight: 800; letter-spacing: -.065em; line-height: 1.05; }
+.nap-section-heading p { flex-shrink: 0; padding-top: clamp(3px, .5vw, 8px); font-size: 13px; line-height: 1.7; color: var(--nap-muted); }
 .nap-workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5%; margin-top: 65px; }
 .nap-step-symbol { display: block; padding-top: 25px; padding-bottom: 30px; color: var(--nap-foreground); }
 .nap-section-heading > a { font-family: monospace; font-size: 11px; white-space: nowrap; }
@@ -175,7 +175,7 @@
   .nap-workflow { padding: 40px 0 64px; }
   .nap-section-heading { flex-direction: column; align-items: flex-start; gap: 22px; }
   .nap-section-heading h2 { font-size: clamp(34px, 7.8vw, 56px); }
-  .nap-section-heading p { font-size: 14px; line-height: 1.8; }
+  .nap-section-heading p { padding-top: 0; font-size: 14px; line-height: 1.8; }
   .nap-workflow-steps { grid-template-columns: 1fr; gap: 32px; margin-top: 36px; }
   .nap-step-symbol { padding-top: 0; padding-bottom: 20px; }
   .nap-step-symbol svg { width: 44px; height: 44px; }

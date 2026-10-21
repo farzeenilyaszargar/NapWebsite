@@ -4,7 +4,7 @@ type Props = { kind: "project" | "agent" | "work" };
 export default function WorkflowIcon({ kind }: Props) {
   return (
     <span className={`nap-step-symbol nap-step-motion nap-step-motion-${kind}`} aria-hidden="true">
-      <svg viewBox="0 0 96 72" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" focusable="false">
+      <svg viewBox="0 0 96 72" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" focusable="false">
         {kind === "project" && (
           <>
             <path d="M14 56V24a5 5 0 0 1 5-5h15l7 7h34a5 5 0 0 1 5 5v4" opacity=".4" />
