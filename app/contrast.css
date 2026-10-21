@@ -109,7 +109,7 @@
 
 .liquid-image-outline { position: fixed; top: 0; left: 0; width: 0; height: 0; z-index: 22; pointer-events: none; opacity: .45; visibility: hidden; }
 
-.nap-home-page .nap-eyebrow { margin-bottom: 22px; }
+.nap-home-page .nap-eyebrow { margin-left: 0; margin-bottom: 22px; text-align: left; }
 .nap-home-page .nap-hero-bottom { margin-top: 28px; }
 @media (max-width: 700px) {
   .nap-home-page > .nap-hero { min-height: 85svh; padding-top: 85px; padding-bottom: 30px; }
