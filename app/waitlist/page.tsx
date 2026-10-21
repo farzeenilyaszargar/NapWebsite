@@ -17,7 +17,7 @@ export default function WaitlistPage() {
         <div className="nap-waitlist-panel">
           <div className="nap-waitlist-intro">
             <h1 id="waitlist-title">Join the Waitlist</h1>
-            <p>Your next good idea starts here.</p>
+            <p>Your next good idea starts here</p>
           </div>
           <WaitlistForm />
         </div>

@@ -26,7 +26,7 @@ export default function Home() {
           <p className="nap-description">Nap brings your coding agents together in one workspace, giving your biggest ideas room to become real.</p>
           <div className="nap-action">
             <NapWaitlistCta />
-            <p className="nap-download-note">Your next good idea starts here.</p>
+            <p className="nap-download-note">Your next good idea starts here</p>
           </div>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function Home() {
 
 
       <section className="nap-closing" aria-labelledby="closing-title">
-        <p className="nap-section-label">YOUR NEXT GOOD IDEA STARTS HERE.</p>
+        <p className="nap-section-label">YOUR NEXT GOOD IDEA STARTS HERE</p>
         <h2 id="closing-title">GET INTO<br />YOUR FLOW.</h2>
         <NapWaitlistCta />
       </section>
