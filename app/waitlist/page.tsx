@@ -1,4 +1,5 @@
 import NapHeader from "../components/nap-header";
+import DeferredLiquidField from "../components/deferred-liquid-field";
 import StructuredData from "../components/structured-data";
 import { pageMetadata, pages, waitlistSchema } from "../lib/seo";
 import WaitlistForm from "./waitlist-form";
@@ -21,6 +22,7 @@ export default function WaitlistPage() {
           <WaitlistForm />
         </div>
       </section>
+      <DeferredLiquidField />
     </main>
   );
 }
