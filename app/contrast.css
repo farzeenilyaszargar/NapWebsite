@@ -79,17 +79,17 @@
 .nap-workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5%; margin-top: 65px; }
 .nap-step-symbol { display: block; padding-top: 25px; padding-bottom: 30px; color: var(--nap-foreground); }
 .nap-section-heading > a { font-family: monospace; font-size: 11px; white-space: nowrap; }
-.nap-closing { padding: 112px 4% 72px; background: #fff; color: #0b0b0b; color-scheme: light; text-align: center; }
-.nap-closing .nap-section-label { color: #333; }
+.nap-closing { padding: 112px 4% 72px; background: #0b0b0b; color: #fff; color-scheme: dark; text-align: center; }
+.nap-closing .nap-section-label { color: #ccc; }
 .nap-closing h2 { font-size: clamp(64px, 12vw, 200px); font-weight: 900; line-height: .85; letter-spacing: -.08em; margin: 40px 0; }
-.nap-closing .nap-download { margin: 0 auto; background: #0b0b0b; color: #fff !important; box-shadow: none; }
-.nap-closing .nap-download:hover { background: #292929; }
-.nap-site-footer { margin: 0; padding: 0 4% 28px; background: #fff; color: #0b0b0b; color-scheme: light; }
-.nap-footer-bottom { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; margin: 0; font-family: monospace; font-size: 11px; line-height: 1.7; letter-spacing: .5px; color: #0b0b0b; }
+.nap-closing .nap-download { margin: 0 auto; background: #fff; color: #0b0b0b !important; box-shadow: none; }
+.nap-closing .nap-download:hover { background: #e8e8e8; }
+.nap-site-footer { margin: 0; padding: 0 4% 28px; background: #0b0b0b; color: #fff; color-scheme: dark; }
+.nap-footer-bottom { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; margin: 0; font-family: monospace; font-size: 11px; line-height: 1.7; letter-spacing: .5px; color: inherit; }
 .nap-footer-copyright { white-space: nowrap; }
 .nap-footer-social { justify-self: end; display: inline-flex; align-items: center; min-height: 44px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0; }
 .nap-footer-social:hover { text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
-.nap-site-footer a:focus-visible, .nap-closing a:focus-visible { outline-color: #0b0b0b; }
+.nap-site-footer a:focus-visible, .nap-closing a:focus-visible { outline-color: #fff; }
 @media (max-width: 700px) {
   .nap-section { margin-left: 5%; margin-right: 5%; }
   .nap-agents { padding: 72px 0 42px; }
