@@ -36,7 +36,7 @@ export const pages = {
   },
   apply: {
     path: "/apply", title: pageTitle("Apply"),
-    description: "Apply to build with Nap. Tell us about yourself, share your work, and help shape a native workspace for AI coding agents on Mac.",
+    description: "Applications to join the Nap team are closed at the moment. Visit Nap for product news and updates.",
     keywords: ["Nap team", "apply to Nap", "build with Nap"],
   },
   waitlist: {

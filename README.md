@@ -5,14 +5,14 @@ Nap is a native app for building with coding agents: open a project, choose an a
 ## Pages
 
 - `/` — Product landing page.
-- `/apply` — Standalone team application, shared by direct URL only; no homepage or navigation link.
+- `/apply` — Applications-closed page, shared by direct URL only; no homepage or navigation link.
 - `/waitlist` — Name and email signup, saved to Supabase.
 - `/about` — Factual product overview and coding workflow.
 - `/blogs` — Blog listing.
 - `/blogs/hello-nap` — Why We Started.
 - `/blogs/why` — Why This?
 
-The former documentation pages remain removed. Public pages work without Supabase; waitlist and application submissions require `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in the server environment. The existing `wishlist_saves` table is defined in `supabase/migrations/20260824170000_create_wishlist_saves.sql`. Duplicate emails are ignored without modifying existing signups. Missing configuration or storage failures return an error instead of a false confirmation. No confirmation email is sent by these forms. Team applications use the existing `internship_applications` table, defined in the two September migrations. The form collects contact details, desired work, an introduction, and optional profile links and education details. Education is optional; omitted graduation years are stored as an empty string for compatibility with the existing non-null column. Duplicate applications return a clear error and preserve the original submission.
+The former documentation pages remain removed. Public pages work without Supabase; waitlist submissions require `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in the server environment. The existing `wishlist_saves` table is defined in `supabase/migrations/20260824170000_create_wishlist_saves.sql`. Duplicate emails are ignored without modifying existing signups. Missing configuration or storage failures return an error instead of a false confirmation. No confirmation email is sent by the waitlist form. Team applications are currently closed. `/api/apply` returns HTTP 410 and does not save submissions. The historical Supabase application migrations remain available for a future reopening.
 
 ## Development
 
