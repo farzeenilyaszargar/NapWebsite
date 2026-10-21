@@ -22,7 +22,7 @@ export default function Home() {
           <p className="nap-eyebrow">A LITTLE LESS FRICTION.</p>
           <h1 id="nap-title"><span>YOUR AGENTS.</span><span>ALL TOGETHER.</span></h1>
           <div className="nap-hero-bottom">
-          <p className="nap-description">Build the software you wish existed. Nap brings your coding agents together in one workspace, giving your biggest ideas room to become real.</p>
+          <p className="nap-description">Nap brings your coding agents together in one workspace, giving your biggest ideas room to become real.</p>
           <div className="nap-action">
             <NapWaitlistCta />
             <p className="nap-download-note">Your next good idea starts here.</p>
