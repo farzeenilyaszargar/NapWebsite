@@ -14,6 +14,7 @@ const routes = [
   ["blogs/why", "/blogs/why", "Nap | Why This?"],
   ["about", "/about", "Nap | About"],
   ["waitlist", "/waitlist", "Nap | Waitlist"],
+  ["apply", "/apply", "Nap | Apply"],
 ];
 const decode = (value) => value.replaceAll("&amp;", "&").replaceAll("&quot;", '"').replaceAll("&#x27;", "'");
 function attributes(tag) {
@@ -92,8 +93,13 @@ while (queue.length) {
   reached.add(path);
   queue.push(...(linkGraph.get(path) ?? []));
 }
-assert.equal(reached.size, knownPages.size, "all sitemap pages are reachable from the homepage");
-console.log("✓ Every sitemap page is reachable; no broken internal content links");
+// The application page is deliberately shared by direct URL, outside site navigation.
+assert.ok(!linkGraph.get("/").includes("/apply"), "the homepage must not link to the application page");
+assert.ok(!reached.has("/apply"), "the application page stays outside the homepage navigation flow");
+for (const path of knownPages) {
+  if (path !== "/apply") assert.ok(reached.has(path), `${path}: content page is reachable from the homepage`);
+}
+console.log("✓ Content pages are reachable; /apply stays standalone; no broken internal links");
 const missing = readFileSync(resolve(output, "_not-found.html"), "utf8");
 assert.ok(missing.includes('content="noindex'));
 assert.ok(!missing.includes('rel="canonical"'), "404 must not canonicalize to the homepage");

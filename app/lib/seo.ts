@@ -34,6 +34,11 @@ export const pages = {
     description: "Explore how Nap brings AI coding agents into one native Mac app. Open a project, choose an agent, follow the conversation, and review code changes.",
     keywords: ["how Nap works", "AI coding app", "coding agent interface", "Claude Code workspace", "Codex workspace"],
   },
+  apply: {
+    path: "/apply", title: pageTitle("Apply"),
+    description: "Apply to build with Nap. Tell us about yourself, share your work, and help shape a native workspace for AI coding agents on Mac.",
+    keywords: ["Nap team", "apply to Nap", "build with Nap"],
+  },
   waitlist: {
     path: "/waitlist", title: pageTitle("Waitlist"),
     description: "Join the Nap waitlist for availability and product updates. Bring your coding agents and ideas together in one native AI coding workspace for Mac.",
@@ -99,6 +104,7 @@ function breadcrumbSchema(page: Page) {
   const items = [{ name: "Nap", item: absolute("/") }];
   if (page.path.startsWith("/blogs")) items.push({ name: "Blogs", item: absolute(pages.blogs.path) });
   if (page === pages.story || page === pages.why) items.push({ name: page === pages.story ? "Why We Started" : "Why This?", item: absolute(page.path) });
+  if (page === pages.apply) items.push({ name: "Apply", item: absolute(page.path) });
   if (page === pages.waitlist) items.push({ name: "Waitlist", item: absolute(page.path) });
   if (page === pages.about) items.push({ name: "About Nap", item: absolute(page.path) });
   return {
@@ -177,4 +183,8 @@ export function articleSchema(page: typeof pages.story | typeof pages.why) {
 
 export function waitlistSchema() {
   return { "@context": "https://schema.org", "@graph": [webPageSchema(pages.waitlist), breadcrumbSchema(pages.waitlist)] };
+}
+
+export function applySchema() {
+  return { "@context": "https://schema.org", "@graph": [webPageSchema(pages.apply), breadcrumbSchema(pages.apply)] };
 }
