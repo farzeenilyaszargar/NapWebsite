@@ -19,7 +19,7 @@ export default function Home() {
 
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
-          <p className="nap-eyebrow">A LITTLE LESS FRICTION.</p>
+          <p className="nap-eyebrow">A LITTLE LESS FRICTION</p>
           <h1 id="nap-title"><span>YOUR AGENTS.</span><span>ALL TOGETHER.</span></h1>
           <div className="nap-hero-bottom">
           <p className="nap-description">Nap brings your coding agents together in one workspace, giving your biggest ideas room to become real.</p>
