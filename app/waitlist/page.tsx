@@ -1,5 +1,4 @@
 import NapHeader from "../components/nap-header";
-import NapFooter from "../components/nap-footer";
 import StructuredData from "../components/structured-data";
 import { pageMetadata, pages, waitlistSchema } from "../lib/seo";
 import WaitlistForm from "./waitlist-form";
@@ -22,7 +21,6 @@ export default function WaitlistPage() {
           <WaitlistForm />
         </div>
       </section>
-      <NapFooter />
     </main>
   );
 }
