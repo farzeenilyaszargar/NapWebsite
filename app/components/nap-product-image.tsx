@@ -6,14 +6,14 @@ export default function NapProductImage({ eager = false, sizes, alt }: Props) {
     <picture>
       <source
         type="image/webp"
-        srcSet="/nap-ui-480-eb1ddc82.webp 480w, /nap-ui-828-266c4627.webp 828w, /nap-ui-240fdfdf.webp 1380w"
+        srcSet="/nap-coding-workspace-480-36495261.webp 480w, /nap-coding-workspace-828-4a87e8f8.webp 828w, /nap-coding-workspace-1448-6553c27d.webp 1448w"
         sizes={sizes}
       />
       <img
-        src="/nap-ui-240fdfdf.webp"
+        src="/nap-coding-workspace-1448-6553c27d.webp"
         alt={alt}
-        width={1380}
-        height={872}
+        width={1448}
+        height={1086}
         loading={eager ? "eager" : "lazy"}
         fetchPriority={eager ? "high" : "auto"}
         decoding="async"

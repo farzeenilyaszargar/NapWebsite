@@ -23,7 +23,7 @@ export default function WhyPost() {
           <p>Your project, the conversation, and the work that follows all share the same space. You can stay with the problem from the first question to the next change.</p>
 
           <figure className="nap-article-image">
-            <NapProductImage alt="Nap’s native desktop workspace, showing project sessions in a sidebar and an agent conversation beside them." sizes="(max-width: 1000px) 90vw, 920px" />
+            <NapProductImage alt="Nap’s native desktop workspace showing project sessions and an AI agent reviewing Python code." sizes="(max-width: 1000px) 90vw, 920px" />
             <figcaption>A place for your projects, your conversations, and the next thing you want to make.</figcaption>
           </figure>
 
