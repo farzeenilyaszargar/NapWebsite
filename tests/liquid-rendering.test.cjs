@@ -170,23 +170,55 @@ test('large-display trails keep canvas backing stores bounded', () => {
   app.cleanup();
 });
 
-test('the decorative renderer loads only after eligible pointer input', () => {
-  for (const options of [{}, { touch: true }, { reduced: true }, { fine: false }, { saveData: true }, { hidden: true }]) {
-    let ready = false, cleanup;
-    const window = target({ matchMedia: (query) => ({ matches: query.includes('reduced') ? !!options.reduced : options.fine !== false }) });
-    const document = { hidden: !!options.hidden };
-    const Component = compile('deferred-liquid-field.tsx', {
-      'next/dynamic': { default: () => () => null },
-      react: { useState: () => [false, (value) => { ready = value; }], useEffect: (fn) => { cleanup = fn(); } },
-      'react/jsx-runtime': { jsx: () => null },
-    }, { window, document, navigator: { connection: { saveData: !!options.saveData } } }).default;
-    Component();
-    assert.equal(ready, false, 'no renderer during initial load or idle');
-    window.events.get('pointermove')({ pointerType: options.touch ? 'touch' : 'mouse' });
+function deferred(options = {}) {
+  let ready = false, cleanup;
+  const desktop = target({ matches: options.desktop !== false && options.fine !== false && !options.coarse && !options.noHover });
+  const reduced = target({ matches: !!options.reduced });
+  const window = target({ matchMedia: (query) => query.includes('reduced') ? reduced : desktop });
+  const document = { hidden: !!options.hidden };
+  const Component = compile('deferred-liquid-field.tsx', {
+    'next/dynamic': { default: () => () => null },
+    react: { useState: () => [false, (value) => { ready = value; }], useEffect: (fn) => { cleanup = fn(); } },
+    'react/jsx-runtime': { jsx: () => null },
+  }, { window, document, navigator: { connection: { saveData: !!options.saveData } } }).default;
+  Component();
+  return { window, desktop, reduced, get ready() { return ready; }, cleanup: () => cleanup() };
+}
+
+test('the decorative renderer never loads on mobile, touch, reduced-motion, or data-saving devices', () => {
+  for (const options of [{}, { touch: true }, { reduced: true }, { fine: false }, { desktop: false }, { coarse: true }, { noHover: true }, { saveData: true }, { hidden: true }]) {
+    const app = deferred(options);
+    assert.equal(app.ready, false, 'no renderer during initial load or idle');
+    app.window.events.get('pointermove')?.({ pointerType: options.touch ? 'touch' : 'mouse' });
     const eligible = Object.keys(options).length === 0;
-    assert.equal(ready, eligible);
-    if (eligible) assert.equal(window.events.size, 0, 'activation listener is removed immediately');
-    cleanup();
-    assert.equal(window.events.size, 0);
+    assert.equal(app.ready, eligible);
+    if (eligible) assert.equal(app.window.events.size, 0, 'activation listener is removed immediately');
+    if (options.desktop === false || options.coarse || options.noHover) assert.equal(app.window.events.size, 0, 'mobile does not subscribe to pointer movement');
+    app.cleanup();
+    assert.equal(app.window.events.size, 0);
+    assert.equal(app.desktop.events.size, 0);
+    assert.equal(app.reduced.events.size, 0);
   }
+});
+
+test('switching to a mobile viewport or reduced motion unmounts the renderer and requires fresh desktop input', () => {
+  const app = deferred();
+  app.window.events.get('pointermove')({ pointerType: 'mouse' });
+  assert.equal(app.ready, true);
+  app.desktop.matches = false;
+  app.desktop.events.get('change')();
+  assert.equal(app.ready, false);
+  assert.equal(app.window.events.size, 0);
+  app.desktop.matches = true;
+  app.desktop.events.get('change')();
+  assert.equal(app.ready, false, 'returning to desktop does not immediately load the renderer');
+  app.window.events.get('pointermove')({ pointerType: 'touch' });
+  assert.equal(app.ready, false);
+  app.window.events.get('pointermove')({ pointerType: 'mouse' });
+  assert.equal(app.ready, true);
+  app.reduced.matches = true;
+  app.reduced.events.get('change')();
+  assert.equal(app.ready, false);
+  assert.equal(app.window.events.size, 0);
+  app.cleanup();
 });

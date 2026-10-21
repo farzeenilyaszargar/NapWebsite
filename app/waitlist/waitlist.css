@@ -27,3 +27,13 @@
 .nap-waitlist-footer a { color: #f3f3ed; font-size: 13px; }
 @media (max-width: 900px) { .nap-waitlist-hero { grid-template-columns: 1fr; gap: 64px; padding-top: 145px; padding-bottom: 45px; } .nap-waitlist-copy h1 { font-size: clamp(64px, 13vw, 118px); } .nap-waitlist-panel { max-width: 520px; justify-self: start; } }
 @media (max-width: 700px) { .nap-waitlist-copy h1 { font-size: clamp(42px, 13vw, 90px); } .nap-waitlist-hero { width: 90%; padding-top: 125px; gap: 48px; } .nap-waitlist-description { font-size: 13px; margin-top: 26px; } .nap-waitlist-footer { padding-left: 5%; padding-right: 5%; } }
+@media (max-width: 900px) {
+  .nap-waitlist-hero { min-height: 0; gap: 48px; padding-top: 125px; padding-bottom: 40px; width: 90%; }
+  .nap-waitlist-copy h1 { font-size: clamp(38px, 12vw, 108px); }
+  .nap-waitlist-description { font-size: 14px; line-height: 1.8; }
+  .nap-waitlist-panel { max-width: none; }
+  .nap-waitlist-panel h2 { font-size: 34px; }
+  .nap-waitlist-note { font-size: 12px; }
+  .nap-waitlist-footer { padding-left: 5%; padding-right: 5%; padding-top: 20px; font-size: 10px; }
+  .nap-waitlist-footer a { min-width: 44px; min-height: 44px; display: flex; justify-content: flex-end; align-items: center; }
+}

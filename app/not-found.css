@@ -22,3 +22,8 @@
   .nap-lost { padding: 15px 0 35px; }
   .nap-lost-code { font-size: min(25vw, 35svh); margin: 25px 0; }
 }
+@media (max-width: 900px) {
+  .nap-not-found { padding-left: 5%; padding-right: 5%; }
+  .nap-lost-description { font-size: 14px; }
+  .nap-lost-footer { font-size: 9px; }
+}
