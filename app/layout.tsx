@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   publisher: site.name,
-  icons: { apple: [{ url: site.logo, sizes: "256x256", type: "image/png" }] },
   robots: indexing,
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
