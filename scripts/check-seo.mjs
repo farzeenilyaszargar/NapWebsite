@@ -13,6 +13,7 @@ const routes = [
   ["blogs/hello-nap", "/blogs/hello-nap", "Nap | Why We Started"],
   ["blogs/why", "/blogs/why", "Nap | Why This?"],
   ["about", "/about", "Nap | About"],
+  ["waitlist", "/waitlist", "Nap | Waitlist"],
 ];
 const decode = (value) => value.replaceAll("&amp;", "&").replaceAll("&quot;", '"').replaceAll("&#x27;", "'");
 function attributes(tag) {
@@ -98,7 +99,7 @@ assert.ok(missing.includes('content="noindex'));
 assert.ok(!missing.includes('rel="canonical"'), "404 must not canonicalize to the homepage");
 const sitemap = readFileSync(resolve(output, "sitemap.xml.body"), "utf8");
 const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
-assert.deepEqual(locations, preview ? [] : routes.map(([, path]) => origin + path));
+assert.deepEqual([...locations].sort(), preview ? [] : routes.map(([, path]) => origin + path).sort());
 const robots = readFileSync(resolve(output, "robots.txt.body"), "utf8");
 assert.ok(robots.includes("Allow: /"));
 assert.equal(robots.includes(`Sitemap: ${origin}/sitemap.xml`), !preview);

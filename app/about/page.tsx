@@ -40,6 +40,7 @@ export default function AboutNap() {
 
           <h2>Follow the product.</h2>
           <p>Read <Link href={pages.why.path} className="nap-inline-link">Why This?</Link> for a closer look at the workflow, or <Link href={pages.story.path} className="nap-inline-link">Why We Started</Link> for the thinking behind Nap. Product updates are shared through <a href="https://x.com/napverse" className="nap-inline-link">@napverse</a> and the <a href="https://github.com/farzeenilyaszargar/NotNap/releases" className="nap-inline-link">release changelog</a>.</p>
+          <p>Want to hear what comes next? <Link href={pages.waitlist.path} className="nap-inline-link">Join the Nap waitlist</Link> for availability and product updates.</p>
           <NapReadingLinks current={pages.about.path} />
         </article>
       </section>

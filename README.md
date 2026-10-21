@@ -5,12 +5,13 @@ Nap is a native app for building with coding agents: open a project, choose an a
 ## Pages
 
 - `/` — Product landing page.
+- `/waitlist` — Name and email signup, saved to Supabase.
 - `/about` — Factual product overview and coding workflow.
 - `/blogs` — Blog listing.
 - `/blogs/hello-nap` — Why We Started.
 - `/blogs/why` — Why This?
 
-The former documentation, application, and waitlist pages and their form APIs have been removed. The site does not require Supabase credentials to serve its current pages.
+The former documentation and application pages remain removed. Public pages work without Supabase; waitlist submissions require `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in the server environment. The existing `wishlist_saves` table is defined in `supabase/migrations/20260824170000_create_wishlist_saves.sql`. Duplicate emails are ignored without modifying existing signups. Missing configuration or storage failures return an error instead of a false confirmation. No confirmation email is sent by this form.
 
 ## Development
 
