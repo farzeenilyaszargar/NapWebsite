@@ -64,11 +64,9 @@ export default function Home() {
       </section>
       <footer className="nap-site-footer nap-section">
         <div className="nap-footer-bottom">
-          <span>© 2026 NAP</span>
-          <div className="nap-footer-right">
-            <a href="https://x.com/napverse" target="_blank" rel="noopener noreferrer" aria-label="Nap on X">X</a>
-            <span>A LITTLE LESS FRICTION. A LOT MORE FLOW.</span>
-          </div>
+          <span className="nap-footer-copyright">© 2026 NAP</span>
+          <p className="nap-footer-tagline">A LITTLE LESS FRICTION. A LOT MORE FLOW.</p>
+          <a className="nap-footer-social" href="https://x.com/napverse" target="_blank" rel="noopener noreferrer" aria-label="Nap on X">X</a>
         </div>
       </footer>
       <DeferredLiquidField />
