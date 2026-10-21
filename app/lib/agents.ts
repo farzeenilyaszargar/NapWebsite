@@ -4,5 +4,5 @@ export const codingAgents = [
   { name: "Codex", logo: "/codex-logo-3366e2d2.webp" },
   { name: "Cursor", logo: "/cursor-logo-8bc30dd7.webp" },
   { name: "OpenCode", logo: "/opencode-logo-16e2d629.webp" },
-  { name: "Grok Bot", logo: "/grok-bot-logo-fa760b00.webp" },
+  // { name: "Grok Bot", logo: "/grok-bot-logo-fa760b00.webp" },
 ];

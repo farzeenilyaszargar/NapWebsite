@@ -169,7 +169,7 @@
   .nap-agents .nap-section-label { max-width: 34ch; margin: 0 auto; font-size: 10px; line-height: 1.9; }
   .nap-agents ul { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; column-gap: 30px; row-gap: 24px; margin-top: 30px; }
   .nap-agents li { font-size: clamp(16px, 4.2vw, 22px); gap: 9px; }
-  .nap-agents li:last-child { grid-column: 1 / -1; justify-self: center; }
+  .nap-agents li:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; }
   .nap-agents li img { width: 28px; height: 28px; }
   .nap-agents li img.nap-agent-logo-small { width: 23px; height: 23px; }
   .nap-workflow { padding: 40px 0 64px; }
