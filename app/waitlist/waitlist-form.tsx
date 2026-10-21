@@ -37,11 +37,11 @@ export default function WaitlistForm() {
         <form onSubmit={submit} aria-label="Join the Nap Waitlist" aria-busy={submission.status === "pending"}>
           <div className="nap-waitlist-field">
             <label htmlFor="waitlist-name">Name</label>
-            <input id="waitlist-name" name="name" autoComplete="given-name" placeholder="Alex" required minLength={2} maxLength={80} disabled={submission.status === "pending"} />
+            <input id="waitlist-name" name="name" autoComplete="name" placeholder="Your name" required minLength={2} maxLength={80} disabled={submission.status === "pending"} />
           </div>
           <div className="nap-waitlist-field">
             <label htmlFor="waitlist-email">Email</label>
-            <input id="waitlist-email" name="email" type="email" autoComplete="email" inputMode="email" placeholder="you@example.com" required maxLength={254} disabled={submission.status === "pending"} aria-describedby="waitlist-status" />
+            <input id="waitlist-email" name="email" type="email" autoComplete="email" inputMode="email" autoCapitalize="none" spellCheck={false} placeholder="you@example.com" required maxLength={254} disabled={submission.status === "pending"} aria-describedby="waitlist-status" />
           </div>
           <div className="nap-waitlist-trap" aria-hidden="true">
             <label htmlFor="waitlist-website">Leave this empty</label>

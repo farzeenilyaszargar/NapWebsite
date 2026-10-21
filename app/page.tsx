@@ -6,6 +6,7 @@ import WorkflowIcon from "./components/workflow-icon";
 import NapProductImage from "./components/nap-product-image";
 import NapWaitlistCta from "./components/nap-waitlist-cta";
 import NapHeader from "./components/nap-header";
+import NapFooter from "./components/nap-footer";
 import DeferredLiquidField from "./components/deferred-liquid-field";
 import "./contrast.css";
 
@@ -62,12 +63,7 @@ export default function Home() {
         <h2 id="closing-title">GET INTO<br />YOUR FLOW.</h2>
         <NapWaitlistCta />
       </section>
-      <footer className="nap-site-footer nap-section">
-        <div className="nap-footer-bottom">
-          <span className="nap-footer-copyright">© 2026 NAP</span>
-          <a className="nap-footer-social" href="https://x.com/nap_cx" target="_blank" rel="noopener noreferrer">Follow us on X</a>
-        </div>
-      </footer>
+      <NapFooter />
       <DeferredLiquidField />
     </main>
   );

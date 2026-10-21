@@ -1,3 +1,5 @@
+import NapHeader from "../components/nap-header";
+import NapFooter from "../components/nap-footer";
 import StructuredData from "../components/structured-data";
 import { pageMetadata, pages, waitlistSchema } from "../lib/seo";
 import WaitlistForm from "./waitlist-form";
@@ -10,10 +12,17 @@ export default function WaitlistPage() {
   return (
     <main className="contrast-page nap-waitlist-page">
       <StructuredData data={waitlistSchema()} />
-      <section className="nap-waitlist-panel" aria-labelledby="waitlist-title">
-        <h1 id="waitlist-title" className="sr-only">Join the Nap Waitlist</h1>
-        <WaitlistForm />
+      <NapHeader />
+      <section className="nap-waitlist-body" aria-labelledby="waitlist-title">
+        <div className="nap-waitlist-panel">
+          <div className="nap-waitlist-intro">
+            <h1 id="waitlist-title">Join the Waitlist</h1>
+            <p>Your next good idea starts here.</p>
+          </div>
+          <WaitlistForm />
+        </div>
       </section>
+      <NapFooter />
     </main>
   );
 }
