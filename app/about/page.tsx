@@ -39,7 +39,7 @@ export default function AboutNap() {
           <p>Nap is for developers and builders who want to work with AI coding agents through a native interface. A session can begin with a feature idea, a reproducible bug, or a question about an existing codebase. The next step is a conversation about the work, followed by a review of what changed.</p>
 
           <h2>Follow the product.</h2>
-          <p>Read <Link href={pages.why.path} className="nap-inline-link">Why This?</Link> for a closer look at the workflow, or <Link href={pages.story.path} className="nap-inline-link">Why We Started</Link> for the thinking behind Nap. Product updates are shared through <a href="https://x.com/napverse" className="nap-inline-link">@napverse</a> and the <a href="https://github.com/farzeenilyaszargar/NotNap/releases" className="nap-inline-link">release changelog</a>.</p>
+          <p>Read <Link href={pages.why.path} className="nap-inline-link">Why This?</Link> for a closer look at the workflow, or <Link href={pages.story.path} className="nap-inline-link">Why We Started</Link> for the thinking behind Nap. Product updates are shared through <a href="https://x.com/nap_cx" className="nap-inline-link">@nap_cx</a> and the <a href="https://github.com/farzeenilyaszargar/NotNap/releases" className="nap-inline-link">release changelog</a>.</p>
           <p>Want to hear what comes next? <Link href={pages.waitlist.path} className="nap-inline-link">Join the Nap waitlist</Link> for availability and product updates.</p>
           <NapReadingLinks current={pages.about.path} />
         </article>

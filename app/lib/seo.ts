@@ -79,8 +79,8 @@ export function pageMetadata(page: Page, article = false): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      site: "@napverse",
-      creator: "@napverse",
+      site: "@nap_cx",
+      creator: "@nap_cx",
       title: page.title,
       description: page.description,
       images: [{ url: site.image, alt: "Nap — Native AI coding app for Mac" }],
@@ -94,7 +94,7 @@ export function siteSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Organization", "@id": organizationId, name: site.name, alternateName: site.alternateName, url: site.url, logo: { "@type": "ImageObject", url: absolute(site.logo), width: 256, height: 256 }, sameAs: ["https://x.com/napverse"] },
+      { "@type": "Organization", "@id": organizationId, name: site.name, alternateName: site.alternateName, url: site.url, logo: { "@type": "ImageObject", url: absolute(site.logo), width: 256, height: 256 }, sameAs: ["https://x.com/nap_cx"] },
       { "@type": "WebSite", "@id": websiteId, name: site.name, alternateName: [site.alternateName, "nap.cx"], url: site.url, description: site.description, publisher: { "@id": organizationId }, inLanguage: "en" },
     ],
   };

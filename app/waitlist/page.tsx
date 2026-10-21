@@ -27,7 +27,7 @@ export default function WaitlistPage() {
       </section>
       <footer className="nap-waitlist-footer">
         <span>© 2026 NAP</span>
-        <a href="https://x.com/napverse" aria-label="Nap on X">X</a>
+        <a href="https://x.com/nap_cx" aria-label="Nap on X">X</a>
       </footer>
       <DeferredLiquidField />
     </main>

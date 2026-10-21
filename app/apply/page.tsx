@@ -23,7 +23,7 @@ export default function ApplyPage() {
       </section>
       <footer className="nap-apply-footer">
         <span>© 2026 NAP</span>
-        <a href="https://x.com/napverse" aria-label="Nap on X">X</a>
+        <a href="https://x.com/nap_cx" aria-label="Nap on X">X</a>
       </footer>
       <DeferredLiquidField />
     </main>

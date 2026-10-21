@@ -15,7 +15,7 @@ export default function SocialImage() {
         <span>YOUR AGENTS.</span><span>ALL TOGETHER.</span>
       </div>
       <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#aaa9a0" }}>
-        <span>Native AI coding app for Mac</span><span>@napverse</span>
+        <span>Native AI coding app for Mac</span><span>@nap_cx</span>
       </div>
     </div>,
     size,
