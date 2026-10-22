@@ -167,12 +167,11 @@
   .nap-full-width-product img { border-radius: 6px; }
   .nap-section { margin-left: 5%; margin-right: 5%; }
   .nap-agents { padding: 64px 0 35px; }
-  .nap-agents .nap-section-label { max-width: 34ch; margin: 0 auto; font-size: 10px; line-height: 1.9; }
-  .nap-agents ul { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; column-gap: 30px; row-gap: 24px; margin-top: 30px; }
-  .nap-agents li { font-size: clamp(16px, 4.2vw, 22px); gap: 9px; }
-  .nap-agents li:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; }
-  .nap-agents li img { width: 28px; height: 28px; }
-  .nap-agents li img.nap-agent-logo-small { width: 23px; height: 23px; }
+  .nap-agents .nap-section-label { max-width: 34ch; margin: 0; text-align: left; font-size: 10px; line-height: 1.9; }
+  .nap-agents ul { display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: clamp(8px, 2.2vw, 18px); margin-top: 24px; }
+  .nap-agents li { font-size: clamp(10px, 2.8vw, 14px); gap: 4px; }
+  .nap-agents li img { width: clamp(14px, 4vw, 20px); height: clamp(14px, 4vw, 20px); }
+  .nap-agents li img.nap-agent-logo-small { width: clamp(12px, 3.4vw, 17px); height: clamp(12px, 3.4vw, 17px); }
   .nap-workflow { padding: 40px 0 64px; }
   .nap-section-heading { flex-direction: column; align-items: flex-start; gap: 22px; }
   .nap-section-heading h2 { font-size: clamp(34px, 7.8vw, 56px); }
@@ -213,7 +212,6 @@
   .nap-nav { gap: 16px; }
   .nap-docs { font-size: 12px; }
   .nap-home-page > .nap-hero { padding-top: 128px; }
-  .nap-agents ul { column-gap: 22px; }
 }
 
 /* Small, continuous line illustrations; all motion stays inside the SVG. */
