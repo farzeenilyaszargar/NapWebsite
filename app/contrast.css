@@ -149,7 +149,7 @@
   .liquid-field, .liquid-image-outline { display: none; }
 }
 @media (max-width: 900px) {
-  .nap-home-page > .nap-full-width-product { display: none; }
+  .nap-home-page > .nap-full-width-product { width: 180vw; margin-left: 5%; margin-right: 0; }
   .nap-header { top: 20px; left: 5%; right: 5%; }
   .nap-wordmark { font-size: 36px; }
   .nap-nav { gap: 20px; }
