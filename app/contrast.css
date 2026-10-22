@@ -157,7 +157,7 @@
   .nap-home-page > .nap-hero { display: block; min-height: 0; padding: 142px 5% 38px; }
   .nap-home-page .nap-copy h1 { font-size: 12vw; line-height: .94; text-align: left; }
   .nap-home-page .nap-copy h1 > span:last-child { margin-top: 9px; text-align: left; }
-  .nap-home-page .nap-eyebrow { margin: 0 0 26px; font-size: 9px; }
+  .nap-home-page .nap-eyebrow { display: none; }
   .nap-home-page .nap-hero-bottom { display: block; margin: 28px 0 0; }
   .nap-home-page .nap-action { width: min(100%, 360px); margin-top: 28px; }
   .nap-waitlist-cta { width: 100%; max-width: 360px; }
