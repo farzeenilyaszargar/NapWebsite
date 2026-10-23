@@ -276,7 +276,7 @@
   content: ""; position: absolute; inset: 0; z-index: 19; pointer-events: none;
   background: url("/mono-paper.png") repeat; opacity: .12;
 }
-.nap-home-page > .nap-hero { position: relative; isolation: isolate; }
+.nap-home-page > .nap-hero { position: relative; }
 .nap-home-page > .nap-hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: url("/mono-bloom.png") right center / cover no-repeat; opacity: .28;
@@ -288,7 +288,8 @@
 }
 .nap-docs, .nap-download-note, .nap-footer-social { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .nap-docs { letter-spacing: .08em; }
-.nap-download { border-radius: 2px; box-shadow: none; }
+.nap-action { z-index: 24; }
+.nap-download { position: relative; z-index: 24; border-radius: 8px; box-shadow: none; }
 /* Product screenshots sit above print grain and retain their original colors. */
 .nap-article-image { position: relative; z-index: 21; }
 .nap-agents li[data-agent="Cursor"] img,
