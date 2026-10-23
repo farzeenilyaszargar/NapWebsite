@@ -24,6 +24,24 @@ export default function LiquidField() {
       outlineContext = outline.getContext("2d");
     } catch { return; }
     if (!context || !outlineContext) return;
+    // Reuse tiny ordered-dither tiles rather than read or filter screen pixels.
+    // The liquid contour remains smooth; the ink itself is genuinely one-bit.
+    function ink(density: number): CanvasPattern | null {
+      if (typeof document.createElement !== "function") return null;
+      const tile = document.createElement("canvas");
+      tile.width = tile.height = 8;
+      const pen = tile.getContext("2d");
+      if (!pen) return null;
+      const bayer = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+      pen.fillStyle = "#fff";
+      for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) {
+        if (bayer[(y % 4) * 4 + x % 4] / 16 < density) pen.fillRect(x, y, 1, 1);
+      }
+      return context!.createPattern(tile, "repeat");
+    }
+    let inkFill: CanvasPattern | null = null;
+    let inkEdge: CanvasPattern | null = null;
+    try { inkFill = ink(.875); inkEdge = ink(.375); } catch { /* Solid contrast remains a safe fallback. */ }
     const product = document.querySelector<HTMLElement>(".nap-full-width-product");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const fine = window.matchMedia("(any-pointer: fine)");
@@ -143,8 +161,14 @@ export default function LiquidField() {
           path.closePath();
         }
         context!.clearRect(0, 0, allocatedWidth, allocatedHeight);
-        context!.fillStyle = "#fff";
+        context!.fillStyle = inkFill ?? "#fff";
         context!.fill(path, "evenodd");
+        if (inkEdge) {
+          context!.strokeStyle = inkEdge;
+          context!.lineWidth = 18;
+          context!.lineJoin = "round";
+          context!.stroke(path);
+        }
         canvas!.style.visibility = "visible";
         if (product) {
           if (clipDirty) { imageRect = product.getBoundingClientRect(); clipDirty = false; }
@@ -209,7 +233,7 @@ export default function LiquidField() {
       if (!frame) { previous = now - interval; frame = requestAnimationFrame(render); }
     }
     function lost() { contextLost = true; reset(); }
-    function restored() { contextLost = false; resize(); }
+    function restored() { contextLost = false; try { inkFill = ink(.875); inkEdge = ink(.375); } catch { inkFill = inkEdge = null; } resize(); }
     function leave() { last = null; }
     function scroll() { clipDirty = true; }
     resize();

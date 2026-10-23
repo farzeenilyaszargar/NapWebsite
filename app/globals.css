@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --nap-background: #fff;
-  --nap-foreground: #0b0b0b;
-  --nap-muted: #555;
-  --nap-subtle: #666;
-  --nap-border: #d5d5d5;
-  --nap-error: #a12620;
-  color-scheme: light;
+  --nap-background: #0c0c0b;
+  --nap-foreground: #f4f0e2;
+  --nap-muted: #bdbbb1;
+  --nap-subtle: #a6a499;
+  --nap-border: #3a3a34;
+  --nap-error: #f2b5a8;
+  color-scheme: dark;
   background: var(--nap-background);
   color: var(--nap-foreground);
   font-family: Arial, Helvetica, sans-serif;
