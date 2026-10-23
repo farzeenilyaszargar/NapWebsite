@@ -273,7 +273,7 @@
 
 /* One-bit print treatment. Static tiled assets keep scrolling and input cheap. */
 .contrast-page::after {
-  content: ""; position: absolute; inset: 0; z-index: 23; pointer-events: none;
+  content: ""; position: absolute; inset: 0; z-index: 19; pointer-events: none;
   background: url("/mono-paper.png") repeat; opacity: .12;
 }
 .nap-home-page > .nap-hero { position: relative; isolation: isolate; }
@@ -289,7 +289,8 @@
 .nap-docs, .nap-download-note, .nap-footer-social { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .nap-docs { letter-spacing: .08em; }
 .nap-download { border-radius: 2px; box-shadow: none; }
-.nap-full-width-product img, .nap-article-image img { border-radius: 2px; filter: grayscale(1); }
+/* Product screenshots sit above print grain and retain their original colors. */
+.nap-article-image { position: relative; z-index: 21; }
 .nap-agents li[data-agent="Cursor"] img,
 .nap-agents li[data-agent="OpenCode"] img { filter: invert(1); }
 .nap-closing { position: relative; background: #f4f0e2; color: #0c0c0b; color-scheme: light; }
