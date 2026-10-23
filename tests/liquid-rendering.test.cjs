@@ -52,7 +52,7 @@ function mount({ fine = true, reduced = false, product = true, supported = true,
   const refs = canvases.map((current) => ({ current }));
   const motion = target({ matches: reduced }), pointer = target({ matches: fine });
   const window = target({ innerWidth: 1440, innerHeight: 900, matchMedia: (query) => query.includes('reduced') ? motion : pointer });
-  const document = target({ hidden: false, documentElement: target(), querySelector: () => product ? { getBoundingClientRect() { reads++; return { top: 400, bottom: 900, left: 50, right: 1390, width: 1340, height: 500 }; } } : null });
+  const document = target({ hidden: false, documentElement: target(), querySelectorAll: () => [], querySelector: () => product ? { getBoundingClientRect() { reads++; return { top: 400, bottom: 900, left: 50, right: 1390, width: 1340, height: 500 }; } } : null });
   class Path { moveTo() {} quadraticCurveTo() { curves++; } closePath() {} }
   const Component = compile('liquid-field.tsx', {
     react: { useRef: () => refs.shift(), useEffect: (fn) => { cleanup = fn(); } },

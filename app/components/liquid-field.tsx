@@ -43,6 +43,8 @@ export default function LiquidField() {
     let inkEdge: CanvasPattern | null = null;
     try { inkFill = ink(.875); inkEdge = ink(.375); } catch { /* Solid contrast remains a safe fallback. */ }
     const product = document.querySelector<HTMLElement>(".nap-full-width-product");
+    const buttons = Array.from(document.querySelectorAll<HTMLElement>(".nap-download"));
+    let buttonRects: DOMRect[] = [];
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const fine = window.matchMedia("(any-pointer: fine)");
     const builder = new LiquidContourBuilder();
@@ -160,6 +162,11 @@ export default function LiquidField() {
           }
           path.closePath();
         }
+        if (clipDirty) {
+          imageRect = product?.getBoundingClientRect() ?? null;
+          buttonRects = buttons.map((button) => button.getBoundingClientRect());
+          clipDirty = false;
+        }
         context!.clearRect(0, 0, allocatedWidth, allocatedHeight);
         context!.fillStyle = inkFill ?? "#fff";
         context!.fill(path, "evenodd");
@@ -169,9 +176,20 @@ export default function LiquidField() {
           context!.lineJoin = "round";
           context!.stroke(path);
         }
+        // Buttons retain full color inversion, with no dither holes or stippled edge.
+        for (const button of buttonRects) {
+          if (button.bottom < top || button.top > top + h || button.right < left || button.left > left + w) continue;
+          context!.save();
+          context!.beginPath();
+          context!.rect(button.left - left, button.top - top, button.width, button.height);
+          context!.clip();
+          context!.clearRect(0, 0, allocatedWidth, allocatedHeight);
+          context!.fillStyle = "#fff";
+          context!.fill(path, "evenodd");
+          context!.restore();
+        }
         canvas!.style.visibility = "visible";
         if (product) {
-          if (clipDirty) { imageRect = product.getBoundingClientRect(); clipDirty = false; }
           const image = imageRect!;
           outlineContext!.clearRect(0, 0, allocatedWidth, allocatedHeight);
           const visible = image.top < top + h && image.bottom > top && image.left < left + w && image.right > left;
