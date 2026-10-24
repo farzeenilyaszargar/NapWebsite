@@ -1,10 +1,18 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function WaitlistForm() {
   const [status, setStatus] = useState<"idle" | "pending" | "success">("idle");
   const [error, setError] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status !== "success") return;
+    const timeout = window.setTimeout(() => router.replace("/"), 5000);
+    return () => window.clearTimeout(timeout);
+  }, [status, router]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -39,6 +47,7 @@ export default function WaitlistForm() {
       <section className="wishlist-success" role="status">
         <h1 ref={(node) => { node?.focus(); }} tabIndex={-1}>you&apos;re on the list.</h1>
         <p>Your spot is saved. We&apos;ll email you when Nap is ready to try.</p>
+        <p><small>Back to the homepage in 5 seconds.</small></p>
       </section>
     );
   }
