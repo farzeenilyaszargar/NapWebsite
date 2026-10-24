@@ -25,7 +25,7 @@ export default function Home() {
           <li>Keep conversations and code changes together.</li>
           <li>Build things. Not a collection of open windows.</li>
         </ul>
-        <p><Link href="/wishlist">join the wishlist</Link></p>
+        <p><Link href="/wishlist">join the wishlist →</Link></p>
         <p><small>Still cooking. We&apos;ll email you when it&apos;s ready.</small></p>
       </div>
     </main>
