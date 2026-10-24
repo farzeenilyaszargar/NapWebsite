@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nap-code.com/</loc>
+    <loc>https://www.nap.cx/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nap-code.com/docs</loc>
+    <loc>https://www.nap.cx/docs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nap-code.com/waitlist</loc>
+    <loc>https://www.nap.cx/wishlist</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nap-code.com/apply</loc>
+    <loc>https://www.nap.cx/apply</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

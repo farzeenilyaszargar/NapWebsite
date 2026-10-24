@@ -15,21 +15,20 @@ export const maShanZheng = Ma_Shan_Zheng({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nap-code.com"),
+  metadataBase: new URL("https://www.nap.cx"),
   title: {
     default: "Nap | The Interface For All Your Agents",
-    template: "%s | Nap",
+    template: "Nap | %s",
   },
   description:
-    "Nap is one native app for Claude Code, Codex CLI, Cursor, OpenCode, Grok CLI, and the coding agents you already use.",
+    "Nap is one native app for Claude Code, Codex, Cursor, OpenCode, and the coding agents you already use.",
   keywords: [
     "Nap",
     "coding agents",
     "Claude Code",
-    "Codex CLI",
+    "Codex",
     "Cursor",
     "OpenCode",
-    "Grok CLI",
     "developer tools",
     "AI coding",
   ],
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Nap | The Interface For All Your Agents",
     description:
-      "One native app for Claude Code, Codex CLI, Cursor, OpenCode, Grok CLI, and the coding agents you already use.",
+      "One native app for Claude Code, Codex, Cursor, OpenCode, and the coding agents you already use.",
   },
   robots: {
     index: true,
@@ -63,8 +62,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
