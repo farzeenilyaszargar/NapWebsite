@@ -1,3 +1,6 @@
+import { after } from "next/server";
+import { sendXConversion } from "../../lib/x-conversions";
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const failure = (error: string, status: number) => Response.json({ error }, { status });
 
@@ -27,14 +30,31 @@ export async function POST(request: Request) {
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) return failure("Signups are temporarily unavailable. Please try again later.", 503);
   try {
-    const response = await fetch(`${url}/rest/v1/wishlist_saves?on_conflict=email`, {
+    const response = await fetch(`${url}/rest/v1/wishlist_saves?on_conflict=email&select=id`, {
       method: "POST",
-      headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "resolution=ignore-duplicates,return=minimal" },
+      headers: { apikey: key, Authorization: `Bearer ${key}`, "Content-Type": "application/json", Prefer: "resolution=ignore-duplicates,return=representation" },
       body: JSON.stringify({ name: cleanName, email: cleanEmail, source: "waitlist", user_agent: request.headers.get("user-agent")?.slice(0, 512) ?? null }),
       cache: "no-store",
       signal: AbortSignal.timeout(10000),
     });
     if (!response.ok) return failure("Couldn’t save your spot. Please try again in a moment.", 503);
+    // An ignored duplicate returns []; only a newly persisted signup converts.
+    const saved: unknown = await response.json();
+    const signup = Array.isArray(saved) ? saved[0] : null;
+    const eventId = process.env.X_WAITLIST_EVENT_ID;
+    if (signup && typeof signup.id === "string" && eventId && process.env.X_PIXEL_TOKEN) {
+      const conversionId = `waitlist-${signup.id}`;
+      const conversionTime = new Date().toISOString();
+      after(async () => {
+        await sendXConversion({
+          eventId,
+          conversionId,
+          conversionTime,
+          email: cleanEmail,
+          eventSourceUrl: "https://www.nap.cx/waitlist",
+        });
+      });
+    }
     return Response.json({ message: "You’re on the list." });
   } catch {
     return failure("Couldn’t connect. Please try again in a moment.", 503);

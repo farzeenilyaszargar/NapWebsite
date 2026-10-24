@@ -5,10 +5,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const ts = require('typescript');
 
-function route({ env = { SUPABASE_URL: 'https://storage.example', SUPABASE_SERVICE_ROLE_KEY: 'server-secret' }, fetch = async () => new Response(null, { status: 201 }) } = {}) {
+function route({ env = { SUPABASE_URL: 'https://storage.example', SUPABASE_SERVICE_ROLE_KEY: 'server-secret' }, fetch = async () => Response.json([{ id: 'saved-signup' }], { status: 201 }), after = () => {}, sendXConversion = async () => true } = {}) {
   const code = ts.transpileModule(fs.readFileSync(path.join(__dirname, '../app/api/waitlist/route.ts'), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
   const compiled = { exports: {} };
-  new Function('exports', 'process', 'fetch', code)(compiled.exports, { env }, fetch);
+  new Function('exports', 'process', 'fetch', 'require', code)(compiled.exports, { env }, fetch, (id) => id === 'next/server' ? { after } : { sendXConversion });
   return compiled.exports.POST;
 }
 function request(body, headers = {}) {
@@ -31,12 +31,12 @@ test('waitlist saves normalized signup and ignores duplicates without overwritin
   let calls = 0;
   const post = route({ fetch: async (url, options) => {
     calls++;
-    assert.equal(url, 'https://storage.example/rest/v1/wishlist_saves?on_conflict=email');
+    assert.equal(url, 'https://storage.example/rest/v1/wishlist_saves?on_conflict=email&select=id');
     assert.equal(options.headers.Authorization, 'Bearer server-secret');
-    assert.equal(options.headers.Prefer, 'resolution=ignore-duplicates,return=minimal');
+    assert.equal(options.headers.Prefer, 'resolution=ignore-duplicates,return=representation');
     assert.deepEqual(JSON.parse(options.body), { name: 'Test Builder', email: 'builder@example.com', source: 'waitlist', user_agent: null });
     assert.equal(options.cache, 'no-store');
-    return new Response(null, { status: calls === 1 ? 201 : 204 });
+    return Response.json(calls === 1 ? [{ id: 'saved-signup' }] : [], { status: 201 });
   } });
   for (let i = 0; i < 2; i++) {
     const response = await post(request(signup));
@@ -52,5 +52,39 @@ test('missing configuration and database failures never claim signup success or 
     const text = await response.text();
     assert.ok(!text.includes('private') && !text.includes('server-secret'));
     assert.ok(JSON.parse(text).error);
+  }
+});
+
+
+test('only confirmed new signups schedule conversions, after the response', async () => {
+  const tasks = [], conversions = [];
+  let calls = 0;
+  const post = route({
+    env: { SUPABASE_URL: 'https://storage.example', SUPABASE_SERVICE_ROLE_KEY: 'secret', X_PIXEL_TOKEN: 'x-token', X_WAITLIST_EVENT_ID: 'tw-rhsuk-test' },
+    fetch: async () => Response.json(++calls === 1 ? [{ id: 'saved-id' }] : []),
+    after: (task) => tasks.push(task),
+    sendXConversion: async (event) => { conversions.push(event); return false; },
+  });
+  assert.equal((await post(request(signup))).status, 200);
+  assert.equal(tasks.length, 1);
+  assert.equal(conversions.length, 0);
+  await tasks[0]();
+  assert.equal(conversions[0].eventId, 'tw-rhsuk-test');
+  assert.equal(conversions[0].conversionId, 'waitlist-saved-id');
+  assert.equal(conversions[0].email, 'builder@example.com');
+  assert.ok(Number.isFinite(Date.parse(conversions[0].conversionTime)));
+  assert.equal((await post(request(signup))).status, 200);
+  assert.equal(tasks.length, 1, 'duplicate email must not convert again');
+});
+
+test('unconfigured conversions and failed storage do not schedule X calls', async () => {
+  for (const options of [
+    {},
+    { env: { SUPABASE_URL: 'https://storage.example', SUPABASE_SERVICE_ROLE_KEY: 'secret', X_PIXEL_TOKEN: 'x-token' } },
+    { env: { SUPABASE_URL: 'https://storage.example', SUPABASE_SERVICE_ROLE_KEY: 'secret', X_PIXEL_TOKEN: 'x-token', X_WAITLIST_EVENT_ID: 'tw-rhsuk-test' }, fetch: async () => new Response(null, { status: 500 }) },
+  ]) {
+    let scheduled = false;
+    await route({ ...options, after: () => { scheduled = true; } })(request(signup));
+    assert.equal(scheduled, false);
   }
 });
