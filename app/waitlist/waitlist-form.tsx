@@ -38,30 +38,27 @@ export default function WaitlistForm() {
   if (status === "success") {
     return (
       <section className="wishlist-success" role="status">
-        <p className="margin-note">excellent taste, by the way.</p>
-        <h1 ref={(node) => { node?.focus(); }} tabIndex={-1}>you&apos;re on<br />the list.</h1>
+        <h1 ref={(node) => { node?.focus(); }} tabIndex={-1}>you&apos;re on the list.</h1>
         <p>Your spot is saved. We&apos;ll email you when Nap is ready to try.</p>
-        <p>Until then, go make something weird and wonderful.</p>
-        <p><Link href="/">← back to the very fancy homepage</Link></p>
+        <p><Link className="back-link" href="/">← back to nap</Link></p>
       </section>
     );
   }
 
   return (
     <section aria-labelledby="wishlist-title">
-      <p className="margin-note">one more list. this one&apos;s worth it.</p>
-      <h1 id="wishlist-title">big ideas.<br />tiny form.</h1>
-      <p>Join the Nap wishlist. We&apos;re making a native Mac home for your coding agents, and we&apos;d love you to try it when it&apos;s ready.</p>
+      <h1 id="wishlist-title">join the wishlist.</h1>
+      <p>A home for your coding agents. A spot for you. Leave your name and email; we&apos;ll let you know when Nap is ready.</p>
       <form onSubmit={handleSubmit} className="plain-form" aria-busy={status === "pending"}>
-        <label htmlFor="wishlist-name">Your name <small>(human, preferably)</small></label>
+        <label htmlFor="wishlist-name">Your name</label>
         <input id="wishlist-name" name="name" autoComplete="name" placeholder="Your name" minLength={2} maxLength={80} required disabled={status === "pending"} aria-describedby={error ? "wishlist-error" : undefined} />
-        <label htmlFor="wishlist-email">Your email <small>(somewhere we can say hello)</small></label>
+        <label htmlFor="wishlist-email">Your email</label>
         <input id="wishlist-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" maxLength={254} required disabled={status === "pending"} aria-describedby={error ? "wishlist-error" : undefined} />
         {error ? <p id="wishlist-error" role="alert" className="form-error">{error}</p> : null}
         <button type="submit" disabled={status === "pending"}>{status === "pending" ? "saving your spot…" : "put me on the wishlist →"}</button>
-        <p><small>We&apos;ll use your email for Nap access updates. No account, no payment, no interpretive dance required.</small></p>
+        <p><small>Just Nap access updates. No account. No sales calls.</small></p>
       </form>
-      <p className="wishlist-back"><Link href="/">← actually, let me read that again</Link></p>
+      <p className="wishlist-back"><Link className="back-link" href="/">← back to nap</Link></p>
     </section>
   );
 }

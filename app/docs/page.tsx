@@ -1,26 +1,39 @@
 import type { Metadata } from "next";
-import DocsClient from "./docs-client";
+import Link from "next/link";
+import PlainShell from "../components/plain-shell";
+import { docPages } from "./content";
 
 export const metadata: Metadata = {
   title: "Docs",
-  description:
-    "Read the Nap docs for projects, providers, sessions, shortcuts, preferences, and local-first coding agent workflows.",
-  alternates: {
-    canonical: "/docs",
-  },
-  openGraph: {
-    title: "Nap Docs",
-    description:
-      "A practical guide to running Claude Code, Codex CLI, Cursor, OpenCode, and Grok CLI in Nap.",
-    url: "/docs",
-  },
-  twitter: {
-    title: "Nap Docs",
-    description:
-      "A practical guide to projects, providers, sessions, and shortcuts in Nap.",
-  },
+  description: "Notes on Nap projects, agents, sessions, and local development.",
+  alternates: { canonical: "/docs" },
 };
 
 export default function DocsPage() {
-  return <DocsClient />;
+  return (
+    <PlainShell>
+      <h1>the reading material.</h1>
+      <p>Nap docs. No sidebar maze required.</p>
+      <p><small>These are early development notes. Downloads are paused while we prepare the next build.</small></p>
+      <p><Link className="back-link" href="/">← back to nap</Link></p>
+      <ul className="docs-index">
+        {docPages.map((page) => <li key={page.id}><a href={`#${page.id}`}>{page.title}</a></li>)}
+      </ul>
+      {docPages.map((page) => (
+        <details id={page.id} key={page.id}>
+          <summary>{page.title}</summary>
+          <p>{page.summary}</p>
+          {page.topics.map((topic) => (
+            <section key={topic.title}>
+              <h3>{topic.title}</h3>
+              <p>{topic.body}</p>
+              {topic.items ? <ul>{topic.items.map((item) => <li key={item}>{item}</li>)}</ul> : null}
+              {topic.code ? <pre><code>{topic.code.join("\n")}</code></pre> : null}
+            </section>
+          ))}
+        </details>
+      ))}
+      <p><Link href="/wishlist">join the wishlist →</Link></p>
+    </PlainShell>
+  );
 }
