@@ -63,3 +63,25 @@ body:has(.nap-reveal) {
   html { scroll-behavior: auto; }
   .plain-page .wishlist-success { animation: none; }
 }
+
+/* The homepage keeps the original, deliberately browser-default layout. */
+.compact-page,
+.compact-page * { all: revert; }
+.compact-home {
+  display: grid;
+  min-height: calc(100svh - 16px);
+  place-items: center;
+  color: #000;
+}
+.compact-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 16px;
+}
+.compact-page a {
+  color: #0000ee;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.3;
+}
