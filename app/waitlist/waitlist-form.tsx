@@ -51,7 +51,7 @@ export default function WaitlistForm() {
         <input id="wishlist-name" aria-label="Your name" name="name" autoComplete="name" placeholder="Your name" minLength={2} maxLength={80} required disabled={status === "pending"} aria-describedby={error ? "wishlist-error" : undefined} />
         <input id="wishlist-email" aria-label="Your email" name="email" type="email" autoComplete="email" placeholder="you@example.com" maxLength={254} required disabled={status === "pending"} aria-describedby={error ? "wishlist-error" : undefined} />
         {error ? <p id="wishlist-error" role="alert" className="form-error">{error}</p> : null}
-        <button type="submit" disabled={status === "pending"}>{status === "pending" ? "saving your spot…" : "put me on the wishlist ↗"}</button>
+        <button type="submit" disabled={status === "pending"}>{status === "pending" ? "saving your spot…" : "put me on the wishlist"}</button>
         <p><small>Just Nap access updates. No account. No sales calls.</small></p>
       </form>
     </section>

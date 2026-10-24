@@ -33,7 +33,7 @@ export default function DocsPage() {
           ))}
         </details>
       ))}
-      <p><Link href="/wishlist">join the wishlist →</Link></p>
+      <p><Link href="/wishlist">join the wishlist</Link></p>
     </PlainShell>
   );
 }
