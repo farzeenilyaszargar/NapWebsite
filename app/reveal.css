@@ -31,8 +31,10 @@ body:has(.nap-reveal) {
 .secondary-page .back-link,
 .secondary-page .docs-index a { font-size: 16px; font-weight: normal; }
 .secondary-page .plain-form { margin: 24px 0; }
-.secondary-page label { display: block; margin: 16px 0 6px; }
 .secondary-page input {
+  display: block;
+  margin-top: 12px;
+  border: 1px solid #999;
   box-sizing: border-box;
   width: 100%;
   padding: 7px 8px;
@@ -47,3 +49,9 @@ body:has(.nap-reveal) {
 .secondary-page pre { overflow-x: auto; padding: 8px; background: #f4f4f4; }
 .secondary-page h3 { font-size: 18px; }
 .compact-page :focus-visible { outline: 2px solid #0000ee; outline-offset: 3px; }
+
+.secondary-page input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #333;
+}

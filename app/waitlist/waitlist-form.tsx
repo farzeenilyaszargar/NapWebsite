@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import Link from "next/link";
 
 export default function WaitlistForm() {
   const [status, setStatus] = useState<"idle" | "pending" | "success">("idle");
@@ -40,7 +39,6 @@ export default function WaitlistForm() {
       <section className="wishlist-success" role="status">
         <h1 ref={(node) => { node?.focus(); }} tabIndex={-1}>you&apos;re on the list.</h1>
         <p>Your spot is saved. We&apos;ll email you when Nap is ready to try.</p>
-        <p><Link className="back-link" href="/">← back to nap</Link></p>
       </section>
     );
   }
@@ -50,15 +48,12 @@ export default function WaitlistForm() {
       <h1 id="wishlist-title">join the wishlist.</h1>
       <p>A home for your coding agents. A spot for you. Leave your name and email; we&apos;ll let you know when Nap is ready.</p>
       <form onSubmit={handleSubmit} className="plain-form" aria-busy={status === "pending"}>
-        <label htmlFor="wishlist-name">Your name</label>
-        <input id="wishlist-name" name="name" autoComplete="name" placeholder="Your name" minLength={2} maxLength={80} required disabled={status === "pending"} aria-describedby={error ? "wishlist-error" : undefined} />
-        <label htmlFor="wishlist-email">Your email</label>
-        <input id="wishlist-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" maxLength={254} required disabled={status === "pending"} aria-describedby={error ? "wishlist-error" : undefined} />
+        <input id="wishlist-name" aria-label="Your name" name="name" autoComplete="name" placeholder="Your name" minLength={2} maxLength={80} required disabled={status === "pending"} aria-describedby={error ? "wishlist-error" : undefined} />
+        <input id="wishlist-email" aria-label="Your email" name="email" type="email" autoComplete="email" placeholder="you@example.com" maxLength={254} required disabled={status === "pending"} aria-describedby={error ? "wishlist-error" : undefined} />
         {error ? <p id="wishlist-error" role="alert" className="form-error">{error}</p> : null}
-        <button type="submit" disabled={status === "pending"}>{status === "pending" ? "saving your spot…" : "put me on the wishlist →"}</button>
+        <button type="submit" disabled={status === "pending"}>{status === "pending" ? "saving your spot…" : "put me on the wishlist ↗"}</button>
         <p><small>Just Nap access updates. No account. No sales calls.</small></p>
       </form>
-      <p className="wishlist-back"><Link className="back-link" href="/">← back to nap</Link></p>
     </section>
   );
 }
