@@ -31,9 +31,9 @@
 .nap-full-width-product > picture { display: block; }
 .nap-full-width-product img { display: block; width: 100%; height: auto; border: 1px solid var(--nap-border); border-radius: 10px; }
 .nap-section { width: min(960px, 90%); margin-inline: auto; }
-.nap-agents { padding: 46px 0 0; text-align: center; }
+.nap-agents { padding: 30px 0 0; text-align: center; }
 .nap-section-label { font-size: 12px; font-weight: 400; line-height: 1.6; color: var(--nap-subtle); }
-.nap-agents ul { display: flex; justify-content: center; flex-wrap: wrap; gap: 22px 32px; margin-top: 21px; padding: 0; list-style: none; }
+.nap-agents ul { display: flex; justify-content: center; flex-wrap: wrap; gap: 22px 32px; margin-top: 15px; padding: 0; list-style: none; }
 .nap-agents li { display: flex; align-items: center; gap: 8px; color: #bcbcc3; font-size: 13px; font-weight: 450; white-space: nowrap; }
 .nap-agents li img { width: 22px; height: 22px; object-fit: contain; }
 .nap-agents li[data-agent="Cursor"] img, .nap-agents li[data-agent="OpenCode"] img { filter: invert(1); }
@@ -80,7 +80,7 @@
   .nap-action { margin-top: 24px; }
   .nap-full-width-product { width: 92%; }
   .nap-full-width-product img { border-radius: 6px; }
-  .nap-agents { padding-top: 32px; }
+  .nap-agents { padding-top: 26px; }
   .nap-agents ul { gap: 10px; flex-wrap: nowrap; }
   .nap-agents li { font-size: clamp(10px, 2.8vw, 12px); gap: 5px; }
   .nap-agents li img { width: 18px; height: 18px; }
