@@ -1,5 +1,4 @@
 import NapHeader from "../components/nap-header";
-import DeferredLiquidField from "../components/deferred-liquid-field";
 import StructuredData from "../components/structured-data";
 import { applySchema, pageMetadata, pages } from "../lib/seo";
 import "../contrast.css";
@@ -15,7 +14,6 @@ export default function ApplyPage() {
       <section className="nap-apply-closed" aria-labelledby="apply-title">
         <h1 id="apply-title">Applications are closed at the moment</h1>
       </section>
-      <DeferredLiquidField />
     </main>
   );
 }

@@ -2,14 +2,14 @@
 
 import { useState, type FormEvent } from "react";
 
-type Submission = { status: "idle" | "pending" | "leaving" | "success" | "error"; message: string };
+type Submission = { status: "idle" | "pending" | "success" | "error"; message: string };
 
 export default function WaitlistForm() {
   const [submission, setSubmission] = useState<Submission>({ status: "idle", message: "" });
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (submission.status === "pending" || submission.status === "leaving" || submission.status === "success") return;
+    if (submission.status === "pending" || submission.status === "success") return;
     const form = new FormData(event.currentTarget);
     setSubmission({ status: "pending", message: "" });
     try {
@@ -21,15 +21,14 @@ export default function WaitlistForm() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Couldn’t save your spot. Please try again.");
-      setSubmission({ status: "leaving", message: "" });
+      setSubmission({ status: "success", message: "" });
     } catch (error) {
       setSubmission({ status: "error", message: error instanceof Error && error.name !== "TimeoutError" && error.name !== "TypeError" ? error.message : "Couldn’t connect. Please try again in a moment." });
     }
   }
 
-  const leaving = submission.status === "leaving";
   const complete = submission.status === "success";
-  const busy = submission.status === "pending" || leaving;
+  const busy = submission.status === "pending";
 
   return (
     <section className={`nap-waitlist-body${complete ? " nap-waitlist-body-complete" : ""}`} aria-labelledby="waitlist-title">
@@ -38,13 +37,7 @@ export default function WaitlistForm() {
           <h1 id="waitlist-title" tabIndex={-1} ref={(node) => node?.focus({ preventScroll: true })}>You’re On The List</h1>
         </div>
       ) : (
-        <div
-          className={`nap-waitlist-panel${leaving ? " nap-waitlist-panel-leaving" : ""}`}
-          inert={leaving}
-          onAnimationEnd={(event) => {
-            if (leaving && event.target === event.currentTarget) setSubmission({ status: "success", message: "" });
-          }}
-        >
+        <div className="nap-waitlist-panel">
           <div className="nap-waitlist-intro">
             <h1 id="waitlist-title">Join the Waitlist</h1>
             <p>Your next good idea starts here</p>

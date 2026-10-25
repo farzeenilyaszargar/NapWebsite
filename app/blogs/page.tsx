@@ -2,7 +2,6 @@ import StructuredData from "../components/structured-data";
 import { pages, pageMetadata, blogSchema } from "../lib/seo";
 import Link from "next/link";
 import NapHeader from "../components/nap-header";
-import DeferredLiquidField from "../components/deferred-liquid-field";
 import "../contrast.css";
 
 export const metadata = pageMetadata(pages.blogs);
@@ -30,7 +29,6 @@ export default function BlogsPage() {
           </Link>
         </div>
       </section>
-      <DeferredLiquidField />
     </main>
   );
 }

@@ -4,7 +4,6 @@ import NapProductImage from "../../components/nap-product-image";
 import NapReadingLinks from "../../components/nap-reading-links";
 import Link from "next/link";
 import NapHeader from "../../components/nap-header";
-import DeferredLiquidField from "../../components/deferred-liquid-field";
 import "../../contrast.css";
 
 export const metadata = pageMetadata(pages.why, true);
@@ -45,7 +44,6 @@ export default function WhyPost() {
           <NapReadingLinks current={pages.why.path} />
         </article>
       </section>
-      <DeferredLiquidField />
     </main>
   );
 }

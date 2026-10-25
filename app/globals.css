@@ -1,23 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --nap-background: #fff;
-  --nap-foreground: #0b0b0b;
-  --nap-muted: #555;
-  --nap-subtle: #666;
-  --nap-border: #d5d5d5;
-  --nap-error: #a12620;
-  color-scheme: light;
+  --nap-background: #101112;
+  --nap-foreground: #ededef;
+  --nap-muted: #a1a1a8;
+  --nap-subtle: #96969e;
+  --nap-border: #2b2c30;
+  --nap-error: #f0aaa4;
+  color-scheme: dark;
   background: var(--nap-background);
   color: var(--nap-foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
-
-body {
-  margin: 0;
-  background: var(--nap-background);
-  color: var(--nap-foreground);
-}
-
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--nap-background); color: var(--nap-foreground); }
+html { scroll-behavior: auto; }
+::selection { background: #41434a; color: #fff; }

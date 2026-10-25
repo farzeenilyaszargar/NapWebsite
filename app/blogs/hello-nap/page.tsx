@@ -3,7 +3,6 @@ import { pages, pageMetadata, articleSchema } from "../../lib/seo";
 import NapReadingLinks from "../../components/nap-reading-links";
 import Link from "next/link";
 import NapHeader from "../../components/nap-header";
-import DeferredLiquidField from "../../components/deferred-liquid-field";
 import "../../contrast.css";
 
 export const metadata = pageMetadata(pages.story, true);
@@ -38,7 +37,6 @@ export default function WhyWeStartedPost() {
           <NapReadingLinks current={pages.story.path} />
         </article>
       </section>
-      <DeferredLiquidField />
     </main>
   );
 }

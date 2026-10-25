@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: "#101112",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -38,7 +38,7 @@ a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,
 twq('config','rhsuk');
         `}</Script>
       </head>
-      <body className="min-h-full flex flex-col bg-white text-black"><StructuredData data={siteSchema()} />{children}</body>
+      <body className="min-h-full flex flex-col"><StructuredData data={siteSchema()} />{children}</body>
     </html>
   );
 }

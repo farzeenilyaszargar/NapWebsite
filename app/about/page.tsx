@@ -2,7 +2,6 @@ import Link from "next/link";
 import StructuredData from "../components/structured-data";
 import NapHeader from "../components/nap-header";
 import NapReadingLinks from "../components/nap-reading-links";
-import DeferredLiquidField from "../components/deferred-liquid-field";
 import { codingAgents } from "../lib/agents";
 import { aboutSchema, pageMetadata, pages, site } from "../lib/seo";
 import "../contrast.css";
@@ -44,7 +43,6 @@ export default function AboutNap() {
           <NapReadingLinks current={pages.about.path} />
         </article>
       </section>
-      <DeferredLiquidField />
     </main>
   );
 }

@@ -1,36 +1,21 @@
-.nap-waitlist-page { height: auto; min-height: 100svh; min-height: 100dvh; display: flex; flex-direction: column; }
-.nap-waitlist-body { flex: 1; display: grid; place-items: center; padding: 120px 24px 200px; }
-.nap-waitlist-panel { width: min(100%, 380px); }
-.nap-waitlist-intro { margin-bottom: 32px; }
-.nap-waitlist-intro h1 { font-size: clamp(32px, 4vw, 42px); font-weight: 600; letter-spacing: -.055em; line-height: 1.1; }
-.nap-waitlist-intro p { margin-top: 12px; color: var(--nap-subtle); font-size: 14px; line-height: 1.6; }
-.nap-waitlist-field + .nap-waitlist-field { margin-top: 22px; }
-.nap-waitlist-field label { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; line-height: 1.4; letter-spacing: -.01em; color: #333; }
-.nap-waitlist-field input { display: block; width: 100%; min-height: 54px; border: 0; border-bottom: 1px solid #dedede; border-radius: 0; background: transparent; color: var(--nap-foreground); padding: 14px 0; font: inherit; font-size: 16px; line-height: 1.5; -webkit-user-select: text; user-select: text; transition: border-color .16s; }
-/* Keep saved-name/email autofill visually identical to the page surface. */
-.nap-waitlist-field input:is(:autofill, :-webkit-autofill) { -webkit-text-fill-color: var(--nap-foreground); caret-color: var(--nap-foreground); -webkit-box-shadow: 0 0 0 1000px var(--nap-background) inset; box-shadow: 0 0 0 1000px var(--nap-background) inset; }
-.nap-waitlist-field input::placeholder { color: #767676; }
-.nap-waitlist-field input:not(:disabled):not(:focus):hover { border-color: #aaa; }
-.nap-waitlist-field input:focus { outline: none; border-bottom-color: var(--nap-foreground); }
-.nap-waitlist-field input:disabled { background: transparent; color: var(--nap-subtle); cursor: wait; }
-.nap-waitlist-form-wrap button { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 54px; margin-top: 28px; border: 0; border-radius: 10px; background: var(--nap-foreground); color: #fff; padding: 15px 20px; font-size: 16px; font-weight: 500; line-height: 1.5; letter-spacing: -.015em; cursor: pointer; box-shadow: 0 1px 2px #00000014; transition: background .16s, transform .16s; }
-.nap-waitlist-form-wrap button:hover:not(:disabled) { background: #292929; }
-.nap-waitlist-form-wrap button:active:not(:disabled) { transform: translateY(1px); }
-.nap-waitlist-form-wrap button:focus-visible { outline: 2px solid var(--nap-foreground); outline-offset: 4px; }
+.nap-waitlist-page { min-height: 100svh; display: flex; flex-direction: column; }
+.nap-waitlist-body { flex: 1; display: grid; place-items: center; padding: 50px 24px 140px; }
+.nap-waitlist-panel { width: min(100%, 360px); }
+.nap-waitlist-intro { margin-bottom: 30px; text-align: center; }
+.nap-waitlist-intro h1, .nap-waitlist-success h1 { font-size: 30px; font-weight: 500; letter-spacing: -.04em; line-height: 1.2; }
+.nap-waitlist-intro p { margin-top: 12px; color: var(--nap-muted); font-size: 13px; line-height: 1.7; }
+.nap-waitlist-field + .nap-waitlist-field { margin-top: 20px; }
+.nap-waitlist-field label { display: block; margin-bottom: 9px; font-size: 12px; color: var(--nap-muted); }
+.nap-waitlist-field input { display: block; width: 100%; min-height: 46px; border: 1px solid var(--nap-border); border-radius: 6px; background: #151618; color: var(--nap-foreground); padding: 11px 12px; font: inherit; font-size: 16px; line-height: 1.5; }
+.nap-waitlist-field input:is(:autofill, :-webkit-autofill) { -webkit-text-fill-color: var(--nap-foreground); caret-color: var(--nap-foreground); -webkit-box-shadow: 0 0 0 1000px #151618 inset; box-shadow: 0 0 0 1000px #151618 inset; }
+.nap-waitlist-field input::placeholder { color: #86868e; }
+.nap-waitlist-field input:focus { outline: none; border-color: #a1a1a8; }
+.nap-waitlist-field input:disabled { cursor: wait; opacity: .6; }
+.nap-waitlist-form-wrap button { display: flex; justify-content: center; align-items: center; width: 100%; min-height: 46px; margin-top: 26px; border: 1px solid #ededef; border-radius: 6px; background: #ededef; color: #151515; padding: 12px 20px; font-size: 13px; font-weight: 550; cursor: pointer; }
+.nap-waitlist-form-wrap button:hover:not(:disabled) { background: #d7d7da; }
 .nap-waitlist-form-wrap button:disabled { cursor: wait; opacity: .65; }
-.nap-waitlist-status { margin-top: 16px; padding: 12px 14px; border-radius: 8px; background: #fff3f2; color: var(--nap-error); font-size: 13px; line-height: 1.6; }
+.nap-waitlist-status { margin-top: 16px; color: var(--nap-error); font-size: 13px; line-height: 1.7; }
 .nap-waitlist-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .nap-waitlist-success { text-align: center; }
-.nap-waitlist-success h1 { margin: 0; font-size: clamp(32px, 4vw, 48px); font-weight: 600; line-height: 1.1; letter-spacing: -.04em; }
-@media (max-width: 700px) { .nap-waitlist-body { padding: 112px 24px 168px; } }
-@media (prefers-reduced-motion: reduce) { .nap-waitlist-form-wrap button, .nap-waitlist-field input { transition: none; } }
-
-.nap-waitlist-panel-leaving { pointer-events: none; animation: nap-waitlist-exit .24s ease-in forwards; }
-.nap-waitlist-body.nap-waitlist-body-complete { padding: 100px 24px; }
-.nap-waitlist-success { animation: nap-waitlist-enter .45s cubic-bezier(.22, 1, .36, 1) both; }
 .nap-waitlist-success h1:focus { outline: none; }
-@keyframes nap-waitlist-exit { to { opacity: 0; transform: translateY(-8px); } }
-@keyframes nap-waitlist-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) {
-  .nap-waitlist-panel-leaving, .nap-waitlist-success { animation-duration: .01ms; }
-}
+@media (max-width: 700px) { .nap-waitlist-body { padding-bottom: 110px; } }
