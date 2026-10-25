@@ -15,10 +15,10 @@
   align-items: center;
   justify-content: space-between;
 }
-.nap-wordmark { font-size: 29px; font-weight: 650; line-height: 1; letter-spacing: -1.8px; }
-.nap-wordmark-mark { display: inline-block; width: 7px; height: 9px; vertical-align: top; margin: 3px 0 0 5px; background: currentColor; mask-image: url("/nap-mark-32b2b19e.webp"); mask-mode: luminance; mask-repeat: no-repeat; mask-size: 12px 12px; mask-position: -2.5px -1.5px; }
+.nap-wordmark { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #fff !important; }
+.nap-wordmark-mark { display: block; width: 36px; height: 40px; background: currentColor; mask-image: url("/nap-mark-32b2b19e.webp"); mask-mode: luminance; mask-repeat: no-repeat; mask-size: 44px 44px; mask-position: center; }
 .nap-nav { display: flex; align-items: center; gap: 24px; }
-.nap-docs { color: var(--nap-muted) !important; font-size: 11px; font-weight: 500; letter-spacing: .07em; padding: 12px 0; }
+.nap-docs { color: var(--nap-muted) !important; font-size: 12px; font-weight: 500; letter-spacing: .055em; padding: 12px 0; }
 .nap-docs:hover { color: var(--nap-foreground) !important; }
 .nap-home-page > .nap-hero { padding: 82px 24px 56px; text-align: center; }
 .nap-copy { max-width: 580px; margin: 0 auto; }
