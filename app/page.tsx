@@ -3,7 +3,7 @@ import { codingAgents } from "./lib/agents";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
 import WorkflowIcon from "./components/workflow-icon";
-import NapProductImage from "./components/nap-product-image";
+import NapInteractiveDemo from "./components/nap-interactive-demo";
 import NapWaitlistCta from "./components/nap-waitlist-cta";
 import NapHeader from "./components/nap-header";
 import NapFooter from "./components/nap-footer";
@@ -33,7 +33,7 @@ export default function Home() {
       </section>
 
       <figure className="nap-full-width-product">
-        <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 900px) 180vw, 92vw" />
+        <NapInteractiveDemo />
       </figure>
       <section className="nap-agents nap-section" aria-labelledby="agents-title">
         <h2 id="agents-title" className="nap-section-label">WORK WITH YOUR CODING AGENTS, RIGHT INSIDE NAP.</h2>
