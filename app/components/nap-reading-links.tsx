@@ -2,7 +2,6 @@ import Link from "next/link";
 import { pages } from "../lib/seo";
 
 const reading = [
-  { page: pages.about, label: "About Nap" },
   { page: pages.story, label: "Why We Started" },
   { page: pages.why, label: "Why This?" },
 ];

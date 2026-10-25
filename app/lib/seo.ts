@@ -44,11 +44,7 @@ export const pages = {
     description: "Join the Nap waitlist for availability and product updates. Bring your coding agents and ideas together in one native AI coding workspace for Mac.",
     keywords: ["Nap waitlist", "Nap Code early access", "AI coding app for Mac"],
   },
-  about: {
-    path: "/about", title: pageTitle("About"),
-    description: "Learn what Nap is: a native AI coding workspace for Mac that brings coding agents, project conversations, and code review into one app.",
-    keywords: ["about Nap", "what is Nap", "AI coding workspace for Mac", "coding agent interface"],
-  },
+
 };
 
 type Page = (typeof pages)[keyof typeof pages];
@@ -106,7 +102,6 @@ function breadcrumbSchema(page: Page) {
   if (page === pages.story || page === pages.why) items.push({ name: page === pages.story ? "Why We Started" : "Why This?", item: absolute(page.path) });
   if (page === pages.apply) items.push({ name: "Apply", item: absolute(page.path) });
   if (page === pages.waitlist) items.push({ name: "Waitlist", item: absolute(page.path) });
-  if (page === pages.about) items.push({ name: "About Nap", item: absolute(page.path) });
   return {
     "@type": "BreadcrumbList", "@id": `${absolute(page.path)}#breadcrumbs`,
     itemListElement: items.map((item, index) => ({ "@type": "ListItem", position: index + 1, ...item })),
@@ -133,17 +128,6 @@ export function homeSchema() {
     "@graph": [
       { ...webPageSchema(pages.home), mainEntity: { "@id": appId }, about: { "@id": appId } },
       softwareSchema(),
-    ],
-  };
-}
-
-export function aboutSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      { ...webPageSchema(pages.about, "AboutPage"), mainEntity: { "@id": `${site.url}/#app` }, about: { "@id": `${site.url}/#app` } },
-      softwareSchema(),
-      breadcrumbSchema(pages.about),
     ],
   };
 }

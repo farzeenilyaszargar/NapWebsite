@@ -12,7 +12,6 @@ const routes = [
   ["blogs", "/blogs", "Nap | Blogs"],
   ["blogs/hello-nap", "/blogs/hello-nap", "Nap | Why We Started"],
   ["blogs/why", "/blogs/why", "Nap | Why This?"],
-  ["about", "/about", "Nap | About"],
   ["waitlist", "/waitlist", "Nap | Waitlist"],
   ["apply", "/apply", "Nap | Apply"],
 ];
@@ -56,18 +55,11 @@ for (const [file, path, title] of routes) {
     const breadcrumb = entities.find((entity) => entity["@type"] === "BreadcrumbList");
     assert.equal(breadcrumb.itemListElement.at(-1).item, origin + path);
   }
-  if (path === "/about") {
-    const about = entities.find((entity) => entity["@type"] === "AboutPage");
-    const app = entities.find((entity) => entity["@type"] === "SoftwareApplication");
-    assert.equal(about.mainEntity["@id"], app["@id"]);
-    assert.ok(html.includes(app.description), "the product definition is visible, not just in schema");
-    assert.equal(entities.find((entity) => entity["@type"] === "BreadcrumbList").itemListElement.length, 2);
-  }
   if (path.startsWith("/blogs/")) {
     const article = entities.find((entity) => entity["@type"] === "BlogPosting");
     assert.ok(article.image.url.startsWith(origin));
     assert.ok(article.author["@id"].endsWith("#organization"));
-    assert.ok(internal.includes("/about"), "article publisher information is reachable");
+    assert.ok(internal.includes("/"), "article publisher homepage is reachable");
   }
   for (const entity of entities) {
     assert.equal(entity.aggregateRating, undefined, "no invented ratings");
@@ -81,6 +73,7 @@ for (const [file, path, title] of routes) {
   }
   console.log(`✓ ${path}: metadata, canonical, social cards, structured data, headings, and images`);
 }
+assert.ok(!existsSync(resolve(root, "app/about/page.tsx")), "About page has been removed");
 const knownPages = new Set(routes.map(([, path]) => path));
 for (const [path, links] of linkGraph) for (const link of links) {
   assert.ok(knownPages.has(link), `${path}: internal content link ${link} resolves to a known page`);

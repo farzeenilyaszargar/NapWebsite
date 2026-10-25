@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { codingAgents } from "./lib/agents";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
@@ -35,7 +34,6 @@ export default function Home() {
           <article><h2>Work with your agent</h2><p>Choose your coding agent and keep the conversation connected to your work.</p></article>
           <article><h2>Review and continue</h2><p>See what changed, ask a follow-up, and decide what comes next.</p></article>
         </div>
-        <Link href={pages.about.path} className="nap-about-link">About Nap</Link>
       </section>
       <NapFooter />
     </main>

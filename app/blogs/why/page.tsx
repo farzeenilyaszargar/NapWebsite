@@ -15,7 +15,7 @@ export default function WhyPost() {
       <NapHeader />
       <section className="nap-hero">
         <article className="nap-blog-article">
-          <span className="nap-blog-label">BY <Link href={pages.about.path} className="nap-inline-link">NAP</Link> · 2 MIN READ</span>
+          <span className="nap-blog-label">BY <Link href={pages.home.path} className="nap-inline-link">NAP</Link> · 2 MIN READ</span>
           <h1>Why This?</h1>
           <p>Nap is a native AI coding workspace for Mac that brings your coding agents, project conversations, and code review into one app.</p>
           <p>A good coding session has a simple rhythm. You describe a goal, work through it with an agent, and review what changed. Nap puts that rhythm at the center of a native app.</p>
