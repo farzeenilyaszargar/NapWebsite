@@ -85,3 +85,36 @@
 @media (prefers-reduced-motion: reduce) {
   .page :global(.nap-download) { transition: none; }
 }
+
+/* Anchor the artwork to the CTA so the fingertip gap follows the button. */
+.page { --nap-background: #000; }
+.page:global(.nap-home-page) > :global(.nap-hero) {
+  width: 100%;
+  padding: 90px 5% 175px;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+}
+.page :global(.nap-copy) { align-items: center; text-align: center; }
+.page :global(.nap-copy h1) { text-align: center; }
+.page :global(.nap-hero-details) { align-items: center; text-align: center; margin-top: 25px; gap: 32px; }
+.page :global(.nap-description) { max-width: 430px; }
+.page :global(.nap-action) { position: relative; justify-content: center; }
+.page :global(.nap-action)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: max(1200px, 100vw);
+  aspect-ratio: 3 / 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-47.5%, -51%);
+  background: url('/nap-reaching-hands.png') center / 100% 100% no-repeat;
+  opacity: .8;
+}
+@media (max-width: 700px) {
+  .page:global(.nap-home-page) > :global(.nap-hero) { padding: 50px 5% 135px; }
+  .page :global(.nap-hero-details) { margin-top: 23px; gap: 50px; }
+  .page :global(.nap-action)::before { width: 1160px; opacity: .6; }
+}
