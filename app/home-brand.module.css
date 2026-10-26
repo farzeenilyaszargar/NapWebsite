@@ -1,0 +1,79 @@
+/* Homepage-only identity: warm graphite, signal orange, and cut-paper geometry. */
+.page {
+  --nap-background: #151715;
+  --nap-foreground: #f2f0e8;
+  --nap-muted: #b4b7ae;
+  --nap-subtle: #a7aaa1;
+  --signal: #ff784f;
+  background: var(--nap-background);
+  overflow: clip;
+}
+.page :global(.nap-header) { width: min(1240px, 88%); height: 100px; }
+.page :global(.nap-wordmark) { font-size: 34px; }
+.page :global(.nap-nav) { gap: 34px; }
+.page :global(.nap-docs) { font-size: 15px; }
+.page :global(.nap-hero) { width: min(1240px, 88%); padding: 78px 0 68px; }
+.page :global(.nap-hero)::before { display: none; }
+.page :global(.nap-copy h1) { font-size: clamp(28px, 6.2vw, 87px); letter-spacing: -.07em; font-weight: 500; }
+.page :global(.nap-copy h1) span { color: var(--signal); }
+.page :global(.nap-hero-details) { margin-top: 32px; gap: 25px; }
+.page :global(.nap-description) { max-width: 430px; font-size: 16px; line-height: 1.75; }
+.page :global(.nap-download) { background: var(--signal); border-color: var(--signal); border-radius: 100px; padding: 16px 28px; font-size: 14px; font-weight: 600; color: #191a16 !important; transition: background .2s, transform .2s; }
+.page :global(.nap-download):hover { background: #ff9676; transform: translateY(-2px); }
+.heroBottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
+.signature { width: 174px; height: 104px; position: relative; flex-shrink: 0; overflow: hidden; margin-bottom: 5px; }
+.signature i { position: absolute; width: 105px; height: 104px; border: 1px solid #667064; border-radius: 52px 52px 0 0; bottom: -1px; }
+.signature i:nth-child(2) { left: 23px; border-color: #859080; }
+.signature i:nth-child(3) { left: 46px; border-color: #b3bda8; }
+.signature i:nth-child(4) { left: 69px; border-color: var(--signal); background: linear-gradient(180deg, #ff784f18, transparent); }
+.stage { width: min(1360px, 94%); margin: 0 auto; padding: 24px 5% 0; border-radius: 20px; position: relative; isolation: isolate; background: #ce5736; overflow: hidden; }
+.stage::before { content: ''; position: absolute; inset: 20% -30% -80%; border: 1px solid #f4c7a850; border-radius: 50%; box-shadow: 0 0 0 44px #f4c7a815, 0 0 0 88px #f4c7a810, 0 0 0 132px #f4c7a808; z-index: -1; }
+.stageLabel { display: flex; justify-content: space-between; gap: 16px; margin: 0 0 30px; color: #291d16; font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.stageLabel span:first-child::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 9px; border-radius: 50%; background: currentColor; }
+.page :global(.nap-full-width-product) { width: 100%; margin: 0 auto -8%; padding: 0; border: 0; border-radius: 12px 12px 0 0; background: #111; box-shadow: 0 24px 70px #431d1e60; overflow: hidden; }
+.page :global(.nap-full-width-product img) { border-radius: 0; }
+.page :global(.nap-agents) { width: min(1240px, 88%); padding: 38px 0 70px; }
+.page :global(.nap-section-label) { font-family: inherit; font-size: 13px; letter-spacing: 0; }
+.page :global(.nap-agents ul) { gap: 38px; }
+.page :global(.nap-agents li) { font-size: 15px; gap: 10px; }
+.page :global(.nap-agents li img) { width: 25px; height: 25px; }
+.workflow { background: #e9e9dd; color: #232b23; padding: 76px max(6%, calc((100% - 1240px) / 2)) 80px; }
+.workflowHeading { display: flex; justify-content: space-between; gap: 32px; align-items: flex-end; margin-bottom: 54px; }
+.workflowHeading h2 { font-family: var(--font-display), sans-serif; font-size: clamp(34px, 4vw, 54px); font-weight: 500; letter-spacing: -.055em; line-height: 1.08; }
+.workflowHeading p { max-width: 260px; font-size: 14px; line-height: 1.7; color: #5c655a; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.steps article { padding: 25px 26px 30px; border-radius: 12px; background: #dfe1d3; }
+.steps h3 { margin-top: 26px; font-family: var(--font-display), sans-serif; font-size: 22px; font-weight: 500; line-height: 1.2; letter-spacing: -.04em; }
+.steps p { margin-top: 12px; max-width: 290px; font-size: 14px; line-height: 1.75; color: #586251; }
+.glyph { width: 44px; height: 44px; color: #45583c; }
+.page :global(.nap-site-footer) { width: min(1240px, 88%); padding: 32px 0; }
+.page :global(.nap-footer-bottom) { font-size: 12px; }
+@media (max-width: 700px) {
+  .page :global(.nap-header) { height: 82px; }
+  .page :global(.nap-wordmark) { font-size: 29px; }
+  .page :global(.nap-nav) { gap: 20px; }
+  .page :global(.nap-docs) { font-size: 13px; }
+  .page :global(.nap-hero) { padding: 48px 0 42px; }
+  .page :global(.nap-copy h1) { font-size: clamp(23px, 5.65vw, 40px); }
+  .page :global(.nap-description) { font-size: 14px; max-width: 340px; }
+  .signature { display: none; }
+  .page :global(.nap-download) { padding: 14px 23px; }
+  .stage { width: 94%; padding: 17px 5% 0; border-radius: 12px; }
+  .stageLabel { font-size: 8px; margin-bottom: 18px; }
+  .page :global(.nap-full-width-product) { width: 160%; max-width: none; border-radius: 7px 0 0; margin-bottom: -12%; }
+  .page :global(.nap-agents) { padding: 28px 0 40px; gap: 19px; }
+  .page :global(.nap-agents ul) { gap: 20px; }
+  .page :global(.nap-agents li) { font-size: 12px; gap: 7px; }
+  .page :global(.nap-agents li img) { width: 20px; height: 20px; }
+  .workflow { padding: 42px 6%; }
+  .workflowHeading { display: block; margin-bottom: 28px; }
+  .workflowHeading p { margin-top: 20px; }
+  .steps { grid-template-columns: 1fr; gap: 12px; }
+  .steps article { padding: 24px; }
+  .steps h3 { margin-top: 18px; }
+  .steps p { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page :global(.nap-download) { transition: none; }
+  .page :global(.nap-download):hover { transform: none; }
+}

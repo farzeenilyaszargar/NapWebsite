@@ -21,7 +21,6 @@
 .nap-docs { color: var(--nap-muted) !important; font-size: 14px; font-weight: 450; letter-spacing: 0; padding: 12px 0; }
 .nap-docs:hover { color: var(--nap-foreground) !important; }
 .nap-home-page > .nap-hero { position: relative; isolation: isolate; width: min(1120px, 90%); margin-inline: auto; padding: 96px 0 54px; text-align: left; }
-.nap-home-page > .nap-hero::before { content: ""; position: absolute; z-index: -1; pointer-events: none; width: 480px; height: 240px; max-width: 62%; right: 0; top: 16px; background: url("/nap-dither-field.svg") right top / 480px 240px no-repeat; opacity: .35; }
 .nap-copy { width: 100%; }
 .nap-product-label, .nap-section-label, .nap-blog-label, .nap-blog-number { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .nap-copy h1 { font-family: var(--font-display), Arial, sans-serif; font-size: clamp(26px, 5.7vw, 78px); white-space: nowrap; font-weight: 500; letter-spacing: -.065em; line-height: 1.08; }
@@ -75,7 +74,6 @@
 @media (max-width: 700px) {
   .nap-header { height: 76px; width: 90%; }
   .nap-home-page > .nap-hero { padding: 58px 0 36px; }
-  .nap-home-page > .nap-hero::before { top: 0; opacity: .2; }
   .nap-copy h1 { font-size: clamp(24px, 5.6vw, 39px); }
   .nap-hero-details { flex-direction: column; align-items: flex-start; gap: 24px; margin-top: 23px; }
   .nap-description { font-size: 14px; max-width: 350px; line-height: 1.8; }
