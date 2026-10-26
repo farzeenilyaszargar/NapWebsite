@@ -19,7 +19,6 @@ export default function Home() {
         <div className="nap-copy">
           <h1 id="nap-title">Your Agents.<br />All Together.</h1>
             <div className="nap-hero-details">
-              <p className="nap-description">A native Mac app for working with your coding agents. Keep your projects, conversations, and code changes together.</p>
               <div className="nap-action"><NapWaitlistCta /></div>
             </div>
         </div>
