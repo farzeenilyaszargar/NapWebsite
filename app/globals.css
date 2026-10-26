@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --nap-background: #101112;
-  --nap-foreground: #ededef;
-  --nap-muted: #a1a1a8;
-  --nap-subtle: #96969e;
-  --nap-border: #2b2c30;
+  --nap-background: #0b0b0a;
+  --nap-foreground: #f2efe6;
+  --nap-muted: #aaa8a0;
+  --nap-subtle: #99978f;
+  --nap-border: #31312d;
   --nap-error: #f0aaa4;
   color-scheme: dark;
   background: var(--nap-background);
@@ -14,4 +14,4 @@
 }
 body { margin: 0; background: var(--nap-background); color: var(--nap-foreground); }
 html { scroll-behavior: auto; }
-::selection { background: #41434a; color: #fff; }
+::selection { background: #44443e; color: #fff; }

@@ -16,13 +16,17 @@ export default function Home() {
       <NapHeader />
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
+          <p className="nap-eyebrow">A NATIVE WORKSPACE FOR MAC</p>
           <h1 id="nap-title">Your Agents. All Together.</h1>
+          <div className="nap-hero-details">
           <p className="nap-description">A native Mac app for working with your coding agents. Keep your projects, conversations, and code changes together.</p>
           <div className="nap-action"><NapWaitlistCta /></div>
+          </div>
         </div>
       </section>
       <figure className="nap-full-width-product">
-        <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 1100px) 92vw, 1040px" />
+        <figcaption className="nap-product-label"><span>THE WORKSPACE</span><span>NAP / MACOS</span></figcaption>
+        <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 1200px) 90vw, 1080px" />
       </figure>
       <section className="nap-agents nap-section" aria-labelledby="agents-title">
         <h2 id="agents-title" className="nap-section-label">The agents you already work with</h2>

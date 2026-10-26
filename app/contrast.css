@@ -8,7 +8,7 @@
 .contrast-page a { color: inherit; text-decoration: none; }
 .contrast-page :focus-visible { outline: 2px solid #bfc1ca; outline-offset: 4px; }
 .nap-header {
-  width: min(1040px, 92%);
+  width: min(1120px, 90%);
   height: 88px;
   margin: 0 auto;
   display: flex;
@@ -20,69 +20,79 @@
 .nap-nav { display: flex; align-items: center; gap: 24px; }
 .nap-docs { color: var(--nap-muted) !important; font-size: 14px; font-weight: 450; letter-spacing: 0; padding: 12px 0; }
 .nap-docs:hover { color: var(--nap-foreground) !important; }
-.nap-home-page > .nap-hero { padding: 82px 24px 56px; text-align: center; }
-.nap-copy { max-width: 1040px; margin: 0 auto; }
-.nap-copy h1 { font-size: clamp(24px, 5.2vw, 68px); white-space: nowrap; font-weight: 550; letter-spacing: -.055em; line-height: 1.08; }
-.nap-description { max-width: 430px; margin: 24px auto 0; font-size: 16px; color: var(--nap-muted); line-height: 1.75; letter-spacing: -.015em; }
-.nap-action { display: flex; justify-content: center; margin-top: 28px; }
-.nap-download { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px; border: 1px solid #ededef; border-radius: 7px; background: #ededef; color: #151515 !important; font-size: 13px; font-weight: 550; line-height: 1.4; }
-.nap-download:hover { background: #d7d7da; border-color: #d7d7da; }
-.nap-full-width-product { width: min(1040px, 92%); margin: 0 auto; }
+.nap-home-page > .nap-hero { position: relative; isolation: isolate; width: min(1120px, 90%); margin-inline: auto; padding: 96px 0 54px; text-align: left; }
+.nap-home-page > .nap-hero::before { content: ""; position: absolute; z-index: -1; pointer-events: none; width: 480px; height: 240px; max-width: 62%; right: 0; top: 16px; background: url("/nap-dither-field.svg") right top / 480px 240px no-repeat; opacity: .35; }
+.nap-copy { width: 100%; }
+.nap-eyebrow, .nap-product-label, .nap-section-label, .nap-blog-label, .nap-blog-number { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.nap-eyebrow { margin-bottom: 24px; color: var(--nap-subtle); font-size: 10px; line-height: 1.8; letter-spacing: .12em; }
+.nap-copy h1 { font-family: var(--font-display), Arial, sans-serif; font-size: clamp(26px, 5.7vw, 78px); white-space: nowrap; font-weight: 500; letter-spacing: -.065em; line-height: 1.08; }
+.nap-hero-details { display: flex; align-items: flex-end; justify-content: space-between; gap: 36px; margin-top: 30px; }
+.nap-description { max-width: 420px; margin: 0; font-size: 15px; color: var(--nap-muted); line-height: 1.8; letter-spacing: -.01em; }
+.nap-action { flex-shrink: 0; display: flex; justify-content: flex-start; }
+.nap-download { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 13px 24px; border: 1px solid var(--nap-foreground); border-radius: 3px; background: var(--nap-foreground); color: #151510 !important; font-size: 13px; font-weight: 550; line-height: 1.4; }
+.nap-download:hover { background: #d8d6cd; border-color: #d8d6cd; }
+.nap-full-width-product { width: min(1120px, 90%); margin: 0 auto; background: #111110; padding: 0 18px 18px; border: 1px solid var(--nap-border); border-radius: 3px; }
+.nap-product-label { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 2px; font-size: 9px; letter-spacing: .1em; color: var(--nap-subtle); }
 .nap-full-width-product > picture { display: block; }
-.nap-full-width-product img { display: block; width: 100%; height: auto; border: 1px solid var(--nap-border); border-radius: 10px; }
-.nap-section { width: min(960px, 90%); margin-inline: auto; }
-.nap-agents { padding: 30px 0 0; text-align: center; }
-.nap-section-label { font-size: 12px; font-weight: 400; line-height: 1.6; color: var(--nap-subtle); }
-.nap-agents ul { display: flex; justify-content: center; flex-wrap: wrap; gap: 22px 32px; margin-top: 15px; padding: 0; list-style: none; }
-.nap-agents li { display: flex; align-items: center; gap: 8px; color: #bcbcc3; font-size: 13px; font-weight: 450; white-space: nowrap; }
-.nap-agents li img { width: 22px; height: 22px; object-fit: contain; }
-.nap-agents li[data-agent="Cursor"] img, .nap-agents li[data-agent="OpenCode"] img { filter: invert(1); }
+.nap-full-width-product img { display: block; width: 100%; height: auto; border: 0; border-radius: 0; }
+.nap-section { width: min(1120px, 90%); margin-inline: auto; }
+.nap-agents { padding: 30px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; text-align: left; }
+.nap-section-label { font-size: 10px; font-weight: 400; line-height: 1.8; color: var(--nap-subtle); letter-spacing: .025em; }
+.nap-agents ul { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 22px 32px; margin: 0; padding: 0; list-style: none; }
+.nap-agents li { display: flex; align-items: center; gap: 8px; color: #cfcdc4; font-size: 13px; font-weight: 450; white-space: nowrap; }
+.nap-agents li img { width: 22px; height: 22px; object-fit: contain; filter: grayscale(1); }
+.nap-agents li[data-agent="Cursor"] img, .nap-agents li[data-agent="OpenCode"] img { filter: grayscale(1) invert(1); }
 .nap-agents li[data-agent="OpenCode"] img { width: 19px; height: 19px; }
-.nap-workflow { padding: 74px 0 62px; text-align: center; }
-.nap-workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px; }
-.nap-workflow-steps h2 { font-size: 15px; font-weight: 500; letter-spacing: -.02em; }
-.nap-workflow-steps p { margin: 12px auto 0; max-width: 250px; color: var(--nap-muted); font-size: 13px; line-height: 1.8; }
+.nap-workflow { padding: 64px 0 75px; text-align: left; }
+.nap-workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 52px; }
+.nap-workflow-steps article::before { content: ""; display: block; width: 26px; height: 2px; background: #a8a69c; margin-bottom: 24px; }
+.nap-workflow-steps h2 { font-family: var(--font-display), Arial, sans-serif; font-size: clamp(18px, 1.8vw, 23px); font-weight: 500; letter-spacing: -.035em; line-height: 1.3; }
+.nap-workflow-steps p { margin: 14px 0 0; max-width: 290px; color: var(--nap-muted); font-size: 13px; line-height: 1.9; }
 .nap-inline-link:hover, .nap-footer-social:hover { text-decoration: underline; text-underline-offset: 4px; }
-.nap-site-footer { width: min(1040px, 92%); margin: 0 auto; padding: 24px 0 30px; }
+.nap-site-footer { width: min(1120px, 90%); margin: 0 auto; padding: 24px 0 30px; }
 .nap-footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--nap-subtle); font-size: 11px; }
 .nap-footer-social { display: inline-flex; align-items: center; min-height: 32px; }
 .nap-article-page .nap-hero { width: min(680px, 90%); padding: 65px 0 90px; margin: 0 auto; }
 .nap-blog-label { font-size: 10px; letter-spacing: .06em; color: var(--nap-subtle); }
-.nap-blog-article h1 { margin: 18px 0 0; font-size: clamp(32px, 4vw, 44px); line-height: 1.16; letter-spacing: -.045em; font-weight: 550; }
-.nap-blog-article h2 { margin-top: 36px; font-size: 23px; font-weight: 500; line-height: 1.3; letter-spacing: -.025em; }
+.nap-blog-article h1 { font-family: var(--font-display), Arial, sans-serif; margin: 18px 0 0; font-size: clamp(32px, 4vw, 44px); line-height: 1.16; letter-spacing: -.045em; font-weight: 550; }
+.nap-blog-article h2 { font-family: var(--font-display), Arial, sans-serif; margin-top: 36px; font-size: 23px; font-weight: 500; line-height: 1.3; letter-spacing: -.025em; }
 .nap-blog-article p { margin-top: 20px; color: var(--nap-muted); font-size: 15px; line-height: 1.9; }
 .nap-blog-article h2 + p { margin-top: 14px; }
 .nap-blog-intro { margin-bottom: 40px; }
-.nap-blog-intro h1 { font-size: 36px; font-weight: 550; letter-spacing: -.04em; }
+.nap-blog-intro h1 { font-family: var(--font-display), Arial, sans-serif; font-size: 36px; font-weight: 550; letter-spacing: -.04em; }
 .nap-blog-intro p { margin-top: 15px; color: var(--nap-muted); font-size: 14px; line-height: 1.8; }
 .nap-blog-row { display: grid; grid-template-columns: 24px 1fr; column-gap: 16px; row-gap: 10px; padding: 28px 0; border-top: 1px solid var(--nap-border); }
 .nap-blog-number { padding-top: 5px; font-size: 10px; color: var(--nap-subtle); }
-.nap-blog-row h2 { font-size: 24px; font-weight: 500; letter-spacing: -.035em; line-height: 1.2; }
+.nap-blog-row h2 { font-family: var(--font-display), Arial, sans-serif; font-size: 24px; font-weight: 500; letter-spacing: -.035em; line-height: 1.2; }
 .nap-blog-row p { grid-column: 2; color: var(--nap-muted); font-size: 13px; line-height: 1.8; }
 .nap-blog-row:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .nap-article-image { width: 100%; margin: 32px 0; }
 .nap-article-image > picture { display: block; }
-.nap-article-image img { width: 100%; height: auto; display: block; border: 1px solid var(--nap-border); border-radius: 7px; }
+.nap-article-image img { width: 100%; height: auto; display: block; border: 1px solid var(--nap-border); border-radius: 3px; }
 .nap-article-image figcaption { margin-top: 12px; font-size: 11px; line-height: 1.8; color: var(--nap-subtle); text-align: center; }
 .nap-reading-links { margin-top: 42px; padding-top: 22px; border-top: 1px solid var(--nap-border); }
 .nap-reading-links > div { display: flex; flex-wrap: wrap; gap: 16px 24px; margin-top: 14px; font-size: 13px; }
 .nap-reading-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 700px) {
-  .nap-header { height: 74px; width: 88%; }
-  .nap-home-page > .nap-hero { padding: 56px 24px 42px; }
-  .nap-copy h1 { font-size: clamp(23px, 5.5vw, 38px); }
-  .nap-description { font-size: 14px; max-width: 330px; line-height: 1.8; margin-top: 20px; }
-  .nap-action { margin-top: 24px; }
-  .nap-full-width-product { width: 92%; }
-  .nap-full-width-product img { border-radius: 6px; }
-  .nap-agents { padding-top: 26px; }
-  .nap-agents ul { gap: 10px; flex-wrap: nowrap; }
-  .nap-agents li { font-size: clamp(10px, 2.8vw, 12px); gap: 5px; }
-  .nap-agents li img { width: 18px; height: 18px; }
-  .nap-workflow { padding: 48px 0 40px; }
-  .nap-workflow-steps { grid-template-columns: 1fr; gap: 28px; }
-  .nap-workflow-steps p { margin-top: 8px; max-width: 300px; }
-  .nap-site-footer { width: 88%; padding-block: 18px 24px; }
+  .nap-header { height: 76px; width: 90%; }
+  .nap-home-page > .nap-hero { padding: 58px 0 36px; }
+  .nap-home-page > .nap-hero::before { top: 0; opacity: .2; }
+  .nap-copy h1 { font-size: clamp(24px, 5.6vw, 39px); }
+  .nap-eyebrow { font-size: 9px; margin-bottom: 20px; }
+  .nap-hero-details { flex-direction: column; align-items: flex-start; gap: 24px; margin-top: 23px; }
+  .nap-description { font-size: 14px; max-width: 350px; line-height: 1.8; }
+  .nap-full-width-product { padding: 0 8px 8px; }
+  .nap-product-label { font-size: 8px; padding-block: 12px; }
+  .nap-agents { flex-direction: column; align-items: flex-start; padding: 25px 0; gap: 18px; }
+  .nap-agents ul { gap: 18px; flex-wrap: nowrap; }
+  .nap-agents li { font-size: 12px; gap: 6px; }
+  .nap-agents li img { width: 19px; height: 19px; }
+  .nap-workflow { padding: 32px 0 42px; }
+  .nap-workflow-steps { grid-template-columns: 1fr; gap: 32px; }
+  .nap-workflow-steps article::before { margin-bottom: 15px; width: 20px; }
+  .nap-workflow-steps h2 { font-size: 21px; }
+  .nap-workflow-steps p { margin-top: 10px; max-width: 330px; }
+  .nap-site-footer { padding-block: 18px 24px; }
   .nap-article-page .nap-hero { padding-top: 38px; }
   .nap-blog-article p { font-size: 14px; line-height: 1.85; }
   .nap-blog-article h2 { font-size: 21px; }
