@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className={`contrast-page nap-home-page ${styles.page}`}>
       <StructuredData data={homeSchema()} />
-      <NapHeader />
+      <NapHeader showWaitlist />
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
           <h1 id="nap-title">Your Agents. All Together.</h1>

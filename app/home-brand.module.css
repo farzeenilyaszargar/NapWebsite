@@ -12,6 +12,8 @@
 .page :global(.nap-wordmark) { font-size: 29px; }
 .page :global(.nap-nav) { gap: 28px; }
 .page :global(.nap-docs) { font-size: 14px; }
+.page :global(.nap-nav-waitlist) { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 9px 17px; border-radius: 999px; background: #ededed; color: #151515; font-size: 12px; font-weight: 550; white-space: nowrap; }
+.page :global(.nap-nav-waitlist):hover { background: #d5d5d5; }
 .page:global(.nap-home-page) > :global(.nap-hero) { width: min(1180px, 90%); margin-inline: auto; padding: 86px 0 60px; text-align: left; }
 .page :global(.nap-copy) { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
 .page :global(.nap-copy h1) { margin-inline: 0; text-align: left; }
@@ -61,8 +63,9 @@
 .page :global(.nap-footer-bottom) { font-size: 11px; }
 @media (max-width: 700px) {
   .page :global(.nap-header) { height: 76px; }
-  .page :global(.nap-nav) { gap: 20px; }
-  .page :global(.nap-docs) { font-size: 13px; }
+  .page :global(.nap-nav) { gap: 13px; }
+  .page :global(.nap-docs) { font-size: 12px; }
+  .page :global(.nap-nav-waitlist) { font-size: 11px; padding: 8px 11px; min-height: 32px; }
   .page:global(.nap-home-page) > :global(.nap-hero) { padding: 46px 0 38px; }
   .page :global(.nap-copy h1) { font-size: clamp(23px, 5.85vw, 40px); }
   .page :global(.nap-description) { font-size: 14px; max-width: 340px; }
