@@ -36,7 +36,10 @@ export default function WaitlistForm() {
     <section className={`nap-waitlist-body${complete ? " nap-waitlist-body-complete" : ""}`} aria-labelledby="waitlist-title">
       {complete ? (
         <div className="nap-waitlist-success" role="status">
-          <h1 id="waitlist-title" tabIndex={-1} ref={(node) => node?.focus({ preventScroll: true })}>You’re On The List</h1>
+          <div className="nap-success-burst" aria-hidden="true">
+            {Array.from({ length: 10 }, (_, index) => <span key={index} />)}
+          </div>
+          <h1 id="waitlist-title" tabIndex={-1} ref={(node) => node?.focus({ preventScroll: true })}>You’re On The <span className="nap-halftone-text">List</span></h1>
         </div>
       ) : (
         <div className="nap-waitlist-panel">

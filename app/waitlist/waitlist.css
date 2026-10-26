@@ -16,6 +16,22 @@
 .nap-waitlist-form-wrap button:disabled { cursor: wait; opacity: .65; }
 .nap-waitlist-status { margin-top: 16px; color: var(--nap-error); font-size: 13px; line-height: 1.7; text-align: center; }
 .nap-waitlist-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-.nap-waitlist-success { text-align: left; }
+.nap-waitlist-success { position: relative; isolation: isolate; text-align: center; }
+.nap-waitlist-success h1 { animation: nap-success-arrive 650ms cubic-bezier(.2,.8,.2,1) both; }
+.nap-success-burst { position: absolute; left: 50%; top: 50%; z-index: -1; width: 0; height: 0; pointer-events: none; }
+.nap-success-burst span { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #111; opacity: 0; animation: nap-success-pop 1100ms cubic-bezier(.16,.8,.24,1) both; }
+.nap-success-burst span:nth-child(1) { --x: -145px; --y: -48px; }
+.nap-success-burst span:nth-child(2) { --x: -103px; --y: -83px; animation-delay: 40ms; }
+.nap-success-burst span:nth-child(3) { --x: -47px; --y: -100px; animation-delay: 80ms; }
+.nap-success-burst span:nth-child(4) { --x: 20px; --y: -96px; animation-delay: 30ms; }
+.nap-success-burst span:nth-child(5) { --x: 92px; --y: -80px; animation-delay: 70ms; }
+.nap-success-burst span:nth-child(6) { --x: 148px; --y: -40px; animation-delay: 110ms; }
+.nap-success-burst span:nth-child(7) { --x: 135px; --y: 57px; animation-delay: 60ms; }
+.nap-success-burst span:nth-child(8) { --x: 65px; --y: 90px; animation-delay: 100ms; }
+.nap-success-burst span:nth-child(9) { --x: -65px; --y: 88px; animation-delay: 50ms; }
+.nap-success-burst span:nth-child(10) { --x: -140px; --y: 50px; animation-delay: 90ms; }
+@keyframes nap-success-arrive { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes nap-success-pop { 0% { opacity: 0; transform: translate(0, 0) scale(.2); } 20% { opacity: .85; } 100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(.45); } }
+@media (prefers-reduced-motion: reduce) { .nap-waitlist-success h1 { animation: none; } .nap-success-burst { display: none; } }
 .nap-waitlist-success h1:focus { outline: none; }
 @media (max-width: 700px) { .nap-waitlist-body { padding-bottom: 110px; } }
