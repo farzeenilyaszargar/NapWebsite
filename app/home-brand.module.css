@@ -1,79 +1,81 @@
-/* Homepage-only identity: warm graphite, signal orange, and cut-paper geometry. */
+/* The homepage borrows its surfaces, controls, and proportions from the app. */
 .page {
-  --nap-background: #151715;
-  --nap-foreground: #f2f0e8;
-  --nap-muted: #b4b7ae;
-  --nap-subtle: #a7aaa1;
-  --signal: #ff784f;
+  --nap-background: #090909;
+  --nap-foreground: #f4f4f4;
+  --nap-muted: #999;
+  --nap-subtle: #888;
   background: var(--nap-background);
   overflow: clip;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
-.page :global(.nap-header) { width: min(1240px, 88%); height: 100px; }
-.page :global(.nap-wordmark) { font-size: 34px; }
-.page :global(.nap-nav) { gap: 34px; }
-.page :global(.nap-docs) { font-size: 15px; }
-.page :global(.nap-hero) { width: min(1240px, 88%); padding: 78px 0 68px; }
-.page :global(.nap-hero)::before { display: none; }
-.page :global(.nap-copy h1) { font-size: clamp(28px, 6.2vw, 87px); letter-spacing: -.07em; font-weight: 500; }
-.page :global(.nap-copy h1) span { color: var(--signal); }
-.page :global(.nap-hero-details) { margin-top: 32px; gap: 25px; }
-.page :global(.nap-description) { max-width: 430px; font-size: 16px; line-height: 1.75; }
-.page :global(.nap-download) { background: var(--signal); border-color: var(--signal); border-radius: 100px; padding: 16px 28px; font-size: 14px; font-weight: 600; color: #191a16 !important; transition: background .2s, transform .2s; }
-.page :global(.nap-download):hover { background: #ff9676; transform: translateY(-2px); }
-.heroBottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
-.signature { width: 174px; height: 104px; position: relative; flex-shrink: 0; overflow: hidden; margin-bottom: 5px; }
-.signature i { position: absolute; width: 105px; height: 104px; border: 1px solid #667064; border-radius: 52px 52px 0 0; bottom: -1px; }
-.signature i:nth-child(2) { left: 23px; border-color: #859080; }
-.signature i:nth-child(3) { left: 46px; border-color: #b3bda8; }
-.signature i:nth-child(4) { left: 69px; border-color: var(--signal); background: linear-gradient(180deg, #ff784f18, transparent); }
-.stage { width: min(1360px, 94%); margin: 0 auto; padding: 24px 5% 0; border-radius: 20px; position: relative; isolation: isolate; background: #ce5736; overflow: hidden; }
-.stage::before { content: ''; position: absolute; inset: 20% -30% -80%; border: 1px solid #f4c7a850; border-radius: 50%; box-shadow: 0 0 0 44px #f4c7a815, 0 0 0 88px #f4c7a810, 0 0 0 132px #f4c7a808; z-index: -1; }
-.stageLabel { display: flex; justify-content: space-between; gap: 16px; margin: 0 0 30px; color: #291d16; font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
-.stageLabel span:first-child::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 9px; border-radius: 50%; background: currentColor; }
-.page :global(.nap-full-width-product) { width: 100%; margin: 0 auto -8%; padding: 0; border: 0; border-radius: 12px 12px 0 0; background: #111; box-shadow: 0 24px 70px #431d1e60; overflow: hidden; }
+.page :global(.nap-header) { width: min(1180px, 90%); height: 88px; }
+.page :global(.nap-wordmark) { font-size: 29px; }
+.page :global(.nap-nav) { gap: 28px; }
+.page :global(.nap-docs) { font-size: 14px; }
+.page :global(.nap-hero) { width: min(1180px, 90%); padding: 86px 0 60px; }
+.page :global(.nap-copy h1) { font-family: inherit; font-size: clamp(25px, 5.8vw, 76px); font-weight: 550; letter-spacing: -.062em; line-height: 1.12; }
+.page :global(.nap-hero-details) { margin-top: 27px; gap: 26px; }
+.page :global(.nap-description) { max-width: 430px; font-size: 15px; line-height: 1.75; }
+.page :global(.nap-download) { min-height: 44px; background: #ededed; border: 1px solid #fff; border-radius: 9px; padding: 12px 22px; font-size: 13px; font-weight: 550; color: #151515 !important; box-shadow: 0 1px 0 #fff inset; transition: background .15s; }
+.page :global(.nap-download):hover { background: #d5d5d5; }
+.stage { width: min(1180px, 90%); margin: 0 auto; position: relative; }
+.page :global(.nap-full-width-product) { width: 100%; margin: 0; padding: 0; border: 0; border-radius: 12px; background: transparent; overflow: hidden; box-shadow: 0 28px 80px #0009; }
 .page :global(.nap-full-width-product img) { border-radius: 0; }
-.page :global(.nap-agents) { width: min(1240px, 88%); padding: 38px 0 70px; }
-.page :global(.nap-section-label) { font-family: inherit; font-size: 13px; letter-spacing: 0; }
-.page :global(.nap-agents ul) { gap: 38px; }
-.page :global(.nap-agents li) { font-size: 15px; gap: 10px; }
-.page :global(.nap-agents li img) { width: 25px; height: 25px; }
-.workflow { background: #e9e9dd; color: #232b23; padding: 76px max(6%, calc((100% - 1240px) / 2)) 80px; }
-.workflowHeading { display: flex; justify-content: space-between; gap: 32px; align-items: flex-end; margin-bottom: 54px; }
-.workflowHeading h2 { font-family: var(--font-display), sans-serif; font-size: clamp(34px, 4vw, 54px); font-weight: 500; letter-spacing: -.055em; line-height: 1.08; }
-.workflowHeading p { max-width: 260px; font-size: 14px; line-height: 1.7; color: #5c655a; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.steps article { padding: 25px 26px 30px; border-radius: 12px; background: #dfe1d3; }
-.steps h3 { margin-top: 26px; font-family: var(--font-display), sans-serif; font-size: 22px; font-weight: 500; line-height: 1.2; letter-spacing: -.04em; }
-.steps p { margin-top: 12px; max-width: 290px; font-size: 14px; line-height: 1.75; color: #586251; }
-.glyph { width: 44px; height: 44px; color: #45583c; }
-.page :global(.nap-site-footer) { width: min(1240px, 88%); padding: 32px 0; }
-.page :global(.nap-footer-bottom) { font-size: 12px; }
+.page :global(.nap-agents) { width: min(1180px, 90%); padding: 30px 0 76px; }
+.page :global(.nap-section-label) { font-family: inherit; font-size: 12px; letter-spacing: 0; }
+.page :global(.nap-agents ul) { gap: 30px; }
+.page :global(.nap-agents li) { font-size: 13px; color: #c4c4c4; gap: 8px; }
+.page :global(.nap-agents li img) { width: 22px; height: 22px; }
+.workflow { width: min(1180px, 90%); margin: 0 auto; padding: 38px 0 68px; }
+.workflowHeading { display: flex; justify-content: space-between; gap: 32px; align-items: flex-end; margin-bottom: 38px; }
+.workflowHeading h2 { font-size: clamp(30px, 3.1vw, 42px); font-weight: 500; letter-spacing: -.05em; line-height: 1.16; }
+.workflowHeading p { max-width: 265px; font-size: 13px; line-height: 1.8; color: #888; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.steps article { min-width: 0; }
+.steps h3 { margin: 23px 0 10px; font-size: 17px; font-weight: 500; line-height: 1.3; letter-spacing: -.025em; }
+.steps p { max-width: 310px; font-size: 13px; line-height: 1.8; color: #929292; }
+.detail { height: 160px; border: 1px solid #242424; border-radius: 10px; background: linear-gradient(145deg, #151515, #101010); padding: 22px; font-size: 11px; color: #aaa; overflow: hidden; }
+.projectRow { display: flex; align-items: center; gap: 9px; color: #ddd; }
+.projectRow > span:last-child { margin-left: auto; color: #666; font-size: 10px; }
+.folder { width: 14px; height: 11px; border: 1px solid #999; border-radius: 2px; position: relative; }
+.folder::before { content: ''; position: absolute; width: 6px; height: 3px; border: 1px solid #999; border-bottom: 0; top: -4px; left: 0; border-radius: 2px 2px 0 0; }
+.fileRow { margin: 16px 0; color: #777; }
+.fileRow span { padding: 0 8px; color: #444; }
+.composer { border: 1px solid #303030; border-radius: 7px; padding: 12px 10px; display: flex; justify-content: space-between; color: #777; }
+.composer span { color: #ccc; }
+.agentRows { display: flex; flex-direction: column; gap: 7px; }
+.agentRows > div { display: flex; align-items: center; gap: 9px; height: 31px; padding: 5px 10px; }
+.agentRows > div:nth-child(2) { background: #252525; border-radius: 5px; color: #eee; }
+.agentRows > div > span:last-child { margin-left: auto; }
+.agentRows img { object-fit: contain; width: 18px; height: 18px; }
+.agentRows > div:last-child img { filter: invert(1); }
+.reviewTitle { display: flex; justify-content: space-between; margin-bottom: 13px; color: #ddd; }
+.reviewTitle span { color: #666; }
+.diffLine { font-family: ui-monospace, monospace; font-size: 11px; padding: 5px 8px; background: #191919; color: #777; }
+.diffLine + .diffLine { background: #232323; color: #ddd; }
+.reviewAction { display: flex; justify-content: space-between; margin-top: 13px; font-size: 10px; color: #999; }
+.page :global(.nap-site-footer) { width: min(1180px, 90%); padding: 26px 0 30px; }
+.page :global(.nap-footer-bottom) { font-size: 11px; }
 @media (max-width: 700px) {
-  .page :global(.nap-header) { height: 82px; }
-  .page :global(.nap-wordmark) { font-size: 29px; }
+  .page :global(.nap-header) { height: 76px; }
   .page :global(.nap-nav) { gap: 20px; }
   .page :global(.nap-docs) { font-size: 13px; }
-  .page :global(.nap-hero) { padding: 48px 0 42px; }
-  .page :global(.nap-copy h1) { font-size: clamp(23px, 5.65vw, 40px); }
+  .page :global(.nap-hero) { padding: 46px 0 38px; }
+  .page :global(.nap-copy h1) { font-size: clamp(23px, 5.85vw, 40px); }
   .page :global(.nap-description) { font-size: 14px; max-width: 340px; }
-  .signature { display: none; }
-  .page :global(.nap-download) { padding: 14px 23px; }
-  .stage { width: 94%; padding: 17px 5% 0; border-radius: 12px; }
-  .stageLabel { font-size: 8px; margin-bottom: 18px; }
-  .page :global(.nap-full-width-product) { width: 160%; max-width: none; border-radius: 7px 0 0; margin-bottom: -12%; }
-  .page :global(.nap-agents) { padding: 28px 0 40px; gap: 19px; }
+  .page :global(.nap-hero-details) { margin-top: 22px; gap: 23px; }
+  .page :global(.nap-full-width-product) { width: 166%; max-width: none; border-radius: 8px; }
+  .page :global(.nap-agents) { padding: 28px 0 44px; gap: 18px; }
   .page :global(.nap-agents ul) { gap: 20px; }
   .page :global(.nap-agents li) { font-size: 12px; gap: 7px; }
   .page :global(.nap-agents li img) { width: 20px; height: 20px; }
-  .workflow { padding: 42px 6%; }
+  .workflow { padding: 20px 0 44px; }
   .workflowHeading { display: block; margin-bottom: 28px; }
-  .workflowHeading p { margin-top: 20px; }
-  .steps { grid-template-columns: 1fr; gap: 12px; }
-  .steps article { padding: 24px; }
+  .workflowHeading p { margin-top: 18px; max-width: 290px; }
+  .steps { grid-template-columns: 1fr; gap: 32px; }
   .steps h3 { margin-top: 18px; }
   .steps p { max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .page :global(.nap-download) { transition: none; }
-  .page :global(.nap-download):hover { transform: none; }
 }

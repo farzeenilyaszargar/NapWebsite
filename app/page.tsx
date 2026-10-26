@@ -17,20 +17,16 @@ export default function Home() {
       <NapHeader />
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
-          <h1 id="nap-title">Your Agents. <span>All Together.</span></h1>
-          <div className={styles.heroBottom}>
+          <h1 id="nap-title">Your Agents. All Together.</h1>
             <div className="nap-hero-details">
               <p className="nap-description">A native Mac app for working with your coding agents. Keep your projects, conversations, and code changes together.</p>
               <div className="nap-action"><NapWaitlistCta /></div>
             </div>
-            <div className={styles.signature} aria-hidden="true"><i /><i /><i /><i /></div>
-          </div>
         </div>
       </section>
       <div className={styles.stage}>
-        <div className={styles.stageLabel}><span>A little less friction</span><span>Made for Mac</span></div>
       <figure className="nap-full-width-product">
-        <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 700px) 144vw, (max-width: 1440px) 84vw, 1224px" />
+        <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 700px) 150vw, (max-width: 1320px) 90vw, 1180px" />
       </figure>
       </div>
       <section className="nap-agents nap-section" aria-labelledby="agents-title">
@@ -44,16 +40,27 @@ export default function Home() {
         </div>
         <div className={styles.steps}>
           <article>
-            <svg className={styles.glyph} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M7 16V10h13l5 6h16v24H7Z" /><path d="M7 23h34M15 31h10" /></svg>
-            <h3>Bring your project.</h3><p>Open your codebase and describe what you want to build, fix, or understand.</p>
+            <div className={styles.detail} aria-hidden="true">
+              <div className={styles.projectRow}><span className={styles.folder} /> Your project <span>⌘ O</span></div>
+              <div className={styles.fileRow}>src <span>/</span> components <span>/</span></div>
+              <div className={styles.composer}>What would you like to build?<span>↑</span></div>
+            </div>
+            <h3>Start where you are.</h3><p>Open your codebase and describe what you want to build, fix, or understand.</p>
           </article>
           <article>
-            <svg className={styles.glyph} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><rect x="5" y="12" width="22" height="29" rx="11" /><rect x="15" y="8" width="22" height="29" rx="11" /><rect x="25" y="4" width="18" height="29" rx="9" /></svg>
-            <h3>Choose your agent.</h3><p>Work with the coding agent you know, in one familiar interface built around your project.</p>
+            <div className={styles.detail} aria-hidden="true">
+              <div className={styles.agentRows}>{codingAgents.map(({ name, logo }) => <div key={name}><img src={logo} width={18} height={18} alt="" loading="lazy" /><span>{name}</span><span>{name === "Claude Code" ? "✓" : ""}</span></div>)}</div>
+            </div>
+            <h3>Your choice of agent.</h3><p>Work with the coding agent you know, with your project and conversation in the same place.</p>
           </article>
           <article>
-            <svg className={styles.glyph} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><rect x="6" y="7" width="36" height="34" rx="3" /><path d="M6 17h36M15 25h10M15 32h6m8-1 4 4 9-10" /></svg>
-            <h3>Make it yours.</h3><p>Review the code changes, ask a follow-up, and decide what comes next. Stay close to the work.</p>
+            <div className={styles.detail} aria-hidden="true">
+              <div className={styles.reviewTitle}>Changes <span>2 files</span></div>
+              <div className={styles.diffLine}>− &nbsp;The first draft.</div>
+              <div className={styles.diffLine}>+ &nbsp;Something better.</div>
+              <div className={styles.reviewAction}>Review changes <span>↗</span></div>
+            </div>
+            <h3>Keep moving forward.</h3><p>See what changed, ask a follow-up, and decide what comes next. You stay in control.</p>
           </article>
         </div>
       </section>
