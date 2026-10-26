@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Space_Grotesk } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
+import "./halftone.css";
 
 const displayFont = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 
