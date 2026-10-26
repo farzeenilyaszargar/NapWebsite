@@ -179,3 +179,30 @@
 .page :global(.nap-agents) { flex-direction: column; align-items: center; gap: 22px; text-align: center; }
 .page :global(.nap-agents ul) { flex-direction: row; align-items: center; justify-content: center; gap: 28px; }
 @media (max-width: 700px) { .page :global(.nap-agents ul) { gap: 20px; } }
+
+/* Independent dot groups shimmer without moving the text or repainting every frame. */
+@media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+  .heroDots {
+    --dot-step: 3px;
+    --dot-a: #111;
+    --dot-b: #444;
+    --dot-c: #222;
+    --dot-d: #555;
+    background-image:
+      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-a) 1.1px, transparent 1.3px),
+      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-b) 1.1px, transparent 1.3px),
+      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-c) 1.1px, transparent 1.3px),
+      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-d) 1.1px, transparent 1.3px);
+    background-size: calc(var(--dot-step) * 2) calc(var(--dot-step) * 2);
+    background-position: 0 0, var(--dot-step) 0, 0 var(--dot-step), var(--dot-step) var(--dot-step);
+    animation: nap-dot-shimmer 4.8s steps(1, end) infinite;
+  }
+  @keyframes nap-dot-shimmer {
+    0%, 100% { --dot-a: #111; --dot-b: #444; --dot-c: #222; --dot-d: #555; }
+    20% { --dot-a: #333; --dot-b: #222; --dot-c: #555; --dot-d: #333; }
+    40% { --dot-a: #555; --dot-b: #333; --dot-c: #111; --dot-d: #444; }
+    60% { --dot-a: #222; --dot-b: #555; --dot-c: #444; --dot-d: #111; }
+    80% { --dot-a: #444; --dot-b: #111; --dot-c: #333; --dot-d: #222; }
+  }
+}
+@media (max-width: 700px) and (prefers-reduced-motion: no-preference) { .heroDots { --dot-step: 2.5px; } }
