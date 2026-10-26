@@ -19,7 +19,7 @@
 .page :global(.nap-copy h1) { font-family: inherit; font-size: clamp(25px, 5.8vw, 76px); font-weight: 550; letter-spacing: -.062em; line-height: 1.12; }
 .page :global(.nap-hero-details) { width: 100%; align-items: flex-start; margin: 27px 0 0; gap: 26px; text-align: left; }
 .page :global(.nap-description) { max-width: 430px; font-size: 15px; line-height: 1.75; }
-.page :global(.nap-download) { min-height: 44px; background: #ededed; border: 1px solid #fff; border-radius: 9px; padding: 12px 22px; font-size: 13px; font-weight: 550; color: #151515 !important; box-shadow: 0 1px 0 #fff inset; transition: background .15s; }
+.page :global(.nap-download) { min-height: 44px; background: #ededed; border: 1px solid #fff; border-radius: 999px; padding: 12px 22px; font-size: 13px; font-weight: 550; color: #151515 !important; box-shadow: 0 1px 0 #fff inset; transition: background .15s; }
 .page :global(.nap-download):hover { background: #d5d5d5; }
 .stage { width: min(1180px, 90%); margin: 0 auto; position: relative; }
 .page :global(.nap-full-width-product) { width: 100%; margin: 0; padding: 0; border: 0; border-radius: 12px; background: transparent; overflow: hidden; box-shadow: 0 28px 80px #0009; }
