@@ -183,26 +183,28 @@
 /* Independent dot groups shimmer without moving the text or repainting every frame. */
 @media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
   .heroDots {
-    --dot-step: 3px;
-    --dot-a: #111;
-    --dot-b: #444;
-    --dot-c: #222;
-    --dot-d: #555;
+    --dot-step: 4px;
+    --dot-radius: 1.45px;
+    --dot-edge: 1.65px;
+    --dot-a: #000;
+    --dot-b: rgb(0 0 0 / .1);
+    --dot-c: rgb(0 0 0 / .5);
+    --dot-d: rgb(0 0 0 / .8);
     background-image:
-      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-a) 1.1px, transparent 1.3px),
-      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-b) 1.1px, transparent 1.3px),
-      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-c) 1.1px, transparent 1.3px),
-      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-d) 1.1px, transparent 1.3px);
+      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-a) var(--dot-radius), transparent var(--dot-edge)),
+      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-b) var(--dot-radius), transparent var(--dot-edge)),
+      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-c) var(--dot-radius), transparent var(--dot-edge)),
+      radial-gradient(circle at calc(var(--dot-step) / 2) calc(var(--dot-step) / 2), var(--dot-d) var(--dot-radius), transparent var(--dot-edge));
     background-size: calc(var(--dot-step) * 2) calc(var(--dot-step) * 2);
     background-position: 0 0, var(--dot-step) 0, 0 var(--dot-step), var(--dot-step) var(--dot-step);
-    animation: nap-dot-shimmer 4.8s steps(1, end) infinite;
+    animation: nap-dot-shimmer 3.2s steps(1, end) infinite;
   }
   @keyframes nap-dot-shimmer {
-    0%, 100% { --dot-a: #111; --dot-b: #444; --dot-c: #222; --dot-d: #555; }
-    20% { --dot-a: #333; --dot-b: #222; --dot-c: #555; --dot-d: #333; }
-    40% { --dot-a: #555; --dot-b: #333; --dot-c: #111; --dot-d: #444; }
-    60% { --dot-a: #222; --dot-b: #555; --dot-c: #444; --dot-d: #111; }
-    80% { --dot-a: #444; --dot-b: #111; --dot-c: #333; --dot-d: #222; }
+    0%, 100% { --dot-a: #000; --dot-b: rgb(0 0 0 / .1); --dot-c: rgb(0 0 0 / .5); --dot-d: rgb(0 0 0 / .8); }
+    20% { --dot-a: rgb(0 0 0 / .15); --dot-b: #000; --dot-c: rgb(0 0 0 / .8); --dot-d: rgb(0 0 0 / .4); }
+    40% { --dot-a: rgb(0 0 0 / .7); --dot-b: rgb(0 0 0 / .35); --dot-c: #000; --dot-d: rgb(0 0 0 / .1); }
+    60% { --dot-a: rgb(0 0 0 / .1); --dot-b: rgb(0 0 0 / .7); --dot-c: rgb(0 0 0 / .35); --dot-d: #000; }
+    80% { --dot-a: #000; --dot-b: rgb(0 0 0 / .15); --dot-c: rgb(0 0 0 / .7); --dot-d: rgb(0 0 0 / .35); }
   }
 }
-@media (max-width: 700px) and (prefers-reduced-motion: no-preference) { .heroDots { --dot-step: 2.5px; } }
+@media (max-width: 700px) and (prefers-reduced-motion: no-preference) { .heroDots { --dot-step: 3px; --dot-radius: 1.1px; --dot-edge: 1.3px; } }
