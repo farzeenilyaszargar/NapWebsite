@@ -23,10 +23,9 @@
 .nap-home-page > .nap-hero { position: relative; isolation: isolate; width: min(1120px, 90%); margin-inline: auto; padding: 96px 0 54px; text-align: left; }
 .nap-home-page > .nap-hero::before { content: ""; position: absolute; z-index: -1; pointer-events: none; width: 480px; height: 240px; max-width: 62%; right: 0; top: 16px; background: url("/nap-dither-field.svg") right top / 480px 240px no-repeat; opacity: .35; }
 .nap-copy { width: 100%; }
-.nap-eyebrow, .nap-product-label, .nap-section-label, .nap-blog-label, .nap-blog-number { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-.nap-eyebrow { margin-bottom: 24px; color: var(--nap-subtle); font-size: 10px; line-height: 1.8; letter-spacing: .12em; }
+.nap-product-label, .nap-section-label, .nap-blog-label, .nap-blog-number { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .nap-copy h1 { font-family: var(--font-display), Arial, sans-serif; font-size: clamp(26px, 5.7vw, 78px); white-space: nowrap; font-weight: 500; letter-spacing: -.065em; line-height: 1.08; }
-.nap-hero-details { display: flex; align-items: flex-end; justify-content: space-between; gap: 36px; margin-top: 30px; }
+.nap-hero-details { display: flex; flex-direction: column; align-items: flex-start; gap: 26px; margin-top: 30px; }
 .nap-description { max-width: 420px; margin: 0; font-size: 15px; color: var(--nap-muted); line-height: 1.8; letter-spacing: -.01em; }
 .nap-action { flex-shrink: 0; display: flex; justify-content: flex-start; }
 .nap-download { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 13px 24px; border: 1px solid var(--nap-foreground); border-radius: 3px; background: var(--nap-foreground); color: #151510 !important; font-size: 13px; font-weight: 550; line-height: 1.4; }
@@ -40,8 +39,8 @@
 .nap-section-label { font-size: 10px; font-weight: 400; line-height: 1.8; color: var(--nap-subtle); letter-spacing: .025em; }
 .nap-agents ul { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 22px 32px; margin: 0; padding: 0; list-style: none; }
 .nap-agents li { display: flex; align-items: center; gap: 8px; color: #cfcdc4; font-size: 13px; font-weight: 450; white-space: nowrap; }
-.nap-agents li img { width: 22px; height: 22px; object-fit: contain; filter: grayscale(1); }
-.nap-agents li[data-agent="Cursor"] img, .nap-agents li[data-agent="OpenCode"] img { filter: grayscale(1) invert(1); }
+.nap-agents li img { width: 22px; height: 22px; object-fit: contain; filter: none; }
+.nap-agents li[data-agent="Cursor"] img, .nap-agents li[data-agent="OpenCode"] img { filter: invert(1); }
 .nap-agents li[data-agent="OpenCode"] img { width: 19px; height: 19px; }
 .nap-workflow { padding: 64px 0 75px; text-align: left; }
 .nap-workflow-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 52px; }
@@ -78,7 +77,6 @@
   .nap-home-page > .nap-hero { padding: 58px 0 36px; }
   .nap-home-page > .nap-hero::before { top: 0; opacity: .2; }
   .nap-copy h1 { font-size: clamp(24px, 5.6vw, 39px); }
-  .nap-eyebrow { font-size: 9px; margin-bottom: 20px; }
   .nap-hero-details { flex-direction: column; align-items: flex-start; gap: 24px; margin-top: 23px; }
   .nap-description { font-size: 14px; max-width: 350px; line-height: 1.8; }
   .nap-full-width-product { padding: 0 8px 8px; }
