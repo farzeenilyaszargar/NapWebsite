@@ -2,7 +2,7 @@
 
 import NextError from "next/error";
 import { useEffect } from "react";
-import posthog from "posthog-js";
+import { captureClientException } from "./lib/analytics";
 
 export default function GlobalError({
   error,
@@ -11,9 +11,7 @@ export default function GlobalError({
   reset: () => void;
 }) {
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_POSTHOG_KEY && process.env.NEXT_PUBLIC_POSTHOG_HOST) {
-      posthog.captureException(error);
-    }
+    void captureClientException(error);
   }, [error]);
 
   return (

@@ -1,12 +1,9 @@
 import { site, pages, pageMetadata, siteSchema, indexing } from "./lib/seo";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Space_Grotesk } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
 import "./halftone.css";
-
-const displayFont = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),
@@ -32,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${displayFont.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
       <head>
         <Script id="x-conversion-pixel" strategy="afterInteractive">{`

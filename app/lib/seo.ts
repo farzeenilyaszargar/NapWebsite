@@ -17,7 +17,7 @@ export const site = {
 export const pages = {
   home: {
     path: "/", title: site.title, description: site.description,
-    keywords: ["AI coding app for Mac", "AI coding workspace", "coding agent interface", "agentic coding", "Claude Code", "Codex", "Cursor", "OpenCode", "Grok Bot"],
+    keywords: ["AI coding app for Mac", "AI coding workspace", "coding agent interface", "agentic coding", "Claude Code", "Codex", "Cursor"],
   },
   blogs: {
     path: "/blogs", title: pageTitle("Blogs"),
@@ -51,6 +51,8 @@ type Page = (typeof pages)[keyof typeof pages];
 const absolute = (path: string) => new URL(path, site.url).toString();
 const organizationId = `${site.url}/#organization`;
 const websiteId = `${site.url}/#website`;
+const authorId = `${site.url}/#author`;
+const author = { "@type": "Person", "@id": authorId, name: "@farilyaz", url: "https://x.com/farilyaz", sameAs: ["https://x.com/farilyaz"] };
 
 export const indexing: Metadata["robots"] = {
   index: isIndexable,
@@ -62,6 +64,7 @@ export function pageMetadata(page: Page, article = false): Metadata {
   return {
     title: { absolute: page.title },
     description: page.description,
+    ...(article ? { authors: [{ name: "@farilyaz", url: "https://x.com/farilyaz" }] } : {}),
     keywords: [...brandKeywords, ...page.keywords],
     alternates: { canonical: page.path },
     openGraph: {
@@ -76,7 +79,7 @@ export function pageMetadata(page: Page, article = false): Metadata {
     twitter: {
       card: "summary_large_image",
       site: "@nap_cx",
-      creator: "@nap_cx",
+      creator: article ? "@farilyaz" : "@nap_cx",
       title: page.title,
       description: page.description,
       images: [{ url: site.image, alt: "Nap — Native AI coding app for Mac" }],
@@ -91,6 +94,7 @@ export function siteSchema() {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Organization", "@id": organizationId, name: site.name, alternateName: site.alternateName, url: site.url, logo: { "@type": "ImageObject", url: absolute(site.logo), width: 256, height: 256 }, sameAs: ["https://x.com/nap_cx"] },
+      author,
       { "@type": "WebSite", "@id": websiteId, name: site.name, alternateName: [site.alternateName, "nap.cx"], url: site.url, description: site.description, publisher: { "@id": organizationId }, inLanguage: "en" },
     ],
   };
@@ -158,7 +162,7 @@ export function articleSchema(page: typeof pages.story | typeof pages.why) {
         description: page.description, url: absolute(page.path),
         image: { "@type": "ImageObject", url: absolute(site.image), width: 1200, height: 630 },
         mainEntityOfPage: { "@id": `${absolute(page.path)}#webpage` },
-        author: { "@id": organizationId }, publisher: { "@id": organizationId },
+        author: { "@id": authorId }, publisher: { "@id": organizationId },
         isPartOf: { "@id": `${site.url}/blogs#blog` }, about: { "@id": `${site.url}/#app` }, inLanguage: "en",
       },
     ],

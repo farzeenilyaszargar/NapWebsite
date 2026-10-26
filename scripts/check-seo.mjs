@@ -58,7 +58,8 @@ for (const [file, path, title] of routes) {
   if (path.startsWith("/blogs/")) {
     const article = entities.find((entity) => entity["@type"] === "BlogPosting");
     assert.ok(article.image.url.startsWith(origin));
-    assert.ok(article.author["@id"].endsWith("#organization"));
+    assert.equal(article.author["@id"], `${origin}/#author`);
+    assert.ok(entities.some((entity) => entity["@id"] === article.author["@id"] && entity["@type"] === "Person" && entity.url === "https://x.com/farilyaz"));
     assert.ok(internal.includes("/"), "article publisher homepage is reachable");
   }
   for (const entity of entities) {

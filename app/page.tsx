@@ -35,7 +35,7 @@ export default function Home() {
       <section className={styles.workflow} aria-labelledby="workflow-title">
         <div className={styles.workflowHeading}>
           <h2 id="workflow-title"><span className={styles.halftoneTitle}>Less setup.</span><br />More getting somewhere.</h2>
-          <p>From the first thought to the next change. A calmer place to work with your agents.</p>
+          <p>Nap brings your AI coding agents into one native Mac app. Keep your projects, conversations, and code changes together.</p>
         </div>
         <div className={styles.steps}>
           <article>

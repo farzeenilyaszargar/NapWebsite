@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import posthog from "posthog-js";
+import { captureWaitlistSignup } from "../lib/analytics";
 
 type Submission = { status: "idle" | "pending" | "success" | "error"; message: string };
 
@@ -22,9 +22,7 @@ export default function WaitlistForm() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Couldn’t save your spot. Please try again.");
-      if (process.env.NEXT_PUBLIC_POSTHOG_KEY && process.env.NEXT_PUBLIC_POSTHOG_HOST) {
-        try { posthog.capture("waitlist_joined"); } catch { /* Signup already succeeded. */ }
-      }
+      void captureWaitlistSignup();
       setSubmission({ status: "success", message: "" });
     } catch (error) {
       setSubmission({ status: "error", message: error instanceof Error && error.name !== "TimeoutError" && error.name !== "TypeError" ? error.message : "Couldn’t connect. Please try again in a moment." });
