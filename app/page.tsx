@@ -63,7 +63,13 @@ export default function Home() {
           </article>
         </div>
       </section>
-      <NapFooter />
+      <div className={styles.closing}>
+        <section className={styles.tryNap} aria-labelledby="try-nap-title">
+          <h2 id="try-nap-title">Try out Nap.</h2>
+          <NapWaitlistCta />
+        </section>
+        <NapFooter />
+      </div>
     </main>
   );
 }
