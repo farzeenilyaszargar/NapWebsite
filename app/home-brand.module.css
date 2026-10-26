@@ -1,9 +1,9 @@
 /* The homepage borrows its surfaces, controls, and proportions from the app. */
 .page {
-  --nap-background: #090909;
-  --nap-foreground: #f4f4f4;
-  --nap-muted: #999;
-  --nap-subtle: #888;
+  --nap-background: #fff;
+  --nap-foreground: #141414;
+  --nap-muted: #626262;
+  --nap-subtle: #707070;
   background: var(--nap-background);
   overflow: clip;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -12,8 +12,8 @@
 .page :global(.nap-wordmark) { font-size: 29px; }
 .page :global(.nap-nav) { gap: 28px; }
 .page :global(.nap-docs) { font-size: 14px; }
-.page :global(.nap-nav-waitlist) { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 9px 17px; border-radius: 999px; background: #ededed; color: #151515; font-size: 12px; font-weight: 550; white-space: nowrap; }
-.page :global(.nap-nav-waitlist):hover { background: #d5d5d5; }
+.page :global(.nap-nav-waitlist) { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 9px 17px; border-radius: 999px; background: #151515; color: #fff; font-size: 12px; font-weight: 550; white-space: nowrap; }
+.page :global(.nap-nav-waitlist):hover { background: #333; }
 .page:global(.nap-home-page) > :global(.nap-hero) { width: min(1180px, 90%); margin-inline: auto; padding: 86px 0 60px; text-align: left; }
 .page :global(.nap-copy) { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
 .page :global(.nap-copy h1) { margin-inline: 0; text-align: left; }
@@ -21,44 +21,44 @@
 .page :global(.nap-copy h1) { font-family: inherit; font-size: clamp(25px, 5.8vw, 76px); font-weight: 550; letter-spacing: -.062em; line-height: 1.12; }
 .page :global(.nap-hero-details) { width: 100%; align-items: flex-start; margin: 27px 0 0; gap: 26px; text-align: left; }
 .page :global(.nap-description) { max-width: 430px; font-size: 15px; line-height: 1.75; }
-.page :global(.nap-download) { min-height: 44px; background: #ededed; border: 1px solid #fff; border-radius: 999px; padding: 12px 22px; font-size: 13px; font-weight: 550; color: #151515 !important; box-shadow: 0 1px 0 #fff inset; transition: background .15s; }
-.page :global(.nap-download):hover { background: #d5d5d5; }
+.page :global(.nap-download) { min-height: 44px; background: #151515; border: 1px solid #151515; border-radius: 999px; padding: 12px 22px; font-size: 13px; font-weight: 550; color: #fff !important; box-shadow: none; transition: background .15s; }
+.page :global(.nap-download):hover { background: #333; }
 .stage { width: min(1180px, 90%); margin: 0 auto; position: relative; }
-.page :global(.nap-full-width-product) { width: 100%; margin: 0; padding: 0; border: 0; border-radius: 12px; background: transparent; overflow: hidden; box-shadow: 0 28px 80px #0009; }
+.page :global(.nap-full-width-product) { width: 100%; margin: 0; padding: 0; border: 0; border-radius: 12px; background: transparent; overflow: hidden; box-shadow: 0 22px 65px #00000014; }
 .page :global(.nap-full-width-product img) { border-radius: 0; }
 .page :global(.nap-agents) { width: min(1180px, 90%); padding: 30px 0 76px; }
 .page :global(.nap-section-label) { font-family: inherit; font-size: 12px; letter-spacing: 0; }
 .page :global(.nap-agents ul) { gap: 30px; }
-.page :global(.nap-agents li) { font-size: 13px; color: #c4c4c4; gap: 8px; }
+.page :global(.nap-agents li) { font-size: 13px; color: #333; gap: 8px; }
 .page :global(.nap-agents li img) { width: 22px; height: 22px; }
 .workflow { width: min(1180px, 90%); margin: 0 auto; padding: 38px 0 68px; }
 .workflowHeading { display: flex; justify-content: space-between; gap: 32px; align-items: flex-end; margin-bottom: 38px; }
 .workflowHeading h2 { font-size: clamp(30px, 3.1vw, 42px); font-weight: 500; letter-spacing: -.05em; line-height: 1.16; }
-.workflowHeading p { max-width: 265px; font-size: 13px; line-height: 1.8; color: #888; }
+.workflowHeading p { max-width: 265px; font-size: 13px; line-height: 1.8; color: #666; }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .steps article { min-width: 0; }
 .steps h3 { margin: 23px 0 10px; font-size: 17px; font-weight: 500; line-height: 1.3; letter-spacing: -.025em; }
-.steps p { max-width: 310px; font-size: 13px; line-height: 1.8; color: #929292; }
-.detail { height: 160px; border: 1px solid #242424; border-radius: 10px; background: linear-gradient(145deg, #151515, #101010); padding: 22px; font-size: 11px; color: #aaa; overflow: hidden; }
-.projectRow { display: flex; align-items: center; gap: 9px; color: #ddd; }
+.steps p { max-width: 310px; font-size: 13px; line-height: 1.8; color: #626262; }
+.detail { height: 160px; border: 1px solid #e4e4e4; border-radius: 10px; background: linear-gradient(145deg, #fafafa, #f5f5f5); padding: 22px; font-size: 11px; color: #666; overflow: hidden; }
+.projectRow { display: flex; align-items: center; gap: 9px; color: #333; }
 .projectRow > span:last-child { margin-left: auto; color: #666; font-size: 10px; }
 .folder { width: 14px; height: 11px; border: 1px solid #999; border-radius: 2px; position: relative; }
 .folder::before { content: ''; position: absolute; width: 6px; height: 3px; border: 1px solid #999; border-bottom: 0; top: -4px; left: 0; border-radius: 2px 2px 0 0; }
 .fileRow { margin: 16px 0; color: #777; }
 .fileRow span { padding: 0 8px; color: #444; }
-.composer { border: 1px solid #303030; border-radius: 7px; padding: 12px 10px; display: flex; justify-content: space-between; color: #777; }
-.composer span { color: #ccc; }
+.composer { border: 1px solid #ddd; border-radius: 7px; padding: 12px 10px; display: flex; justify-content: space-between; color: #777; }
+.composer span { color: #444; }
 .agentRows { display: flex; flex-direction: column; gap: 7px; }
 .agentRows > div { display: flex; align-items: center; gap: 9px; height: 31px; padding: 5px 10px; }
-.agentRows > div:nth-child(2) { background: #252525; border-radius: 5px; color: #eee; }
+.agentRows > div:nth-child(2) { background: #eaeaea; border-radius: 5px; color: #222; }
 .agentRows > div > span:last-child { margin-left: auto; }
 .agentRows img { object-fit: contain; width: 18px; height: 18px; }
-.agentRows > div:last-child img { filter: invert(1); }
-.reviewTitle { display: flex; justify-content: space-between; margin-bottom: 13px; color: #ddd; }
+.agentRows > div:last-child img { filter: none; }
+.reviewTitle { display: flex; justify-content: space-between; margin-bottom: 13px; color: #333; }
 .reviewTitle span { color: #666; }
-.diffLine { font-family: ui-monospace, monospace; font-size: 11px; padding: 5px 8px; background: #191919; color: #777; }
-.diffLine + .diffLine { background: #232323; color: #ddd; }
-.reviewAction { display: flex; justify-content: space-between; margin-top: 13px; font-size: 10px; color: #999; }
+.diffLine { font-family: ui-monospace, monospace; font-size: 11px; padding: 5px 8px; background: #eee; color: #777; }
+.diffLine + .diffLine { background: #e3e3e3; color: #333; }
+.reviewAction { display: flex; justify-content: space-between; margin-top: 13px; font-size: 10px; color: #666; }
 .page :global(.nap-site-footer) { width: min(1180px, 90%); padding: 26px 0 30px; }
 .page :global(.nap-footer-bottom) { font-size: 11px; }
 @media (max-width: 700px) {
@@ -87,7 +87,7 @@
 }
 
 /* Anchor the artwork to the CTA so the fingertip gap follows the button. */
-.page { --nap-background: #000; }
+.page { --nap-background: #fff; }
 .page:global(.nap-home-page) > :global(.nap-hero) {
   width: 100%;
   padding: 90px 5% 175px;
@@ -111,6 +111,7 @@
   left: 50%;
   transform: translate(-47.5%, -51%);
   background: url('/nap-reaching-hands.png') center / 100% 100% no-repeat;
+  filter: invert(1);
   opacity: .35;
 }
 @media (max-width: 700px) {
