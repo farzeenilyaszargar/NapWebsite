@@ -16,16 +16,6 @@ export default function Home() {
       <NapHeader />
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
-          <div className="nap-signature" aria-hidden="true">
-            <svg width="112" height="64" viewBox="0 0 112 64" fill="none">
-              <path d="M18 10V15C18 30 56 20 56 39M94 10V15C94 30 56 20 56 39" stroke="#494b53" strokeWidth="1" />
-              <path d="M56 10V39" stroke="#8b8d96" strokeWidth="1" />
-              <circle cx="18" cy="7" r="3" fill="var(--nap-background)" stroke="#767982" />
-              <circle cx="56" cy="7" r="3" fill="#d4d5db" />
-              <circle cx="94" cy="7" r="3" fill="var(--nap-background)" stroke="#767982" />
-            </svg>
-            <span className="nap-signature-mark" />
-          </div>
           <h1 id="nap-title">Your Agents. All Together.</h1>
           <p className="nap-description">A native Mac app for working with your coding agents. Keep your projects, conversations, and code changes together.</p>
           <div className="nap-action"><NapWaitlistCta /></div>
