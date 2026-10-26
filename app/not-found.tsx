@@ -1,3 +1,4 @@
+import NapFooter from "./components/nap-footer";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { pageTitle } from "./lib/seo";
@@ -27,6 +28,7 @@ export default function NotFound() {
         <p className="nap-lost-description">The page you’re looking for isn’t here.</p>
         <Link href="/" className="nap-download nap-lost-home">Back to home</Link>
       </section>
+      <NapFooter />
     </main>
   );
 }

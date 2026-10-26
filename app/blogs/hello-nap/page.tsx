@@ -1,3 +1,4 @@
+import NapFooter from "../../components/nap-footer";
 import StructuredData from "../../components/structured-data";
 import { pages, pageMetadata, articleSchema } from "../../lib/seo";
 import NapReadingLinks from "../../components/nap-reading-links";
@@ -15,7 +16,7 @@ export default function WhyWeStartedPost() {
       <section className="nap-hero">
         <article className="nap-blog-article">
           <span className="nap-blog-label">BY <Link href={pages.home.path} className="nap-inline-link">NAP</Link> · 2 MIN READ</span>
-          <h1>Why We Started</h1>
+          <h1><span className="nap-halftone-text">Why</span> We Started</h1>
           <p>We started Nap to make building with coding agents feel straightforward. Open an app, choose a project, and tell an agent what you want to do. Read its response, look at the changes, and decide what happens next. That whole loop belongs in one place.</p>
           <p>A native interface gives that work a home: your projects, your conversations, and the changes taking shape around them.</p>
 
@@ -37,6 +38,7 @@ export default function WhyWeStartedPost() {
           <NapReadingLinks current={pages.story.path} />
         </article>
       </section>
+      <NapFooter />
     </main>
   );
 }

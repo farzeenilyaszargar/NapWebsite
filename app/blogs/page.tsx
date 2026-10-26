@@ -1,3 +1,4 @@
+import NapFooter from "../components/nap-footer";
 import StructuredData from "../components/structured-data";
 import { pages, pageMetadata, blogSchema } from "../lib/seo";
 import Link from "next/link";
@@ -14,7 +15,7 @@ export default function BlogsPage() {
       <section className="nap-hero">
         <div className="nap-blog-index">
           <div className="nap-blog-intro">
-            <h1>BLOGS.</h1>
+            <h1><span className="nap-halftone-text">Blogs.</span></h1>
             <p>Notes on what we’re building.<br />And why it matters to us.</p>
           </div>
           <Link className="nap-blog-row" href="/blogs/hello-nap">
@@ -29,6 +30,7 @@ export default function BlogsPage() {
           </Link>
         </div>
       </section>
+      <NapFooter />
     </main>
   );
 }

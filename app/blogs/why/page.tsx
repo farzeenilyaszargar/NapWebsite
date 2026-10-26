@@ -1,3 +1,4 @@
+import NapFooter from "../../components/nap-footer";
 import StructuredData from "../../components/structured-data";
 import { pages, pageMetadata, articleSchema } from "../../lib/seo";
 import NapProductImage from "../../components/nap-product-image";
@@ -16,7 +17,7 @@ export default function WhyPost() {
       <section className="nap-hero">
         <article className="nap-blog-article">
           <span className="nap-blog-label">BY <Link href={pages.home.path} className="nap-inline-link">NAP</Link> · 2 MIN READ</span>
-          <h1>Why This?</h1>
+          <h1><span className="nap-halftone-text">Why</span> This?</h1>
           <p>Nap is a native AI coding workspace for Mac that brings your coding agents, project conversations, and code review into one app.</p>
           <p>A good coding session has a simple rhythm. You describe a goal, work through it with an agent, and review what changed. Nap puts that rhythm at the center of a native app.</p>
           <p>Your project, the conversation, and the work that follows all share the same space. You can stay with the problem from the first question to the next change.</p>
@@ -31,7 +32,7 @@ export default function WhyPost() {
           <p>A clear starting point helps: what should happen, what happens today, and which details matter. The conversation gives you room to refine that request as you learn more.</p>
 
           <h2>Choose the agent that fits.</h2>
-          <p>Claude Code, Codex, Cursor, OpenCode, and Grok Bot each have a place in the way people build. Nap brings those choices into one native workspace.</p>
+          <p>Claude Code, Codex, and Cursor each have a place in the way people build. Nap brings those choices into one native workspace.</p>
           <p>You can follow a familiar flow around your project and conversation while working with the agent you prefer. The interface gives that work a consistent shape.</p>
 
           <h2>See the work. Make the call.</h2>
@@ -44,6 +45,7 @@ export default function WhyPost() {
           <NapReadingLinks current={pages.why.path} />
         </article>
       </section>
+      <NapFooter />
     </main>
   );
 }

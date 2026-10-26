@@ -6,11 +6,6 @@
 .contrast-page .nap-blog-label, .contrast-page .nap-blog-number, .contrast-page .nap-section-label, .contrast-page .nap-footer-copyright { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: .02em; }
 .contrast-page .nap-blog-row { border-top: 0; }
 .contrast-page .nap-blog-intro h1, .contrast-page .nap-blog-article h1 { letter-spacing: -.055em; }
-.contrast-page .nap-blog-article > .nap-blog-label::before, .contrast-page .nap-blog-intro::before, .contrast-page .nap-waitlist-intro::before, .contrast-page .nap-apply-closed > div::before {
-  content: ''; display: block; width: 42px; height: 26px; margin-bottom: 25px;
-  background: radial-gradient(circle, #111 1.5px, transparent 1.7px) left top / 6px 6px;
-  mask-image: linear-gradient(90deg, #000 45%, transparent);
-}
 .contrast-page .nap-waitlist-field input { border-radius: 0; border: 0; border-bottom: 1px solid #aaa; padding-inline: 0; background: #fff; }
 .contrast-page .nap-waitlist-field input:focus { border-bottom-color: #111; }
 .contrast-page .nap-waitlist-form-wrap button, .contrast-page .nap-lost-home { border-radius: 999px; }
@@ -26,3 +21,37 @@
   .contrast-page .nap-header .nap-docs { font-size: 12px; }
   .contrast-page .nap-header .nap-nav-waitlist { font-size: 11px; padding-inline: 11px; }
 }
+
+/* Shared page geometry and controls, including routes outside the homepage. */
+.contrast-page { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.contrast-page .nap-header { width: min(1180px, 90%); height: 88px; flex-shrink: 0; }
+.contrast-page .nap-site-footer { width: min(1180px, 90%); margin-inline: auto; padding: 26px 0 30px; }
+.contrast-page .nap-nav-waitlist, .contrast-page .nap-download { display: inline-flex; align-items: center; justify-content: center; border: 1px solid #151515; border-radius: 999px; background: #151515; color: #fff !important; font-weight: 550; text-decoration: none; }
+.contrast-page .nap-nav-waitlist { min-height: 36px; padding: 9px 19px; white-space: nowrap; }
+.contrast-page .nap-download { min-height: 44px; padding: 12px 22px; font-size: 13px; }
+.contrast-page .nap-nav-waitlist:hover, .contrast-page .nap-download:hover { background: #333; border-color: #333; }
+.contrast-page .nap-blog-intro h1, .contrast-page .nap-blog-article h1, .contrast-page .nap-blog-article h2, .contrast-page .nap-blog-row h2, .contrast-page .nap-waitlist-intro h1, .contrast-page .nap-waitlist-success h1, .contrast-page .nap-apply-closed h1 { font-family: inherit; font-weight: 500; letter-spacing: -.05em; }
+.contrast-page .nap-blog-intro h1, .contrast-page .nap-blog-article h1 { font-size: clamp(36px, 4vw, 48px); line-height: 1.15; }
+.contrast-page .nap-blog-intro { margin-bottom: 32px; }
+.contrast-page .nap-blog-row { padding-block: 27px; }
+.contrast-page .nap-blog-row h2 { font-size: 26px; }
+.contrast-page .nap-blog-row p { max-width: 470px; font-size: 14px; }
+.contrast-page .nap-blog-article p { font-size: 15px; line-height: 1.85; }
+.contrast-page.nap-article-page { display: flex; flex-direction: column; }
+.contrast-page.nap-article-page > .nap-hero { flex: 1; width: min(680px, 90%); padding: 70px 0 80px; }
+.contrast-page .nap-article-image img { border: 0; border-radius: 5px; }
+.contrast-page .nap-reading-links { border-top: 0; padding-top: 10px; }
+.contrast-page .nap-waitlist-intro h1, .contrast-page .nap-waitlist-success h1 { font-size: 36px; line-height: 1.15; }
+.contrast-page .nap-waitlist-intro { margin-bottom: 32px; }
+.contrast-page .nap-waitlist-form-wrap button { min-height: 44px; border-radius: 999px; font-family: inherit; }
+.nap-halftone-text { color: transparent; background: radial-gradient(circle, #111 1.1px, transparent 1.3px) 0 0 / 3px 3px; background-clip: text; -webkit-background-clip: text; }
+@media (max-width: 700px) {
+  .contrast-page .nap-header { height: 76px; }
+  .contrast-page .nap-nav-waitlist { min-height: 32px; padding: 8px 11px; }
+  .contrast-page.nap-article-page > .nap-hero { padding: 40px 0 55px; }
+  .contrast-page .nap-blog-row h2 { font-size: 23px; }
+  .contrast-page .nap-blog-article p { font-size: 14px; }
+  .contrast-page .nap-waitlist-intro h1, .contrast-page .nap-waitlist-success h1 { font-size: 32px; }
+  .nap-halftone-text { background-size: 2.5px 2.5px; }
+}
+@media (forced-colors: active) { .nap-halftone-text { color: CanvasText; background: none; } }
