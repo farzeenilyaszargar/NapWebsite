@@ -20,8 +20,11 @@
 .nap-nav { display: flex; align-items: center; gap: 24px; }
 .nap-docs { color: var(--nap-muted) !important; font-size: 14px; font-weight: 450; letter-spacing: 0; padding: 12px 0; }
 .nap-docs:hover { color: var(--nap-foreground) !important; }
-.nap-home-page > .nap-hero { padding: 82px 24px 56px; text-align: center; }
+.nap-home-page > .nap-hero { padding: 54px 24px 56px; text-align: center; }
 .nap-copy { max-width: 1040px; margin: 0 auto; }
+.nap-signature { position: relative; width: 112px; height: 64px; margin: 0 auto 25px; }
+.nap-signature svg { display: block; }
+.nap-signature-mark { position: absolute; top: 36px; left: 44px; width: 24px; height: 28px; background: #ededef; mask: url("/nap-mark-32b2b19e.webp") center / 36px 36px no-repeat; mask-mode: luminance; }
 .nap-copy h1 { font-size: clamp(24px, 5.2vw, 68px); white-space: nowrap; font-weight: 550; letter-spacing: -.055em; line-height: 1.08; }
 .nap-description { max-width: 430px; margin: 24px auto 0; font-size: 16px; color: var(--nap-muted); line-height: 1.75; letter-spacing: -.015em; }
 .nap-action { display: flex; justify-content: center; margin-top: 28px; }
