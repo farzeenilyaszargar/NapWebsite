@@ -16,9 +16,9 @@
   justify-content: space-between;
 }
 .nap-wordmark { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #fff !important; }
-.nap-wordmark-mark { display: block; width: 36px; height: 40px; background: currentColor; mask-image: url("/nap-mark-32b2b19e.webp"); mask-mode: luminance; mask-repeat: no-repeat; mask-size: 44px 44px; mask-position: center; }
+.nap-wordmark-mark { display: block; width: 26px; height: 30px; background: currentColor; mask-image: url("/nap-mark-32b2b19e.webp"); mask-mode: luminance; mask-repeat: no-repeat; mask-size: 32px 32px; mask-position: center; }
 .nap-nav { display: flex; align-items: center; gap: 24px; }
-.nap-docs { color: var(--nap-muted) !important; font-size: 12px; font-weight: 500; letter-spacing: .055em; padding: 12px 0; }
+.nap-docs { color: var(--nap-muted) !important; font-size: 14px; font-weight: 450; letter-spacing: 0; padding: 12px 0; }
 .nap-docs:hover { color: var(--nap-foreground) !important; }
 .nap-home-page > .nap-hero { padding: 82px 24px 56px; text-align: center; }
 .nap-copy { max-width: 1040px; margin: 0 auto; }
