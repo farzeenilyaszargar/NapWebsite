@@ -26,12 +26,12 @@ export const pages = {
   },
   story: {
     path: "/blogs/hello-nap", title: pageTitle("Why We Started"),
-    description: "Why we started Nap: one native Mac workspace for your coding agents, project conversations, and code review, with more room for your own thinking.",
+    description: "Why we are building Nap around the work after the prompt: following coding agents, reading code changes, and deciding what belongs in your project.",
     keywords: ["Nap story", "AI coding workflow", "coding agent workspace", "Mac development app"],
   },
   why: {
     path: "/blogs/why", title: pageTitle("Why This?"),
-    description: "Explore how Nap brings AI coding agents into one native Mac app. Open a project, choose an agent, follow the conversation, and review code changes.",
+    description: "What Nap does: open a project, work with a coding agent, and review its changes in one native Mac app. An honest look at the workflow and current availability.",
     keywords: ["how Nap works", "AI coding app", "coding agent interface", "Claude Code workspace", "Codex workspace"],
   },
   apply: {
