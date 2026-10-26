@@ -1,7 +1,7 @@
 /* A shared print vocabulary: black ink, dot screens, and small type details. */
 .contrast-page { --nap-background: #fff; --nap-foreground: #111; --nap-muted: #626262; --nap-subtle: #707070; --nap-border: #ddd; }
 .contrast-page .nap-nav a { font-size: 12px; }
-.contrast-page .nap-nav .nap-docs { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+
 .contrast-page a:focus-visible, .contrast-page button:focus-visible { outline: 2px dotted #111; outline-offset: 5px; }
 .contrast-page .nap-blog-label, .contrast-page .nap-blog-number, .contrast-page .nap-section-label, .contrast-page .nap-footer-copyright { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: .02em; }
 .contrast-page .nap-blog-row { border-top: 0; background: radial-gradient(circle, #999 .8px, transparent 1px) left top / 5px 2px repeat-x; }
@@ -16,3 +16,13 @@
 .contrast-page .nap-waitlist-form-wrap button, .contrast-page .nap-lost-home { border-radius: 999px; }
 .contrast-page .nap-lost-code { color: transparent; background: radial-gradient(circle, #111 1.5px, transparent 1.8px) 0 0 / 4px 4px; background-clip: text; -webkit-background-clip: text; }
 @media (forced-colors: active) { .contrast-page .nap-lost-code { color: CanvasText; background: none; } }
+
+/* Navigation shares the page’s sans-serif typography and content rhythm. */
+.contrast-page .nap-header .nap-docs { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; font-weight: 450; letter-spacing: -.015em; }
+.contrast-page .nap-header .nap-nav { gap: 30px; }
+.contrast-page .nap-header .nap-nav-waitlist { font-family: inherit; font-size: 12px; font-weight: 550; letter-spacing: -.01em; padding-inline: 19px; }
+@media (max-width: 700px) {
+  .contrast-page .nap-header .nap-nav { gap: 14px; }
+  .contrast-page .nap-header .nap-docs { font-size: 12px; }
+  .contrast-page .nap-header .nap-nav-waitlist { font-size: 11px; padding-inline: 11px; }
+}
