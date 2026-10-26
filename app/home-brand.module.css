@@ -133,15 +133,9 @@
 }
 @media (forced-colors: active) { .halftoneTitle { color: CanvasText; background: none; } }
 
-/* The reference mark stays crisp; a gentle idle loop gives it movement. */
-.horse { width: 176px; height: 126px; position: relative; margin: 0 0 25px; }
-.horse span { display: block; width: 100%; height: 100%; background: url('/nap-halftone-horse.png') -300px -124px / 768px 384px no-repeat; transform-origin: 50% 65%; animation: horseIdle 2.4s ease-in-out infinite; }
-@keyframes horseIdle { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-7px) rotate(1deg); } }
 .page :global(.nap-copy h1) { font-size: clamp(40px, 5vw, 64px); }
 .page:global(.nap-home-page) > :global(.nap-hero) { padding-top: 35px; }
 @media (max-width: 700px) {
   .page :global(.nap-copy h1) { font-size: clamp(34px, 9vw, 46px); }
-  .horse { margin-bottom: 18px; }
   .page:global(.nap-home-page) > :global(.nap-hero) { padding-top: 24px; }
 }
-@media (prefers-reduced-motion: reduce) { .horse span { animation: none; } }
