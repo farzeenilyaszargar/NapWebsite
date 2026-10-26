@@ -4,7 +4,7 @@
 
 .contrast-page a:focus-visible, .contrast-page button:focus-visible { outline: 2px dotted #111; outline-offset: 5px; }
 .contrast-page .nap-blog-label, .contrast-page .nap-blog-number, .contrast-page .nap-section-label, .contrast-page .nap-footer-copyright { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: .02em; }
-.contrast-page .nap-blog-row { border-top: 0; background: radial-gradient(circle, #999 .8px, transparent 1px) left top / 5px 2px repeat-x; }
+.contrast-page .nap-blog-row { border-top: 0; }
 .contrast-page .nap-blog-intro h1, .contrast-page .nap-blog-article h1 { letter-spacing: -.055em; }
 .contrast-page .nap-blog-article > .nap-blog-label::before, .contrast-page .nap-blog-intro::before, .contrast-page .nap-waitlist-intro::before, .contrast-page .nap-apply-closed > div::before {
   content: ''; display: block; width: 42px; height: 26px; margin-bottom: 25px;

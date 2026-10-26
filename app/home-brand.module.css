@@ -123,7 +123,7 @@
 .page :global(.nap-full-width-product) { border-radius: 5px; box-shadow: 0 12px 45px #0000000d; }
 .page :global(.nap-agents) { padding-bottom: 55px; }
 .detail { border-radius: 3px; background: #fafafa; }
-.workflowHeading { padding-top: 24px; background: radial-gradient(circle, #888 1px, transparent 1.1px) left top / 6px 2px repeat-x; }
+.workflowHeading { padding-top: 24px; }
 @media (max-width: 700px) {
   .page:global(.nap-home-page) > :global(.nap-hero) { padding: 46px 5% 54px; }
   .page :global(.nap-copy h1) { font-size: clamp(40px, 11vw, 65px); }
