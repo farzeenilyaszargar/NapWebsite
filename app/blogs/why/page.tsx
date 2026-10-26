@@ -1,7 +1,6 @@
 import NapFooter from "../../components/nap-footer";
 import StructuredData from "../../components/structured-data";
 import { pages, pageMetadata, articleSchema } from "../../lib/seo";
-import NapProductImage from "../../components/nap-product-image";
 import NapReadingLinks from "../../components/nap-reading-links";
 import NapHeader from "../../components/nap-header";
 import "../../contrast.css";
@@ -21,10 +20,6 @@ export default function WhyPost() {
           <p>A good coding session has a simple rhythm. You describe a goal, work through it with an agent, and review what changed. Nap puts that rhythm at the center of a native app.</p>
           <p>Your project, the conversation, and the work that follows all share the same space. You can stay with the problem from the first question to the next change.</p>
 
-          <figure className="nap-article-image">
-            <NapProductImage alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 1000px) 90vw, 920px" />
-            <figcaption>A place for your projects, your conversations, and the next thing you want to make.</figcaption>
-          </figure>
 
           <h2>Open a project. Start a conversation.</h2>
           <p>Bring a project into Nap, choose an agent, and describe what you want to build, fix, or understand. You work through the app’s interface.</p>
