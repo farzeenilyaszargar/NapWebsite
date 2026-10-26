@@ -170,3 +170,17 @@
   .agentRows > div { --selected: 0; }
   .agentRows > div:nth-child(2) { --selected: 1; }
 }
+
+/* The interface illustrations use the same dot-screen vocabulary as the page. */
+.detail { border: 1px dotted #b8b8b8; border-radius: 3px; background: #fff; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; }
+.projectRow { font-size: 11px; }
+.composer { border: 1px dotted #aaa; border-radius: 2px; font-size: 10px; }
+.folder { border-style: dotted; border-radius: 0; }
+.folder::before { border-style: dotted; border-bottom: 0; border-radius: 0; }
+.agentRows > div { border-radius: 2px; background: radial-gradient(circle, rgb(0 0 0 / calc(var(--selected) * .16)) .7px, transparent .9px) 0 0 / 4px 4px; }
+.agentRows > div > span:nth-child(2) { background: #fff; padding: 3px 4px; }
+.agentRows > div > span:last-child { background: #fff; padding: 3px; }
+.reviewTitle { font-size: 11px; }
+.reviewAction { padding-top: 9px; border-top: 1px dotted #ccc; margin-top: 8px; }
+.diffLine { background-image: radial-gradient(circle, #b4231825 .7px, transparent .9px); background-size: 4px 4px; }
+.diffLine + .diffLine { background-image: radial-gradient(circle, #16703a25 .7px, transparent .9px); background-size: 4px 4px; }
