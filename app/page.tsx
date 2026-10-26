@@ -34,7 +34,7 @@ export default function Home() {
       </section>
       <section className={styles.workflow} aria-labelledby="workflow-title">
         <div className={styles.workflowHeading}>
-          <h2 id="workflow-title">Less setup.<br />More getting somewhere.</h2>
+          <h2 id="workflow-title"><span className={styles.halftoneTitle}>Less setup.</span><br />More getting somewhere.</h2>
           <p>From the first thought to the next change. A calmer place to work with your agents.</p>
         </div>
         <div className={styles.steps}>
@@ -42,7 +42,7 @@ export default function Home() {
             <div className={styles.detail} aria-hidden="true">
               <div className={styles.projectRow}><span className={styles.folder} /> Your project <span>⌘ O</span></div>
               <div className={styles.fileRow}>src <span>/</span> components <span>/</span></div>
-              <div className={styles.composer}>What would you like to build?<span>↑</span></div>
+              <div className={styles.composer}><span className={styles.typingPrompt}>What would you like to build?</span><span>↑</span></div>
             </div>
             <h3>Start where you are.</h3><p>Open your codebase and describe what you want to build, fix, or understand.</p>
           </article>

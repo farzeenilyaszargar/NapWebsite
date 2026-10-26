@@ -139,3 +139,22 @@
   .page :global(.nap-copy h1) { font-size: clamp(34px, 9vw, 46px); }
   .page:global(.nap-home-page) > :global(.nap-hero) { padding-top: 24px; }
 }
+
+/* Small interface loops, with stable card dimensions throughout. */
+.typingPrompt { display: block; max-width: 195px; white-space: nowrap; overflow: hidden; border-right: 1px solid #666; animation: promptType 7s steps(28, end) infinite; }
+.projectRow .folder { animation: folderOpen 7s ease-in-out infinite; }
+.agentRows > div:nth-child(2) { animation: agentSelect 7s ease-in-out infinite; }
+.agentRows > div:nth-child(2) > span:last-child { animation: selectionCheck 7s ease-in-out infinite; }
+.diffLine { animation: reviewReveal 7s ease-in-out infinite; }
+.diffLine + .diffLine { animation-delay: .4s; }
+.reviewAction { animation: reviewReady 7s ease-in-out infinite; }
+@keyframes promptType { 0%, 10% { max-width: 0; } 45%, 85% { max-width: 195px; } 100% { max-width: 0; } }
+@keyframes folderOpen { 0%, 8%, 100% { transform: translateY(0); } 16%, 25% { transform: translateY(-3px); } 34%, 90% { transform: translateY(0); } }
+@keyframes agentSelect { 0%, 12%, 100% { background: transparent; } 30%, 85% { background: #e5e5e5; } }
+@keyframes selectionCheck { 0%, 20%, 100% { opacity: 0; transform: scale(.7); } 35%, 85% { opacity: 1; transform: scale(1); } }
+@keyframes reviewReveal { 0%, 12%, 100% { opacity: 0; transform: translateY(4px); clip-path: inset(0 100% 0 0); } 35%, 87% { opacity: 1; transform: translateY(0); clip-path: inset(0); } }
+@keyframes reviewReady { 0%, 35%, 100% { opacity: .3; } 50%, 85% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .typingPrompt, .projectRow .folder, .agentRows > div:nth-child(2), .agentRows > div:nth-child(2) > span:last-child, .diffLine, .reviewAction { animation: none; }
+  .typingPrompt { border-right: 0; }
+}
