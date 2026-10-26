@@ -134,10 +134,10 @@
 @media (forced-colors: active) { .halftoneTitle { color: CanvasText; background: none; } }
 
 .page :global(.nap-copy h1) { font-size: clamp(40px, 5vw, 64px); }
-.page:global(.nap-home-page) > :global(.nap-hero) { padding-top: 35px; }
+.page:global(.nap-home-page) > :global(.nap-hero) { padding: 65px 5% 40px; }
 @media (max-width: 700px) {
   .page :global(.nap-copy h1) { font-size: clamp(34px, 9vw, 46px); }
-  .page:global(.nap-home-page) > :global(.nap-hero) { padding-top: 24px; }
+  .page:global(.nap-home-page) > :global(.nap-hero) { padding: 42px 5% 30px; }
 }
 
 /* Small interface loops, with stable card dimensions throughout. */
