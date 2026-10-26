@@ -105,16 +105,16 @@
   position: absolute;
   z-index: -1;
   pointer-events: none;
-  width: max(1200px, 100vw);
+  width: max(1320px, 112vw);
   aspect-ratio: 3 / 2;
   top: 50%;
   left: 50%;
   transform: translate(-47.5%, -51%);
   background: url('/nap-reaching-hands.png') center / 100% 100% no-repeat;
-  opacity: .8;
+  opacity: .35;
 }
 @media (max-width: 700px) {
   .page:global(.nap-home-page) > :global(.nap-hero) { padding: 50px 5% 135px; }
   .page :global(.nap-hero-details) { margin-top: 23px; gap: 50px; }
-  .page :global(.nap-action)::before { width: 1160px; opacity: .6; }
+  .page :global(.nap-action)::before { width: 1320px; opacity: .28; }
 }
