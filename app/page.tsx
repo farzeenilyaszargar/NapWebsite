@@ -17,7 +17,8 @@ export default function Home() {
       <NapHeader showWaitlist />
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
-          <h1 id="nap-title">Your Agents.<br /><span className={styles.halftoneTitle}>All Together.</span></h1>
+          <div className={styles.horse} aria-hidden="true"><span /></div>
+          <h1 id="nap-title"><span className={styles.halftoneTitle}>Your Agents.</span><br />All Together.</h1>
             <div className="nap-hero-details">
               <div className="nap-action"><NapWaitlistCta /></div>
             </div>
