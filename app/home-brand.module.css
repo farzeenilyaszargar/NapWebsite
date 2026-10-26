@@ -156,8 +156,8 @@
 .agentRows > div:nth-child(3) { animation-delay: -3s; }
 .agentRows > div > span:last-child { opacity: var(--selected); }
 @keyframes cycleAgent { 0% { --selected: 1; } 33.333333% { --selected: 0; } 100% { --selected: 1; } }
-.diffLine { color: #b42318; background: #fce9e7; animation: removedColor 9s linear infinite; }
-.diffLine + .diffLine { color: #16703a; background: #e7f4eb; animation: addedColor 9s linear infinite; }
+.diffLine { color: #b42318; background: #fce9e7; animation: removedColor 9s steps(1, end) infinite; }
+.diffLine + .diffLine { color: #16703a; background: #e7f4eb; animation: addedColor 9s steps(1, end) infinite; }
 .diffLine > span { display: block; white-space: nowrap; animation: writeRemoved 9s steps(18, end) infinite; }
 .diffLine + .diffLine > span { animation: writeAdded 9s steps(19, end) infinite; }
 @keyframes writeRemoved { 0%, 5% { clip-path: inset(0 100% 0 0); } 27%, 99.9% { clip-path: inset(0); } 100% { clip-path: inset(0 100% 0 0); } }
