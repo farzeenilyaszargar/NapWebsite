@@ -14,7 +14,7 @@
 .nap-waitlist-form-wrap button { display: flex; justify-content: center; align-items: center; width: 100%; min-height: 46px; margin-top: 26px; border: 1px solid #151515; border-radius: 3px; background: #151515; color: #fff; padding: 12px 20px; font-size: 13px; font-weight: 550; cursor: pointer; }
 .nap-waitlist-form-wrap button:hover:not(:disabled) { background: #333; }
 .nap-waitlist-form-wrap button:disabled { cursor: wait; opacity: .65; }
-.nap-waitlist-status { margin-top: 16px; color: var(--nap-error); font-size: 13px; line-height: 1.7; }
+.nap-waitlist-status { margin-top: 16px; color: var(--nap-error); font-size: 13px; line-height: 1.7; text-align: center; }
 .nap-waitlist-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .nap-waitlist-success { text-align: left; }
 .nap-waitlist-success h1:focus { outline: none; }
