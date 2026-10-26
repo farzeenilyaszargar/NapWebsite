@@ -55,3 +55,7 @@
   .nap-halftone-text { background-size: 2.5px 2.5px; }
 }
 @media (forced-colors: active) { .nap-halftone-text { color: CanvasText; background: none; } }
+
+.contrast-page .nap-site-footer .nap-footer-bottom { color: #151515; font-size: 13px; font-weight: 500; }
+.contrast-page .nap-site-footer .nap-footer-copyright { color: #151515; font-size: 12px; font-weight: 500; }
+.contrast-page .nap-site-footer .nap-footer-social { color: #151515; min-height: 40px; }

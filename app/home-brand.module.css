@@ -170,3 +170,8 @@
   .agentRows > div { --selected: 0; }
   .agentRows > div:nth-child(2) { --selected: 1; }
 }
+
+.closing :global(.nap-footer-copyright), .closing :global(.nap-footer-social) {
+  position: relative;
+  text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff;
+}
