@@ -48,15 +48,15 @@ export default function Home() {
           </article>
           <article>
             <div className={styles.detail} aria-hidden="true">
-              <div className={styles.agentRows}>{codingAgents.map(({ name, logo }) => <div key={name}><img src={logo} width={18} height={18} alt="" loading="lazy" /><span>{name}</span><span>{name === "Claude Code" ? "✓" : ""}</span></div>)}</div>
+              <div className={styles.agentRows}>{codingAgents.map(({ name, logo }) => <div key={name}><img src={logo} width={18} height={18} alt="" loading="lazy" /><span>{name}</span><span>✓</span></div>)}</div>
             </div>
             <h3>Your choice of agent.</h3><p>Work with the coding agent you know, with your project and conversation in the same place.</p>
           </article>
           <article>
             <div className={styles.detail} aria-hidden="true">
               <div className={styles.reviewTitle}>Changes <span>2 files</span></div>
-              <div className={styles.diffLine}>− &nbsp;The first draft.</div>
-              <div className={styles.diffLine}>+ &nbsp;Something better.</div>
+              <div className={styles.diffLine}><span>− &nbsp;The first draft.</span></div>
+              <div className={styles.diffLine}><span>+ &nbsp;Something better.</span></div>
               <div className={styles.reviewAction}>Review changes <span>↗</span></div>
             </div>
             <h3>Keep moving forward.</h3><p>See what changed, ask a follow-up, and decide what comes next. You stay in control.</p>

@@ -50,7 +50,7 @@
 .composer span { color: #444; }
 .agentRows { display: flex; flex-direction: column; gap: 7px; }
 .agentRows > div { display: flex; align-items: center; gap: 9px; height: 31px; padding: 5px 10px; }
-.agentRows > div:nth-child(2) { background: #eaeaea; border-radius: 5px; color: #222; }
+
 .agentRows > div > span:last-child { margin-left: auto; }
 .agentRows img { object-fit: contain; width: 18px; height: 18px; }
 .agentRows > div:last-child img { filter: none; }
@@ -143,18 +143,30 @@
 /* Small interface loops, with stable card dimensions throughout. */
 .typingPrompt { display: block; max-width: 195px; white-space: nowrap; overflow: hidden; border-right: 1px solid #666; animation: promptType 7s steps(28, end) infinite; }
 .projectRow .folder { animation: folderOpen 7s ease-in-out infinite; }
-.agentRows > div:nth-child(2) { animation: agentSelect 7s ease-in-out infinite; }
-.agentRows > div:nth-child(2) > span:last-child { animation: selectionCheck 7s ease-in-out infinite; }
-.diffLine { animation: reviewReveal 7s ease-in-out infinite; }
-.diffLine + .diffLine { animation-delay: .4s; }
-.reviewAction { animation: reviewReady 7s ease-in-out infinite; }
 @keyframes promptType { 0%, 10% { max-width: 0; } 45%, 85% { max-width: 195px; } 100% { max-width: 0; } }
 @keyframes folderOpen { 0%, 8%, 100% { transform: translateY(0); } 16%, 25% { transform: translateY(-3px); } 34%, 90% { transform: translateY(0); } }
-@keyframes agentSelect { 0%, 12%, 100% { background: transparent; } 30%, 85% { background: #e5e5e5; } }
-@keyframes selectionCheck { 0%, 20%, 100% { opacity: 0; transform: scale(.7); } 35%, 85% { opacity: 1; transform: scale(1); } }
-@keyframes reviewReveal { 0%, 12%, 100% { opacity: 0; transform: translateY(4px); clip-path: inset(0 100% 0 0); } 35%, 87% { opacity: 1; transform: translateY(0); clip-path: inset(0); } }
-@keyframes reviewReady { 0%, 35%, 100% { opacity: .3; } 50%, 85% { opacity: 1; } }
+
+.agentRows > div {
+  --selected: 0;
+  border-radius: 5px;
+  background: rgb(0 0 0 / calc(var(--selected) * .07));
+  animation: cycleAgent 9s steps(1, end) infinite;
+}
+.agentRows > div:nth-child(2) { animation-delay: -6s; }
+.agentRows > div:nth-child(3) { animation-delay: -3s; }
+.agentRows > div > span:last-child { opacity: var(--selected); }
+@keyframes cycleAgent { 0% { --selected: 1; } 33.333333% { --selected: 0; } 100% { --selected: 1; } }
+.diffLine { color: #b42318; background: #fce9e7; animation: removedColor 9s linear infinite; }
+.diffLine + .diffLine { color: #16703a; background: #e7f4eb; animation: addedColor 9s linear infinite; }
+.diffLine > span { display: block; white-space: nowrap; animation: writeRemoved 9s steps(18, end) infinite; }
+.diffLine + .diffLine > span { animation: writeAdded 9s steps(19, end) infinite; }
+@keyframes writeRemoved { 0%, 5% { clip-path: inset(0 100% 0 0); } 27%, 99.9% { clip-path: inset(0); } 100% { clip-path: inset(0 100% 0 0); } }
+@keyframes writeAdded { 0%, 40% { clip-path: inset(0 100% 0 0); } 65%, 99.9% { clip-path: inset(0); } 100% { clip-path: inset(0 100% 0 0); } }
+@keyframes removedColor { 0%, 28% { color: #666; background: #f2f2f2; } 35%, 100% { color: #b42318; background: #fce9e7; } }
+@keyframes addedColor { 0%, 66% { color: #666; background: #f2f2f2; } 73%, 100% { color: #16703a; background: #e7f4eb; } }
 @media (prefers-reduced-motion: reduce) {
-  .typingPrompt, .projectRow .folder, .agentRows > div:nth-child(2), .agentRows > div:nth-child(2) > span:last-child, .diffLine, .reviewAction { animation: none; }
+  .typingPrompt, .projectRow .folder, .agentRows > div, .diffLine, .diffLine + .diffLine, .diffLine > span, .diffLine + .diffLine > span { animation: none; }
   .typingPrompt { border-right: 0; }
+  .agentRows > div { --selected: 0; }
+  .agentRows > div:nth-child(2) { --selected: 1; }
 }
