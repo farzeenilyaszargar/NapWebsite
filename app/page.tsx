@@ -1,4 +1,3 @@
-import AnimatedHalftone from "./components/animated-halftone";
 import { codingAgents } from "./lib/agents";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
@@ -18,7 +17,7 @@ export default function Home() {
       <NapHeader showWaitlist />
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
-          <h1 id="nap-title"><AnimatedHalftone className={`${styles.halftoneTitle} ${styles.heroDots}`} text="Your Agents." /><br />All Together.</h1>
+          <h1 id="nap-title"><span className={styles.halftoneTitle}>Your Agents.</span><br />All Together.</h1>
             <div className="nap-hero-details">
               <div className="nap-action"><NapWaitlistCta /></div>
             </div>
