@@ -3,7 +3,6 @@ import StructuredData from "../../components/structured-data";
 import { pages, pageMetadata, articleSchema } from "../../lib/seo";
 import NapProductImage from "../../components/nap-product-image";
 import NapReadingLinks from "../../components/nap-reading-links";
-import Link from "next/link";
 import NapHeader from "../../components/nap-header";
 import "../../contrast.css";
 
@@ -16,7 +15,7 @@ export default function WhyPost() {
       <NapHeader />
       <section className="nap-hero">
         <article className="nap-blog-article">
-          <span className="nap-blog-label">BY <Link href={pages.home.path} className="nap-inline-link">NAP</Link> · 2 MIN READ</span>
+          <span className="nap-blog-label">By <a href="https://x.com/farilyaz" className="nap-inline-link" target="_blank" rel="noopener noreferrer">@farilyaz</a> · 2 Min Read</span>
           <h1><span className="nap-halftone-text">Why</span> This?</h1>
           <p>Nap is a native AI coding workspace for Mac that brings your coding agents, project conversations, and code review into one app.</p>
           <p>A good coding session has a simple rhythm. You describe a goal, work through it with an agent, and review what changed. Nap puts that rhythm at the center of a native app.</p>
