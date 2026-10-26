@@ -1,5 +1,18 @@
+import { SeverityNumber } from "@opentelemetry/api-logs";
+import { posthogLoggerProvider, posthogWaitlistLogger } from "../../../instrumentation";
 import { after } from "next/server";
 import { sendXConversion } from "../../lib/x-conversions";
+
+// Analytics must never affect persistence or the response sent to a signup.
+function logWaitlist(level: "INFO" | "WARN" | "ERROR", body: string, attributes: Record<string, string | number | boolean> = {}) {
+  if (!process.env.NEXT_PUBLIC_POSTHOG_KEY || !process.env.NEXT_PUBLIC_POSTHOG_HOST) return;
+  try {
+    posthogWaitlistLogger.emit({ body, severityNumber: SeverityNumber[level], attributes });
+    after(async () => {
+      try { await posthogLoggerProvider.forceFlush(); } catch { /* Logging is best effort. */ }
+    });
+  } catch { /* Logging is best effort. */ }
+}
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const failure = (error: string, status: number) => Response.json({ error }, { status });
@@ -16,6 +29,7 @@ export async function POST(request: Request) {
     if (body.length > 4096) return failure("Request is too large.", 413);
     payload = JSON.parse(body);
   } catch {
+    logWaitlist("ERROR", "waitlist_signup_storage_failed");
     return failure("Invalid request.", 400);
   }
   if (typeof payload !== "object" || payload === null) return failure("Please enter your name and email.", 400);
@@ -37,10 +51,14 @@ export async function POST(request: Request) {
       cache: "no-store",
       signal: AbortSignal.timeout(10000),
     });
-    if (!response.ok) return failure("Couldn’t save your spot. Please try again in a moment.", 503);
+    if (!response.ok) {
+      logWaitlist("WARN", "waitlist_signup_storage_rejected", { "http.response.status_code": response.status });
+      return failure("Couldn’t save your spot. Please try again in a moment.", 503);
+    }
     // An ignored duplicate returns []; only a newly persisted signup converts.
     const saved: unknown = await response.json();
     const signup = Array.isArray(saved) ? saved[0] : null;
+    logWaitlist("INFO", "waitlist_signup_processed", { signup_created: Boolean(signup && typeof signup.id === "string") });
     const eventId = process.env.X_WAITLIST_EVENT_ID;
     if (signup && typeof signup.id === "string" && eventId && process.env.X_PIXEL_TOKEN) {
       const conversionId = `waitlist-${signup.id}`;
@@ -57,6 +75,7 @@ export async function POST(request: Request) {
     }
     return Response.json({ message: "You’re on the list." });
   } catch {
+    logWaitlist("ERROR", "waitlist_signup_storage_failed");
     return failure("Couldn’t connect. Please try again in a moment.", 503);
   }
 }
