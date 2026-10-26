@@ -21,8 +21,8 @@
 .nap-docs { color: var(--nap-muted) !important; font-size: 12px; font-weight: 500; letter-spacing: .055em; padding: 12px 0; }
 .nap-docs:hover { color: var(--nap-foreground) !important; }
 .nap-home-page > .nap-hero { padding: 82px 24px 56px; text-align: center; }
-.nap-copy { max-width: 580px; margin: 0 auto; }
-.nap-copy h1 { font-size: clamp(43px, 5.8vw, 72px); font-weight: 550; letter-spacing: -.055em; line-height: 1.08; }
+.nap-copy { max-width: 1040px; margin: 0 auto; }
+.nap-copy h1 { font-size: clamp(24px, 5.2vw, 68px); white-space: nowrap; font-weight: 550; letter-spacing: -.055em; line-height: 1.08; }
 .nap-description { max-width: 430px; margin: 24px auto 0; font-size: 16px; color: var(--nap-muted); line-height: 1.75; letter-spacing: -.015em; }
 .nap-action { display: flex; justify-content: center; margin-top: 28px; }
 .nap-download { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px; border: 1px solid #ededef; border-radius: 7px; background: #ededef; color: #151515 !important; font-size: 13px; font-weight: 550; line-height: 1.4; }
@@ -70,7 +70,7 @@
 @media (max-width: 700px) {
   .nap-header { height: 74px; width: 88%; }
   .nap-home-page > .nap-hero { padding: 56px 24px 42px; }
-  .nap-copy h1 { font-size: clamp(40px, 10vw, 54px); }
+  .nap-copy h1 { font-size: clamp(23px, 5.5vw, 38px); }
   .nap-description { font-size: 14px; max-width: 330px; line-height: 1.8; margin-top: 20px; }
   .nap-action { margin-top: 24px; }
   .nap-full-width-product { width: 92%; }
