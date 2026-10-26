@@ -12,9 +12,12 @@
 .page :global(.nap-wordmark) { font-size: 29px; }
 .page :global(.nap-nav) { gap: 28px; }
 .page :global(.nap-docs) { font-size: 14px; }
-.page :global(.nap-hero) { width: min(1180px, 90%); padding: 86px 0 60px; }
+.page:global(.nap-home-page) > :global(.nap-hero) { width: min(1180px, 90%); margin-inline: auto; padding: 86px 0 60px; text-align: left; }
+.page :global(.nap-copy) { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+.page :global(.nap-copy h1) { margin-inline: 0; text-align: left; }
+.page :global(.nap-action) { width: auto; justify-content: flex-start; }
 .page :global(.nap-copy h1) { font-family: inherit; font-size: clamp(25px, 5.8vw, 76px); font-weight: 550; letter-spacing: -.062em; line-height: 1.12; }
-.page :global(.nap-hero-details) { margin-top: 27px; gap: 26px; }
+.page :global(.nap-hero-details) { width: 100%; align-items: flex-start; margin: 27px 0 0; gap: 26px; text-align: left; }
 .page :global(.nap-description) { max-width: 430px; font-size: 15px; line-height: 1.75; }
 .page :global(.nap-download) { min-height: 44px; background: #ededed; border: 1px solid #fff; border-radius: 9px; padding: 12px 22px; font-size: 13px; font-weight: 550; color: #151515 !important; box-shadow: 0 1px 0 #fff inset; transition: background .15s; }
 .page :global(.nap-download):hover { background: #d5d5d5; }
@@ -60,7 +63,7 @@
   .page :global(.nap-header) { height: 76px; }
   .page :global(.nap-nav) { gap: 20px; }
   .page :global(.nap-docs) { font-size: 13px; }
-  .page :global(.nap-hero) { padding: 46px 0 38px; }
+  .page:global(.nap-home-page) > :global(.nap-hero) { padding: 46px 0 38px; }
   .page :global(.nap-copy h1) { font-size: clamp(23px, 5.85vw, 40px); }
   .page :global(.nap-description) { font-size: 14px; max-width: 340px; }
   .page :global(.nap-hero-details) { margin-top: 22px; gap: 23px; }
