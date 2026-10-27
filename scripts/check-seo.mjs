@@ -8,7 +8,7 @@ const output = resolve(root, ".next/server/app");
 const origin = "https://www.nap.cx";
 const preview = !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
 const routes = [
-  ["index", "/", "Nap | The Interface For All Your Agents"],
+  ["index", "/", "Nap | AI Coding Agents for Mac & Download Updates"],
   ["blogs", "/blogs", "Nap | Blogs"],
   ["blogs/hello-nap", "/blogs/hello-nap", "Nap | Why We Started"],
   ["blogs/why", "/blogs/why", "Nap | Why This?"],
@@ -51,6 +51,19 @@ for (const [file, path, title] of routes) {
   assert.ok(entities.some((entity) => entity["@type"] === "Organization" && entity.logo?.url.startsWith(origin)), `${path}: publisher identity and logo`);
   assert.ok(entities.some((entity) => entity["@type"] === "WebSite"));
   assert.ok(entities.some((entity) => entity["@id"] === `${origin}${path}#webpage`));
+  if (path === "/") {
+    const faq = entities.find((entity) => entity["@type"] === "FAQPage");
+    assert.ok(faq?.mainEntity?.length >= 4, "homepage answers common product and access questions");
+    const visible = decode(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ");
+    for (const question of faq.mainEntity) {
+      assert.ok(visible.includes(question.name), "structured questions are visible on the page");
+      assert.ok(visible.includes(question.acceptedAnswer.text), "structured answers match visible product facts");
+    }
+    const app = entities.find((entity) => entity["@type"] === "SoftwareApplication");
+    assert.equal(app.operatingSystem, "macOS");
+    assert.equal(app.downloadUrl, undefined, "no public download claim while downloads are paused");
+    assert.equal(app.potentialAction.target, `${origin}/waitlist`);
+  }
   if (path !== "/") {
     const breadcrumb = entities.find((entity) => entity["@type"] === "BreadcrumbList");
     assert.equal(breadcrumb.itemListElement.at(-1).item, origin + path);
@@ -102,5 +115,10 @@ const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => mat
 assert.deepEqual([...locations].sort(), preview ? [] : routes.map(([, path]) => origin + path).sort());
 const robots = readFileSync(resolve(output, "robots.txt.body"), "utf8");
 assert.ok(robots.includes("Allow: /"));
+for (const bot of ["OAI-SearchBot", "ChatGPT-User"]) {
+  const group = robots.split(/\n\s*\n/).find((group) => group.includes(`User-Agent: ${bot}`));
+  assert.ok(group?.includes("Allow: /"), `${bot}: public content is crawlable`);
+  assert.ok(group.includes("Disallow: /api/"), `${bot}: API paths stay excluded`);
+}
 assert.equal(robots.includes(`Sitemap: ${origin}/sitemap.xml`), !preview);
 console.log("✓ 404 noindex, sitemap coverage, and crawler access");

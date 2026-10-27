@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { productQuestions } from "./product";
 
 export const pageTitle = (label: string) => `Nap | ${label}`;
 export const isIndexable = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production";
@@ -16,7 +17,7 @@ export const site = {
 
 export const pages = {
   home: {
-    path: "/", title: site.title,
+    path: "/", title: pageTitle("AI Coding Agents for Mac & Download Updates"),
     description: "Nap is a native Mac app for Claude Code, Codex, and Cursor. Bring your AI coding agents together and join the waitlist for Nap download updates.",
     keywords: ["nap download", "download nap", "nap agents", "nap codes", "nap code download", "nap for mac", "nap macos download", "nap AI coding agents", "AI coding app for Mac", "AI coding workspace", "coding agent interface", "agentic coding", "Claude Code", "Codex", "Cursor"],
   },
@@ -123,7 +124,7 @@ function webPageSchema(page: Page, type = "WebPage") {
 }
 
 function softwareSchema() {
-  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", operatingSystem: "macOS", description: site.description, image: absolute(site.image), screenshot: absolute("/nap-agent-workspace-5306-059ac310.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"] };
+  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", applicationSubCategory: "AI coding agent workspace", operatingSystem: "macOS", description: site.description, image: absolute(site.image), screenshot: absolute("/nap-agent-workspace-5306-059ac310.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"], potentialAction: { "@type": "JoinAction", name: "Join the Nap waitlist", target: absolute(pages.waitlist.path) } };
 }
 
 export function homeSchema() {
@@ -131,8 +132,17 @@ export function homeSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      { ...webPageSchema(pages.home), mainEntity: { "@id": appId }, about: { "@id": appId } },
+      { ...webPageSchema(pages.home), mainEntity: { "@id": appId }, about: { "@id": appId }, hasPart: { "@id": `${site.url}/#nap-questions` } },
       softwareSchema(),
+      {
+        "@type": "FAQPage", "@id": `${site.url}/#nap-questions`, url: `${site.url}/#nap-questions`,
+        name: "Nap download and early access questions", about: { "@id": appId },
+        isPartOf: { "@id": `${site.url}/#webpage` },
+        mainEntity: productQuestions.map(({ id, question, answer }) => ({
+          "@type": "Question", "@id": `${site.url}/#${id}`, name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
     ],
   };
 }

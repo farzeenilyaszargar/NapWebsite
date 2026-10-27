@@ -1,4 +1,6 @@
 import { codingAgents } from "./lib/agents";
+import Link from "next/link";
+import { productSummary, productQuestions } from "./lib/product";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
 import NapProductImage from "./components/nap-product-image";
@@ -19,6 +21,7 @@ export default function Home() {
         <div className="nap-copy">
           <h1 id="nap-title"><span className={styles.halftoneTitle}>Your Agents.</span><br />All Together.</h1>
             <div className="nap-hero-details">
+              <p className="nap-description">{productSummary}</p>
               <div className="nap-action"><NapWaitlistCta /></div>
             </div>
         </div>
@@ -61,6 +64,25 @@ export default function Home() {
             </div>
             <h3>Keep moving forward.</h3><p>See what changed, ask a follow-up, and decide what comes next. You stay in control.</p>
           </article>
+        </div>
+      </section>
+      <section className={styles.access} id="nap-questions" aria-labelledby="nap-access-title">
+        <div className={styles.accessIntro}>
+          <h2 id="nap-access-title">Nap download<br />and early access.</h2>
+          <p>Looking for Nap for Mac? Access is currently through the waitlist. Register here for availability and download updates.</p>
+          <NapWaitlistCta />
+          <div className={styles.readingLinks}>
+            <Link href="/blogs/why">How Nap works →</Link>
+            <Link href="/blogs/hello-nap">Why we started →</Link>
+          </div>
+        </div>
+        <div className={styles.answers}>
+          {productQuestions.map(({ id, question, answer }) => (
+            <article id={id} key={id}>
+              <h3>{question}</h3>
+              <p>{answer}</p>
+            </article>
+          ))}
         </div>
       </section>
       <div className={styles.closing}>

@@ -179,3 +179,18 @@
 .page :global(.nap-agents) { flex-direction: column; align-items: center; gap: 22px; text-align: center; }
 .page :global(.nap-agents ul) { flex-direction: row; align-items: center; justify-content: center; gap: 28px; }
 @media (max-width: 700px) { .page :global(.nap-agents ul) { gap: 20px; } }
+
+.access { width: min(1180px, 90%); margin: 0 auto; padding: 64px 0; border-top: 1px solid #e6e6e6; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.accessIntro h2 { font-size: 32px; font-weight: 500; line-height: 1.2; letter-spacing: 0; }
+.accessIntro > p { max-width: 340px; margin: 20px 0 24px; color: #626262; font-size: 14px; line-height: 1.8; }
+.readingLinks { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 24px; font-size: 13px; }
+.readingLinks a { text-decoration: underline; text-underline-offset: 4px; }
+.answers { display: flex; flex-direction: column; gap: 28px; }
+.answers article { scroll-margin-top: 24px; }
+.answers h3 { font-size: 16px; font-weight: 550; line-height: 1.5; }
+.answers p { margin-top: 8px; color: #626262; font-size: 14px; line-height: 1.8; }
+@media (max-width: 700px) {
+  .access { grid-template-columns: 1fr; gap: 40px; padding: 36px 0 44px; }
+  .accessIntro h2 { font-size: 28px; }
+  .answers h3 { font-size: 15px; }
+}
