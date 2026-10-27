@@ -1,6 +1,6 @@
 # PostHog
 
-`instrumentation-client.ts` schedules initialization during browser idle time.
+`instrumentation-client.ts` waits for the page load event, then schedules initialization during browser idle time so analytics do not compete with visible images.
 `app/lib/analytics.ts` dynamically loads the SDK and shares one initialization
 promise across routes, confirmed signups, and exception capture. This keeps the
 SDK out of the initial page JavaScript. The browser SDK handles pageviews,
