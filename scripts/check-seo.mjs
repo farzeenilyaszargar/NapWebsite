@@ -52,13 +52,7 @@ for (const [file, path, title] of routes) {
   assert.ok(entities.some((entity) => entity["@type"] === "WebSite"));
   assert.ok(entities.some((entity) => entity["@id"] === `${origin}${path}#webpage`));
   if (path === "/") {
-    const faq = entities.find((entity) => entity["@type"] === "FAQPage");
-    assert.ok(faq?.mainEntity?.length >= 4, "homepage answers common product and access questions");
-    const visible = decode(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ");
-    for (const question of faq.mainEntity) {
-      assert.ok(visible.includes(question.name), "structured questions are visible on the page");
-      assert.ok(visible.includes(question.acceptedAnswer.text), "structured answers match visible product facts");
-    }
+    assert.ok(!entities.some((entity) => entity["@type"] === "FAQPage"), "no FAQ markup for content absent from the approved layout");
     const app = entities.find((entity) => entity["@type"] === "SoftwareApplication");
     assert.equal(app.operatingSystem, "macOS");
     assert.equal(app.downloadUrl, undefined, "no public download claim while downloads are paused");

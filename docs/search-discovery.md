@@ -5,12 +5,11 @@ The canonical product website is https://www.nap.cx/. The homepage is the main d
 ## Implemented
 
 - A descriptive homepage title and description name the product category, Mac platform, and download updates.
-- The homepage includes a short product definition and answers about access, agents, and platforms. These are rendered on the server and readable without JavaScript.
-- `app/lib/product.ts` supplies the visible answers and corresponding FAQ structured data. Update this file when availability changes.
-- Organization, website, software, article, breadcrumb, and question entities use consistent canonical identifiers. Structured data describes the visible product, without unconfirmed offers or ratings.
+- The existing homepage workflow copy and product articles are rendered on the server and readable without JavaScript. SEO changes must preserve the approved visible design unless a design change is explicitly requested.
+- Organization, website, software, article, and breadcrumb entities use consistent canonical identifiers. Structured data describes the visible product, without unconfirmed offers or ratings.
 - Robots rules allow public pages for general crawlers, OAI-SearchBot, and ChatGPT-User while excluding API paths. GPTBot's existing training policy is unchanged; search access and training are independent.
 - Canonicals, social cards, the sitemap, server rendering, responsive images, and first-paint optimizations apply alongside the product content.
-- `npm run check:seo` validates generated production HTML, visible/structured answer agreement, internal discovery, canonicals, sitemap coverage, and crawler rules.
+- `npm run check:seo` validates generated production HTML, product claims, internal discovery, canonicals, sitemap coverage, and crawler rules.
 
 ## Owner setup after deployment
 
@@ -25,7 +24,7 @@ The canonical product website is https://www.nap.cx/. The homepage is the main d
 
 Keyword meta tags do not affect Google rankings. FAQ markup does not promise FAQ rich results, ranking improvements, or chatbot citations. Google does not require special AI files or special schema for its AI features. There is no documented switch that makes ChatGPT recommend a product, and enabling training crawlers does not guarantee recommendations.
 
-Keep factual availability consistent across the homepage description, answers, product schema, waitlist, and articles when downloads resume. Do not create near-duplicate pages for each spelling of a search query.
+Keep factual availability consistent across the homepage description, product schema, waitlist, and articles when downloads resume. Do not create near-duplicate pages for each spelling of a search query.
 
 ## Official references
 

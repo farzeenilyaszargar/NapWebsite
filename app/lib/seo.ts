@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { productQuestions } from "./product";
 
 export const pageTitle = (label: string) => `Nap | ${label}`;
 export const isIndexable = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production";
@@ -132,17 +131,8 @@ export function homeSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      { ...webPageSchema(pages.home), mainEntity: { "@id": appId }, about: { "@id": appId }, hasPart: { "@id": `${site.url}/#nap-questions` } },
+      { ...webPageSchema(pages.home), mainEntity: { "@id": appId }, about: { "@id": appId } },
       softwareSchema(),
-      {
-        "@type": "FAQPage", "@id": `${site.url}/#nap-questions`, url: `${site.url}/#nap-questions`,
-        name: "Nap download and early access questions", about: { "@id": appId },
-        isPartOf: { "@id": `${site.url}/#webpage` },
-        mainEntity: productQuestions.map(({ id, question, answer }) => ({
-          "@type": "Question", "@id": `${site.url}/#${id}`, name: question,
-          acceptedAnswer: { "@type": "Answer", text: answer },
-        })),
-      },
     ],
   };
 }

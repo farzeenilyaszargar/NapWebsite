@@ -40,7 +40,6 @@ npm run start
 - Blog pages: `app/blogs/`
 - Static assets: `public/`
 - SEO configuration: `app/lib/seo.ts`
-- Shared product answers: `app/lib/product.ts`
 - Crawler routes: `app/sitemap.ts` and `app/robots.ts`
 - Domain launch checklist: `docs/seo-launch.md`
 - Search and AI discovery guide: `docs/search-discovery.md`
@@ -57,7 +56,7 @@ Run `npm test` for liquid contour, image-outline clipping, animation lifecycle, 
 
 SEO metadata, social cards, publisher entities, and breadcrumb markup are centralized in `app/lib/seo.ts`. Run `npm run check:seo` after a production build to check the actual rendered pages and crawler files. Optional Google/Bing ownership verification tokens are described in `.env.example`; account verification and sitemap submission still happen in the search providers' consoles. See `docs/seo-launch.md` for the remaining external steps.
 
-The homepage supplies a readable product definition and download/availability answers for people and retrieval agents. Visible answers and FAQ markup share `app/lib/product.ts`. The rendered SEO checker verifies their agreement and that every public content page is reachable from the homepage, with an explicit exception for the standalone `/apply` page. Unknown product details remain unpublished until confirmed.
+SEO work preserves the approved homepage design. Product information remains in the existing workflow copy and articles. The rendered SEO checker verifies metadata, structured product facts, crawler rules, and that every public content page is reachable from the homepage, with an explicit exception for the standalone `/apply` page. Unknown product details remain unpublished until confirmed.
 
 ## Mobile layout
 
