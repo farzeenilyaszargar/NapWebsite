@@ -3,6 +3,10 @@ import { readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // Small stylesheets arrive with HTML instead of blocking first paint on another request.
+    inlineCss: true,
+  },
   async redirects() {
     return ["nap-code.com", "www.nap-code.com"].map((host) => ({
       source: "/:path*",
