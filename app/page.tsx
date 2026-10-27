@@ -25,7 +25,7 @@ export default function Home() {
       </section>
       <div className={styles.stage}>
       <figure className="nap-full-width-product">
-        <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 700px) 150vw, (max-width: 1320px) 90vw, 1180px" />
+        <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 1320px) 90vw, 1180px" />
       </figure>
       </div>
       <section className="nap-agents nap-section" aria-labelledby="agents-title">

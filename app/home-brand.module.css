@@ -70,7 +70,7 @@
   .page :global(.nap-copy h1) { font-size: clamp(23px, 5.85vw, 40px); }
   .page :global(.nap-description) { font-size: 14px; max-width: 340px; }
   .page :global(.nap-hero-details) { margin-top: 22px; gap: 23px; }
-  .page :global(.nap-full-width-product) { width: 166%; max-width: none; border-radius: 8px; }
+  .page :global(.nap-full-width-product) { width: 100%; max-width: 100%; border-radius: 8px; }
   .page :global(.nap-agents) { padding: 44px 0 44px; gap: 18px; }
   .page :global(.nap-agents ul) { gap: 20px; }
   .page :global(.nap-agents li) { font-size: 12px; gap: 7px; }
