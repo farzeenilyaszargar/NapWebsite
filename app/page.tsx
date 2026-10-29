@@ -14,6 +14,13 @@ export const metadata = pageMetadata(pages.home);
 
 const agentNames = codingAgents.map(({ name }) => name).join(", ").replace(/, ([^,]*)$/, ", and $1");
 
+// Each shot is a region of the workspace screenshot (see NapFeatureShot for the coordinate frame).
+const features = [
+  { label: "Review", title: "See every change before you commit.", body: "Each answer shows the files the agent touched, with lines added and removed. Review the diff, ask a follow-up, or commit when you’re ready.", shot: { x: 345, y: 30, width: 1103, height: 690 } },
+  { label: "Spaces", title: "Every project, one sidebar.", body: "Spaces keep each codebase and its conversations together, so you can pick up any task where you left off.", shot: { x: 0, y: 30, width: 560, height: 350 } },
+  { label: "Agents", title: "Your choice of agent.", body: `Work with ${agentNames} from the same composer, with your project and conversation in one place.`, shot: null },
+];
+
 // Answers restate what the published guides already say; don't add unconfirmed product details.
 const faqs = [
   { question: "What is Nap?", answer: "Nap is a native Mac app that brings your AI coding agents into one workspace. Open a project, chat with an agent, and review the code changes it makes." },
@@ -57,33 +64,21 @@ export default function Home() {
           <p>Nap brings your AI coding agents into one native Mac app. Keep your projects, conversations, and code changes together.</p>
         </div>
         <div className={styles.features}>
-          <article className={styles.featureWide}>
-            <div className={styles.featureText}>
-              <span className={styles.featureKicker}>Review</span>
-              <h3>See every change before you commit.</h3>
-              <p>Each answer shows the files the agent touched, with lines added and removed. Review the diff, ask a follow-up, or commit when you’re ready.</p>
-            </div>
-            <NapFeatureShot className={styles.featureShot} x={345} y={72} width={1103} height={400} maxWidth={760} />
-          </article>
-          <article className={styles.feature}>
-            <div className={styles.featureText}>
-              <span className={styles.featureKicker}>Spaces</span>
-              <h3>Every project, one sidebar.</h3>
-              <p>Spaces keep each codebase and its conversations together, so you can pick up any task where you left off.</p>
-            </div>
-            <NapFeatureShot className={styles.featureShot} x={0} y={60} width={620} height={425} maxWidth={560} />
-          </article>
-          <article className={styles.feature}>
-            <div className={styles.featureText}>
-              <span className={styles.featureKicker}>Agents</span>
-              <h3>Your choice of agent.</h3>
-              <p>Work with Claude Code, Codex, or Cursor from the same composer, with your project and conversation in one place.</p>
-            </div>
-            <div className={styles.featurePanel}>
-              <ul className={styles.agentChips} aria-hidden="true">{codingAgents.map(({ name, logo }) => <li key={name} data-agent={name}><img src={logo} width={16} height={16} alt="" loading="lazy" decoding="async" />{name}</li>)}</ul>
-              <NapFeatureShot className={styles.composerShot} x={358} y={758} width={702} height={166} maxWidth={560} />
-            </div>
-          </article>
+          {features.map(({ label, title, body, shot }, index) => (
+            <article key={label} className={styles.feature}>
+              <div className={styles.featureText}>
+                <p className="nap-section-label">{String(index + 1).padStart(2, "0")} — {label}</p>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+              {shot ? <NapFeatureShot className={styles.featureShot} {...shot} maxWidth={700} /> : (
+                <div className={styles.agentPicker} aria-hidden="true">
+                  <p className="nap-section-label">Choose an agent</p>
+                  <ul>{codingAgents.map(({ name, logo }, agent) => <li key={name} data-selected={agent === 0 || undefined}><img src={logo} width={22} height={22} alt="" loading="lazy" decoding="async" />{name}<span>{agent === 0 ? "✓" : ""}</span></li>)}</ul>
+                </div>
+              )}
+            </article>
+          ))}
         </div>
       </section>
       <section className={styles.principles} aria-labelledby="principles-title">
