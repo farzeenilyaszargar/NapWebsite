@@ -31,7 +31,7 @@ export default function Home() {
       <NapHeader showWaitlist />
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
-          <p className={styles.eyebrow}><span aria-hidden="true" />Early access · Native Mac app</p>
+          <p className={`nap-section-label ${styles.eyebrow}`}>Early access · Native Mac app</p>
           <h1 id="nap-title"><span className={styles.halftoneTitle}>Your Agents.</span><br />All Together.</h1>
             <div className="nap-hero-details">
               <p className="nap-description">Nap brings Claude Code, Codex, and Cursor into one native Mac app. Open a project, pick an agent, and review every change before you commit.</p>
