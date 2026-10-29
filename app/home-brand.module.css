@@ -9,7 +9,6 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 .page :global(.nap-header) { width: min(1180px, 90%); height: 88px; }
-.page :global(.nap-wordmark) { font-size: 29px; }
 .page :global(.nap-nav) { gap: 28px; }
 .page :global(.nap-docs) { font-size: 14px; }
 .page :global(.nap-nav-waitlist) { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 9px 17px; border-radius: 999px; background: #151515; color: #fff; font-size: 12px; font-weight: 550; white-space: nowrap; }
