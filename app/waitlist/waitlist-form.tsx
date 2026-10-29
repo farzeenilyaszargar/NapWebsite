@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 import { captureWaitlistSignup } from "../lib/analytics";
-import NapLogo from "../components/nap-logo";
 
 type Submission = { status: "idle" | "pending" | "success" | "error"; message: string };
 
@@ -45,7 +44,7 @@ export default function WaitlistForm() {
       ) : (
         <div className="nap-waitlist-panel">
           <div className="nap-waitlist-intro">
-            <NapLogo size={56} className="nap-waitlist-ghost" eager />
+            <p className="nap-mono-label">Nap for macOS — Early access</p>
             <h1 id="waitlist-title">Get early access</h1>
             <p>Nap isn’t publicly available yet. Join the waitlist and we’ll let you know when it’s ready to download.</p>
           </div>

@@ -1,8 +1,14 @@
 import { site, pages, pageMetadata, siteSchema, indexing } from "./lib/seo";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Geist, Geist_Mono, Geist_Pixel } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
+
+const sans = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+// Headings only; the bitmap face carries the site's pixel style.
+const pixel = Geist_Pixel({ subsets: ["latin"], variable: "--font-geist-pixel" });
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),
@@ -21,14 +27,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#000000",
+  themeColor: "#050505",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className={`h-full antialiased ${sans.variable} ${mono.variable} ${pixel.variable}`}
     >
       <head>
         <Script id="x-conversion-pixel" strategy="lazyOnload">{`

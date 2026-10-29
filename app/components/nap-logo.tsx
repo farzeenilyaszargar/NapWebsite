@@ -1,6 +1,6 @@
-// Transparent ghost mark, trimmed to 125×138.
-export const ghostLogo = "/nap-ghost-932c82ae.webp";
+// A 14×16 pixel-art ghost, drawn at whole-number scales so every pixel stays square.
+export const ghostLogo = "/nap-ghost-pixel-9b0ef05c.png";
 
-export default function NapLogo({ size = 26, className = "nap-logo-mark", eager = false }: { size?: number; className?: string; eager?: boolean }) {
-  return <img className={className} src={ghostLogo} width={Math.round((size * 125) / 138)} height={size} alt="" decoding="async" loading={eager ? "eager" : "lazy"} />;
+export default function NapLogo({ scale = 2, className = "nap-logo-mark" }: { scale?: number; className?: string }) {
+  return <img className={className} src={ghostLogo} width={14 * scale} height={16 * scale} alt="" decoding="async" />;
 }

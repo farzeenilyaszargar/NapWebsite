@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --nap-background: #000000;
+  --nap-background: #050505;
   --nap-foreground: #ededed;
   --nap-muted: #8e8e8e;
   --nap-subtle: #5e5e5e;
@@ -10,7 +10,7 @@
   color-scheme: dark;
   background: var(--nap-background);
   color: var(--nap-foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 body { margin: 0; background: var(--nap-background); color: var(--nap-foreground); }
 html { scroll-behavior: auto; }
