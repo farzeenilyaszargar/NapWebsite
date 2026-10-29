@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { codingAgents } from "./lib/agents";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
@@ -10,6 +11,18 @@ import "./contrast.css";
 import styles from "./home-brand.module.css";
 
 export const metadata = pageMetadata(pages.home);
+
+const agentNames = codingAgents.map(({ name }) => name).join(", ").replace(/, ([^,]*)$/, ", and $1");
+
+// Answers restate what the published guides already say; don't add unconfirmed product details.
+const faqs = [
+  { question: "What is Nap?", answer: "Nap is a native Mac app that brings your AI coding agents into one workspace. Open a project, chat with an agent, and review the code changes it makes." },
+  { question: "Which coding agents does Nap work with?", answer: `The agents currently shown are ${agentNames}.` },
+  { question: "Is Nap a new AI model?", answer: "No. Nap is the workspace around your coding workflow. The agent you choose does the coding." },
+  { question: "Can I download Nap now?", answer: "Nap is in early access through the waitlist. There’s no public installer yet, and no release date is promised." },
+  { question: "Does Nap include agent subscriptions or API credits?", answer: "Don’t assume it does. Authentication, billing, and usage limits depend on the agent provider you use." },
+  { question: "Is Nap available for Windows or Linux?", answer: "Nap is a native Mac app. There’s no Windows or Linux version offered at the moment." },
+];
 
 export default function Home() {
   return (
@@ -77,12 +90,26 @@ export default function Home() {
         <div className={styles.principlesInner}>
           <h2 id="principles-title">Built around the way <span>you already work.</span></h2>
           <dl className={styles.principleGrid}>
-            <div><dt>{codingAgents.length} agents</dt><dd>{codingAgents.map(({ name }) => name).join(", ").replace(/, ([^,]*)$/, ", and $1")} in one app.</dd></div>
+            <div><dt>{codingAgents.length} agents</dt><dd>{agentNames} in one app.</dd></div>
             <div><dt>Native</dt><dd>A Mac app built for macOS, not another browser tab.</dd></div>
             <div><dt>Review-first</dt><dd>See the diff and decide what lands. You stay in control.</dd></div>
             <div><dt>Your agent</dt><dd>Nap is the workspace. The agent you choose does the coding.</dd></div>
           </dl>
           <p className={styles.builtBy}>Built by <a href="https://x.com/farilyaz" target="_blank" rel="noopener noreferrer">@farilyaz</a>. Follow progress at <a href="https://x.com/nap_cx" target="_blank" rel="noopener noreferrer">@nap_cx</a>.</p>
+        </div>
+      </section>
+      <section id="faq" className={styles.faq} aria-labelledby="faq-title">
+        <div className={styles.faqIntro}>
+          <h2 id="faq-title">Questions, answered.</h2>
+          <p>More detail in the <Link href={pages.blogs.path}>Nap guides</Link>.</p>
+        </div>
+        <div className={styles.faqList}>
+          {faqs.map(({ question, answer }) => (
+            <details key={question}>
+              <summary>{question}</summary>
+              <p>{answer}</p>
+            </details>
+          ))}
         </div>
       </section>
       <div className={styles.closing}>

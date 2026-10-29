@@ -59,3 +59,19 @@
 .contrast-page .nap-site-footer .nap-footer-bottom { color: #151515; font-size: 13px; font-weight: 500; }
 .contrast-page .nap-site-footer .nap-footer-copyright { color: #151515; font-size: 12px; font-weight: 500; }
 .contrast-page .nap-site-footer .nap-footer-social { color: #151515; min-height: 40px; }
+
+/* Footer: brand, link columns, and a quiet bottom row. */
+.contrast-page .nap-footer-main { display: flex; justify-content: space-between; gap: 48px; padding: 44px 0 40px; border-top: 1px solid #e6e6e6; }
+.contrast-page .nap-footer-brand p { margin-top: 14px; max-width: 240px; color: #626262; font-size: 13px; line-height: 1.6; }
+.contrast-page .nap-footer-links { display: grid; grid-template-columns: repeat(3, auto); gap: 64px; }
+.contrast-page .nap-footer-links > div { display: flex; flex-direction: column; gap: 10px; }
+.contrast-page .nap-footer-heading { margin-bottom: 4px; color: #8a8a8a; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.contrast-page .nap-footer-links a { color: #151515; font-size: 13px; line-height: 1.5; }
+.contrast-page .nap-site-footer .nap-footer-links .nap-footer-social { min-height: 0; }
+.contrast-page .nap-footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.contrast-page .nap-site-footer .nap-footer-bottom span:last-child { color: #626262; font-size: 12px; font-weight: 450; }
+@media (max-width: 700px) {
+  .contrast-page .nap-footer-main { flex-direction: column; gap: 32px; padding: 32px 0 28px; }
+  .contrast-page .nap-footer-links { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+  .contrast-page .nap-footer-links > div:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+}

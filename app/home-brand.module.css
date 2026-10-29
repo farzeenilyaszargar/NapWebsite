@@ -208,3 +208,26 @@
   .principleGrid { grid-template-columns: 1fr; }
   .principleGrid > div, .principleGrid > div + div { padding: 20px 0 16px; border-left: 0; }
 }
+
+/* FAQ: native disclosure rows, no client JavaScript. */
+.faq { width: min(1180px, 90%); margin: 0 auto; padding: 104px 0 40px; display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; }
+.faqIntro h2 { font-size: clamp(30px, 3.1vw, 42px); font-weight: 500; letter-spacing: -.05em; line-height: 1.16; }
+.faqIntro p { margin-top: 16px; color: #626262; font-size: 14px; }
+.faqIntro a { color: #151515; text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 4px; }
+.faqIntro a:hover { text-decoration-color: currentColor; }
+.faqList details { border-top: 1px solid #e6e6e6; }
+.faqList details:last-child { border-bottom: 1px solid #e6e6e6; }
+.faqList summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; color: #151515; font-size: 16px; font-weight: 500; letter-spacing: -.02em; cursor: pointer; list-style: none; }
+.faqList summary::-webkit-details-marker { display: none; }
+.faqList summary::after { content: '+'; flex-shrink: 0; width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid #e0e0e0; border-radius: 50%; color: #555; font-size: 15px; font-weight: 400; transition: transform .2s, border-color .2s; }
+.faqList details[open] summary::after { transform: rotate(45deg); border-color: var(--nap-accent); color: var(--nap-accent); }
+.faqList summary:hover::after { border-color: #151515; }
+.faqList details p { max-width: 600px; padding: 0 50px 24px 0; color: #626262; font-size: 14px; line-height: 1.7; }
+.closing :global(.nap-footer-main) { border-top-color: transparent; }
+.closing :global(.nap-footer-main) a, .closing :global(.nap-footer-main) p { text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff; }
+@media (max-width: 860px) {
+  .faq { grid-template-columns: 1fr; gap: 28px; padding: 72px 0 24px; }
+  .faqList summary { font-size: 15px; padding: 18px 0; }
+  .faqList details p { padding-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .faqList summary::after { transition: none; } }
