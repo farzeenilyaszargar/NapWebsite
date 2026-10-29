@@ -26,14 +26,37 @@ export const pages = {
     keywords: ["Nap blog", "AI coding agents", "native Mac app", "coding workspace"],
   },
   story: {
+    headline: "Why We Started",
     path: "/blogs/hello-nap", title: pageTitle("Why We Started"),
     description: "Why we are building Nap around the work after the prompt: following coding agents, reading code changes, and deciding what belongs in your project.",
     keywords: ["Nap story", "AI coding workflow", "coding agent workspace", "Mac development app"],
   },
   why: {
+    headline: "Why This?",
     path: "/blogs/why", title: pageTitle("Why This?"),
     description: "What Nap does: open a project, work with a coding agent, and review its changes in one native Mac app. An honest look at the workflow and current availability.",
     keywords: ["how Nap works", "AI coding app", "coding agent interface", "Claude Code workspace", "Codex workspace"],
+  },
+  parallel: {
+    headline: "Parallel Coding Agents: A Practical Workflow Guide",
+    path: "/blogs/parallel-coding-agents", title: pageTitle("Parallel Coding Agents: A Practical Workflow Guide"),
+    description: "Learn how to divide coding tasks, isolate agents with Git worktrees, and review parallel changes. A practical guide from Nap, the AI coding app for Mac.",
+    keywords: ["Nap parallel agents", "parallel coding agents", "Git worktrees", "multi-agent coding workflow"],
+    published: "2026-10-30",
+  },
+  ade: {
+    headline: "Nap and the Agentic Development Environment",
+    path: "/blogs/nap-agentic-development-environment", title: pageTitle("Agentic Development Environment for Mac"),
+    description: "What is an agentic development environment? Explore how the Nap app brings coding agents, project conversations, and code review into one Mac workspace.",
+    keywords: ["Nap ADE", "agentic development environment", "Nap agent", "Nap app", "AI coding workspace for Mac"],
+    published: "2026-10-30",
+  },
+  download: {
+    headline: "Nap Download: Official Mac App and Early Access",
+    path: "/blogs/nap-download", title: pageTitle("Download & Early Access for the Mac App"),
+    description: "Looking to download Nap? Check the official Mac app's availability, join the early-access waitlist, and learn what to verify before installing agent tools.",
+    keywords: ["Nap download", "download Nap", "Nap app", "Nap for Mac", "Nap early access"],
+    published: "2026-10-30",
   },
   apply: {
     path: "/apply", title: pageTitle("Apply"),
@@ -47,6 +70,8 @@ export const pages = {
   },
 
 };
+
+export const blogPosts = [pages.story, pages.why, pages.parallel, pages.ade, pages.download];
 
 type Page = (typeof pages)[keyof typeof pages];
 const absolute = (path: string) => new URL(path, site.url).toString();
@@ -70,6 +95,7 @@ export function pageMetadata(page: Page, article = false): Metadata {
     alternates: { canonical: page.path },
     openGraph: {
       type: article ? "article" : "website",
+      ...(article && "published" in page ? { publishedTime: page.published } : {}),
       title: page.title,
       description: page.description,
       url: page.path,
@@ -104,7 +130,8 @@ export function siteSchema() {
 function breadcrumbSchema(page: Page) {
   const items = [{ name: "Nap", item: absolute("/") }];
   if (page.path.startsWith("/blogs")) items.push({ name: "Blogs", item: absolute(pages.blogs.path) });
-  if (page === pages.story || page === pages.why) items.push({ name: page === pages.story ? "Why We Started" : "Why This?", item: absolute(page.path) });
+  const post = blogPosts.find((post) => post.path === page.path);
+  if (post) items.push({ name: post.headline, item: absolute(page.path) });
   if (page === pages.apply) items.push({ name: "Apply", item: absolute(page.path) });
   if (page === pages.waitlist) items.push({ name: "Waitlist", item: absolute(page.path) });
   return {
@@ -145,13 +172,13 @@ export function blogSchema() {
       { ...webPageSchema(pages.blogs, "CollectionPage"), mainEntity: { "@id": blogId } },
       breadcrumbSchema(pages.blogs),
       { "@type": "Blog", "@id": blogId, name: "Nap Blog", url: absolute(pages.blogs.path), description: pages.blogs.description, inLanguage: "en", publisher: { "@id": organizationId },
-        blogPost: [pages.story, pages.why].map((page) => ({ "@type": "BlogPosting", "@id": `${absolute(page.path)}#article`, url: absolute(page.path), headline: page === pages.story ? "Why We Started" : "Why This?" })),
+        blogPost: blogPosts.map((page) => ({ "@type": "BlogPosting", "@id": `${absolute(page.path)}#article`, url: absolute(page.path), headline: page.headline })),
       },
     ],
   };
 }
 
-export function articleSchema(page: typeof pages.story | typeof pages.why) {
+export function articleSchema(page: (typeof blogPosts)[number]) {
   const articleId = `${absolute(page.path)}#article`;
   return {
     "@context": "https://schema.org",
@@ -159,7 +186,8 @@ export function articleSchema(page: typeof pages.story | typeof pages.why) {
       { ...webPageSchema(page), mainEntity: { "@id": articleId } },
       breadcrumbSchema(page),
       { "@type": "BlogPosting", "@id": articleId,
-        headline: page === pages.story ? "Why We Started" : "Why This?",
+        headline: page.headline,
+        ...("published" in page ? { datePublished: page.published } : {}),
         description: page.description, url: absolute(page.path),
         image: { "@type": "ImageObject", url: absolute(site.image), width: 1200, height: 630 },
         mainEntityOfPage: { "@id": `${absolute(page.path)}#webpage` },

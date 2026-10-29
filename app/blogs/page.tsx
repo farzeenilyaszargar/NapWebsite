@@ -1,6 +1,6 @@
 import NapFooter from "../components/nap-footer";
 import StructuredData from "../components/structured-data";
-import { pages, pageMetadata, blogSchema } from "../lib/seo";
+import { pages, pageMetadata, blogSchema, blogPosts } from "../lib/seo";
 import Link from "next/link";
 import NapHeader from "../components/nap-header";
 import "../contrast.css";
@@ -28,6 +28,13 @@ export default function BlogsPage() {
             <h2>Why This?</h2>
             <p>What Nap does, what the interface is responsible for, and why a confident answer still needs a review.</p>
           </Link>
+          {blogPosts.slice(2).map((post, index) => (
+            <Link className="nap-blog-row" href={post.path} key={post.path}>
+              <span className="nap-blog-number">{String(index + 3).padStart(2, "0")}</span>
+              <h2>{post.headline}</h2>
+              <p>{post.description}</p>
+            </Link>
+          ))}
         </div>
       </section>
       <NapFooter />

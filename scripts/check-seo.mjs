@@ -12,6 +12,9 @@ const routes = [
   ["blogs", "/blogs", "Nap | Blogs"],
   ["blogs/hello-nap", "/blogs/hello-nap", "Nap | Why We Started"],
   ["blogs/why", "/blogs/why", "Nap | Why This?"],
+  ["blogs/parallel-coding-agents", "/blogs/parallel-coding-agents", "Nap | Parallel Coding Agents: A Practical Workflow Guide"],
+  ["blogs/nap-agentic-development-environment", "/blogs/nap-agentic-development-environment", "Nap | Agentic Development Environment for Mac"],
+  ["blogs/nap-download", "/blogs/nap-download", "Nap | Download & Early Access for the Mac App"],
   ["waitlist", "/waitlist", "Nap | Waitlist"],
   ["apply", "/apply", "Nap | Apply"],
 ];
@@ -64,10 +67,23 @@ for (const [file, path, title] of routes) {
   }
   if (path.startsWith("/blogs/")) {
     const article = entities.find((entity) => entity["@type"] === "BlogPosting");
+    const heading = decode(html.match(/<h1\b[^>]*>(.*?)<\/h1>/s)[1].replace(/<[^>]*>/g, ""));
+    assert.equal(article.headline, heading, `${path}: schema matches the visible article title`);
     assert.ok(article.image.url.startsWith(origin));
     assert.equal(article.author["@id"], `${origin}/#author`);
     assert.ok(entities.some((entity) => entity["@id"] === article.author["@id"] && entity["@type"] === "Person" && entity.url === "https://x.com/farilyaz"));
     assert.ok(internal.includes("/"), "article publisher homepage is reachable");
+    if (article.datePublished) {
+      assert.ok(html.includes(`<time dateTime="${article.datePublished}">`), `${path}: publication date is visible`);
+      assert.equal(get("article:published_time"), article.datePublished);
+      const body = html.match(/<article\b[^>]*>(.*?)<\/article>/s)[1];
+      assert.ok(body.includes('href="/waitlist"'), `${path}: article includes an accurate early-access action`);
+      assert.ok(body.replace(/<[^>]*>/g, " ").split(/\s+/).length >= 450, `${path}: substantive guide content`);
+    }
+  }
+  if (path === "/blogs") {
+    const blog = entities.find((entity) => entity["@type"] === "Blog");
+    assert.deepEqual(blog.blogPost.map((post) => new URL(post.url).pathname).sort(), routes.filter(([, route]) => route.startsWith("/blogs/")).map(([, route]) => route).sort(), "blog schema includes every published article");
   }
   for (const entity of entities) {
     assert.equal(entity.aggregateRating, undefined, "no invented ratings");

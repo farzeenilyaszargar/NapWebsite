@@ -1,17 +1,12 @@
 import Link from "next/link";
-import { pages } from "../lib/seo";
-
-const reading = [
-  { page: pages.story, label: "Why We Started" },
-  { page: pages.why, label: "Why This?" },
-];
+import { blogPosts } from "../lib/seo";
 
 export default function NapReadingLinks({ current }: { current: string }) {
   return (
     <nav className="nap-reading-links" aria-label="Further reading">
       <span className="nap-blog-label">KEEP EXPLORING</span>
-      <div>{reading.filter(({ page }) => page.path !== current).map(({ page, label }) => (
-        <Link key={page.path} href={page.path} className="nap-inline-link">{label}</Link>
+      <div>{blogPosts.filter((page) => page.path !== current).map((page) => (
+        <Link key={page.path} href={page.path} className="nap-inline-link">{page.headline}</Link>
       ))}</div>
     </nav>
   );
