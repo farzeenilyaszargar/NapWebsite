@@ -1,39 +1,56 @@
-/* Homepage: one message, one action, and the app itself, on black. */
+/* Homepage: pixel headings, ordered-dither light, and the real app in a bracketed frame. */
 .page { display: flex; flex-direction: column; overflow: clip; }
 
-.hero { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; padding: 72px 5% 64px; text-align: center; }
-.hero::before {
-  content: ""; position: absolute; z-index: -1; inset: -120px 0 auto; height: 620px; pointer-events: none;
-  background: radial-gradient(42% 52% at 50% 32%, #ffffff17, transparent 70%);
-}
-.ghost { position: relative; margin-bottom: 36px; animation: drift 6s ease-in-out infinite; }
-/* A soft halo behind the mark. */
-.ghost::before { content: ""; position: absolute; inset: -40%; border-radius: 50%; background: radial-gradient(closest-side, #ffffff26, transparent); }
-.ghostMark { position: relative; display: block; filter: drop-shadow(0 0 24px #ffffff2e); }
-.hero h1 {
-  font-size: clamp(44px, 6.4vw, 84px); font-weight: 600; line-height: 1.02; letter-spacing: -.055em;
-  background: linear-gradient(180deg, #fff 30%, #7d7d7d); -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.lede { margin: 24px 0 36px; max-width: 520px; color: var(--nap-muted); font-size: 17px; line-height: 1.6; letter-spacing: -.01em; text-wrap: balance; }
-.note { margin-top: 18px; color: var(--nap-subtle); font-size: 13px; }
+/* 320×180 1-bit dither scaled up with nearest-neighbour, so its dots read as screen pixels. */
+.glow { position: absolute; z-index: -1; left: 50%; width: 1600px; max-width: none; height: auto; transform: translateX(-50%); image-rendering: pixelated; opacity: .1; pointer-events: none; }
 
-/* The real app, fading into the page so the screen ends on the product. */
-.product { position: relative; width: min(1080px, 92%); margin: 24px auto 0; }
-.product::before {
-  content: ""; position: absolute; z-index: -1; inset: -40px 10% auto; height: 200px; pointer-events: none;
-  background: radial-gradient(50% 60% at 50% 100%, #ffffff12, transparent 70%);
-}
-.product > picture { display: block; border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 1px #ffffff1a, 0 -1px 0 #ffffff26 inset; mask-image: linear-gradient(180deg, #000 55%, transparent 98%); }
+.hero { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; padding: 88px 5% 64px; text-align: center; }
+.hero .glow { top: -400px; }
+.hero h1 { margin-top: 22px; font-family: var(--nap-pixel); font-size: clamp(46px, 7vw, 96px); font-weight: 400; line-height: .98; letter-spacing: -.02em; }
+.lede { margin: 26px 0 36px; max-width: 580px; color: var(--nap-muted); font-size: 17px; line-height: 1.65; text-wrap: balance; }
+.actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; }
+.secondary { display: inline-flex; align-items: center; min-height: 50px; color: var(--nap-foreground); font-family: var(--nap-mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; text-decoration: underline; text-decoration-color: #4a4a47; text-underline-offset: 6px; }
+.secondary:hover { text-decoration-color: currentColor; }
+.note { margin-top: 20px; color: var(--nap-subtle); font-family: var(--nap-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+
+/* Corner brackets mark the screenshot like a viewfinder. */
+.product { position: relative; width: min(1120px, 90%); margin: 8px auto 0; padding: 14px; }
+.product::before, .product::after { content: ""; position: absolute; width: 22px; height: 22px; border: 2px solid var(--nap-foreground); pointer-events: none; }
+.product::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.product::after { right: 0; bottom: 0; border-left: 0; border-top: 0; }
+.product > picture { display: block; box-shadow: 0 0 0 1px #ffffff1c, 0 40px 120px -40px #ffffff1f; }
 .product img { display: block; width: 100%; height: auto; }
 
-@keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.agents { width: min(1120px, 90%); margin: 0 auto; padding: 56px 0 24px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.agents ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.agents li { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border: 1px solid var(--nap-border); background: var(--nap-surface); font-size: 14px; }
+.agents img { width: 20px; height: 20px; object-fit: contain; }
 
-@media (max-width: 700px) {
-  .hero { padding: 48px 6% 40px; }
-  .ghost { margin-bottom: 28px; }
-  .ghostMark { width: 58px; height: 64px; }
-  .lede { margin: 20px 0 30px; font-size: 16px; }
-  .product > picture { border-radius: 8px; }
+.how { width: min(1120px, 90%); margin: 0 auto; padding: 104px 0 96px; }
+.how h2 { font-family: var(--nap-pixel); font-size: clamp(32px, 4vw, 52px); font-weight: 400; line-height: 1.05; letter-spacing: -.01em; }
+.how ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 52px 0 0; padding: 0; list-style: none; border-top: 1px dashed #2a2a28; }
+.how li { padding: 28px 32px 8px 0; }
+.how li + li { padding-left: 32px; border-left: 1px dashed #2a2a28; }
+.how h3 { margin: 18px 0 10px; font-size: 19px; font-weight: 600; letter-spacing: -.02em; }
+.how li p { max-width: 320px; color: var(--nap-muted); font-size: 14px; line-height: 1.7; }
+
+.cta { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; align-items: center; padding: 112px 5% 120px; text-align: center; }
+.cta .glow { top: 50%; width: 1200px; transform: translate(-50%, -50%); opacity: .14; }
+.cta h2 { font-family: var(--nap-pixel); font-size: clamp(36px, 5vw, 64px); font-weight: 400; line-height: 1.05; letter-spacing: -.01em; }
+.cta p { margin: 18px 0 34px; color: var(--nap-muted); font-size: 16px; }
+
+@media (max-width: 760px) {
+  .glow { width: 1100px; }
+  .hero { padding: 56px 6% 44px; }
+  .hero .glow { top: -300px; }
+  .lede { font-size: 16px; }
+  .actions { flex-direction: column; gap: 10px; }
+  .product { padding: 8px; }
+  .product::before, .product::after { width: 14px; height: 14px; }
+  .agents { padding-top: 40px; }
+  .how { padding: 72px 0 56px; }
+  .how ol { grid-template-columns: 1fr; margin-top: 32px; }
+  .how li, .how li + li { padding: 24px 0 20px; border-left: 0; }
+  .how li + li { border-top: 1px dashed #2a2a28; }
+  .cta { padding: 80px 6% 88px; }
 }
-@media (prefers-reduced-motion: reduce) { .ghost { animation: none; } }
-@media (forced-colors: active) { .hero h1 { color: CanvasText; background: none; } }
