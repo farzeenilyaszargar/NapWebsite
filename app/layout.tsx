@@ -8,7 +8,7 @@ import "./globals.css";
 const sans = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 // Headings only; the bitmap face carries the site's pixel style.
-const pixel = Geist_Pixel({ subsets: ["latin"], variable: "--font-geist-pixel" });
+const pixel = Geist_Pixel({ subsets: ["latin"], variable: "--font-geist-pixel", adjustFontFallback: false });
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),
