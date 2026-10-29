@@ -2,6 +2,7 @@ import { codingAgents } from "./lib/agents";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
 import NapProductImage from "./components/nap-product-image";
+import NapFeatureShot from "./components/nap-feature-shot";
 import NapWaitlistCta from "./components/nap-waitlist-cta";
 import NapHeader from "./components/nap-header";
 import NapFooter from "./components/nap-footer";
@@ -42,29 +43,33 @@ export default function Home() {
           <h2 id="workflow-title"><span className={styles.halftoneTitle}>Less setup.</span><br />More getting somewhere.</h2>
           <p>Nap brings your AI coding agents into one native Mac app. Keep your projects, conversations, and code changes together.</p>
         </div>
-        <div className={styles.steps}>
-          <article>
-            <div className={styles.detail} aria-hidden="true">
-              <div className={styles.projectRow}><span className={styles.folder} /> Your project <span>⌘ O</span></div>
-              <div className={styles.fileRow}>src <span>/</span> components <span>/</span></div>
-              <div className={styles.composer}><span className={styles.typingPrompt}>What would you like to build?</span><span>↑</span></div>
+        <div className={styles.features}>
+          <article className={styles.featureWide}>
+            <div className={styles.featureText}>
+              <span className={styles.featureKicker}>Review</span>
+              <h3>See every change before you commit.</h3>
+              <p>Each answer shows the files the agent touched, with lines added and removed. Review the diff, ask a follow-up, or commit when you’re ready.</p>
             </div>
-            <h3>Start where you are.</h3><p>Open your codebase and describe what you want to build, fix, or understand.</p>
+            <NapFeatureShot className={styles.featureShot} x={345} y={72} width={1103} height={400} maxWidth={760} />
           </article>
-          <article>
-            <div className={styles.detail} aria-hidden="true">
-              <div className={styles.agentRows}>{codingAgents.map(({ name, logo }) => <div key={name}><img src={logo} width={18} height={18} alt="" loading="lazy" /><span>{name}</span><span>✓</span></div>)}</div>
+          <article className={styles.feature}>
+            <div className={styles.featureText}>
+              <span className={styles.featureKicker}>Spaces</span>
+              <h3>Every project, one sidebar.</h3>
+              <p>Spaces keep each codebase and its conversations together, so you can pick up any task where you left off.</p>
             </div>
-            <h3>Your choice of agent.</h3><p>Work with the coding agent you know, with your project and conversation in the same place.</p>
+            <NapFeatureShot className={styles.featureShot} x={0} y={60} width={620} height={425} maxWidth={560} />
           </article>
-          <article>
-            <div className={styles.detail} aria-hidden="true">
-              <div className={styles.reviewTitle}>Changes <span>2 files</span></div>
-              <div className={styles.diffLine}><span>− &nbsp;The first draft.</span></div>
-              <div className={styles.diffLine}><span>+ &nbsp;Something better.</span></div>
-              <div className={styles.reviewAction}>Review changes <span>↗</span></div>
+          <article className={styles.feature}>
+            <div className={styles.featureText}>
+              <span className={styles.featureKicker}>Agents</span>
+              <h3>Your choice of agent.</h3>
+              <p>Work with Claude Code, Codex, or Cursor from the same composer, with your project and conversation in one place.</p>
             </div>
-            <h3>Keep moving forward.</h3><p>See what changed, ask a follow-up, and decide what comes next. You stay in control.</p>
+            <div className={styles.featurePanel}>
+              <ul className={styles.agentChips} aria-hidden="true">{codingAgents.map(({ name, logo }) => <li key={name} data-agent={name}><img src={logo} width={16} height={16} alt="" loading="lazy" decoding="async" />{name}</li>)}</ul>
+              <NapFeatureShot className={styles.composerShot} x={358} y={758} width={702} height={166} maxWidth={560} />
+            </div>
           </article>
         </div>
       </section>
