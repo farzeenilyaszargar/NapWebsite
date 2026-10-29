@@ -82,8 +82,8 @@ export default function Home() {
         </div>
       </section>
       <section className={styles.principles} aria-labelledby="principles-title">
-        <div className={styles.principlesInner}>
-          <h2 id="principles-title">Built around the way <span>you already work.</span></h2>
+        <div>
+          <h2 id="principles-title"><span className={styles.halftoneTitle}>Built around</span><br />the way you already work.</h2>
           <dl className={styles.principleGrid}>
             <div><dt>{codingAgents.length} agents</dt><dd>{agentNames} in one app.</dd></div>
             <div><dt>Native</dt><dd>A Mac app built for macOS, not another browser tab.</dd></div>

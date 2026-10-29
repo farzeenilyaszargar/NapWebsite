@@ -148,35 +148,24 @@
   .feature:nth-child(even) .featureText { order: 0; }
 }
 
-/* Principles: a dark band of published product facts. */
-.principles { margin-top: 40px; background: #111110; color: #f2f2f0; }
-.principlesInner { width: min(1180px, 90%); margin: 0 auto; padding: 96px 0 84px; }
-.principles h2 { max-width: 640px; font-size: clamp(30px, 3.4vw, 46px); font-weight: 500; line-height: 1.12; letter-spacing: -.05em; }
-.principles h2 span { color: #8a8a86; }
-.principleGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 56px 0 0; }
-.principleGrid > div { padding: 26px 28px 6px 0; border-top: 1px solid #2c2c2a; }
-.principleGrid > div + div { padding-left: 28px; border-left: 1px solid #2c2c2a; }
-.principleGrid dt { color: #fff; font-size: clamp(22px, 2.1vw, 28px); font-weight: 500; letter-spacing: -.04em; }
-.principleGrid > div:first-child dt { color: var(--nap-accent); }
-.principleGrid dd { margin: 12px 0 0; max-width: 240px; color: #a3a39f; font-size: 14px; line-height: 1.65; }
-.builtBy { margin-top: 56px; color: #8a8a86; font-size: 13px; }
-.builtBy a { color: #f2f2f0; text-decoration: underline; text-decoration-color: #555; text-underline-offset: 4px; }
+/* Principles: published product facts on ruled columns, matching the print style. */
+.principles { width: min(1180px, 90%); margin: 0 auto; padding: 120px 0 24px; }
+.principles h2 { font-size: clamp(30px, 3.1vw, 42px); font-weight: 500; line-height: 1.16; letter-spacing: -.05em; }
+.principleGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin: 48px 0 0; }
+.principleGrid > div { padding-top: 22px; border-top: 1px solid #151515; }
+.principleGrid dt { color: #151515; font-size: 20px; font-weight: 500; letter-spacing: -.035em; }
+.principleGrid dd { margin: 10px 0 0; max-width: 250px; color: #626262; font-size: 14px; line-height: 1.7; }
+.builtBy { margin-top: 40px; color: #626262; font-size: 13px; }
+.builtBy a { color: #151515; text-decoration: underline; text-decoration-color: #c4c4c4; text-underline-offset: 4px; }
 .builtBy a:hover { text-decoration-color: currentColor; }
-.principles :focus-visible { outline-color: #f2f2f0; }
 @media (max-width: 860px) {
-  .principlesInner { padding: 64px 0 56px; }
-  .principleGrid { grid-template-columns: 1fr 1fr; margin-top: 40px; }
-  .principleGrid > div:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .principleGrid > div { padding-bottom: 24px; }
-  .builtBy { margin-top: 32px; }
+  .principles { padding-top: 80px; }
+  .principleGrid { grid-template-columns: 1fr 1fr; gap: 28px 24px; margin-top: 32px; }
 }
-@media (max-width: 480px) {
-  .principleGrid { grid-template-columns: 1fr; }
-  .principleGrid > div, .principleGrid > div + div { padding: 20px 0 16px; border-left: 0; }
-}
+@media (max-width: 480px) { .principleGrid { grid-template-columns: 1fr; } }
 
 /* FAQ: native disclosure rows, no client JavaScript. */
-.faq { width: min(1180px, 90%); margin: 0 auto; padding: 104px 0 40px; display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; }
+.faq { width: min(1180px, 90%); margin: 0 auto; padding: 120px 0 40px; display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; }
 .faqIntro h2 { font-size: clamp(30px, 3.1vw, 42px); font-weight: 500; letter-spacing: -.05em; line-height: 1.16; }
 .faqIntro p { margin-top: 16px; color: #626262; font-size: 14px; }
 .faqIntro a { color: #151515; text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 4px; }
@@ -186,7 +175,7 @@
 .faqList summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; color: #151515; font-size: 16px; font-weight: 500; letter-spacing: -.02em; cursor: pointer; list-style: none; }
 .faqList summary::-webkit-details-marker { display: none; }
 .faqList summary::after { content: '+'; flex-shrink: 0; width: 26px; height: 26px; display: grid; place-items: center; border: 1px solid #e0e0e0; border-radius: 50%; color: #555; font-size: 15px; font-weight: 400; transition: transform .2s, border-color .2s; }
-.faqList details[open] summary::after { transform: rotate(45deg); border-color: var(--nap-accent); color: var(--nap-accent); }
+.faqList details[open] summary::after { transform: rotate(45deg); border-color: #151515; color: #151515; }
 .faqList summary:hover::after { border-color: #151515; }
 .faqList details p { max-width: 600px; padding: 0 50px 24px 0; color: #626262; font-size: 14px; line-height: 1.7; }
 .closing :global(.nap-footer-main) { border-top-color: transparent; }
