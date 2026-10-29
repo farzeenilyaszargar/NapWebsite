@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
-import "./halftone.css";
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

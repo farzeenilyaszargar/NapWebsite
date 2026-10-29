@@ -16,7 +16,7 @@ export default function BlogsPage() {
       <section className="nap-hero">
         <div className="nap-blog-index">
           <div className="nap-blog-intro">
-            <h1>Nap <span className="nap-halftone-text">Blog.</span></h1>
+            <h1>Nap <span className="nap-dim-text">Blog.</span></h1>
             <p>Practical guides to coding agents, parallel workflows,<br />and getting started with Nap.</p>
           </div>
           {blogPosts.map((post) => (

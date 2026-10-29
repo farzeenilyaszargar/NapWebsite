@@ -13,7 +13,7 @@ export default function ApplyPage() {
       <StructuredData data={applySchema()} />
       <NapHeader />
       <section className="nap-apply-closed" aria-labelledby="apply-title">
-        <h1 id="apply-title"><span className="nap-halftone-text">Applications</span> are closed at the moment</h1>
+        <h1 id="apply-title"><span className="nap-dim-text">Applications</span> are closed at the moment</h1>
       </section>
       <NapFooter />
     </main>

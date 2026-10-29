@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { captureWaitlistSignup } from "../lib/analytics";
+import NapLogo from "../components/nap-logo";
 
 type Submission = { status: "idle" | "pending" | "success" | "error"; message: string };
 
@@ -39,13 +40,14 @@ export default function WaitlistForm() {
           <div className="nap-success-burst" aria-hidden="true">
             {Array.from({ length: 10 }, (_, index) => <span key={index} />)}
           </div>
-          <h1 id="waitlist-title" tabIndex={-1} ref={(node) => node?.focus({ preventScroll: true })}>You’re On The <span className="nap-halftone-text">List</span></h1>
+          <h1 id="waitlist-title" tabIndex={-1} ref={(node) => node?.focus({ preventScroll: true })}>You’re On The <span className="nap-dim-text">List</span></h1>
         </div>
       ) : (
         <div className="nap-waitlist-panel">
           <div className="nap-waitlist-intro">
-            <h1 id="waitlist-title"><span className="nap-halftone-text">Join the</span> Waitlist</h1>
-            <p>Your next good idea starts here</p>
+            <NapLogo size={56} className="nap-waitlist-ghost" eager />
+            <h1 id="waitlist-title">Get early access</h1>
+            <p>Nap isn’t publicly available yet. Join the waitlist and we’ll let you know when it’s ready to download.</p>
           </div>
           <div className="nap-waitlist-form-wrap">
             <form onSubmit={submit} autoComplete="on" aria-label="Join the Nap Waitlist" aria-busy={busy}>
