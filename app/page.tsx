@@ -73,6 +73,18 @@ export default function Home() {
           </article>
         </div>
       </section>
+      <section className={styles.principles} aria-labelledby="principles-title">
+        <div className={styles.principlesInner}>
+          <h2 id="principles-title">Built around the way <span>you already work.</span></h2>
+          <dl className={styles.principleGrid}>
+            <div><dt>{codingAgents.length} agents</dt><dd>{codingAgents.map(({ name }) => name).join(", ").replace(/, ([^,]*)$/, ", and $1")} in one app.</dd></div>
+            <div><dt>Native</dt><dd>A Mac app built for macOS, not another browser tab.</dd></div>
+            <div><dt>Review-first</dt><dd>See the diff and decide what lands. You stay in control.</dd></div>
+            <div><dt>Your agent</dt><dd>Nap is the workspace. The agent you choose does the coding.</dd></div>
+          </dl>
+          <p className={styles.builtBy}>Built by <a href="https://x.com/farilyaz" target="_blank" rel="noopener noreferrer">@farilyaz</a>. Follow progress at <a href="https://x.com/nap_cx" target="_blank" rel="noopener noreferrer">@nap_cx</a>.</p>
+        </div>
+      </section>
       <div className={styles.closing}>
         <section className={styles.tryNap} aria-labelledby="try-nap-title">
           <h2 id="try-nap-title">Try out Nap.</h2>

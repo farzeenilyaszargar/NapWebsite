@@ -181,3 +181,30 @@
   .featurePanel { padding: 22px 0 0 22px; }
 }
 .agentChips li[data-agent="Cursor"] img { filter: invert(1); }
+
+/* Principles: a dark band of published product facts. */
+.principles { margin-top: 40px; background: #111110; color: #f2f2f0; }
+.principlesInner { width: min(1180px, 90%); margin: 0 auto; padding: 96px 0 84px; }
+.principles h2 { max-width: 640px; font-size: clamp(30px, 3.4vw, 46px); font-weight: 500; line-height: 1.12; letter-spacing: -.05em; }
+.principles h2 span { color: #8a8a86; }
+.principleGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 56px 0 0; }
+.principleGrid > div { padding: 26px 28px 6px 0; border-top: 1px solid #2c2c2a; }
+.principleGrid > div + div { padding-left: 28px; border-left: 1px solid #2c2c2a; }
+.principleGrid dt { color: #fff; font-size: clamp(22px, 2.1vw, 28px); font-weight: 500; letter-spacing: -.04em; }
+.principleGrid > div:first-child dt { color: var(--nap-accent); }
+.principleGrid dd { margin: 12px 0 0; max-width: 240px; color: #a3a39f; font-size: 14px; line-height: 1.65; }
+.builtBy { margin-top: 56px; color: #8a8a86; font-size: 13px; }
+.builtBy a { color: #f2f2f0; text-decoration: underline; text-decoration-color: #555; text-underline-offset: 4px; }
+.builtBy a:hover { text-decoration-color: currentColor; }
+.principles :focus-visible { outline-color: #f2f2f0; }
+@media (max-width: 860px) {
+  .principlesInner { padding: 64px 0 56px; }
+  .principleGrid { grid-template-columns: 1fr 1fr; margin-top: 40px; }
+  .principleGrid > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .principleGrid > div { padding-bottom: 24px; }
+  .builtBy { margin-top: 32px; }
+}
+@media (max-width: 480px) {
+  .principleGrid { grid-template-columns: 1fr; }
+  .principleGrid > div, .principleGrid > div + div { padding: 20px 0 16px; border-left: 0; }
+}
