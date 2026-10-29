@@ -3,7 +3,11 @@
 `instrumentation-client.ts` waits for the page load event, then schedules initialization during browser idle time so analytics do not compete with visible images.
 `app/lib/analytics.ts` dynamically loads the SDK and shares one initialization
 promise across routes, confirmed signups, and exception capture. This keeps the
-SDK out of the initial page JavaScript. The browser SDK handles pageviews,
+SDK out of the initial page JavaScript.
+After SDK evaluation, initialization yields to a separate background-priority
+task (or a timer on browsers without the Scheduler API), allowing pending input
+and rendering to run between these two pieces of work.
+The browser SDK handles pageviews,
 client-side navigation, link/button clicks, and exceptions. Session-recording
 inputs are masked. Heatmaps and surveys are disabled; form typing is excluded
 from automatic capture to reduce interaction-handler work.
