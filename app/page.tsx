@@ -17,9 +17,14 @@ export default function Home() {
       <NapHeader showWaitlist />
       <section className="nap-hero" aria-labelledby="nap-title">
         <div className="nap-copy">
+          <p className={styles.eyebrow}><span aria-hidden="true" />Early access · Native Mac app</p>
           <h1 id="nap-title"><span className={styles.halftoneTitle}>Your Agents.</span><br />All Together.</h1>
             <div className="nap-hero-details">
-              <div className="nap-action"><NapWaitlistCta /></div>
+              <p className="nap-description">Nap brings Claude Code, Codex, and Cursor into one native Mac app. Open a project, pick an agent, and review every change before you commit.</p>
+              <div className={`nap-action ${styles.actions}`}>
+                <NapWaitlistCta />
+                <a className={styles.secondaryCta} href="#features">See how it works <span aria-hidden="true">↓</span></a>
+              </div>
             </div>
         </div>
       </section>
@@ -32,7 +37,7 @@ export default function Home() {
         <h2 id="agents-title" className="nap-section-label">The agents you already work with</h2>
         <ul>{codingAgents.map(({ name, logo }) => <li key={name} data-agent={name}><img src={logo} alt="" width={22} height={22} loading="lazy" decoding="async" /><span>{name}</span></li>)}</ul>
       </section>
-      <section className={styles.workflow} aria-labelledby="workflow-title">
+      <section id="features" className={styles.workflow} aria-labelledby="workflow-title">
         <div className={styles.workflowHeading}>
           <h2 id="workflow-title"><span className={styles.halftoneTitle}>Less setup.</span><br />More getting somewhere.</h2>
           <p>Nap brings your AI coding agents into one native Mac app. Keep your projects, conversations, and code changes together.</p>
