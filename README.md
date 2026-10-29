@@ -7,10 +7,12 @@ Nap is a native app for building with coding agents: open a project, choose an a
 - `/` — Product landing page.
 - `/apply` — Applications-closed page, shared by direct URL only; no homepage or navigation link.
 - `/waitlist` — Name and email signup, saved to Supabase.
-- `/about` — Factual product overview and coding workflow.
-- `/blogs` — Blog listing.
-- `/blogs/hello-nap` — Why We Started.
-- `/blogs/why` — Why This?
+- `/blogs` — Topic-based guide index with reading times and publication dates.
+- `/blogs/parallel-coding-agents` — Parallel task ownership, Git worktrees, and integration.
+- `/blogs/nap-agentic-development-environment` — What Nap is and how to evaluate its workflow.
+- `/blogs/nap-download` — Official availability, early access, and installation checks.
+
+The retired `/blogs/hello-nap` and `/blogs/why` URLs permanently redirect to the product-workflow guide. They are excluded from the blog index, article schema, and sitemap. Articles have server-rendered topic jump links and related reading; no client-side table-of-contents library is needed.
 
 The former documentation pages remain removed. Public pages work without Supabase; waitlist submissions require `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in the server environment. The existing `wishlist_saves` table is defined in `supabase/migrations/20260824170000_create_wishlist_saves.sql`. Duplicate emails are ignored without modifying existing signups. Missing configuration or storage failures return an error instead of a false confirmation. No confirmation email is sent by the waitlist form. Team applications are currently closed. `/api/apply` returns HTTP 410 and does not save submissions. The historical Supabase application migrations remain available for a future reopening.
 

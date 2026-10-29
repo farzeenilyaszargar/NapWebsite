@@ -4,36 +4,32 @@ import { pages, pageMetadata, blogSchema, blogPosts } from "../lib/seo";
 import Link from "next/link";
 import NapHeader from "../components/nap-header";
 import "../contrast.css";
+import styles from "./blog.module.css";
 
 export const metadata = pageMetadata(pages.blogs);
 
 export default function BlogsPage() {
   return (
-    <main className="contrast-page nap-article-page">
+    <main className={`contrast-page nap-article-page ${styles.indexPage}`}>
       <StructuredData data={blogSchema()} />
       <NapHeader />
       <section className="nap-hero">
         <div className="nap-blog-index">
           <div className="nap-blog-intro">
-            <h1><span className="nap-halftone-text">Blogs.</span></h1>
-            <p>Notes on what we’re building.<br />And why it matters to us.</p>
+            <h1>Nap <span className="nap-halftone-text">Blog.</span></h1>
+            <p>Practical guides to coding agents, parallel workflows,<br />and getting started with Nap.</p>
           </div>
-          <Link className="nap-blog-row" href="/blogs/hello-nap">
-            <span className="nap-blog-number">01</span>
-            <h2>Why We Started</h2>
-            <p>The agent says it is done. You still have to decide what to keep. Why we are building Nap around that part.</p>
-          </Link>
-          <Link className="nap-blog-row" href="/blogs/why">
-            <span className="nap-blog-number">02</span>
-            <h2>Why This?</h2>
-            <p>What Nap does, what the interface is responsible for, and why a confident answer still needs a review.</p>
-          </Link>
-          {blogPosts.slice(2).map((post, index) => (
-            <Link className="nap-blog-row" href={post.path} key={post.path}>
-              <span className="nap-blog-number">{String(index + 3).padStart(2, "0")}</span>
-              <h2>{post.headline}</h2>
-              <p>{post.description}</p>
-            </Link>
+          {blogPosts.map((post) => (
+            <article className={styles.post} key={post.path}>
+              <Link className={styles.postLink} href={post.path}>
+                <div className={styles.postCopy}>
+                  <div className={styles.meta}><span>{post.category}</span><span>{post.readingMinutes} min read</span><time dateTime={post.published}>{new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" }).format(new Date(post.published))}</time></div>
+                  <h2>{post.headline}</h2>
+                  <p>{post.description}</p>
+                </div>
+                <span className={styles.arrow} aria-hidden="true">&rarr;</span>
+              </Link>
+            </article>
           ))}
         </div>
       </section>

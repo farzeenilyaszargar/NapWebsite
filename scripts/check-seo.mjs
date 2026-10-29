@@ -9,9 +9,7 @@ const origin = "https://www.nap.cx";
 const preview = !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
 const routes = [
   ["index", "/", "Nap | AI Coding Agents for Mac & Download Updates"],
-  ["blogs", "/blogs", "Nap | Blogs"],
-  ["blogs/hello-nap", "/blogs/hello-nap", "Nap | Why We Started"],
-  ["blogs/why", "/blogs/why", "Nap | Why This?"],
+  ["blogs", "/blogs", "Nap | Blog: Coding Agent Guides & Workflows"],
   ["blogs/parallel-coding-agents", "/blogs/parallel-coding-agents", "Nap | Parallel Coding Agents: A Practical Workflow Guide"],
   ["blogs/nap-agentic-development-environment", "/blogs/nap-agentic-development-environment", "Nap | Agentic Development Environment for Mac"],
   ["blogs/nap-download", "/blogs/nap-download", "Nap | Download & Early Access for the Mac App"],
@@ -31,6 +29,10 @@ for (const [file, path, title] of routes) {
     .map((href) => new URL(href, origin + path))
     .filter((url) => url.origin === origin).map((url) => url.pathname);
   linkGraph.set(path, internal);
+  const anchorTargets = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
+  for (const [, target] of html.matchAll(/href="#([^"]+)"/g)) {
+    assert.ok(anchorTargets.has(target), `${path}: jump link #${target} has a target`);
+  }
   const titles = [...html.matchAll(/<title>(.*?)<\/title>/g)];
   assert.equal(titles.length, 1, `${path}: one title`);
   assert.equal(decode(titles[0][1]), title);
@@ -73,6 +75,7 @@ for (const [file, path, title] of routes) {
     assert.equal(article.author["@id"], `${origin}/#author`);
     assert.ok(entities.some((entity) => entity["@id"] === article.author["@id"] && entity["@type"] === "Person" && entity.url === "https://x.com/farilyaz"));
     assert.ok(internal.includes("/"), "article publisher homepage is reachable");
+    assert.ok(entities.some((entity) => entity["@id"] === article.about["@id"] && entity["@type"] === "SoftwareApplication"), "article subject resolves to the actual Nap app");
     if (article.datePublished) {
       assert.ok(html.includes(`<time dateTime="${article.datePublished}">`), `${path}: publication date is visible`);
       assert.equal(get("article:published_time"), article.datePublished);
@@ -98,6 +101,13 @@ for (const [file, path, title] of routes) {
   console.log(`✓ ${path}: metadata, canonical, social cards, structured data, headings, and images`);
 }
 assert.ok(!existsSync(resolve(root, "app/about/page.tsx")), "About page has been removed");
+for (const removed of ["blogs/hello-nap", "blogs/why"]) {
+  assert.ok(!existsSync(resolve(root, `app/${removed}/page.tsx`)), `${removed}: old post is removed`);
+  assert.ok(!existsSync(resolve(output, `${removed}.html`)), `${removed}: no old content is built`);
+  const redirect = JSON.parse(readFileSync(resolve(root, ".next/routes-manifest.json"), "utf8")).redirects.find((rule) => rule.source === `/${removed}`);
+  assert.equal(redirect?.destination, "/blogs/nap-agentic-development-environment");
+  assert.equal(redirect.statusCode, 308);
+}
 const knownPages = new Set(routes.map(([, path]) => path));
 for (const [path, links] of linkGraph) for (const link of links) {
   assert.ok(knownPages.has(link), `${path}: internal content link ${link} resolves to a known page`);

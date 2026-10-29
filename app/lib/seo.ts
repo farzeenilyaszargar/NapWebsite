@@ -21,23 +21,12 @@ export const pages = {
     keywords: ["nap download", "download nap", "nap agents", "nap codes", "nap code download", "nap for mac", "nap macos download", "nap AI coding agents", "AI coding app for Mac", "AI coding workspace", "coding agent interface", "agentic coding", "Claude Code", "Codex", "Cursor"],
   },
   blogs: {
-    path: "/blogs", title: pageTitle("Blogs"),
-    description: "Read the Nap blog: the ideas behind a native AI coding workspace for Mac, working with coding agents, and turning conversations into code changes.",
+    path: "/blogs", title: pageTitle("Blog: Coding Agent Guides & Workflows"),
+    description: "Practical Nap guides to parallel coding agents, Git worktrees, agentic development environments, and official Mac app availability. Learn a review-first workflow.",
     keywords: ["Nap blog", "AI coding agents", "native Mac app", "coding workspace"],
   },
-  story: {
-    headline: "Why We Started",
-    path: "/blogs/hello-nap", title: pageTitle("Why We Started"),
-    description: "Why we are building Nap around the work after the prompt: following coding agents, reading code changes, and deciding what belongs in your project.",
-    keywords: ["Nap story", "AI coding workflow", "coding agent workspace", "Mac development app"],
-  },
-  why: {
-    headline: "Why This?",
-    path: "/blogs/why", title: pageTitle("Why This?"),
-    description: "What Nap does: open a project, work with a coding agent, and review its changes in one native Mac app. An honest look at the workflow and current availability.",
-    keywords: ["how Nap works", "AI coding app", "coding agent interface", "Claude Code workspace", "Codex workspace"],
-  },
   parallel: {
+    category: "Workflows", readingMinutes: 5,
     headline: "Parallel Coding Agents: A Practical Workflow Guide",
     path: "/blogs/parallel-coding-agents", title: pageTitle("Parallel Coding Agents: A Practical Workflow Guide"),
     description: "Learn how to divide coding tasks, isolate agents with Git worktrees, and review parallel changes. A practical guide from Nap, the AI coding app for Mac.",
@@ -45,6 +34,7 @@ export const pages = {
     published: "2026-10-30",
   },
   ade: {
+    category: "The Nap app", readingMinutes: 4,
     headline: "Nap and the Agentic Development Environment",
     path: "/blogs/nap-agentic-development-environment", title: pageTitle("Agentic Development Environment for Mac"),
     description: "What is an agentic development environment? Explore how the Nap app brings coding agents, project conversations, and code review into one Mac workspace.",
@@ -52,6 +42,7 @@ export const pages = {
     published: "2026-10-30",
   },
   download: {
+    category: "Early access", readingMinutes: 3,
     headline: "Nap Download: Official Mac App and Early Access",
     path: "/blogs/nap-download", title: pageTitle("Download & Early Access for the Mac App"),
     description: "Looking to download Nap? Check the official Mac app's availability, join the early-access waitlist, and learn what to verify before installing agent tools.",
@@ -71,7 +62,7 @@ export const pages = {
 
 };
 
-export const blogPosts = [pages.story, pages.why, pages.parallel, pages.ade, pages.download];
+export const blogPosts = [pages.parallel, pages.ade, pages.download];
 
 type Page = (typeof pages)[keyof typeof pages];
 const absolute = (path: string) => new URL(path, site.url).toString();
@@ -150,7 +141,7 @@ function webPageSchema(page: Page, type = "WebPage") {
 }
 
 function softwareSchema() {
-  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", applicationSubCategory: "AI coding agent workspace", operatingSystem: "macOS", description: site.description, image: absolute(site.image), screenshot: absolute("/nap-agent-workspace-5306-059ac310.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"], potentialAction: { "@type": "JoinAction", name: "Join the Nap waitlist", target: absolute(pages.waitlist.path) } };
+  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", applicationSubCategory: "AI coding agent workspace", operatingSystem: "macOS", description: site.description, disambiguatingDescription: "Nap at nap.cx is a native Mac workspace for AI coding agents, project conversations, and code review.", image: absolute(site.image), screenshot: absolute("/nap-agent-workspace-5306-059ac310.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"], potentialAction: { "@type": "JoinAction", name: "Join the Nap waitlist", target: absolute(pages.waitlist.path) } };
 }
 
 export function homeSchema() {
@@ -187,13 +178,14 @@ export function articleSchema(page: (typeof blogPosts)[number]) {
       breadcrumbSchema(page),
       { "@type": "BlogPosting", "@id": articleId,
         headline: page.headline,
-        ...("published" in page ? { datePublished: page.published } : {}),
+        datePublished: page.published, articleSection: page.category,
         description: page.description, url: absolute(page.path),
         image: { "@type": "ImageObject", url: absolute(site.image), width: 1200, height: 630 },
         mainEntityOfPage: { "@id": `${absolute(page.path)}#webpage` },
         author: { "@id": authorId }, publisher: { "@id": organizationId },
         isPartOf: { "@id": `${site.url}/blogs#blog` }, about: { "@id": `${site.url}/#app` }, inLanguage: "en",
       },
+      softwareSchema(),
     ],
   };
 }

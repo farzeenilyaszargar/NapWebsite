@@ -8,12 +8,20 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   async redirects() {
-    return ["nap-code.com", "www.nap-code.com"].map((host) => ({
+    const legacyHostRedirects = ["nap-code.com", "www.nap-code.com"].map((host) => ({
       source: "/:path*",
       has: [{ type: "host" as const, value: host }],
       destination: "https://www.nap.cx/:path*",
       permanent: true,
     }));
+    return [
+      ...legacyHostRedirects,
+      ...["/blogs/hello-nap", "/blogs/why"].map((source) => ({
+        source,
+        destination: "/blogs/nap-agentic-development-environment",
+        permanent: true,
+      })),
+    ];
   },
   async headers() {
     // Only content-versioned files get immutable caching; HTML stays revalidatable.

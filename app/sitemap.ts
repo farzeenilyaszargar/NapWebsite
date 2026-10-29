@@ -3,5 +3,8 @@ import { site, pages, isIndexable } from "./lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!isIndexable) return [];
-  return Object.values(pages).map((page) => ({ url: new URL(page.path, site.url).toString() }));
+  return Object.values(pages).map((page) => ({
+    url: new URL(page.path, site.url).toString(),
+    ...("published" in page ? { lastModified: page.published } : {}),
+  }));
 }

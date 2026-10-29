@@ -1,22 +1,29 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { articleSchema, pages } from "../lib/seo";
 import NapHeader from "./nap-header";
 import NapFooter from "./nap-footer";
 import NapReadingLinks from "./nap-reading-links";
 import StructuredData from "./structured-data";
 import "../contrast.css";
+import styles from "../blogs/blog.module.css";
 
 type Guide = typeof pages.parallel | typeof pages.ade | typeof pages.download;
 
-export default function NapGuide({ page, children }: { page: Guide; children: ReactNode }) {
+export default function NapGuide({ page, contents, children }: { page: Guide; contents: readonly { id: string; label: string }[]; children: ReactNode }) {
   return (
-    <main className="contrast-page nap-article-page">
+    <main className={`contrast-page nap-article-page ${styles.guide}`}>
       <StructuredData data={articleSchema(page)} />
       <NapHeader />
       <section className="nap-hero">
         <article className="nap-blog-article">
-          <span className="nap-blog-label">By <a href="https://x.com/farilyaz" className="nap-inline-link" target="_blank" rel="noopener noreferrer">@farilyaz</a> · <time dateTime={page.published}>October 30, 2026</time></span>
+          <Link className={styles.backLink} href={pages.blogs.path}>&larr; All guides</Link>
+          <div className={styles.byline}><span>{page.category}</span><span>By <a href="https://x.com/farilyaz" className="nap-inline-link" target="_blank" rel="noopener noreferrer">@farilyaz</a></span><time dateTime={page.published}>{new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "UTC" }).format(new Date(page.published))}</time><span>{page.readingMinutes} min read</span></div>
           <h1>{page.headline}</h1>
+          <nav className={styles.contents} aria-label="On this page">
+            <span>On this page</span>
+            <ul>{contents.map(({ id, label }) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ul>
+          </nav>
           {children}
           <NapReadingLinks current={page.path} />
         </article>
