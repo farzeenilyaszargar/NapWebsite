@@ -1,68 +1,103 @@
-/* Homepage: real photographs, paper, and ink, with motion that settles in rather than shows off. */
-.page { display: flex; flex-direction: column; overflow: clip; }
+/* Homepage as a two-ink risograph print: Riso Blue and Riso Orange on cream stock. */
+.page {
+  --riso-blue: #0078bf;
+  --riso-orange: #ff6c2f;
+  --riso-ink: #1b2a4a;
+  --nap-background: #f4efe6;
+  display: flex; flex-direction: column; overflow: clip;
+  background:
+    radial-gradient(#1b2a4a0d 1px, transparent 1.2px) 0 0 / 5px 5px,
+    var(--nap-background);
+}
+.page :global(.nap-header) { background: color-mix(in srgb, #f4efe6 88%, transparent); border-bottom-color: #1b2a4a1f; }
 
-/* Hero: the pitch over an inset cloud photo; the app window hangs past the photo onto the paper. */
-.hero { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; padding: 112px 5% 0; text-align: center; }
-.heroPhoto { position: absolute; z-index: -1; top: 0; left: 12px; right: 12px; bottom: 180px; width: calc(100% - 24px); height: calc(100% - 180px); object-fit: cover; object-position: center 35%; border-radius: 24px; animation: settle 2.2s cubic-bezier(.2, .7, .2, 1) both; }
-.heroCopy { display: flex; flex-direction: column; align-items: center; }
-.heroCopy h1 { font-size: clamp(50px, 7.4vw, 108px); font-weight: 600; line-height: .94; letter-spacing: -.05em; color: var(--nap-foreground); }
-.heroCopy p { margin: 26px 0 34px; max-width: 520px; color: #262a31; font-size: 19px; line-height: 1.5; letter-spacing: -.01em; text-wrap: balance; }
-.heroCopy small { margin-top: 14px; color: #3d4149; font-size: 13px; }
-.heroCopy > * { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
-.heroCopy > :nth-child(2) { animation-delay: .08s; }
-.heroCopy > :nth-child(3) { animation-delay: .16s; }
-.heroCopy > :nth-child(4) { animation-delay: .22s; }
-.product { width: min(1060px, 86%); margin: 72px auto 0; animation: rise 1.3s .28s cubic-bezier(.2, .7, .2, 1) both; }
-.product img { display: block; width: 100%; height: auto; filter: drop-shadow(0 2px 4px #0e111633) drop-shadow(0 50px 70px #0e111645); }
+/* Display type overprints: blue ink with the orange plate slightly off register. */
+.hero h1, .features h2, .number, .ctaCard h2 {
+  font-family: var(--font-display-nap), var(--font-sans-nap), sans-serif;
+  font-variation-settings: "wdth" 82, "opsz" 96;
+  color: var(--riso-blue);
+  text-shadow: .035em .028em 0 var(--riso-orange);
+}
+@supports (mix-blend-mode: multiply) {
+  .hero h1, .features h2, .number, .ctaCard h2 { mix-blend-mode: multiply; }
+}
 
-.agents { width: min(1200px, 90%); margin: 0 auto; padding: 96px 0 24px; display: flex; flex-direction: column; align-items: center; gap: 26px; }
-.agents h2 { color: var(--nap-muted); font-size: 15px; font-weight: 500; }
+.hero { display: flex; flex-direction: column; align-items: center; padding: 104px 5% 64px; text-align: center; }
+.hero h1 { font-size: clamp(56px, 9.4vw, 148px); font-weight: 750; line-height: .86; letter-spacing: -.035em; text-transform: uppercase; }
+.hero p { margin: 32px 0 34px; max-width: 520px; color: var(--riso-ink); font-size: 19px; line-height: 1.5; text-wrap: balance; }
+.hero small { margin-top: 16px; color: #1b2a4ab3; font-family: var(--nap-mono); font-size: 12px; }
+.hero > * { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+.hero > :nth-child(2) { animation-delay: .08s; }
+.hero > :nth-child(3) { animation-delay: .16s; }
+.hero > :nth-child(4) { animation-delay: .22s; }
+
+/* The download key is printed in blue with an orange plate behind it. */
+.page :global(.nap-download) { border-radius: 4px; background: var(--riso-blue); color: #fff !important; box-shadow: 5px 5px 0 var(--riso-orange); transition: transform .12s, box-shadow .12s; }
+.page :global(.nap-download):hover { background: #006aa9; transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--riso-orange); }
+.page :global(.nap-download):active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--riso-orange); }
+
+/* The live print: full-bleed, with the app window hanging off its lower edge. */
+.stage { position: relative; isolation: isolate; padding-top: 1px; }
+.stage .sky { position: absolute; z-index: -1; top: 0; left: 0; width: 100%; height: calc(100% - 200px); }
+.sky { display: block; background: radial-gradient(#0078bf55 1.4px, transparent 1.8px) 0 0 / 7px 7px, #f4efe6; }
+.product { position: relative; width: min(1040px, 84%); margin: 120px auto 0; animation: rise 1.3s .28s cubic-bezier(.2, .7, .2, 1) both; }
+/* Misregistered plates behind the window. */
+.product::before, .product::after { content: ""; position: absolute; z-index: -1; inset: 3.4% 0 0; border-radius: 12px; }
+.product::before { background: var(--riso-blue); transform: translate(-18px, 18px); }
+.product::after { background: var(--riso-orange); transform: translate(18px, 34px); mix-blend-mode: multiply; }
+.product img { display: block; width: 100%; height: auto; filter: drop-shadow(0 24px 40px #1b2a4a40); }
+
+.agents { width: min(1200px, 90%); margin: 0 auto; padding: 104px 0 24px; display: flex; flex-direction: column; align-items: center; gap: 26px; }
+.agents h2 { color: #1b2a4ab3; font-family: var(--nap-mono); font-size: 13px; font-weight: 400; }
 .agents ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 56px; margin: 0; padding: 0; list-style: none; }
-.agents li { display: flex; align-items: center; gap: 12px; font-size: 21px; font-weight: 600; letter-spacing: -.025em; }
+.agents li { display: flex; align-items: center; gap: 12px; color: var(--riso-ink); font-size: 21px; font-weight: 600; letter-spacing: -.025em; }
 .agents img { width: 26px; height: 26px; object-fit: contain; }
 
-.features { width: min(1200px, 90%); margin: 0 auto; padding: 120px 0 128px; }
-.features h2 { font-size: clamp(34px, 4.4vw, 60px); font-weight: 600; line-height: 1.02; letter-spacing: -.045em; text-align: center; }
-.featureList { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; margin-top: 72px; }
-.featureList article { padding-top: 26px; border-top: 1px solid var(--nap-foreground); }
-.icon { color: var(--nap-sky); }
-.featureList h3 { margin-top: 20px; font-size: 21px; font-weight: 600; letter-spacing: -.025em; }
-.featureList p { margin-top: 10px; color: var(--nap-body); font-size: 16px; line-height: 1.6; }
+.features { width: min(1200px, 90%); margin: 0 auto; padding: 128px 0 136px; }
+.features h2 { max-width: 900px; margin: 0 auto; font-size: clamp(40px, 5.6vw, 84px); font-weight: 750; line-height: .9; letter-spacing: -.03em; text-align: center; text-transform: uppercase; text-wrap: balance; }
+.featureList { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; margin: 80px 0 0; padding: 0; list-style: none; }
+.featureList li { padding-top: 24px; border-top: 2px dotted var(--riso-blue); }
+.number { display: block; font-size: 64px; font-weight: 750; line-height: 1; }
+.featureList h3 { margin-top: 18px; color: var(--riso-ink); font-size: 21px; font-weight: 600; letter-spacing: -.025em; }
+.featureList p { margin-top: 10px; color: #1b2a4ad9; font-size: 16px; line-height: 1.6; }
 
-/* Closing: a golden field, bright at the top where the headline sits. */
-.cta { position: relative; isolation: isolate; width: min(1280px, 94%); margin: 0 auto 72px; min-height: 560px; display: flex; flex-direction: column; align-items: center; padding: 96px 24px 0; overflow: hidden; border-radius: 24px; text-align: center; }
-.ctaPhoto { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.ctaCopy { display: flex; flex-direction: column; align-items: center; gap: 28px; }
-.ctaCopy h2 { font-size: clamp(36px, 5vw, 68px); font-weight: 600; line-height: 1; letter-spacing: -.045em; color: var(--nap-foreground); }
+/* Closing: a warmer print with a card stamped onto it. */
+.cta { position: relative; isolation: isolate; min-height: 560px; display: grid; place-items: center; padding: 96px 5%; margin-bottom: 0; }
+.cta .sky { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; }
+.ctaCard { display: flex; flex-direction: column; align-items: center; gap: 30px; padding: 52px 56px; border: 2px solid var(--riso-ink); background: #f4efe6; box-shadow: 10px 10px 0 var(--riso-blue); text-align: center; }
+.ctaCard h2 { font-size: clamp(40px, 5vw, 72px); font-weight: 750; line-height: .9; letter-spacing: -.03em; text-transform: uppercase; }
+.page :global(.nap-site-footer) { border-top: 0; padding-top: 28px; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } }
-@keyframes settle { from { opacity: .4; transform: scale(1.06); } }
 @keyframes reveal { from { opacity: 0; transform: translateY(36px); } }
-@keyframes drift { from { transform: scale(1.14); } to { transform: scale(1); } }
 
 /* Lower sections reveal as they scroll into view, where scroll-driven animation is supported. */
 @supports (animation-timeline: view()) {
-  .agents, .features h2, .featureList article, .ctaCopy { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 28%; }
-  .featureList article:nth-child(2) { animation-range: entry 6% cover 32%; }
-  .featureList article:nth-child(3) { animation-range: entry 12% cover 36%; }
-  .ctaPhoto { animation: drift linear both; animation-timeline: view(); animation-range: entry 0% exit 0%; }
+  .agents, .features h2, .featureList li, .ctaCard { animation: reveal linear both; animation-timeline: view(); animation-range: entry 0% cover 28%; }
+  .featureList li:nth-child(2) { animation-range: entry 6% cover 32%; }
+  .featureList li:nth-child(3) { animation-range: entry 12% cover 36%; }
 }
 
 @media (max-width: 860px) {
-  .featureList { grid-template-columns: 1fr; gap: 36px; margin-top: 48px; }
+  .featureList { grid-template-columns: 1fr; gap: 40px; margin-top: 52px; }
 }
 @media (max-width: 700px) {
-  .hero { padding-top: 72px; }
-  .heroPhoto { left: 8px; right: 8px; width: calc(100% - 16px); bottom: 70px; height: calc(100% - 70px); border-radius: 18px; }
-  .heroCopy h1 { font-size: clamp(46px, 13vw, 64px); }
-  .heroCopy p { font-size: 17px; }
-  .product { width: 92%; margin-top: 48px; }
-  .agents { padding-top: 64px; }
+  .hero { padding-top: 64px; }
+  .hero h1 { font-size: clamp(52px, 15vw, 76px); }
+  .hero p { font-size: 17px; }
+  .stage .sky { height: calc(100% - 80px); }
+  .product { width: 90%; margin-top: 64px; }
+  .product::before { transform: translate(-8px, 8px); }
+  .product::after { transform: translate(8px, 16px); }
+  .agents { padding-top: 72px; }
   .agents ul { gap: 18px 32px; }
   .agents li { font-size: 18px; }
-  .features { padding: 80px 0 88px; }
-  .cta { min-height: 440px; padding-top: 72px; border-radius: 18px; }
+  .features { padding: 88px 0 96px; }
+  .number { font-size: 52px; }
+  .cta { min-height: 460px; }
+  .ctaCard { padding: 40px 28px; box-shadow: 7px 7px 0 var(--riso-blue); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .heroPhoto, .heroCopy > *, .product, .agents, .features h2, .featureList article, .ctaCopy, .ctaPhoto { animation: none; }
+  .hero > *, .product, .agents, .features h2, .featureList li, .ctaCard { animation: none; }
+  .page :global(.nap-download) { transition: none; }
 }
