@@ -11,7 +11,7 @@ export default function WaitlistPage() {
   return (
     <main className="contrast-page nap-waitlist-page">
       <StructuredData data={waitlistSchema()} />
-      <NapHeader showWaitlist={false} />
+      <NapHeader />
       <WaitlistForm />
     </main>
   );

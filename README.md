@@ -38,7 +38,7 @@ npm run start
 - Shared navigation: `app/components/nap-header.tsx`
 - Download CTA (opens the waitlist): `app/components/nap-waitlist-cta.tsx`
 - Ghost logo in ink: `app/components/nap-logo.tsx` (`public/nap-ghost-ink-*.webp`)
-- Sky artwork: `public/nap-dream-sky-*.webp` (hero) and `public/nap-dream-dusk-*.webp` (closing), generated soft out-of-focus skies with colour film grain; placeholders until real photography is supplied
+- Photography: `public/nap-clouds-*.webp` (hero, https://unsplash.com/photos/v9bnfMCyKbg) and `public/nap-poppies-*.webp` (closing, https://unsplash.com/photos/FS2EMsx8zWU), free under the Unsplash License; resized with light film grain added, at 1200 and 2400 px
 - Type: Instrument Sans (headings and body) and IBM Plex Mono (specs and snippets), loaded in `app/layout.tsx`; icons from `lucide-react`
 - Shared footer: `app/components/nap-footer.tsx`
 - Liquid interaction: `app/components/liquid-field.tsx`
@@ -50,7 +50,7 @@ npm run start
 - Domain launch checklist: `docs/seo-launch.md`
 - Search and AI discovery guide: `docs/search-discovery.md`
 
-The homepage leads to the download: hero copy and a spec sheet, the "Download for Mac" button, the app window over a soft sky, supported agents, a 2×2 feature sheet, and a closing download card over a dusk sky. Until a public build exists, the button and the header's Download link open `/waitlist`, and the note under the button says so. Release and installation verification remain deferred.
+The homepage leads to the download: the headline and "Download for Mac" over the cloud photo with the app window below, supported agents, three features, and a closing download over the poppy field. The header has only the Blogs link; the footer is one line with the copyright and "Find Us On X". Entrance and scroll-reveal motion is CSS-only and switches off with reduced motion. Until a public build exists, the button and the header's Download link open `/waitlist`, and the note under the button says so. Release and installation verification remain deferred.
 
 Images are served from content-versioned WebP assets. The cursor effect draws native canvas contours in trail-sized surfaces, avoiding SVG blur/threshold filters. It pauses for hidden tabs, reduced motion, and touch-only devices, releases surfaces after the trail expires, and follows the display refresh rate up to 120 Hz. Canvas backing stores are capped at 2048 pixels per side and approximately two megapixels per layer. Sustained slow frames reduce the particle count and refresh rate; continued severe slowdown disables the decorative effect for that mount. Unsupported blending/Path2D, blocked canvases, failed optional chunk loads, and drawing errors fall back to the normal page. Lost canvas contexts pause the effect until restored.
 

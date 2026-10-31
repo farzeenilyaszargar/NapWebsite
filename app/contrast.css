@@ -28,8 +28,8 @@
 .nap-logo { display: inline-flex; align-items: center; gap: 9px; font-size: 21px; font-weight: 600; letter-spacing: -.04em; line-height: 1; }
 .nap-logo-mark { display: block; }
 .nap-nav { display: flex; align-items: center; gap: 28px; }
-.nap-docs { color: var(--nap-muted); font-size: 14px; font-weight: 500; transition: color .15s; }
-.nap-docs:hover { color: var(--nap-foreground); }
+.nap-docs { color: var(--nap-foreground); font-size: 15px; font-weight: 500; transition: color .15s; }
+.nap-docs:hover { color: var(--nap-sky); }
 
 /* Primary action */
 .nap-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 8px; background: var(--nap-foreground); color: var(--nap-background) !important; font-size: 15px; font-weight: 600; letter-spacing: -.01em; box-shadow: inset 0 1px 0 #ffffff26, 0 1px 2px #0e111633, 0 6px 16px -6px #0e111666; transition: background .15s, transform .15s; }
@@ -40,16 +40,10 @@
 .nap-download-small svg { width: 12px; height: 14px; }
 .nap-dim-text { color: var(--nap-subtle); }
 
-/* Footer */
-.nap-site-footer { width: min(1200px, 90%); margin: 0 auto; padding: 56px 0 32px; border-top: 1px solid var(--nap-border); font-size: 14px; }
-.nap-footer-main { display: flex; justify-content: space-between; gap: 48px; }
-.nap-footer-brand p { margin-top: 14px; max-width: 240px; color: var(--nap-muted); line-height: 1.6; }
-.nap-footer-links { display: grid; grid-template-columns: repeat(3, auto); gap: 72px; }
-.nap-footer-links > div { display: flex; flex-direction: column; gap: 11px; }
-.nap-footer-heading { margin-bottom: 3px; color: var(--nap-foreground); font-weight: 600; }
-.nap-footer-links a { color: var(--nap-muted); transition: color .15s; }
-.nap-footer-links a:hover { color: var(--nap-foreground); }
-.nap-footer-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 56px; color: var(--nap-subtle); font-family: var(--nap-mono); font-size: 12px; }
+/* Footer: one line. */
+.nap-site-footer { width: min(1200px, 90%); margin: 0 auto; padding: 28px 0 32px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid var(--nap-border); color: var(--nap-muted); font-size: 14px; }
+.nap-footer-social { color: var(--nap-foreground); font-weight: 500; transition: color .15s; }
+.nap-footer-social:hover { color: var(--nap-sky); }
 
 /* Blog and articles */
 .nap-article-page { display: flex; flex-direction: column; }
@@ -75,15 +69,10 @@
 @media (max-width: 760px) {
   .nap-header-inner { height: 58px; }
   .nap-nav { gap: 18px; }
-  .nap-nav .nap-docs:not([href="/blogs"]) { display: none; }
-  .nap-footer-main { flex-direction: column; gap: 32px; }
-  .nap-footer-links { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
-  .nap-footer-links > div:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
-  .nap-footer-bottom { margin-top: 40px; }
   .nap-article-page > .nap-hero { padding: 44px 0 64px; }
   .nap-blog-article p { font-size: 15px; }
   .nap-blog-article h2 { font-size: 21px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .nap-docs, .nap-download, .nap-footer-links a { transition: none; }
+  .nap-docs, .nap-download, .nap-footer-social { transition: none; }
 }
