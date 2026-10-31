@@ -1,78 +1,91 @@
-/* Two-ink risograph stock shared by every page: Riso Blue and Riso Orange on cream paper. */
+/* Classic Mac OS, 1-bit: black, white, a dotted desktop, and windows with striped title bars.
+   Colour appears only inside content (the app screenshot and agent logos). */
 .contrast-page {
-  --nap-background: #f4efe6;
-  --nap-foreground: #1b2a4a;
-  --nap-body: #3a3e46;
-  --nap-muted: #62666e;
-  --nap-subtle: #8a8d93;
-  --nap-border: #e2e0d8;
-  --nap-border-strong: #cfccc2;
-  --nap-surface: #fbfaf7;
-  --nap-sky: #0078bf;
-  --nap-cream: #edf2c4;
-  --nap-ember: #ff6c2f;
-  --nap-error: #c2381c;
-  --nap-mono: var(--font-mono-nap), ui-monospace, SFMono-Regular, Consolas, monospace;
+  --nap-background: #fff;
+  --nap-foreground: #000;
+  --nap-body: #1a1a1a;
+  --nap-muted: #4d4d4d;
+  --nap-subtle: #6b6b6b;
+  --nap-border: #000;
+  --nap-error: #b00000;
+  --nap-display: var(--font-display-nap), "Chicago", "Geneva", monospace;
+  --nap-mono: var(--font-mono-nap), ui-monospace, monospace;
+  /* 1-bit desktop: one black pixel in every four-by-four, drawn crisp. */
+  --mac-desktop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='4' height='4' fill='%23fff'/%3E%3Crect width='1' height='1' fill='%23000'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23000'/%3E%3C/svg%3E");
   min-height: 100svh;
-  background: var(--nap-background);
+  display: flex; flex-direction: column;
+  background: #fff var(--mac-desktop) 0 0 / 4px 4px;
+  image-rendering: pixelated;
   color: var(--nap-foreground);
-  font-family: var(--font-sans-nap), -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-sans-nap), "Geneva", -apple-system, sans-serif;
   color-scheme: light;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='22' viewBox='0 0 16 22' shape-rendering='crispEdges'%3E%3Cpath d='M1 1v17l4-4 3 7 3-1-3-7h6z' fill='%23fff' stroke='%23000' stroke-width='1.2'/%3E%3C/svg%3E") 1 1, default;
 }
 .contrast-page a { color: inherit; text-decoration: none; }
-.contrast-page :is(a, button, input, summary):focus-visible { outline: 2px solid var(--nap-sky); outline-offset: 3px; }
+.contrast-page :is(a, button, input):focus-visible { outline: 2px dotted #000; outline-offset: 3px; }
+.contrast-page ::selection { background: #000; color: #fff; }
+.contrast-page img { image-rendering: auto; }
+.contrast-page img.nap-logo-mark, .contrast-page img.nap-pixel { image-rendering: pixelated; }
 
-/* Header */
-.nap-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--nap-border); background: color-mix(in srgb, var(--nap-background) 86%, transparent); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); }
-.nap-header-inner { width: min(1200px, 90%); height: 64px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-.nap-logo { display: inline-flex; align-items: center; gap: 9px; font-size: 21px; font-weight: 600; letter-spacing: -.04em; line-height: 1; }
-.nap-logo-mark { display: block; }
-.nap-nav { display: flex; align-items: center; gap: 28px; }
-.nap-docs { color: var(--nap-foreground); font-size: 15px; font-weight: 500; transition: color .15s; }
-.nap-docs:hover { color: var(--nap-sky); }
+/* Menu bar */
+.nap-header { position: sticky; top: 0; z-index: 1000; background: #fff; border-bottom: 1px solid #000; }
+.nap-header-inner { height: 30px; padding: 0 18px; display: flex; align-items: center; gap: 22px; font-family: var(--nap-display); font-size: 15px; }
+.nap-logo { display: inline-flex; align-items: center; padding: 3px 8px; margin-left: -8px; }
+.nap-logo-mark { display: block; image-rendering: pixelated; }
+.nap-docs { padding: 3px 8px; margin-left: -8px; }
+.nap-logo:hover, .nap-docs:hover { background: #000; color: #fff; }
+.nap-logo:hover .nap-logo-mark { filter: invert(1); }
+.nap-menu-clock { margin-left: auto; font-variant-numeric: tabular-nums; }
 
-/* Primary action */
-.nap-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 4px; background: var(--nap-sky); color: #fff !important; font-size: 15px; font-weight: 600; letter-spacing: -.01em; box-shadow: 5px 5px 0 var(--nap-ember); transition: transform .12s, box-shadow .12s, background .15s; }
-.nap-download:hover { background: #006aa9; transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--nap-ember); }
-.nap-download:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--nap-ember); }
-.nap-download svg { width: 14px; height: 17px; margin-top: -2px; }
-.nap-download-small { min-height: 36px; padding: 0 14px; gap: 8px; border-radius: 7px; font-size: 13px; }
-.nap-download-small svg { width: 12px; height: 14px; }
-.nap-dim-text { color: var(--nap-subtle); }
+/* Windows */
+.mac-window { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #000; box-shadow: 2px 2px 0 #000; animation: mac-open .45s steps(6, end) both; }
+.mac-titlebar { position: relative; flex-shrink: 0; height: 22px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #000; background: repeating-linear-gradient(to bottom, #fff 0 3px, #000 3px 4px) 0 2px / 100% calc(100% - 3px) no-repeat content-box; padding: 0 3px; touch-action: none; user-select: none; }
+.mac-draggable { cursor: inherit; }
+.mac-close { position: absolute; left: 9px; width: 13px; height: 13px; border: 1px solid #000; background: #fff; box-shadow: 0 0 0 2px #fff; }
+.mac-title { padding: 0 9px; background: #fff; font-family: var(--nap-display); font-size: 15px; line-height: 22px; white-space: nowrap; }
+.mac-body { position: relative; flex: 1; min-height: 0; }
+.mac-status { flex-shrink: 0; display: flex; justify-content: space-between; gap: 16px; padding: 3px 10px; border-top: 1px solid #000; font-family: var(--nap-display); font-size: 13px; }
+@keyframes mac-open { from { scale: .94; } }
 
-/* Footer: one line. */
-.nap-site-footer { width: min(1200px, 90%); margin: 0 auto; padding: 28px 0 32px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid var(--nap-border); color: var(--nap-muted); font-size: 14px; }
-.nap-footer-social { color: var(--nap-foreground); font-weight: 500; transition: color .15s; }
-.nap-footer-social:hover { color: var(--nap-sky); }
+/* Buttons: rounded rectangles that invert when pressed; the default one carries the thick ring. */
+.nap-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 40px; min-width: 120px; padding: 0 22px; border: 1.5px solid #000; border-radius: 9px; background: #fff; color: #000 !important; font-family: var(--nap-display); font-size: 17px; line-height: 1; }
+.nap-download-default { box-shadow: 0 0 0 3px #fff, 0 0 0 6px #000; border-radius: 9px; }
+.nap-download:hover, .nap-download:active { background: #000; color: #fff !important; }
 
-/* Blog and articles */
-.nap-article-page { display: flex; flex-direction: column; }
-.nap-article-page > .nap-hero { flex: 1; width: min(700px, 90%); margin: 0 auto; padding: 72px 0 96px; }
-.nap-blog-label { font-family: var(--nap-mono); font-size: 12px; color: var(--nap-subtle); }
-.nap-blog-intro { margin-bottom: 40px; }
-.nap-blog-intro h1, .nap-blog-article h1 { font-family: var(--font-display-nap), var(--font-sans-nap), sans-serif; font-variation-settings: "wdth" 82, "opsz" 96; font-size: clamp(36px, 4.6vw, 58px); font-weight: 750; line-height: .95; letter-spacing: -.025em; text-transform: uppercase; color: var(--nap-sky); text-shadow: .035em .028em 0 var(--nap-ember); }
-.nap-blog-intro p { margin-top: 14px; color: var(--nap-muted); font-size: 16px; line-height: 1.65; }
+.nap-dim-text { color: var(--nap-muted); }
+
+/* Footer: a strip like the menu bar. */
+.nap-site-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; height: 30px; padding: 0 18px; border-top: 1px solid #000; background: #fff; font-family: var(--nap-display); font-size: 15px; }
+.nap-footer-social { padding: 3px 8px; margin-right: -8px; }
+.nap-footer-social:hover { background: #000; color: #fff; }
+
+/* Blog and articles sit in a document window on the desktop. */
+.nap-article-page > .nap-hero { flex: 1; width: min(780px, 92%); margin: 48px auto 72px; }
+.nap-blog-index, .nap-blog-article { position: relative; padding: 56px 48px 44px; border: 1px solid #000; background: #fff; box-shadow: 2px 2px 0 #000; }
+.nap-blog-index::before, .nap-blog-article::before { content: ""; position: absolute; inset: 0 0 auto; height: 22px; border-bottom: 1px solid #000; background: repeating-linear-gradient(to bottom, #fff 0 3px, #000 3px 4px) 3px 2px / calc(100% - 6px) 19px no-repeat, #fff; }
+.nap-blog-index::after, .nap-blog-article::after { content: ""; position: absolute; top: 4px; left: 9px; width: 13px; height: 13px; border: 1px solid #000; background: #fff; box-shadow: 0 0 0 2px #fff; }
+.nap-blog-label { font-family: var(--nap-display); font-size: 13px; color: var(--nap-muted); }
+.nap-blog-intro { margin-bottom: 36px; }
+.nap-blog-intro h1, .nap-blog-article h1 { font-family: var(--nap-display); font-size: clamp(32px, 4vw, 46px); font-weight: 600; line-height: 1.05; }
+.nap-blog-intro p { margin-top: 12px; color: var(--nap-muted); font-size: 16px; line-height: 1.6; }
 .nap-blog-article h1 { margin-top: 18px; }
-.nap-blog-article h2 { margin-top: 44px; font-size: 23px; font-weight: 600; line-height: 1.3; letter-spacing: -.02em; }
-.nap-blog-article p { margin-top: 18px; color: var(--nap-body); font-size: 16px; line-height: 1.8; }
-.nap-blog-article h2 + p { margin-top: 12px; }
-.nap-blog-article code { padding: 2px 6px; border: 1px solid var(--nap-border); border-radius: 5px; background: var(--nap-surface); font-family: var(--nap-mono); font-size: .86em; }
-.nap-inline-link { color: var(--nap-foreground); text-decoration: underline; text-decoration-color: var(--nap-border-strong); text-underline-offset: 4px; }
-.nap-inline-link:hover { text-decoration-color: currentColor; }
-.nap-article-image { width: 100%; margin: 32px 0; }
+.nap-blog-article h2 { margin-top: 40px; font-family: var(--nap-display); font-size: 24px; font-weight: 600; line-height: 1.2; }
+.nap-blog-article p { margin-top: 16px; color: var(--nap-body); font-size: 16px; line-height: 1.75; }
+.nap-blog-article h2 + p { margin-top: 10px; }
+.nap-blog-article code { padding: 1px 5px; border: 1px solid #000; font-family: var(--nap-mono); font-size: .86em; }
+.nap-inline-link { text-decoration: underline; text-underline-offset: 3px; }
+.nap-inline-link:hover { background: #000; color: #fff; text-decoration: none; }
+.nap-article-image { width: 100%; margin: 28px 0; }
 .nap-article-image > picture { display: block; }
-.nap-article-image img { display: block; width: 100%; height: auto; filter: drop-shadow(0 12px 28px #0e111626); }
-.nap-article-image figcaption { margin-top: 12px; color: var(--nap-subtle); font-size: 13px; line-height: 1.6; text-align: center; }
-.nap-reading-links { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--nap-border); }
-.nap-reading-links > div { display: flex; flex-wrap: wrap; gap: 14px 24px; margin-top: 14px; font-size: 15px; }
+.nap-article-image img { display: block; width: 100%; height: auto; border: 1px solid #000; }
+.nap-article-image figcaption { margin-top: 10px; color: var(--nap-muted); font-family: var(--nap-display); font-size: 13px; text-align: center; }
+.nap-reading-links { margin-top: 44px; padding-top: 20px; border-top: 1px solid #000; }
+.nap-reading-links > div { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 12px; font-size: 15px; }
 
 @media (max-width: 760px) {
-  .nap-header-inner { height: 58px; }
-  .nap-nav { gap: 18px; }
-  .nap-article-page > .nap-hero { padding: 44px 0 64px; }
+  .nap-header-inner, .nap-site-footer { padding: 0 14px; }
+  .nap-article-page > .nap-hero { margin: 24px auto 40px; }
+  .nap-blog-index, .nap-blog-article { padding: 48px 20px 32px; }
   .nap-blog-article p { font-size: 15px; }
-  .nap-blog-article h2 { font-size: 21px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .nap-docs, .nap-download, .nap-footer-social { transition: none; }
-}
+@media (prefers-reduced-motion: reduce) { .mac-window { animation: none; } }
