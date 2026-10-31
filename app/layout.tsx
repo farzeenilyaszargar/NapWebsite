@@ -1,9 +1,14 @@
 import { site, pages, pageMetadata, siteSchema, indexing } from "./lib/seo";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Fustat, Instrument_Serif } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
 import "./halftone.css";
+import "./dreamcore.css";
+
+const sans = Fustat({ subsets: ["latin"], display: "swap", variable: "--font-fustat" });
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], display: "swap", variable: "--font-instrument" });
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),
@@ -22,14 +27,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: "#0b0b0d",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className={`dreamcore h-full antialiased ${sans.variable} ${serif.variable}`}
     >
       <head>
         <Script id="x-conversion-pixel" strategy="lazyOnload">{`

@@ -7,69 +7,61 @@ import NapHeader from "./components/nap-header";
 import NapFooter from "./components/nap-footer";
 import "./contrast.css";
 import styles from "./home-brand.module.css";
+import Link from "next/link";
 
 export const metadata = pageMetadata(pages.home);
 
 export default function Home() {
   return (
-    <main className={`contrast-page nap-home-page ${styles.page}`}>
+    <main className={`contrast-page ${styles.page}`}>
       <StructuredData data={homeSchema()} />
-      <NapHeader showWaitlist />
-      <section className="nap-hero" aria-labelledby="nap-title">
-        <div className="nap-copy">
-          <h1 id="nap-title"><span className={styles.halftoneTitle}>Your Agents.</span><br />All Together.</h1>
-            <div className="nap-hero-details">
-              <div className="nap-action"><NapWaitlistCta /></div>
-            </div>
+      <NapHeader />
+      <section className={styles.hero} aria-labelledby="nap-title">
+        <div className={styles.sculpture} aria-hidden="true"><img src="/dreamcore-sculpture-457bf4df.webp" width={1152} height={2048} alt="" decoding="async" fetchPriority="low" /></div>
+        <div className={styles.heroInner}>
+          <p className={styles.eyebrow}><span className={styles.statusDot} /> A LITTLE LESS NOISE. A LITTLE MORE NAP.</p>
+          <h1 id="nap-title">A home for your<br /><em>coding agents.</em></h1>
+          <p className={styles.intro}>Your favourite agents. Your next big idea.<br />One native Mac app to bring it all together.</p>
+          <div className={styles.heroActions}><NapWaitlistCta /><span>For macOS <span aria-hidden="true">·</span> Early access</span></div>
+          <a className={styles.explore} href="#workspace">A place to get lost in your work <span aria-hidden="true">&darr;</span></a>
         </div>
       </section>
-      <div className={styles.stage}>
-      <figure className="nap-full-width-product">
+
+      <figure className={styles.workspace} id="workspace">
+        <figcaption><span>YOUR SPACE TO MAKE SOMETHING</span><span>THE NAP WORKSPACE <span aria-hidden="true">&#8599;</span></span></figcaption>
         <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 1320px) 90vw, 1180px" />
+        <div className={styles.workspaceFoot}><span>Less switching. More being here.</span><span>MACOS / NATIVE / YOURS</span></div>
       </figure>
-      </div>
-      <section className="nap-agents nap-section" aria-labelledby="agents-title">
-        <h2 id="agents-title" className="nap-section-label">The agents you already work with</h2>
-        <ul>{codingAgents.map(({ name, logo }) => <li key={name} data-agent={name}><img src={logo} alt="" width={22} height={22} loading="lazy" decoding="async" /><span>{name}</span></li>)}</ul>
+
+      <section className={styles.agents} aria-labelledby="agents-title">
+        <h2 id="agents-title">Familiar minds. New possibilities.</h2>
+        <ul>{codingAgents.map(({ name, logo }) => <li key={name}><img src={logo} alt="" width={24} height={24} loading="lazy" decoding="async" /><span>{name}</span></li>)}</ul>
       </section>
+
       <section className={styles.workflow} aria-labelledby="workflow-title">
-        <div className={styles.workflowHeading}>
-          <h2 id="workflow-title"><span className={styles.halftoneTitle}>Less setup.</span><br />More getting somewhere.</h2>
-          <p>Nap brings your AI coding agents into one native Mac app. Keep your projects, conversations, and code changes together.</p>
+        <div className={styles.workflowIntro}>
+          <div><p className={styles.eyebrow}>THOUGHTFULLY OUT OF YOUR WAY</p><h2 id="workflow-title">Stay in the flow.<br /><em>Not in twelve tabs.</em></h2></div>
+          <p>Good work needs a little breathing room. Nap keeps your projects, conversations, and code changes in the same place. So you can spend less time finding your way back, and more time making something worth coming back to.</p>
         </div>
         <div className={styles.steps}>
           <article>
-            <div className={styles.detail} aria-hidden="true">
-              <div className={styles.projectRow}><span className={styles.folder} /> Your project <span>⌘ O</span></div>
-              <div className={styles.fileRow}>src <span>/</span> components <span>/</span></div>
-              <div className={styles.composer}><span className={styles.typingPrompt}>What would you like to build?</span><span>↑</span></div>
-            </div>
-            <h3>Start where you are.</h3><p>Open your codebase and describe what you want to build, fix, or understand.</p>
+            <span className={styles.topic}>YOUR PROJECTS</span><h3>Pick up the thread.</h3><p>Open your codebase and keep the conversation with it. The context stays close, even when your mind wanders.</p>
           </article>
           <article>
-            <div className={styles.detail} aria-hidden="true">
-              <div className={styles.agentRows}>{codingAgents.map(({ name, logo }) => <div key={name}><img src={logo} width={18} height={18} alt="" loading="lazy" /><span>{name}</span><span>✓</span></div>)}</div>
-            </div>
-            <h3>Your choice of agent.</h3><p>Work with the coding agent you know, with your project and conversation in the same place.</p>
+            <span className={styles.topic}>YOUR AGENTS</span><h3>Bring your good company.</h3><p>Work with Claude Code, Codex, or Cursor. Familiar agents, without a different world around each one.</p>
           </article>
           <article>
-            <div className={styles.detail} aria-hidden="true">
-              <div className={styles.reviewTitle}>Changes <span>2 files</span></div>
-              <div className={styles.diffLine}><span>− &nbsp;The first draft.</span></div>
-              <div className={styles.diffLine}><span>+ &nbsp;Something better.</span></div>
-              <div className={styles.reviewAction}>Review changes <span>↗</span></div>
-            </div>
-            <h3>Keep moving forward.</h3><p>See what changed, ask a follow-up, and decide what comes next. You stay in control.</p>
+            <span className={styles.topic}>YOUR CALL</span><h3>Make it something yours.</h3><p>Read the changes, ask another question, and decide what to keep. You are still the one with the idea.</p>
           </article>
         </div>
+        <Link className={styles.readMore} href="/blogs/nap-agentic-development-environment">A closer look at the way Nap works <span aria-hidden="true">&#8599;</span></Link>
       </section>
-      <div className={styles.closing}>
-        <section className={styles.tryNap} aria-labelledby="try-nap-title">
-          <h2 id="try-nap-title">Try out Nap.</h2>
-          <NapWaitlistCta />
-        </section>
-        <NapFooter />
-      </div>
+
+      <section className={styles.closing} aria-labelledby="try-nap-title">
+        <img className={styles.bloom} src="/dreamcore-bloom-feaed1c0.webp" width={1080} height={1350} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <div className={styles.closingInner}><p className={styles.eyebrow}>SOMETHING GOOD IS TAKING SHAPE</p><h2 id="try-nap-title">Your next good idea.<br /><em>In good company.</em></h2><p>Make a little room for Nap.</p><NapWaitlistCta /></div>
+      </section>
+      <NapFooter />
       <div className={styles.productReference} aria-hidden="true">
         Nap is a native Mac app that brings AI coding agents, project conversations, and code changes into one interface. Built for developers who want a clearer way to work with agents, Nap keeps the task and its results together. Open your codebase, choose an agent, describe what you need, and review what changed before deciding what comes next.
 

@@ -1,5 +1,11 @@
 # Nap Website
 
+## Dreamcore design branch
+
+The `dreamcore` branch explores a dark, monochrome art direction using the supplied halftone sculpture and typographic flower. The existing app screenshot and agent logos remain in use. `app/dreamcore.css` applies the shared dark theme; `app/home-brand.module.css` defines the homepage composition. Fustat and Instrument Serif are self-hosted through `next/font`. Artwork is encoded as content-versioned WebP assets, with the lower artwork lazy-loaded. The waitlist API, approved page title, and availability claims are unchanged.
+
+The only entrance animation is a small heading fade, disabled for reduced motion. Native anchor navigation and server-rendered sections need no animation runtime. Browser checks cover mobile through wide desktop, all public page types, and mocked waitlist validation/error/success states.
+
 Nap is a native app for building with coding agents: open a project, choose an agent, chat, and review code changes in the app. This repository contains the light product website, UI preview, liquid cursor interaction, and blog articles.
 
 ## Pages
