@@ -6,7 +6,7 @@ export const contentType = "image/png";
 
 export default function SocialImage() {
   return new ImageResponse(
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "100%", height: "100%", padding: "55px 65px", background: "#f6f5f0", color: "#0e1116", fontFamily: "sans-serif" }}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "100%", height: "100%", padding: "55px 65px", background: "#f4efe6", color: "#0078bf", fontFamily: "sans-serif" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span style={{ fontSize: 64, fontWeight: 700, letterSpacing: -5 }}>nap</span>
         <span style={{ fontSize: 24, color: "#62666e" }}>nap.cx</span>

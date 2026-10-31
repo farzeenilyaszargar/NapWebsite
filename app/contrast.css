@@ -1,16 +1,16 @@
-/* Paper, ink, and one sky: a light, technical surface shared by every page. */
+/* Two-ink risograph stock shared by every page: Riso Blue and Riso Orange on cream paper. */
 .contrast-page {
-  --nap-background: #f6f5f0;
-  --nap-foreground: #0e1116;
+  --nap-background: #f4efe6;
+  --nap-foreground: #1b2a4a;
   --nap-body: #3a3e46;
   --nap-muted: #62666e;
   --nap-subtle: #8a8d93;
   --nap-border: #e2e0d8;
   --nap-border-strong: #cfccc2;
   --nap-surface: #fbfaf7;
-  --nap-sky: #3b74d0;
+  --nap-sky: #0078bf;
   --nap-cream: #edf2c4;
-  --nap-ember: #e2502f;
+  --nap-ember: #ff6c2f;
   --nap-error: #c2381c;
   --nap-mono: var(--font-mono-nap), ui-monospace, SFMono-Regular, Consolas, monospace;
   min-height: 100svh;
@@ -32,9 +32,9 @@
 .nap-docs:hover { color: var(--nap-sky); }
 
 /* Primary action */
-.nap-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 8px; background: var(--nap-foreground); color: var(--nap-background) !important; font-size: 15px; font-weight: 600; letter-spacing: -.01em; box-shadow: inset 0 1px 0 #ffffff26, 0 1px 2px #0e111633, 0 6px 16px -6px #0e111666; transition: background .15s, transform .15s; }
-.nap-download:hover { background: #262a31; }
-.nap-download:active { transform: translateY(1px); }
+.nap-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 4px; background: var(--nap-sky); color: #fff !important; font-size: 15px; font-weight: 600; letter-spacing: -.01em; box-shadow: 5px 5px 0 var(--nap-ember); transition: transform .12s, box-shadow .12s, background .15s; }
+.nap-download:hover { background: #006aa9; transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--nap-ember); }
+.nap-download:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--nap-ember); }
 .nap-download svg { width: 14px; height: 17px; margin-top: -2px; }
 .nap-download-small { min-height: 36px; padding: 0 14px; gap: 8px; border-radius: 7px; font-size: 13px; }
 .nap-download-small svg { width: 12px; height: 14px; }
@@ -50,7 +50,7 @@
 .nap-article-page > .nap-hero { flex: 1; width: min(700px, 90%); margin: 0 auto; padding: 72px 0 96px; }
 .nap-blog-label { font-family: var(--nap-mono); font-size: 12px; color: var(--nap-subtle); }
 .nap-blog-intro { margin-bottom: 40px; }
-.nap-blog-intro h1, .nap-blog-article h1 { font-size: clamp(34px, 4vw, 48px); font-weight: 600; line-height: 1.1; letter-spacing: -.035em; }
+.nap-blog-intro h1, .nap-blog-article h1 { font-family: var(--font-display-nap), var(--font-sans-nap), sans-serif; font-variation-settings: "wdth" 82, "opsz" 96; font-size: clamp(36px, 4.6vw, 58px); font-weight: 750; line-height: .95; letter-spacing: -.025em; text-transform: uppercase; color: var(--nap-sky); text-shadow: .035em .028em 0 var(--nap-ember); }
 .nap-blog-intro p { margin-top: 14px; color: var(--nap-muted); font-size: 16px; line-height: 1.65; }
 .nap-blog-article h1 { margin-top: 18px; }
 .nap-blog-article h2 { margin-top: 44px; font-size: 23px; font-weight: 600; line-height: 1.3; letter-spacing: -.02em; }
