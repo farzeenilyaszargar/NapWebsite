@@ -32,7 +32,7 @@ export default function Home() {
         <section className={styles.hero} aria-labelledby="nap-title">
           <MacWindow title="Nap" className={styles.heroWindow}>
             <div className={styles.heroBody}>
-              <h1 id="nap-title">Your agents.<br />All together.</h1>
+              <h1 id="nap-title">Your agents.<br /><em>All together.</em></h1>
               <p>Nap is a native Mac app for AI coding agents. Open a project, pick an agent, and review every change it makes.</p>
               <div className={styles.actions}><NapWaitlistCta /></div>
               <small>Early access for macOS. Download opens the waitlist.</small>
@@ -54,7 +54,7 @@ export default function Home() {
         </MacWindow>
 
         <section className={styles.features} aria-labelledby="features-title">
-          <h2 id="features-title">From prompt to commit, in one window.</h2>
+          <h2 id="features-title">From prompt to commit, <em>in one window.</em></h2>
           <div className={styles.featureList}>
             {features.map(({ icon: Icon, title, heading, body }) => (
               <MacWindow key={title} title={title}>

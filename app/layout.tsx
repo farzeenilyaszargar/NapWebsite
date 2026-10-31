@@ -1,13 +1,15 @@
 import { site, pages, pageMetadata, siteSchema, indexing } from "./lib/seo";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Instrument_Sans, IBM_Plex_Mono, Pixelify_Sans } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, IBM_Plex_Mono, Pixelify_Sans } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
 
 const sans = Instrument_Sans({ subsets: ["latin"], variable: "--font-sans-nap" });
 // Technical details: specs, file names, diff stats.
 // System-font stand-in for menus, title bars, buttons, and headlines.
+// Headlines, in the role New York played beside Chicago on the classic Mac.
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-serif-nap" });
 const display = Pixelify_Sans({ subsets: ["latin"], variable: "--font-display-nap" });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono-nap" });
 
@@ -35,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${sans.variable} ${display.variable} ${mono.variable}`}
+      className={`h-full antialiased ${sans.variable} ${serif.variable} ${display.variable} ${mono.variable}`}
     >
       <head>
         <Script id="x-conversion-pixel" strategy="lazyOnload">{`

@@ -1,12 +1,13 @@
 /* Homepage as a System 7 desktop: windows scattered over the dotted desktop, all draggable.
-   Pixel type is reserved for system chrome; content uses Instrument Sans. */
+   Pixel type is reserved for system chrome; headlines use Instrument Serif and text Instrument Sans. */
 .page { overflow: clip; }
 .desktop { width: min(1180px, 92%); margin: 0 auto; padding: 56px 0 80px; display: flex; flex-direction: column; }
 .hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: start; }
 .heroBody { padding: 52px 56px 44px; }
-.heroBody h1 { font-size: clamp(50px, 6.8vw, 96px); font-weight: 600; line-height: .94; letter-spacing: -.05em; }
+.heroBody h1 { font-family: var(--nap-serif); font-size: clamp(58px, 8vw, 116px); font-weight: 400; line-height: .9; letter-spacing: -.025em; }
+.heroBody h1 em { font-style: italic; }
 .heroBody p { margin-top: 26px; max-width: 540px; color: var(--nap-body); font-size: 19px; line-height: 1.5; }
 .actions { margin-top: 34px; padding: 6px; }
 .heroBody small { display: block; margin-top: 18px; color: var(--nap-muted); font-size: 13px; }
@@ -24,7 +25,7 @@
 .shot img { display: block; width: 100%; height: auto; }
 
 .features { margin-top: 112px; }
-.features h2 { font-size: clamp(34px, 4.4vw, 58px); font-weight: 600; line-height: 1; letter-spacing: -.045em; text-align: center; text-wrap: balance; }
+.features h2 { font-family: var(--nap-serif); font-size: clamp(40px, 5.2vw, 70px); font-weight: 400; line-height: 1; letter-spacing: -.02em; text-align: center; text-wrap: balance; }
 .featureList { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; align-items: start; }
 .featureList > :nth-child(2) { margin-top: 40px; }
 .featureList > :nth-child(3) { margin-top: 14px; }
@@ -38,7 +39,7 @@
 .alert { width: min(580px, 100%); }
 .alertBody { display: flex; align-items: flex-start; gap: 26px; padding: 32px 32px 8px; }
 .alertBody img { flex-shrink: 0; }
-.alertBody h2 { font-size: 30px; font-weight: 600; line-height: 1.05; letter-spacing: -.035em; }
+.alertBody h2 { font-family: var(--nap-serif); font-size: 38px; font-weight: 400; line-height: 1; letter-spacing: -.015em; }
 .alertBody p { margin-top: 10px; color: var(--nap-body); font-size: 16px; line-height: 1.5; }
 .alertActions { display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 22px; padding: 24px 32px 30px; }
 
@@ -51,7 +52,7 @@
 @media (max-width: 600px) {
   .desktop { width: 94%; padding: 24px 0 48px; }
   .heroBody { padding: 32px 22px 28px; }
-  .heroBody h1 { font-size: clamp(44px, 13.5vw, 58px); }
+  .heroBody h1 { font-size: clamp(52px, 16vw, 68px); }
   .heroBody p { font-size: 17px; }
   .shot { padding: 8px; }
   .features { margin-top: 72px; }

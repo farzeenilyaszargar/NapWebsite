@@ -4,7 +4,7 @@
 .nap-waitlist-panel::before { content: ""; position: absolute; inset: 0 0 auto; height: 22px; border-bottom: 1px solid #000; background: repeating-linear-gradient(to bottom, #fff 0 3px, #000 3px 4px) 3px 2px / calc(100% - 6px) 19px no-repeat, #fff; }
 .nap-waitlist-panel::after { content: ""; position: absolute; top: 4px; left: 9px; width: 13px; height: 13px; border: 1px solid #000; background: #fff; box-shadow: 0 0 0 2px #fff; }
 .nap-waitlist-intro { margin-bottom: 32px; text-align: center; }
-.nap-waitlist-intro h1, .nap-waitlist-success h1 { font-size: 36px; font-weight: 600; line-height: 1.04; letter-spacing: -.04em; }
+.nap-waitlist-intro h1, .nap-waitlist-success h1 { font-family: var(--nap-serif); font-size: 44px; font-weight: 400; line-height: 1; letter-spacing: -.02em; }
 .nap-waitlist-intro p { margin-top: 14px; color: var(--nap-muted); font-size: 15px; line-height: 1.7; text-wrap: balance; }
 .nap-waitlist-field + .nap-waitlist-field { margin-top: 20px; }
 .nap-waitlist-field label { display: block; margin-bottom: 9px; color: #000; font-size: 14px; font-weight: 600; }
