@@ -1,7 +1,6 @@
 .indexPage:global(.contrast-page.nap-article-page) > :global(.nap-hero) { width: min(960px, 90%); }
 .indexPage :global(.nap-blog-intro) { margin-bottom: 44px; }
-.post { border-top: 1px solid var(--nap-border); }
-.post:last-child { border-bottom: 1px solid var(--nap-border); }
+.post + .post { margin-top: 14px; }
 .postLink { display: flex; align-items: center; gap: 32px; padding: 30px 0; }
 .postCopy { min-width: 0; flex: 1; }
 .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 11px; line-height: 1.6; color: var(--nap-muted); }
@@ -13,7 +12,7 @@
 .backLink { display: inline-block; margin-bottom: 26px; font-size: 12px; color: var(--nap-muted) !important; }
 .backLink:hover { text-decoration: underline; text-underline-offset: 4px; }
 .byline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 11px; color: var(--nap-muted); }
-.contents { margin: 26px 0 30px; padding: 18px 0; border-block: 1px solid var(--nap-border); }
+.contents { margin: 26px 0 30px; padding: 18px 0; }
 .contents > span { font-size: 11px; font-weight: 550; }
 .contents ul { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 12px 0 0; padding: 0; list-style: none; }
 .contents a { font-size: 12px; color: var(--nap-muted); text-decoration: underline; text-underline-offset: 4px; }

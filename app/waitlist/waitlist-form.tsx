@@ -45,7 +45,7 @@ export default function WaitlistForm() {
         <div className="nap-waitlist-panel">
           <div className="nap-waitlist-intro">
             <h1 id="waitlist-title"><span className="nap-halftone-text">Join the</span> Waitlist</h1>
-            <p>Your next good idea starts here</p>
+            <p>Get notified when Nap is available for macOS.</p>
           </div>
           <div className="nap-waitlist-form-wrap">
             <form onSubmit={submit} autoComplete="on" aria-label="Join the Nap Waitlist" aria-busy={busy}>

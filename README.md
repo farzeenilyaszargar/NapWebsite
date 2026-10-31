@@ -2,9 +2,9 @@
 
 ## Dreamcore design branch
 
-The `dreamcore` branch explores a dark, monochrome art direction using the supplied halftone sculpture and typographic flower. The existing app screenshot and agent logos remain in use. `app/dreamcore.css` applies the shared dark theme; `app/home-brand.module.css` defines the homepage composition. Fustat and Instrument Serif are self-hosted through `next/font`. Artwork is encoded as content-versioned WebP assets, with the lower artwork lazy-loaded. The waitlist API, approved page title, and availability claims are unchanged.
+The `dreamcore` branch uses a dark, monochrome art direction with original halftone coastal artwork, not the supplied reference posters. The existing app screenshot and agent logos remain in use. `app/dreamcore.css` applies the shared dark theme; `app/home-brand.module.css` defines the homepage composition. Fustat and Instrument Serif are self-hosted through `next/font`. The coastal artwork is a content-versioned WebP, displayed without blur or opacity filters. Navigation and footer use only the existing ghost mark. Direct product copy and two primary waitlist buttons replace decorative labels and slogans. The waitlist API, approved page title, and availability claims are unchanged. See `docs/dreamcore-art-direction.md` for the artwork prompt and design requirements.
 
-The only entrance animation is a small heading fade, disabled for reduced motion. Native anchor navigation and server-rendered sections need no animation runtime. Browser checks cover mobile through wide desktop, all public page types, and mocked waitlist validation/error/success states.
+Native anchor navigation and server-rendered sections need no animation runtime. Browser checks cover mobile through wide desktop, all public page types, and mocked waitlist validation/error/success states.
 
 Nap is a native app for building with coding agents: open a project, choose an agent, chat, and review code changes in the app. This repository contains the light product website, UI preview, liquid cursor interaction, and blog articles.
 
