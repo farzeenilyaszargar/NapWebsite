@@ -6,15 +6,15 @@ export const contentType = "image/png";
 
 export default function SocialImage() {
   return new ImageResponse(
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "100%", height: "100%", padding: "55px 65px", background: "#000000", color: "#ededed", fontFamily: "sans-serif" }}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "100%", height: "100%", padding: "55px 65px", background: "#f6f5f0", color: "#0e1116", fontFamily: "sans-serif" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span style={{ fontSize: 64, fontWeight: 700, letterSpacing: -5 }}>nap</span>
-        <span style={{ fontSize: 24, color: "#8e8e8e" }}>nap.cx</span>
+        <span style={{ fontSize: 24, color: "#62666e" }}>nap.cx</span>
       </div>
       <div style={{ display: "flex", flexDirection: "column", fontSize: 104, fontWeight: 700, letterSpacing: -7, lineHeight: .95 }}>
         <span>YOUR AGENTS.</span><span>ALL TOGETHER.</span>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#8e8e8e" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 24, color: "#62666e" }}>
         <span>Native AI coding app for Mac</span><span>@nap_cx</span>
       </div>
     </div>,
