@@ -4,16 +4,16 @@
 .nap-waitlist-panel::before { content: ""; position: absolute; inset: 0 0 auto; height: 22px; border-bottom: 1px solid #000; background: repeating-linear-gradient(to bottom, #fff 0 3px, #000 3px 4px) 3px 2px / calc(100% - 6px) 19px no-repeat, #fff; }
 .nap-waitlist-panel::after { content: ""; position: absolute; top: 4px; left: 9px; width: 13px; height: 13px; border: 1px solid #000; background: #fff; box-shadow: 0 0 0 2px #fff; }
 .nap-waitlist-intro { margin-bottom: 32px; text-align: center; }
-.nap-waitlist-intro h1, .nap-waitlist-success h1 { font-family: var(--nap-display); font-size: 34px; font-weight: 700; line-height: 1.05; }
+.nap-waitlist-intro h1, .nap-waitlist-success h1 { font-size: 36px; font-weight: 600; line-height: 1.04; letter-spacing: -.04em; }
 .nap-waitlist-intro p { margin-top: 14px; color: var(--nap-muted); font-size: 15px; line-height: 1.7; text-wrap: balance; }
 .nap-waitlist-field + .nap-waitlist-field { margin-top: 20px; }
-.nap-waitlist-field label { display: block; margin-bottom: 9px; color: #000; font-family: var(--nap-display); font-size: 15px; }
+.nap-waitlist-field label { display: block; margin-bottom: 9px; color: #000; font-size: 14px; font-weight: 600; }
 .nap-waitlist-field input { display: block; width: 100%; min-height: 46px; border: 1px solid #000; border-radius: 0; background: #fff; color: var(--nap-foreground); padding: 11px 12px; font: inherit; font-size: 16px; line-height: 1.5; }
 .nap-waitlist-field input:is(:autofill, :-webkit-autofill) { -webkit-text-fill-color: var(--nap-foreground); caret-color: var(--nap-foreground); -webkit-box-shadow: 0 0 0 1000px #fff inset; box-shadow: 0 0 0 1000px #fff inset; }
 .nap-waitlist-field input::placeholder { color: var(--nap-subtle); }
 .nap-waitlist-field input:focus { outline: none; box-shadow: inset 0 0 0 1px #000; }
 .nap-waitlist-field input:disabled { cursor: wait; opacity: .6; }
-.nap-waitlist-form-wrap button { display: flex; justify-content: center; align-items: center; width: 100%; min-height: 40px; margin-top: 30px; border: 1.5px solid #000; border-radius: 9px; background: #fff; color: #000; padding: 0 20px; font-family: var(--nap-display); font-size: 17px; cursor: inherit; box-shadow: 0 0 0 3px #fff, 0 0 0 6px #000; }
+.nap-waitlist-form-wrap button { display: flex; justify-content: center; align-items: center; width: 100%; min-height: 40px; margin-top: 30px; border: 1.5px solid #000; border-radius: 9px; background: #fff; color: #000; padding: 0 20px; font: inherit; font-size: 15px; font-weight: 600; cursor: inherit; box-shadow: 0 0 0 3px #fff, 0 0 0 6px #000; }
 .nap-waitlist-form-wrap button:hover:not(:disabled), .nap-waitlist-form-wrap button:active { background: #000; color: #fff; }
 .nap-waitlist-form-wrap button:disabled { cursor: wait; opacity: .65; }
 .nap-waitlist-status { margin-top: 16px; color: var(--nap-error); font-size: 13px; line-height: 1.7; text-align: center; }

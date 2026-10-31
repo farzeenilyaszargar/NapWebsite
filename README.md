@@ -39,7 +39,7 @@ npm run start
 - Download CTA (opens the waitlist): `app/components/nap-waitlist-cta.tsx`
 - Ghost logo in ink: `app/components/nap-logo.tsx` (`public/nap-ghost-ink-*.webp`)
 - Classic Mac OS look: `app/components/mac-window.tsx` (System 7 windows with striped title bars, draggable by the title bar with a mouse), `app/components/menu-clock.tsx` (local time in the menu bar), 1-bit ghost icons in `public/nap-ghost-menu-*.png` and `public/nap-ghost-icon-*.png`, and pixel icons from `pixelarticons` (MIT). The desktop pattern and arrow cursor are inline SVG in `app/contrast.css`.
-- Type: Pixelify Sans (menus, title bars, buttons, headlines), Instrument Sans (body), and IBM Plex Mono (code), loaded in `app/layout.tsx`; icons from `lucide-react`
+- Type: Instrument Sans for headlines, buttons, and body; Pixelify Sans only in system chrome (menu bar, title bars, status bars, icon labels, footer); IBM Plex Mono for code, loaded in `app/layout.tsx`; icons from `lucide-react`
 - Shared footer: `app/components/nap-footer.tsx`
 - Liquid interaction: `app/components/liquid-field.tsx`
 - Site styles: `app/contrast.css`

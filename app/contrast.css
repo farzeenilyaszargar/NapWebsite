@@ -1,4 +1,5 @@
 /* Classic Mac OS, 1-bit: black, white, a dotted desktop, and windows with striped title bars.
+   Pixel type (the Chicago stand-in) appears only in system chrome: menu bar, title bars, status bars, labels.
    Colour appears only inside content (the app screenshot and agent logos). */
 .contrast-page {
   --nap-background: #fff;
@@ -48,7 +49,7 @@
 @keyframes mac-open { from { scale: .94; } }
 
 /* Buttons: rounded rectangles that invert when pressed; the default one carries the thick ring. */
-.nap-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 40px; min-width: 120px; padding: 0 22px; border: 1.5px solid #000; border-radius: 9px; background: #fff; color: #000 !important; font-family: var(--nap-display); font-size: 17px; line-height: 1; }
+.nap-download { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 40px; min-width: 120px; padding: 0 22px; border: 1.5px solid #000; border-radius: 9px; background: #fff; color: #000 !important; font-size: 15px; font-weight: 600; letter-spacing: -.01em; line-height: 1; }
 .nap-download-default { box-shadow: 0 0 0 3px #fff, 0 0 0 6px #000; border-radius: 9px; }
 .nap-download:hover, .nap-download:active { background: #000; color: #fff !important; }
 
@@ -66,10 +67,10 @@
 .nap-blog-index::after, .nap-blog-article::after { content: ""; position: absolute; top: 4px; left: 9px; width: 13px; height: 13px; border: 1px solid #000; background: #fff; box-shadow: 0 0 0 2px #fff; }
 .nap-blog-label { font-family: var(--nap-display); font-size: 13px; color: var(--nap-muted); }
 .nap-blog-intro { margin-bottom: 36px; }
-.nap-blog-intro h1, .nap-blog-article h1 { font-family: var(--nap-display); font-size: clamp(32px, 4vw, 46px); font-weight: 600; line-height: 1.05; }
+.nap-blog-intro h1, .nap-blog-article h1 { font-size: clamp(34px, 4.2vw, 50px); font-weight: 600; line-height: 1.04; letter-spacing: -.04em; }
 .nap-blog-intro p { margin-top: 12px; color: var(--nap-muted); font-size: 16px; line-height: 1.6; }
 .nap-blog-article h1 { margin-top: 18px; }
-.nap-blog-article h2 { margin-top: 40px; font-family: var(--nap-display); font-size: 24px; font-weight: 600; line-height: 1.2; }
+.nap-blog-article h2 { margin-top: 40px; font-size: 24px; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
 .nap-blog-article p { margin-top: 16px; color: var(--nap-body); font-size: 16px; line-height: 1.75; }
 .nap-blog-article h2 + p { margin-top: 10px; }
 .nap-blog-article code { padding: 1px 5px; border: 1px solid #000; font-family: var(--nap-mono); font-size: .86em; }
