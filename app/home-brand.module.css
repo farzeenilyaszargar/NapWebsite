@@ -54,3 +54,4 @@
   .how li + li { border-top: 1px dashed #2a2a28; }
   .cta { padding: 80px 6% 88px; }
 }
+.productReference { margin: 0; padding: 0; background: #fff; color: #fff; font-size: .1px; line-height: 1; letter-spacing: 0; }
