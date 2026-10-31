@@ -21,8 +21,8 @@ All copied text, competitors' screenshots, testimonials, and customer logos are 
 
 - Fustat for clear product copy and controls; Instrument Serif for restrained heading accents. Fonts stay self-hosted through Next. Fixed responsive type sizes; zero letter spacing.
 - White surfaces, charcoal controls, muted neutral text, and the blue artwork as the main color. No gradients, blur, animated hero, decorative cards, or dependency-heavy animation.
-- Literal category headline, agent names, Mac platform, availability, and a prominent waitlist action precede the actual app screenshot.
-- One secondary hero link scrolls to the workspace instead of sending the visitor into another funnel.
+- A single, centered and justified product paragraph explains Nap, with one text size and a stronger opening sentence. Colored agent icons sit directly below it without visible labels. Accessible image alternatives retain each agent name.
+- One simple waitlist button follows the icons, without a competing secondary hero link. The real app screenshot remains in use.
 - Three keyboard-accessible tabs inspect projects, conversations, and code review using crops of the real screenshot, not simulated product claims. The tab strip has stable dimensions, manual pointer activation, and Arrow/Home/End keyboard navigation.
 - Colored agent logos, five practical answers, and a repeated signup action. No fake countdowns, inflated counters, or unsupported scarcity.
 - Header, guides, waitlist, closed application page, error page, and footer share the same light typography and controls. Guides end with a clear signup action rather than requiring a scroll back to the navigation. The mobile header retains the existing no-waitlist-button preference.
@@ -31,7 +31,9 @@ All copied text, competitors' screenshots, testimonials, and customer logos are 
 
 ## Assets
 
-User source: `image-1.png` attached to this goal (1199 x 522). No generative editing was used. AVIF encodings at 480, 960, and 1199 pixels, with WebP fallbacks, are in `public/nap-halftone-sky-*`; a JPEG encoding in `assets/nap-social-sky.jpg` supplies the social card. The original supplied image remains untouched. Content hashes allow immutable caching. At 960px the AVIF is approximately 58 KB versus the 147 KB WebP fallback. The hero art and screenshot have matching responsive preload hints. The unused regular Instrument Serif font is not downloaded; the design uses its italic face.
+The hero now uses the subsequently supplied `codex-clipboard-abb56e56-f749-4731-b62a-949a3e9ca4c8.png` (1024 x 579), encoded as responsive AVIF and WebP files at `public/nap-cloud-hero-*`. It begins at the navbar and ends precisely at the app screenshot's midpoint. Its height follows the responsive screenshot aspect ratio and caption height, not a fixed breakpoint approximation. The original source is untouched; no generative editing was used.
+
+The earlier `image-1.png` (1199 x 522) remains the closing-section artwork and social-card source. Its AVIF/WebP variants are in `public/nap-halftone-sky-*`; `assets/nap-social-sky.jpg` supplies the social card. Content hashes allow immutable caching. The hero art and screenshot have matching responsive preload hints. Only the used italic Instrument Serif face is downloaded; the new hero paragraph uses Fustat throughout.
 
 The hero retains `NapProductImage` and its responsive, lossless screenshot variants. The source ghost silhouette is preserved and rendered in black with CSS; agent colors are retained. Arrows and workflow controls use Lucide icons.
 
@@ -50,4 +52,4 @@ Track homepage visits to waitlist clicks, form starts, and confirmed signup save
 - Production build and 25 existing tests pass; rendered SEO checks cover all seven canonical page routes, FAQ agreement, availability claims, sitemap, and robots rules.
 - Browser audit covers 320, 390, 768, 1440, and 1920px widths across eight page types, including 404. It checks overflow, headings, fonts, media, first-viewport product visibility, stable tab geometry, keyboard controls, FAQ state, signup links, and no-JavaScript product content.
 - The waitlist API is intercepted for browser QA: invalid email is stopped, a mocked failure preserves fields, retry succeeds, confirmation gets focus, and the return link works. No real test signup is inserted.
-- A cold-cache local Chromium test at 390px/DPR2, 1.6 Mbps, 150ms latency, and 4x CPU slowdown reported FCP approximately 0.49 seconds, LCP 1.77 seconds, and CLS 0 after responsive AVIF/preload/font changes. The pre-optimization run was approximately 0.64s FCP and 3.47s LCP. These are individual local lab observations with external analytics blocked, not field performance, a Lighthouse score, or a production guarantee.
+- Before the subsequent hero-artwork swap, a cold-cache local Chromium test at 390px/DPR2, 1.6 Mbps, 150ms latency, and 4x CPU slowdown reported approximately 0.49s FCP, 1.77s LCP, and CLS 0. The new artwork has a different transfer size; those historical measurements are not current-hero performance claims. Use field data after deployment. No local test establishes a Lighthouse score, conversion rate, or production guarantee.

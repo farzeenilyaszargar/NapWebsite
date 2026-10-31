@@ -1,30 +1,22 @@
 .page { overflow: clip; }
-.opening { position: relative; isolation: isolate; }
+.opening { position: relative; isolation: isolate; --workspace-width: min(1120px, 88vw); --caption-height: 37px; }
 .hero { position: relative; width: min(1120px, 88%); margin: 0 auto; padding: 65px 0 64px; text-align: center; }
-.hero h1 { margin: 0; color: #17191d; font-size: 68px; line-height: 1.04; font-weight: 520; letter-spacing: 0; }
-.hero h1 em { font-family: var(--font-instrument), Georgia, serif; font-size: 87px; font-weight: 400; line-height: 1.05; }
-.intro { max-width: 450px; margin: 23px auto 0; color: #60646c; font-size: 15px; line-height: 1.75; }
+.hero h1 { max-width: 780px; margin: 0 auto; color: #17191d; font-size: 34px; line-height: 1.45; font-weight: 400; letter-spacing: 0; text-align: justify; text-align-last: center; }
+.hero h1 strong { font-weight: 600; }
+.heroAgents { display: flex; justify-content: center; align-items: center; gap: 27px; margin: 25px 0 0; padding: 0; list-style: none; }
+.heroAgents li { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; }
+.heroAgents img { display: block; width: 29px; height: 29px; object-fit: contain; }
 .heroActions { display: flex; justify-content: center; align-items: center; gap: 25px; margin-top: 28px; }
-.secondaryAction { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; color: #333942 !important; font-size: 13px; }
-.secondaryAction:hover { text-decoration: underline; text-underline-offset: 4px; }
-.availability { margin-top: 15px; color: #686d76; font-size: 11px; }
 .workspaceStage { position: relative; isolation: isolate; }
-.heroSky { position: absolute; z-index: -1; top: 0; left: 0; height: 330px; width: 100%; display: block; overflow: hidden; background: #136fba; }
+.heroSky { position: absolute; z-index: -1; top: 0; left: 0; height: calc(100% - var(--workspace-width) * 3449 / 10612 - var(--caption-height)); width: 100%; display: block; overflow: hidden; background: #fff; }
 .heroSky img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.page .opening :global(.nap-header .nap-nav .nap-docs) { color: #fff !important; }
-.page .opening :global(.nap-header .nap-nav .nap-docs:hover) { color: #fff !important; text-decoration: underline; text-underline-offset: 4px; }
-.page .opening :global(.nap-wordmark-mark) { filter: brightness(100); mix-blend-mode: screen; }
+.page .opening :global(.nap-header .nap-nav .nap-docs) { color: #17191d !important; }
+.page .opening :global(.nap-header .nap-nav .nap-docs:hover) { color: #17191d !important; text-decoration: underline; text-underline-offset: 4px; }
 .workspace { position: relative; width: min(1120px, 88%); margin: 0 auto; scroll-margin-top: 25px; }
 .workspace picture { display: block; border-radius: 7px; overflow: hidden; box-shadow: 0 22px 65px -20px #06294950, 0 0 0 1px #17191d20; }
 .workspace img { display: block; width: 100%; height: auto; }
-.workspace figcaption { margin: 21px 0 0; text-align: center; color: #707680; font-size: 11px; }
-.agents { width: min(1120px, 88%); margin: 0 auto; padding: 64px 0 85px; text-align: center; }
-.agents h2 { margin: 0; font-size: 17px; font-weight: 500; letter-spacing: 0; }
-.agents ul { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 40px; margin: 27px 0 0; padding: 0; list-style: none; }
-.agents li { display: flex; align-items: center; gap: 11px; font-size: 16px; font-weight: 500; }
-.agents img { display: block; width: 27px; height: 27px; object-fit: contain; }
-.agents > p { margin-top: 24px; color: #707680; font-size: 12px; }
-.workflow { width: min(1120px, 88%); margin: 0 auto; padding: 42px 0 85px; scroll-margin-top: 35px; }
+.workspace figcaption { margin: 21px 0 0; text-align: center; color: #707680; font-size: 11px; line-height: 16px; }
+.workflow { width: min(1120px, 88%); margin: 0 auto; padding: 90px 0 85px; scroll-margin-top: 35px; }
 .sectionHeading { display: flex; justify-content: space-between; align-items: end; gap: 45px; margin-bottom: 37px; }
 .sectionHeading h2, .faq h2 { margin: 0; font-size: 36px; line-height: 1.13; font-weight: 500; letter-spacing: 0; }
 .sectionHeading h2 em, .faq h2 em { font-family: var(--font-instrument), Georgia, serif; font-size: 48px; font-weight: 400; }
@@ -48,33 +40,23 @@
 .closingInner > p { margin: 20px 0 26px; color: #626771; font-size: 14px; }
 .closingNote { display: block; margin-top: 16px; color: #707680; font-size: 11px; }
 @media (max-width: 1000px) {
-  .hero h1 { font-size: 59px; }
-  .hero h1 em { font-size: 77px; }
+  .hero h1 { max-width: 680px; font-size: 30px; }
   .hero { padding-top: 58px; }
-  .heroSky { height: 300px; }
   .sectionHeading { gap: 30px; }
   .sectionHeading > p { max-width: 265px; }
   .faq { gap: 45px; }
 }
 @media (max-width: 700px) {
+  .opening { --workspace-width: 94vw; --caption-height: 33px; }
   .hero { width: 90%; padding: 39px 0 47px; }
-  .hero h1 { font-size: 41px; }
-  .hero h1 em { font-size: 57px; }
-  .intro { max-width: 310px; margin-top: 20px; font-size: 14px; line-height: 1.75; }
+  .hero h1 { max-width: 420px; font-size: 24px; line-height: 1.5; }
+  .heroAgents { margin-top: 23px; gap: 25px; }
+  .heroAgents img { width: 25px; height: 25px; }
   .heroActions { gap: 22px; margin-top: 24px; }
-  .secondaryAction { font-size: 12px; gap: 7px; }
-  .availability { font-size: 10px; margin-top: 12px; }
-  .heroSky { height: 230px; }
   .workspace { width: 94%; }
   .workspace picture { border-radius: 5px; }
-  .workspace figcaption { font-size: 10px; margin-top: 18px; }
-  .agents { width: 90%; padding: 43px 0 48px; }
-  .agents h2 { font-size: 15px; }
-  .agents ul { gap: 22px; margin-top: 23px; }
-  .agents li { gap: 7px; font-size: 12px; }
-  .agents img { width: 23px; height: 23px; }
-  .agents > p { font-size: 11px; margin-top: 21px; }
-  .workflow { width: 90%; padding: 28px 0 43px; }
+  .workspace figcaption { font-size: 10px; margin-top: 18px; line-height: 15px; }
+  .workflow { width: 90%; padding: 55px 0 43px; }
   .sectionHeading { display: block; margin-bottom: 28px; }
   .sectionHeading h2, .faq h2 { font-size: 28px; }
   .sectionHeading h2 em, .faq h2 em { font-size: 39px; }
@@ -91,5 +73,5 @@
   .closingInner > p { max-width: 245px; margin: 18px auto 24px; font-size: 13px; line-height: 1.7; }
   .closingNote { font-size: 10px; }
 }
-@media (max-width: 360px) { .hero h1 { font-size: 35px; } .hero h1 em { font-size: 50px; } .heroSky { height: 220px; } .heroActions { gap: 14px; } .agents ul { gap: 17px; } .agents li { font-size: 11px; } }
+@media (max-width: 360px) { .hero h1 { font-size: 22px; } .heroActions { gap: 14px; } }
 @media (prefers-reduced-motion: reduce) { .questions summary svg { transition: none; } }

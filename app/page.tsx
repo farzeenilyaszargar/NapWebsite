@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { codingAgents } from "./lib/agents";
 import { productQuestions } from "./lib/product";
 import StructuredData from "./components/structured-data";
@@ -20,16 +20,14 @@ export default function Home() {
     <main className={`contrast-page ${styles.page}`} id="main-content">
       <StructuredData data={homeSchema()} />
       <div className={styles.opening}>
-        <NapSky className={styles.heroSky} eager />
+        <NapSky className={styles.heroSky} variant="clouds" eager />
         <NapHeader />
         <section className={styles.hero} aria-labelledby="nap-title">
-          <h1 id="nap-title">One app for your<br /><em>coding agents.</em></h1>
-          <p className={styles.intro}>Nap brings Claude Code, Codex, and Cursor into one native Mac workspace. Keep your projects, conversations, and code changes together.</p>
+          <h1 id="nap-title"><strong>Your coding agents, together.</strong> Nap puts Claude Code, Codex, and Cursor in one Mac workspace, so you can follow conversations and review code without switching apps.</h1>
+          <ul className={styles.heroAgents} aria-label="Supported coding agents">{codingAgents.map(({ name, logo }) => <li key={name}><img src={logo} alt={name} width={29} height={29} decoding="async" /></li>)}</ul>
           <div className={styles.heroActions}>
             <NapWaitlistCta location="hero" />
-            <a className={styles.secondaryAction} href="#workspace">Take a look <ArrowDown size={15} strokeWidth={1.7} aria-hidden="true" /></a>
           </div>
-          <p className={styles.availability}>Built for macOS. Currently in early access.</p>
         </section>
         <div className={styles.workspaceStage}>
           <figure className={styles.workspace} id="workspace">
@@ -38,12 +36,6 @@ export default function Home() {
           </figure>
         </div>
       </div>
-
-      <section className={styles.agents} aria-labelledby="agents-title">
-        <h2 id="agents-title">Bring the agents you already use.</h2>
-        <ul>{codingAgents.map(({ name, logo }) => <li key={name}><img src={logo} alt="" width={27} height={27} loading="lazy" decoding="async" /><span>{name}</span></li>)}</ul>
-        <p>Nap is the workspace. Your agent is still your agent.</p>
-      </section>
 
       <section className={styles.workflow} id="why-nap" aria-labelledby="workflow-title">
         <div className={styles.sectionHeading}>
