@@ -1,6 +1,6 @@
-// A 14×16 pixel-art ghost, drawn at whole-number scales so every pixel stays square.
-export const ghostLogo = "/nap-ghost-pixel-9b0ef05c.png";
+// The ghost mark in solid ink for light pages (125×138 source).
+export const ghostLogo = "/nap-ghost-ink-ecec456a.webp";
 
-export default function NapLogo({ scale = 2, className = "nap-logo-mark" }: { scale?: number; className?: string }) {
-  return <img className={className} src={ghostLogo} width={14 * scale} height={16 * scale} alt="" decoding="async" />;
+export default function NapLogo({ height = 22, className = "nap-logo-mark" }: { height?: number; className?: string }) {
+  return <img className={className} src={ghostLogo} width={Math.round((height * 125) / 138)} height={height} alt="" decoding="async" />;
 }

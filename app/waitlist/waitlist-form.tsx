@@ -44,7 +44,6 @@ export default function WaitlistForm() {
       ) : (
         <div className="nap-waitlist-panel">
           <div className="nap-waitlist-intro">
-            <p className="nap-mono-label">Nap for macOS — Early access</p>
             <h1 id="waitlist-title">Get early access</h1>
             <p>Nap isn’t publicly available yet. Join the waitlist and we’ll let you know when it’s ready to download.</p>
           </div>

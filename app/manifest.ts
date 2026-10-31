@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: site.description,
     start_url: "/",
     display: "standalone",
-    background_color: "#050505",
-    theme_color: "#050505",
+    background_color: "#f6f5f0",
+    theme_color: "#f6f5f0",
     icons: [
       { src: "/nap-icon-192-fd534a28.png", sizes: "192x192", type: "image/png", purpose: "any" },
       { src: "/nap-icon-512-8adc24c1.png", sizes: "512x512", type: "image/png", purpose: "any" },

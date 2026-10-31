@@ -1,14 +1,13 @@
 import { site, pages, pageMetadata, siteSchema, indexing } from "./lib/seo";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono, Geist_Pixel } from "next/font/google";
+import { Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
 
-const sans = Geist({ subsets: ["latin"], variable: "--font-geist" });
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
-// Headings only; the bitmap face carries the site's pixel style.
-const pixel = Geist_Pixel({ subsets: ["latin"], variable: "--font-geist-pixel", adjustFontFallback: false });
+const sans = Instrument_Sans({ subsets: ["latin"], variable: "--font-sans-nap" });
+// Technical details: specs, file names, diff stats.
+const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono-nap" });
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),
@@ -27,14 +26,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#050505",
+  themeColor: "#f6f5f0",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${sans.variable} ${mono.variable} ${pixel.variable}`}
+      className={`h-full antialiased ${sans.variable} ${mono.variable}`}
     >
       <head>
         <Script id="x-conversion-pixel" strategy="lazyOnload">{`
