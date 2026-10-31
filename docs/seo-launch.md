@@ -12,7 +12,7 @@ The canonical production origin is `https://www.nap.cx`. The apex `https://nap.c
 - Download guide: the official Mac product and waitlist-only availability.
 - Agent names appear where the published content discusses them: Claude Code, Codex, and Cursor.
 
-Each page has a focused keyword list and a unique description. Google does not use the meta keywords tag for ranking; the visible content, crawlability, relevance, and useful information matter. Titles follow `Nap | …`. The homepage title is `Nap | AI Coding Agents for Mac & Download Updates`.
+Each page has a focused keyword list and a unique description. Google does not use the meta keywords tag for ranking; the visible content, crawlability, relevance, and useful information matter. Titles follow `Nap | …`. The homepage title is `Nap | The Interface For All Your Agents`. Preserve this owner-approved title; SEO work must not replace it without explicit approval.
 
 ## Implemented
 
