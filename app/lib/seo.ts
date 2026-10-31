@@ -16,7 +16,7 @@ export const site = {
 
 export const pages = {
   home: {
-    path: "/", title: pageTitle("AI Coding Agents for Mac & Download Updates"),
+    path: "/", title: site.title,
     description: "Nap is a native Mac app for Claude Code, Codex, and Cursor. Bring your AI coding agents together and join the waitlist for Nap download updates.",
     keywords: ["nap download", "download nap", "nap agents", "nap codes", "nap code download", "nap for mac", "nap macos download", "nap AI coding agents", "AI coding app for Mac", "AI coding workspace", "coding agent interface", "agentic coding", "Claude Code", "Codex", "Cursor"],
   },

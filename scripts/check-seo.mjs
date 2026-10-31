@@ -8,7 +8,7 @@ const output = resolve(root, ".next/server/app");
 const origin = "https://www.nap.cx";
 const preview = !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
 const routes = [
-  ["index", "/", "Nap | AI Coding Agents for Mac & Download Updates"],
+  ["index", "/", "Nap | The Interface For All Your Agents"],
   ["blogs", "/blogs", "Nap | Blog: Coding Agent Guides & Workflows"],
   ["blogs/parallel-coding-agents", "/blogs/parallel-coding-agents", "Nap | Parallel Coding Agents: A Practical Workflow Guide"],
   ["blogs/nap-agentic-development-environment", "/blogs/nap-agentic-development-environment", "Nap | Agentic Development Environment for Mac"],
