@@ -95,3 +95,10 @@
   .cta { width: 100%; margin-bottom: 64px; }
 }
 @media (prefers-reduced-motion: reduce) { .secondary { transition: none; } }
+
+/* Each feature cell opens with the same sky through a different screen. */
+.screen { display: block; width: calc(100% + 72px); max-width: none; height: auto; margin: -36px -36px 30px; aspect-ratio: 3 / 1; object-fit: cover; image-rendering: pixelated; }
+/* The glyph sky has no baked cell, so the ember cell is drawn on its grid (column 8, row 2). */
+.ctaCell { position: absolute; left: 70%; top: 25%; width: 10%; height: 25%; background: var(--nap-ember); opacity: .94; pointer-events: none; }
+@media (max-width: 960px) { .ctaCell { display: none; } }
+@media (max-width: 700px) { .screen { width: calc(100% + 44px); margin: -28px -22px 24px; } }
