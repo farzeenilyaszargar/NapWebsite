@@ -20,6 +20,7 @@ export default function Home() {
     <main className={`contrast-page ${styles.page}`} id="main-content">
       <StructuredData data={homeSchema()} />
       <div className={styles.opening}>
+        <NapSky className={styles.heroSky} eager />
         <NapHeader />
         <section className={styles.hero} aria-labelledby="nap-title">
           <h1 id="nap-title">One app for your<br /><em>coding agents.</em></h1>
@@ -31,7 +32,6 @@ export default function Home() {
           <p className={styles.availability}>Built for macOS. Currently in early access.</p>
         </section>
         <div className={styles.workspaceStage}>
-          <NapSky className={styles.heroSky} eager />
           <figure className={styles.workspace} id="workspace">
             <NapProductImage eager alt="Nap for Mac: project spaces on the left, an agent conversation in the center, and code changes with an integrated terminal on the right." sizes="(max-width: 700px) 94vw, (max-width: 1280px) 88vw, 1120px" />
             <figcaption>Your project. Your agents. The whole picture.</figcaption>
