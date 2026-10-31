@@ -3,7 +3,7 @@
 ## Requirements
 
 - Preserve the dark palette, Fustat body type, Instrument Serif accent, and approved page title.
-- Use only the existing ghost mark for the header and footer home links.
+- Use the supplied Group 595 ghost mark for the header and footer home links, rendered solid white without changing its silhouette.
 - Replace reference-poster imagery with an original, consistent halftone image. Keep the real product screenshot and existing agent logos.
 - Do not blur, dim, stretch, or heavily crop the new artwork. Its empty upper area keeps text and buttons readable.
 - Remove decorative eyebrow labels, slogans, generic feature icons, and nonessential separator lines.
@@ -22,4 +22,12 @@ Final prompt:
 
 ## Layout
 
-The hero uses the complete panorama at its original aspect ratio with no cropping. Screen blending makes the black image background merge with the page without reducing the white detail. The headline, explanation, and waitlist button occupy the empty sky; the landscape sits below the controls. The actual app screenshot follows immediately. The remaining sections explain project context, agent choice, and change review, then repeat the waitlist action. The footer contains the ghost, real navigation destinations, copyright, and a back-to-top link.
+The hero uses the complete panorama at its original aspect ratio with no cropping. Screen blending makes the black image background merge with the page without reducing the white detail. The headline, explanation, and waitlist button occupy the empty sky; the landscape sits below the controls. The actual app screenshot follows immediately. Agent logos retain their original colors. A cropped close-up of the same screenshot provides the future demo-video area; it does not pretend to be playable. The closing waitlist section sits above a second full-width landscape. The footer contains only the ghost, copyright, and a back-to-top link; navigation is limited to the header. Waitlist arrows are Lucide icons, not text glyphs.
+
+## Footer artwork
+
+Asset: `public/nap-halftone-arch.webp`, 2172 x 724 pixels, approximately 436 KB, encoded at WebP quality 95 without resizing. Generated with the built-in image tool, with no reference inputs.
+
+Prompt: Original panoramic monochrome halftone engraving of a dramatic coastal rock arch over a still ocean, with a tiny distant suspension bridge. Crisp printmaking details, solid black sky for compositing, no text, frame, UI, gradients, or blur.
+
+Logo: `public/nap-ghost-source.png` is an unmodified copy of the supplied artwork. CSS brightness and screen compositing turn its grey interior solid white while preserving the exact source silhouette and blending its black background into the page.

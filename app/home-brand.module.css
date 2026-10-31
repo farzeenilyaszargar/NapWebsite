@@ -14,18 +14,18 @@
 .agents h2 { font-size: 12px; font-weight: 400; color: #a3a3ac; }
 .agents ul { display: flex; flex-wrap: wrap; gap: 35px; margin: 0; padding: 0; list-style: none; }
 .agents li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #d0d0d5; }
-.agents img { width: 22px; height: 22px; object-fit: contain; filter: grayscale(1) brightness(1.5); }
-.agents li:last-child img { filter: grayscale(1) invert(1); }
-.workflow { width: min(1080px, 90%); margin: 0 auto; padding: 62px 0 85px; }
-.workflowIntro { display: flex; justify-content: space-between; align-items: flex-end; gap: 70px; }
-.workflow h2 { margin: 0; font-size: 42px; line-height: 1.15; font-weight: 450; letter-spacing: 0; }
-.workflow h2 em { font-family: var(--font-instrument), Georgia, serif; font-size: 55px; font-weight: 400; color: #e0e0e5; }
-.workflowIntro > p { width: 320px; max-width: 100%; font-size: 14px; line-height: 1.85; color: #a5a5af; }
-.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 58px; margin-top: 50px; }
-.steps h3 { font-size: 18px; font-weight: 500; line-height: 1.4; letter-spacing: 0; margin: 0 0 13px; }
-.steps p { max-width: 300px; font-size: 13px; line-height: 1.9; color: #a5a5af; }
-.closing { min-height: 400px; }
-.closingInner { width: min(1180px, 90%); margin: 0 auto; padding: 50px 0 90px; text-align: center; }
+.agents img { width: 22px; height: 22px; object-fit: contain; }
+.agents li:last-child img { filter: brightness(4); }
+.demo { width: min(1080px, 90%); margin: 0 auto; padding: 45px 0 95px; text-align: center; }
+.demo h2 { margin: 0; font-size: 35px; line-height: 1.2; font-weight: 450; letter-spacing: 0; }
+.demo h2 em { font-family: var(--font-instrument), Georgia, serif; font-size: 46px; font-weight: 400; }
+.demo > p { margin: 15px 0 35px; font-size: 14px; color: #a5a5af; }
+.demoPreview { position: relative; aspect-ratio: 16 / 8; overflow: hidden; border-radius: 5px; margin: 0; background: #191919; text-align: left; }
+.demoPreview picture { display: block; width: 140%; max-width: none; transform: translate(-24%, -7%); }
+.demoPreview img { display: block; width: 100%; height: auto; }
+.closing { position: relative; isolation: isolate; overflow: hidden; background: #0b0b0d; padding-bottom: min(32vw, 500px); }
+.closingInner { position: relative; z-index: 1; width: min(1180px, 90%); margin: 0 auto; padding: 35px 0 70px; text-align: center; }
+.footerLandscape { position: absolute; z-index: -1; bottom: 0; left: 50%; transform: translateX(-50%); display: block; width: min(100%, 1800px); height: auto; mix-blend-mode: screen; pointer-events: none; }
 .closing h2 { margin: 0; font-size: 42px; font-weight: 450; line-height: 1.15; letter-spacing: 0; }
 .closing h2 em { font-family: var(--font-instrument), Georgia, serif; font-size: 67px; font-weight: 400; }
 .closingInner > p { margin: 20px 0 26px; font-size: 14px; color: #a5a5af; }
@@ -34,9 +34,6 @@
 @media (max-width: 1000px) {
   .hero h1 { font-size: 64px; }
   .hero h1 em { font-size: 84px; }
-  .workflowIntro { gap: 38px; }
-  .workflowIntro > p { width: 280px; }
-  .steps { gap: 32px; }
 }
 @media (max-width: 700px) {
   .hero { min-height: 470px; }
@@ -49,18 +46,17 @@
   .agents ul { gap: 23px; }
   .agents li { font-size: 11px; gap: 7px; }
   .agents img { width: 19px; height: 19px; }
-  .workflow { padding: 23px 0 55px; }
-  .workflowIntro { display: block; }
-  .workflow h2 { font-size: 31px; }
-  .workflow h2 em { font-size: 43px; }
-  .workflowIntro > p { width: 100%; max-width: 370px; margin-top: 24px; font-size: 13px; }
-  .steps { grid-template-columns: 1fr; gap: 30px; margin-top: 35px; }
-  .steps h3 { margin-bottom: 8px; }
-  .steps p { max-width: 360px; }
-  .closing { min-height: 340px; }
-  .closingInner { padding: 35px 0 70px; }
+  .demo { padding: 12px 0 60px; }
+  .demo h2 { font-size: 26px; }
+  .demo h2 em { font-size: 35px; }
+  .demo > p { font-size: 12px; margin: 12px 0 26px; }
+  .demoPreview { aspect-ratio: 4 / 3; }
+  .demoPreview picture { width: 180%; transform: translate(-24%, -2%); }
+  .closing { padding-bottom: 180px; }
+  .footerLandscape { width: 720px; max-width: none; }
+  .closingInner { padding: 25px 0 90px; }
   .closing h2 { font-size: 29px; }
   .closing h2 em { font-size: 54px; }
   .closingInner > p { font-size: 13px; }
 }
-@media (max-width: 360px) { .hero h1 { font-size: 36px; } .hero h1 em { font-size: 50px; } .agents ul { gap: 15px; } .workflow h2 { font-size: 28px; } .workflow h2 em { font-size: 39px; } .closing h2 { font-size: 26px; } }
+@media (max-width: 360px) { .hero h1 { font-size: 36px; } .hero h1 em { font-size: 50px; } .agents ul { gap: 15px; } .closing h2 { font-size: 26px; } }

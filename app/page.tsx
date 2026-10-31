@@ -33,26 +33,17 @@ export default function Home() {
         <ul>{codingAgents.map(({ name, logo }) => <li key={name}><img src={logo} alt="" width={24} height={24} loading="lazy" decoding="async" /><span>{name}</span></li>)}</ul>
       </section>
 
-      <section className={styles.workflow} aria-labelledby="workflow-title">
-        <div className={styles.workflowIntro}>
-          <h2 id="workflow-title">Code with an agent.<br /><em>Stay in control.</em></h2>
-          <p>Your project, the conversation, and the diff stay in the same workspace. Read what changed before you decide what to keep.</p>
-        </div>
-        <div className={styles.steps}>
-          <article>
-            <h3>Open your project.</h3><p>Start with your codebase. Keep its tasks and conversations together, so you can return to the right place.</p>
-          </article>
-          <article>
-            <h3>Choose your agent.</h3><p>Work with Claude Code, Codex, or Cursor through the same interface. Ask it to build, fix, or explain your code.</p>
-          </article>
-          <article>
-            <h3>Review the changes.</h3><p>Inspect the diff, ask a follow-up, and decide what to keep. An agent response is not the end of the review.</p>
-          </article>
-        </div>
+      <section className={styles.demo} aria-labelledby="demo-title">
+        <h2 id="demo-title">The workspace, <em>up close.</em></h2>
+        <p>Follow the conversation. See what changed.</p>
+        <figure className={styles.demoPreview}>
+          <NapProductImage alt="A close-up of the agent conversation and code review inside Nap." sizes="(max-width: 700px) 130vw, 1500px" />
+        </figure>
       </section>
 
       <section className={styles.closing} aria-labelledby="try-nap-title">
         <div className={styles.closingInner}><h2 id="try-nap-title">Work with your agents<br /><em>in Nap.</em></h2><p>Join the waitlist for macOS early access.</p><NapWaitlistCta /></div>
+        <img className={styles.footerLandscape} src="/nap-halftone-arch.webp" width={2172} height={724} alt="" aria-hidden="true" loading="lazy" decoding="async" />
       </section>
       <NapFooter />
       <div className={styles.productReference} aria-hidden="true">
