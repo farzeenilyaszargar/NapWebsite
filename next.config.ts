@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
   async headers() {
     // Only content-versioned files get immutable caching; HTML stays revalidatable.
     return readdirSync(join(process.cwd(), "public"))
-      .filter((file) => /-[a-f0-9]{8}\.(?:webp|png)$/.test(file))
+      .filter((file) => /-[a-f0-9]{8}\.(?:avif|webp|png)$/.test(file))
       .map((file) => ({
         source: `/${file}`,
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],

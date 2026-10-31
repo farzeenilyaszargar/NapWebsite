@@ -1,0 +1,31 @@
+.tabs { display: flex; gap: 35px; border-bottom: 1px solid #e5e7eb; }
+.tabs button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; position: relative; min-height: 52px; padding: 0 2px 14px; border: 0; background: transparent; color: #707680; font: inherit; font-size: 14px; cursor: pointer; }
+.tabs button::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: transparent; }
+.tabs button:hover { color: #17191d; }
+.tabs button[aria-selected="true"] { color: #17191d; font-weight: 550; }
+.tabs button[aria-selected="true"]::after { background: #17191d; }
+.panel { padding-top: 28px; }
+.panel[hidden] { display: none; }
+.panelCopy { display: flex; align-items: baseline; justify-content: space-between; gap: 35px; margin-bottom: 28px; min-height: 54px; }
+.panelCopy h3 { margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; letter-spacing: 0; }
+.panelCopy p { max-width: 450px; font-size: 13px; line-height: 1.8; color: #686d76; }
+.frame { position: relative; width: 100%; margin: 0; aspect-ratio: 16 / 8; overflow: hidden; border-radius: 7px; background: #111; }
+.frame picture { display: block; position: absolute; max-width: none; }
+.frame img { display: block; width: 100%; height: auto; }
+.projects picture { width: 160%; left: 0; top: -3%; }
+.conversations picture { width: 146%; left: -34%; top: -5%; }
+.changes picture { width: 220%; right: 0; top: -3%; }
+@media (max-width: 700px) {
+  .tabs { justify-content: space-between; gap: 12px; }
+  .tabs button { min-height: 48px; gap: 7px; font-size: 12px; padding-bottom: 12px; }
+  .tabs button svg { width: 15px; height: 15px; }
+  .panel { padding-top: 22px; }
+  .panelCopy { display: block; min-height: 116px; margin-bottom: 20px; }
+  .panelCopy h3 { font-size: 16px; }
+  .panelCopy p { margin-top: 10px; font-size: 13px; }
+  .frame { aspect-ratio: 4 / 3; border-radius: 5px; }
+  .projects picture { width: 200%; }
+  .conversations picture { width: 180%; left: -45%; }
+  .changes picture { width: 250%; }
+}
+@media (max-width: 360px) { .tabs { gap: 7px; } .tabs button { font-size: 11px; gap: 5px; } .panelCopy { min-height: 145px; } }

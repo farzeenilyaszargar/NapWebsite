@@ -1,0 +1,62 @@
+html.potato { --nap-background: #fff; --nap-foreground: #17191d; --nap-muted: #626771; --nap-subtle: #707780; --nap-border: #e5e7eb; --nap-error: #b42318; color-scheme: light; background: #fff; }
+.potato body { font-family: var(--font-fustat), Arial, sans-serif; }
+.potato ::selection { background: #d5eafa; color: #122b40; }
+.potato .contrast-page { font-family: var(--font-fustat), Arial, sans-serif; background: #fff; color: #17191d; color-scheme: light; letter-spacing: 0; }
+.potato .contrast-page :is(h1, h2, h3, a, button, input) { letter-spacing: 0; }
+.potato .contrast-page :is(a, button, summary, [role="tabpanel"]):focus-visible { outline: 2px solid #1974b4; outline-offset: 5px; }
+.potato .contrast-page .nap-header { width: min(1120px, 88%); height: 84px; border: 0; position: relative; background: transparent; }
+.potato .contrast-page .nap-wordmark { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
+.potato .nap-wordmark-mark { display: block; width: 44px; height: 44px; margin: 0; background: url('/nap-ghost-source.png') center / 56px 56px no-repeat; mask-image: none; filter: invert(1) contrast(100); mix-blend-mode: multiply; }
+.potato .contrast-page .nap-header .nap-nav { gap: 28px; }
+.potato .contrast-page .nap-header .nap-docs { font: 500 13px var(--font-fustat), sans-serif; color: #626771 !important; }
+.potato .contrast-page .nap-header .nap-docs:hover { color: #17191d !important; }
+.potato .contrast-page :is(.nap-nav-waitlist, .nap-download, .nap-lost-home) { display: inline-flex; justify-content: center; align-items: center; gap: 17px; min-height: 46px; padding: 12px 20px; background: #17191d; color: #fff !important; border: 1px solid #17191d; border-radius: 5px; font: 550 13px var(--font-fustat), sans-serif; transition: background .18s ease, box-shadow .18s ease; }
+.potato .contrast-page .nap-nav-waitlist { min-height: 36px; padding: 8px 14px; font-size: 12px; }
+.potato .contrast-page :is(.nap-nav-waitlist, .nap-download, .nap-lost-home):hover { background: #323942; border-color: #323942; box-shadow: 0 3px 10px #17191d14; }
+.potato .contrast-page .nap-download svg { flex: none; }
+.potato .contrast-page .nap-site-footer { width: min(1120px, 88%); margin: auto auto 0; padding: 27px 0 29px; border: 0; }
+.potato .nap-footer-main { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.potato .nap-footer-main > p { font-size: 12px; color: #707680; }
+.potato .contrast-page .nap-footer-bottom { margin-top: 16px; color: #707680; font-size: 11px; font-weight: 400; }
+.potato .contrast-page .nap-site-footer .nap-footer-copyright { font: 400 10px var(--font-fustat), sans-serif; letter-spacing: 0; color: #707680; }
+.potato .contrast-page .nap-site-footer .nap-footer-social { min-height: 32px; font-size: 11px; color: #626771; }
+.potato .nap-footer-links { display: flex; align-items: center; gap: 23px; }
+.potato .nap-footer-links a { display: inline-flex; align-items: center; gap: 5px; }
+.potato .nap-footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.potato .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1, .nap-blog-article h2, .nap-blog-row h2, .nap-waitlist-intro h1, .nap-waitlist-success h1, .nap-apply-closed h1) { font-family: var(--font-fustat), Arial, sans-serif; color: #17191d; }
+.potato .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1) { font-size: 44px; }
+.potato .contrast-page .nap-apply-closed h1 { font-size: 32px; }
+.potato .contrast-page .nap-blog-article p { color: #626771; }
+.potato .contrast-page .nap-blog-article .nap-inline-link { color: #195f91; text-decoration: underline; text-underline-offset: 4px; }
+.potato .nap-guide-access { margin-top: 52px; padding-block: 5px 12px; }
+.potato .nap-guide-access h2 { font-size: 24px; }
+.potato .nap-guide-access > p { margin-top: 10px; margin-bottom: 22px; font-size: 14px; }
+.potato .contrast-page .nap-halftone-text { background: none; color: inherit; font-family: var(--font-instrument), Georgia, serif; font-style: italic; font-weight: 400; }
+.potato .contrast-page .nap-waitlist-body { padding: 65px 24px 105px; }
+.potato .contrast-page .nap-waitlist-panel { width: min(100%, 380px); }
+.potato .contrast-page .nap-waitlist-intro h1 { font-size: 36px; }
+.potato .contrast-page .nap-waitlist-field label { font-size: 13px; color: #444a54; }
+.potato .contrast-page .nap-waitlist-field input { min-height: 50px; padding: 11px 0; border: 0; border-bottom: 1px solid #b2b7be; border-radius: 0; background: #fff; color: #17191d; font-family: var(--font-fustat), sans-serif; font-size: 16px; }
+.potato .contrast-page .nap-waitlist-field input:focus { border-color: #1974b4; box-shadow: 0 1px 0 #1974b4; }
+.potato .contrast-page .nap-waitlist-field input::placeholder { color: #707680; }
+.potato .contrast-page .nap-waitlist-form-wrap button { min-height: 48px; gap: 15px; border-radius: 5px; font-family: var(--font-fustat), sans-serif; }
+.potato .nap-waitlist-note { margin-top: 18px; color: #707680; font-size: 11px; line-height: 1.7; text-align: center; }
+.potato .nap-waitlist-success > p { max-width: 300px; margin: 18px auto 0; font-size: 14px; line-height: 1.8; color: #626771; }
+.potato .nap-waitlist-success > a { display: inline-flex; align-items: center; gap: 8px; margin-top: 25px; min-height: 44px; font-size: 13px; }
+.potato .nap-success-burst span { background: #1974b4; }
+@media (max-width: 700px) {
+  .potato .contrast-page .nap-header { width: 90%; height: 78px; }
+  .potato .contrast-page .nap-header .nap-nav { gap: 18px; }
+  .potato .contrast-page .nap-header .nap-docs { font-size: 12px; }
+  .potato .contrast-page .nap-header .nap-overview-link { display: none; }
+  .potato .contrast-page .nap-site-footer { width: 90%; padding: 24px 0 25px; }
+  .potato .nap-footer-main > p { max-width: 170px; text-align: right; font-size: 11px; }
+  .potato .contrast-page .nap-footer-bottom { flex-wrap: wrap; gap: 8px 20px; font-size: 10px; }
+  .potato .contrast-page .nap-site-footer .nap-footer-social { font-size: 10px; }
+  .potato .nap-footer-links { gap: 18px; }
+  .potato .contrast-page .nap-waitlist-intro h1 { font-size: 32px; }
+  .potato .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1) { font-size: 32px; }
+  .potato .contrast-page .nap-apply-closed h1 { font-size: 28px; }
+  .potato .contrast-page .nap-waitlist-body { padding: 44px 24px 70px; }
+}
+@media (prefers-reduced-motion: reduce) { .potato .contrast-page :is(.nap-nav-waitlist, .nap-download) { transition: none; } }

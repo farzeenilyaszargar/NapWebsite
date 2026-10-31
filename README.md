@@ -1,12 +1,12 @@
 # Nap Website
 
-## Dreamcore design branch
+## Potato design branch
 
-The `dreamcore` branch uses a dark, monochrome art direction with original halftone coastal artwork, not the supplied reference posters. The existing app screenshot and agent logos remain in use. `app/dreamcore.css` applies the shared dark theme; `app/home-brand.module.css` defines the homepage composition. Fustat and Instrument Serif are self-hosted through `next/font`. The coastal artwork is a content-versioned WebP, displayed without blur or opacity filters. Navigation and footer use only the existing ghost mark. Direct product copy and two primary waitlist buttons replace decorative labels and slogans. The waitlist API, approved page title, and availability claims are unchanged. See `docs/dreamcore-art-direction.md` for the artwork prompt and design requirements.
+The `potato` branch uses a white, conversion-focused design with the supplied blue halftone clouds. Fustat and Instrument Serif are self-hosted through `next/font`. The actual app screenshot, colored agent logos, and ghost silhouette remain in use. `app/potato.css` supplies the shared light theme; `app/home-brand.module.css` defines the homepage. The hero explains the product, the keyboard-accessible workspace tabs show real screenshot details, and practical questions address availability before the closing action. See `docs/potato-design.md` for research, asset provenance, design decisions, and measurement limits. The prior dark design is preserved on `dreamcore`.
 
-Native anchor navigation and server-rendered sections need no animation runtime. Browser checks cover mobile through wide desktop, all public page types, and mocked waitlist validation/error/success states.
+The owner confirmed that access remains waitlist-only. The primary action is **Join the Mac waitlist**, not a public download. The approved page title and existing Supabase signup API remain unchanged. The hidden keyword block is removed; search-facing content is visible and factual. FAQ markup shares its source with the displayed questions, and `/llms.txt` provides a concise factual product reference without promising AI rankings.
 
-Nap is a native app for building with coding agents: open a project, choose an agent, chat, and review code changes in the app. This repository contains the light product website, UI preview, liquid cursor interaction, and blog articles.
+Nap is a native app for building with coding agents: open a project, choose an agent, chat, and review code changes in the app. The page has no animation framework or decorative cursor runtime. Most content is server-rendered; the workspace tabs and waitlist form are small interactive components.
 
 ## Pages
 
@@ -43,29 +43,31 @@ npm run start
 - Homepage: `app/page.tsx`
 - Shared navigation: `app/components/nap-header.tsx`
 - Waitlist CTA: `app/components/nap-waitlist-cta.tsx`
-- Liquid interaction: `app/components/liquid-field.tsx`
-- Site styles: `app/contrast.css`
+- Workspace preview: `app/components/nap-workflow-preview.tsx`
+- Shared theme: `app/potato.css`
+- Homepage composition: `app/home-brand.module.css`
 - Blog pages: `app/blogs/`
 - Static assets: `public/`
 - SEO configuration: `app/lib/seo.ts`
 - Crawler routes: `app/sitemap.ts` and `app/robots.ts`
 - Domain launch checklist: `docs/seo-launch.md`
 - Search and AI discovery guide: `docs/search-discovery.md`
+- Product reference: `app/llms.txt/route.ts`
 
 The homepage hero and closing CTA both link to `/waitlist`. Downloads are paused; release and installation verification remain deferred.
 
-Images are served from content-versioned WebP assets. The cursor effect draws native canvas contours in trail-sized surfaces, avoiding SVG blur/threshold filters. It pauses for hidden tabs, reduced motion, and touch-only devices, releases surfaces after the trail expires, and follows the display refresh rate up to 120 Hz. Canvas backing stores are capped at 2048 pixels per side and approximately two megapixels per layer. Sustained slow frames reduce the particle count and refresh rate; continued severe slowdown disables the decorative effect for that mount. Unsupported blending/Path2D, blocked canvases, failed optional chunk loads, and drawing errors fall back to the normal page. Lost canvas contexts pause the effect until restored.
+Images use content-versioned files. The supplied cloud image has responsive 480px, 960px, and 1199px AVIF encodings with WebP fallbacks and matching responsive preload hints. Only the used italic Instrument Serif face is loaded alongside Fustat. The unchanged source silhouette is rendered in black through CSS. Legacy liquid-renderer files and tests remain in the repository for the older branches but are not used by this design.
 
-Internal links use prefetched client navigation. Product screenshots use build-time responsive WebP variants, avoiding on-demand image resizing. Content-versioned WebP files have immutable year-long caching. The homepage screenshot is preloaded with the same responsive sizes as the rendered image; article screenshots and logos load lazily. Agent logos use native lazy-loaded images, so they add no image-component hydration code. The decorative cursor module downloads only after eligible mouse/pen movement, never during idle page loading; data-saving connections skip it. The supplied Nap icon is available as a multi-resolution ICO (16–256px), a browser PNG, a 180px Apple touch icon, and 192px/512px app icons in the web manifest. All versions are generated from the same artwork.
+Internal links use prefetched client navigation. Product screenshots use build-time responsive WebP variants, avoiding on-demand image resizing. Content-versioned WebP files have immutable year-long caching. The homepage screenshot is preloaded with matching responsive sizes; article screenshots and logos load lazily. The app icon and web manifest remain available. The social preview uses the same blue halftone artwork and accurate waitlist wording.
 
 All routes use Next.js's experimental CSS inlining to avoid blocking stylesheet requests on first visits. Analytics initialization waits for page load and browser idle time; the X pixel uses `lazyOnload`. Explicit signup and error events still initialize analytics on demand. Inline styles increase HTML size and do not benefit from separate stylesheet caching on repeat full-page visits.
 
-Run `npm test` for liquid contour, image-outline clipping, animation lifecycle, input-mode, and cleanup regression checks. These checks do not replace real-device testing across Safari, Chrome, Edge, and Firefox. No universal browser/device guarantee is implied; the native cursor and all content remain usable when the decoration is unavailable.
+Run `npm test` for waitlist validation, persistence, analytics loading, conversion deduplication, closed applications, and retained legacy renderer tests. Browser QA additionally checks tab keyboard navigation, FAQ expansion, mobile overflow, and mocked waitlist validation/error/retry/success. These checks do not replace real-device testing across Safari, Chrome, Edge, and Firefox.
 
 SEO metadata, social cards, publisher entities, and breadcrumb markup are centralized in `app/lib/seo.ts`. Run `npm run check:seo` after a production build to check the actual rendered pages and crawler files. Optional Google/Bing ownership verification tokens are described in `.env.example`; account verification and sitemap submission still happen in the search providers' consoles. See `docs/seo-launch.md` for the remaining external steps.
 
-SEO work preserves the approved homepage design. Product information remains in the existing workflow copy and articles. The rendered SEO checker verifies metadata, structured product facts, crawler rules, and that every public content page is reachable from the homepage, with an explicit exception for the standalone `/apply` page. Unknown product details remain unpublished until confirmed.
+The rendered SEO checker verifies metadata, visible FAQ/schema agreement, structured product facts, crawler rules, and that every public content page is reachable from the homepage, with an explicit exception for the standalone `/apply` page. Unknown product details remain unpublished until confirmed.
 
 ## Mobile layout
 
-Phones and tablets use responsive spacing, stacked content and forms, and larger reading text. Waitlist CTAs are available on desktop, phones, and tablets, with full-width buttons on small screens. There are currently no download buttons. The 404 home button also stays visible. The liquid renderer is requested only on a viewport wider than 900px with a fine primary pointer and hover support; switching out of that mode unmounts it and removes its pointer activation listener. Touch input, reduced motion, and data-saving mode never activate it.
+Phones and tablets use responsive spacing and type, stable workspace tabs, and native form fields at 16px to avoid input-focus zoom. Waitlist actions remain in the main hero and closing section; the mobile header keeps only the logo and Guides link. There are no download buttons. The 404 home button remains available. Browser zoom is not disabled.

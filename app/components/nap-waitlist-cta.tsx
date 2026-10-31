@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-export default function NapWaitlistCta() {
-  return <Link className="nap-download nap-waitlist-cta" href="/waitlist">Join the waitlist<ArrowUpRight size={17} strokeWidth={1.7} aria-hidden="true" /></Link>;
+export default function NapWaitlistCta({ location }: { location?: "hero" | "closing" | "guide" }) {
+  return <Link className="nap-download nap-waitlist-cta" data-cta-location={location} href="/waitlist">Join the Mac waitlist<ArrowRight size={16} strokeWidth={1.7} aria-hidden="true" /></Link>;
 }

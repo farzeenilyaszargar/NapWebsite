@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { productQuestions } from "./product";
 
 export const pageTitle = (label: string) => `Nap | ${label}`;
 export const isIndexable = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production";
@@ -17,7 +18,7 @@ export const site = {
 export const pages = {
   home: {
     path: "/", title: site.title,
-    description: "Nap is a native Mac app for Claude Code, Codex, and Cursor. Bring your AI coding agents together and join the waitlist for Nap download updates.",
+    description: "One native Mac app for Claude Code, Codex, and Cursor. Keep projects, agent conversations, and code review together. Join the Nap early-access waitlist.",
     keywords: ["nap download", "download nap", "nap agents", "nap codes", "nap code download", "nap for mac", "nap macos download", "nap AI coding agents", "AI coding app for Mac", "AI coding workspace", "coding agent interface", "agentic coding", "Claude Code", "Codex", "Cursor"],
   },
   blogs: {
@@ -92,7 +93,7 @@ export function pageMetadata(page: Page, article = false): Metadata {
       url: page.path,
       siteName: site.name,
       locale: "en_US",
-      images: [{ url: site.image, width: 1200, height: 630, type: "image/png", alt: "Nap — Your agents. All together. Native AI coding app for Mac." }],
+      images: [{ url: site.image, width: 1200, height: 630, type: "image/png", alt: "Nap: one native Mac app for your coding agents. Join the early-access waitlist." }],
     },
     twitter: {
       card: "summary_large_image",
@@ -151,6 +152,7 @@ export function homeSchema() {
     "@graph": [
       { ...webPageSchema(pages.home), mainEntity: { "@id": appId }, about: { "@id": appId } },
       softwareSchema(),
+      { "@type": "FAQPage", "@id": `${site.url}/#questions`, mainEntity: productQuestions.map(({ question, answer }) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
     ],
   };
 }

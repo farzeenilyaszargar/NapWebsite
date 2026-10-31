@@ -5,10 +5,10 @@ import { Fustat, Instrument_Serif } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
 import "./halftone.css";
-import "./dreamcore.css";
+import "./potato.css";
 
 const sans = Fustat({ subsets: ["latin"], display: "swap", variable: "--font-fustat" });
-const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], display: "swap", variable: "--font-instrument" });
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", display: "swap", variable: "--font-instrument" });
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0b0b0d",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`dreamcore h-full antialiased ${sans.variable} ${serif.variable}`}
+      className={`potato h-full antialiased ${sans.variable} ${serif.variable}`}
     >
       <head>
         <Script id="x-conversion-pixel" strategy="lazyOnload">{`

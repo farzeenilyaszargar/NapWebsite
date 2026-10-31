@@ -57,7 +57,18 @@ for (const [file, path, title] of routes) {
   assert.ok(entities.some((entity) => entity["@type"] === "WebSite"));
   assert.ok(entities.some((entity) => entity["@id"] === `${origin}${path}#webpage`));
   if (path === "/") {
-    assert.ok(!entities.some((entity) => entity["@type"] === "FAQPage"), "no FAQ markup for content absent from the approved layout");
+    const faq = entities.find((entity) => entity["@type"] === "FAQPage");
+    assert.equal(faq?.mainEntity.length, 5, "the visible product questions have matching schema");
+    const details = [...html.matchAll(/<details\b[^>]*>(.*?)<\/details>/gs)].map(([, content]) => ({
+      question: decode(content.match(/<summary\b[^>]*>(.*?)<\/summary>/s)[1].replace(/<[^>]*>/g, "")).trim(),
+      answer: decode(content.match(/<p\b[^>]*>(.*?)<\/p>/s)[1].replace(/<[^>]*>/g, "")).trim(),
+    }));
+    assert.equal(details.length, faq.mainEntity.length);
+    for (const [index, question] of faq.mainEntity.entries()) {
+      assert.equal(details[index].question, question.name, "schema question is visible on the page");
+      assert.equal(details[index].answer, question.acceptedAnswer.text, "schema answer matches the accessible page content");
+    }
+    assert.ok(!html.includes("productReference"), "no hidden keyword-stuffing block");
     const app = entities.find((entity) => entity["@type"] === "SoftwareApplication");
     assert.equal(app.operatingSystem, "macOS");
     assert.equal(app.downloadUrl, undefined, "no public download claim while downloads are paused");

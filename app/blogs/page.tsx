@@ -2,6 +2,7 @@ import NapFooter from "../components/nap-footer";
 import StructuredData from "../components/structured-data";
 import { pages, pageMetadata, blogSchema, blogPosts } from "../lib/seo";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import NapHeader from "../components/nap-header";
 import "../contrast.css";
 import styles from "./blog.module.css";
@@ -27,7 +28,7 @@ export default function BlogsPage() {
                   <h2>{post.headline}</h2>
                   <p>{post.description}</p>
                 </div>
-                <span className={styles.arrow} aria-hidden="true">&rarr;</span>
+                <span className={styles.arrow} aria-hidden="true"><ArrowRight size={21} strokeWidth={1.5} /></span>
               </Link>
             </article>
           ))}

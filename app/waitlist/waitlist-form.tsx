@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { captureWaitlistSignup } from "../lib/analytics";
 
 type Submission = { status: "idle" | "pending" | "success" | "error"; message: string };
@@ -39,12 +41,14 @@ export default function WaitlistForm() {
           <div className="nap-success-burst" aria-hidden="true">
             {Array.from({ length: 10 }, (_, index) => <span key={index} />)}
           </div>
-          <h1 id="waitlist-title" tabIndex={-1} ref={(node) => node?.focus({ preventScroll: true })}>You’re On The <span className="nap-halftone-text">List</span></h1>
+          <h1 id="waitlist-title" tabIndex={-1} ref={(node) => node?.focus({ preventScroll: true })}>You&apos;re on the <span className="nap-halftone-text">list.</span></h1>
+          <p>Your details are saved. We&apos;ll let you know when Nap is available for your Mac.</p>
+          <Link href="/">Back to Nap <ArrowRight size={15} aria-hidden="true" /></Link>
         </div>
       ) : (
         <div className="nap-waitlist-panel">
           <div className="nap-waitlist-intro">
-            <h1 id="waitlist-title"><span className="nap-halftone-text">Join the</span> Waitlist</h1>
+            <h1 id="waitlist-title">Get early access<br /><span className="nap-halftone-text">to Nap.</span></h1>
             <p>Get notified when Nap is available for macOS.</p>
           </div>
           <div className="nap-waitlist-form-wrap">
@@ -61,9 +65,10 @@ export default function WaitlistForm() {
                 <label htmlFor="waitlist-website">Leave this empty</label>
                 <input id="waitlist-website" name="website" tabIndex={-1} autoComplete="off" />
               </div>
-              <button type="submit" disabled={busy}>{submission.status === "pending" ? "Joining…" : "Join the Waitlist"}</button>
+              <button type="submit" disabled={busy}>{submission.status === "pending" ? "Joining…" : "Join the Mac waitlist"}<ArrowRight size={16} aria-hidden="true" /></button>
               <p id="waitlist-status" className="nap-waitlist-status" role="alert" hidden={submission.status !== "error"}>{submission.status === "error" ? submission.message : ""}</p>
             </form>
+            <p className="nap-waitlist-note">Just your name and email. No payment details.</p>
           </div>
         </div>
       )}
