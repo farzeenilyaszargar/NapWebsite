@@ -13,8 +13,7 @@ export const metadata = pageMetadata(pages.home);
 
 const agentNames = codingAgents.map(({ name }) => name).join(", ").replace(/, ([^,]*)$/, ", and $1");
 
-// Snippets restate what the product screenshot shows. Each cell's sky uses a different print screen:
-// halftone, glyphs, pixel blocks, and stochastic grain, all from the same procedural clouds.
+// Snippets restate what the product screenshot shows.
 const spaces = [["sndbx", 4], ["GTX", 2], ["fx", 2]] as const;
 const changes = [["test-macos-signing.ts", "+4", "−29"], ["wrap-auth-mx.ts", "+33", "−23"], ["secret.config.json", "+46", "−2"], [".gitignore", "", "−18"]] as const;
 
@@ -43,7 +42,7 @@ export default function Home() {
       </section>
 
       <div className={styles.stage}>
-        <div className={styles.sky} aria-hidden="true"><img src="/nap-sky-hero-751091c8.webp" width={1200} height={600} alt="" fetchPriority="high" /></div>
+        <div className={styles.sky} aria-hidden="true"><img src="/nap-dream-sky-3691b2da.webp" width={1600} height={800} alt="" fetchPriority="high" /></div>
         <figure className={styles.product}>
           <NapProductImage eager alt="Nap’s native coding workspace with project spaces, an agent conversation, code change review, and an integrated terminal." sizes="(max-width: 1340px) 72vw, 960px" />
         </figure>
@@ -61,28 +60,24 @@ export default function Home() {
         </div>
         <div className={styles.grid}>
           <article>
-            <img className={styles.screen} src="/nap-screen-halftone-8ae2f2bd.webp" width={720} height={240} alt="" aria-hidden="true" loading="lazy" decoding="async" />
             <FolderTree className={styles.icon} size={22} strokeWidth={1.5} aria-hidden="true" />
             <h3>Spaces for every project</h3>
             <p>Each codebase is a space. Its conversations stay with it, so you can pick up any task where you left off.</p>
             <ul className={styles.snippet} aria-hidden="true">{spaces.map(([name, count]) => <li key={name}><span>{name}</span><span>{count} conversations</span></li>)}</ul>
           </article>
           <article>
-            <img className={styles.screen} src="/nap-screen-ascii-f62ecb9a.webp" width={720} height={240} alt="" aria-hidden="true" loading="lazy" decoding="async" />
             <Bot className={styles.icon} size={22} strokeWidth={1.5} aria-hidden="true" />
             <h3>Your choice of agent</h3>
             <p>Work with {agentNames} from the same composer and the same native interface.</p>
             <ul className={styles.chips} aria-hidden="true">{codingAgents.map(({ name, logo }) => <li key={name}><img src={logo} alt="" width={16} height={16} loading="lazy" decoding="async" />{name}</li>)}</ul>
           </article>
           <article>
-            <img className={styles.screen} src="/nap-screen-pixel-5c335abe.webp" width={720} height={240} alt="" aria-hidden="true" loading="lazy" decoding="async" />
             <GitCompareArrows className={styles.icon} size={22} strokeWidth={1.5} aria-hidden="true" />
             <h3>Review before you commit</h3>
             <p>Every answer lists the files the agent touched, with lines added and removed. Review the diff, ask a follow-up, or commit.</p>
             <ul className={styles.snippet} aria-hidden="true">{changes.map(([file, added, removed]) => <li key={file}><span>{file}</span><span><b>{added}</b> <i>{removed}</i></span></li>)}</ul>
           </article>
           <article>
-            <img className={styles.screen} src="/nap-screen-grain-34a5ca9f.webp" width={720} height={240} alt="" aria-hidden="true" loading="lazy" decoding="async" />
             <SquareTerminal className={styles.icon} size={22} strokeWidth={1.5} aria-hidden="true" />
             <h3>A terminal beside the chat</h3>
             <p>Run commands next to the conversation without leaving the app or losing your place in the task.</p>
@@ -92,8 +87,7 @@ export default function Home() {
       </section>
 
       <section className={styles.cta} aria-labelledby="cta-title">
-        <img className={styles.ctaSky} src="/nap-sky-ascii-778cd643.webp" width={1200} height={480} alt="" aria-hidden="true" loading="lazy" />
-        <span className={styles.ctaCell} aria-hidden="true" />
+        <img className={styles.ctaSky} src="/nap-dream-dusk-bf608606.webp" width={1600} height={640} alt="" aria-hidden="true" loading="lazy" />
         <div className={styles.ctaCard}>
           <h2 id="cta-title">Download Nap for Mac.</h2>
           <p>Early access is open through the waitlist.</p>

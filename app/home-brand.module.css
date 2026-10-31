@@ -1,4 +1,4 @@
-/* Homepage: paper and ink around a gridded, dithered sky with one ember cell. */
+/* Homepage: paper and ink around soft, grainy skies. */
 .page { display: flex; flex-direction: column; overflow: clip; }
 .wrap { width: min(1200px, 90%); margin-inline: auto; }
 
@@ -17,15 +17,10 @@
 .specs dd { margin: 0; color: var(--nap-foreground); line-height: 1.5; }
 .live { display: inline-block; width: 7px; height: 7px; margin-right: 8px; vertical-align: 1px; background: var(--nap-ember); }
 
-/* The sky: 1200×600 artwork on a 10×5 grid; the ember cell is baked in at column 3, row 2. */
+/* A soft, out-of-focus sky with film grain; the app window hangs off its lower edge. */
 .stage { width: min(1280px, 94%); margin: 0 auto; }
-.sky { position: relative; aspect-ratio: 2 / 1; overflow: hidden; }
-.sky img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
-.sky::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image: linear-gradient(to right, #edf2c4d9 1px, transparent 1px), linear-gradient(to bottom, #edf2c4d9 1px, transparent 1px);
-  background-size: 10% 20%;
-}
+.sky { position: relative; aspect-ratio: 2 / 1; overflow: hidden; border-radius: 20px; }
+.sky img { display: block; width: 100%; height: 100%; object-fit: cover; }
 /* The window starts two rows down and hangs below the sky onto the paper. */
 .product { position: relative; width: 76%; margin: -30% auto 0; }
 .product img { display: block; width: 100%; height: auto; filter: drop-shadow(0 2px 3px #0e111633) drop-shadow(0 40px 60px #0e111640); }
@@ -61,15 +56,10 @@
 .terminal span { color: #9fb9e8; }
 .terminal span:last-child { color: #8a8d93; }
 
-/* Closing: a second sky with a paper card that sits on its grid (columns 4–7, rows 2–3). */
-.cta { position: relative; width: min(1280px, 94%); margin: 0 auto 96px; aspect-ratio: 5 / 2; display: grid; place-items: center; overflow: hidden; }
-.ctaSky { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; }
-.cta::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image: linear-gradient(to right, #edf2c4d9 1px, transparent 1px), linear-gradient(to bottom, #edf2c4d9 1px, transparent 1px);
-  background-size: 10% 25%;
-}
-.ctaCard { position: absolute; z-index: 1; left: 30%; top: 25%; width: 40%; height: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; background: var(--nap-background); text-align: center; }
+/* Closing: a warm, grainy dusk with a paper card. */
+.cta { position: relative; width: min(1280px, 94%); margin: 0 auto 96px; aspect-ratio: 5 / 2; display: grid; place-items: center; overflow: hidden; border-radius: 20px; }
+.ctaSky { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ctaCard { position: relative; z-index: 1; width: min(460px, 86%); display: flex; flex-direction: column; align-items: center; padding: 44px 32px; border-radius: 14px; background: var(--nap-background); box-shadow: 0 30px 60px -30px #0e111659; text-align: center; }
 .ctaCard h2 { font-size: clamp(26px, 2.6vw, 38px); font-weight: 600; line-height: 1.05; letter-spacing: -.035em; }
 .ctaCard p { margin: 10px 0 24px; color: var(--nap-muted); font-size: 15px; }
 
@@ -78,27 +68,20 @@
   .specs { max-width: 480px; }
   .featuresHead { grid-template-columns: 1fr; gap: 20px; }
   .cta { aspect-ratio: auto; min-height: 420px; }
-  .ctaCard { position: relative; left: auto; top: auto; width: min(420px, 86%); height: auto; padding: 40px 24px; }
 }
 @media (max-width: 700px) {
   .heroCopy h1 { font-size: clamp(44px, 13vw, 60px); }
   .lede { font-size: 17px; }
   .actions > * { flex: 1 1 100%; }
-  .stage { width: 100%; }
-  .product { width: 90%; margin-top: -34%; }
+  .stage { width: 92%; }
+  .sky { border-radius: 14px; aspect-ratio: 4 / 3; }
+  .product { width: 94%; margin-top: -42%; }
   .agents { flex-direction: column; align-items: flex-start; padding-top: 56px; }
   .agents ul { gap: 24px; }
   .agents li { font-size: 16px; }
   .features { padding: 72px 0 80px; }
   .grid { grid-template-columns: 1fr; }
   .grid article { padding: 28px 22px; }
-  .cta { width: 100%; margin-bottom: 64px; }
+  .cta { width: 92%; margin-bottom: 64px; border-radius: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { .secondary { transition: none; } }
-
-/* Each feature cell opens with the same sky through a different screen. */
-.screen { display: block; width: calc(100% + 72px); max-width: none; height: auto; margin: -36px -36px 30px; aspect-ratio: 3 / 1; object-fit: cover; image-rendering: pixelated; }
-/* The glyph sky has no baked cell, so the ember cell is drawn on its grid (column 8, row 2). */
-.ctaCell { position: absolute; left: 70%; top: 25%; width: 10%; height: 25%; background: var(--nap-ember); opacity: .94; pointer-events: none; }
-@media (max-width: 960px) { .ctaCell { display: none; } }
-@media (max-width: 700px) { .screen { width: calc(100% + 44px); margin: -28px -22px 24px; } }
