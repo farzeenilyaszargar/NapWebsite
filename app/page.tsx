@@ -1,4 +1,5 @@
 import { FolderOpen, MessagesSquare, GitCompareArrows } from "lucide-react";
+import Link from "next/link";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
 import NapProductImage from "./components/nap-product-image";
@@ -33,7 +34,10 @@ export default function Home() {
           </ul>
         </div>
         <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app.</h1>
-        <NapDownloadCta location="hero" />
+        <div className={styles.heroActions}>
+          <NapDownloadCta location="hero" />
+          <Link className={styles.waitlistLink} href={pages.waitlist.path}>Join the waitlist</Link>
+        </div>
       </section>
 
       <figure className={styles.workspace} id="workspace">
