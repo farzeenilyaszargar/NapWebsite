@@ -1,6 +1,6 @@
 .page { overflow: clip; }
 .intro { width: min(650px, 88%); margin: 0 auto; padding: 55px 0 45px; text-align: center; }
-.intro h1 { margin: 0; color: #50617d; font-size: 30px; font-weight: 500; line-height: 1.3; letter-spacing: 0; text-wrap: balance; font-kerning: normal; }
+.intro h1 { margin: 0; color: #50617d; font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
 .intro h1 strong { color: #1a2c53; font-weight: 600; }
 .onboard { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px; margin: 25px 0 21px; }
 .onboard > span { font-size: 12px; font-weight: 450; color: #53617b; }
@@ -30,13 +30,17 @@
 .conversation .featureCrop picture { width: 165%; top: -5%; left: -33%; }
 .review .featureCrop picture { width: 235%; top: -3%; right: 0; }
 .review .featureArt { object-position: right bottom; }
-.closing { position: relative; isolation: isolate; min-height: 485px; overflow: hidden; background: #1043ab; }
-.closingArt { display: block; position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.closingCopy { width: min(1120px, 90%); margin: 0 auto; padding: 63px 0 280px; text-align: center; }
+.closing { position: relative; isolation: isolate; min-height: 485px; display: grid; place-items: center; overflow: hidden; background: #1043ab; }
+.closingArt { display: block; position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; object-position: center; filter: blur(4px); }
+.closingCopy { width: min(1120px, 90%); margin: 0 auto; padding: 80px 0; text-align: center; }
+.closingFooter { position: absolute; left: 0; right: 0; bottom: 0; }
+.closingFooter :global(.nap-site-footer) { background: transparent; }
+.closingFooter :global(.nap-site-footer .nap-footer-copyright), .closingFooter :global(.nap-site-footer .nap-footer-social) { color: #fff !important; text-shadow: 0 1px 8px #061632; }
+.closingFooter :global(.nap-footer-social:focus-visible) { outline-color: #fff; }
 .closing h2 { margin: 0 0 22px; color: #fff; font-size: 55px; line-height: 1.08; font-weight: 500; letter-spacing: 0; }
 @media (max-width: 1000px) {
   .intro { width: min(620px, 88%); padding-top: 45px; }
-  .intro h1 { font-size: 28px; }
+  .intro h1 { font-size: 24px; }
   .workspace { padding: 35px; }
   .feature { gap: 28px; min-height: 330px; }
   .featureCopy { padding-left: 10px; }
@@ -47,7 +51,7 @@
 }
 @media (max-width: 700px) {
   .intro { width: 88%; padding: 35px 0 35px; }
-  .intro h1 { font-size: 22px; line-height: 1.35; }
+  .intro h1 { font-size: 20px; line-height: 1.4; }
   .onboard { gap: 12px; margin: 22px 0 20px; }
   .onboard > span { font-size: 11px; }
   .onboard ul { gap: 12px; }
@@ -66,7 +70,7 @@
   .conversation .featureCrop picture { width: 185%; left: -43%; }
   .review .featureCrop picture { width: 245%; }
   .closing { min-height: 390px; }
-  .closingCopy { padding: 54px 0 230px; }
+  .closingCopy { padding: 76px 0; }
   .closing h2 { font-size: 45px; margin-bottom: 20px; }
 }
-@media (max-width: 360px) { .intro h1 { font-size: 20px; } .onboard { gap: 10px; } .onboard ul { gap: 10px; } .featureCopy h2 { font-size: 21px; } .featureMedia { padding: 20px; height: 260px; } }
+@media (max-width: 360px) { .intro h1 { font-size: 19px; } .onboard { gap: 10px; } .onboard ul { gap: 10px; } .featureCopy h2 { font-size: 21px; } .featureMedia { padding: 20px; height: 260px; } }

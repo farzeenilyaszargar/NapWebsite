@@ -8,7 +8,9 @@ Reviewed [Keiki](https://onkeiki.com/) and [Cursor](https://cursor.com/) on Nove
 
 The refined visual system uses Geist, white surfaces, navy typography, compact blue controls with 12px corners, small Lucide icons, and original grainy dreamcore photography. The Nap ghost is smaller, and Apple marks sit to the right of download labels. No gradient hero, inflated counters, invented endorsements, fake interactive app controls, or hidden keyword block is included. Download controls are native anchors and require no client-side event handler to work.
 
-Rendered Keiki reference measurements included Geist, a 36px/45px hero at roughly 520px wide, and rounded compact controls. Nap retains the requested centered paragraph rather than copying Keiki's split hero: 30px desktop and 22px mobile, with natural font kerning and zero CSS letter spacing. The reference's saturated blue/coral film palette informs the original photos, not a copied layout or brand.
+Rendered Keiki reference measurements included Geist, a 36px/45px hero at roughly 520px wide, and rounded compact controls. Nap retains the requested centered paragraph container rather than copying Keiki's split hero. The shortened paragraph is justified, 26px desktop and 20px mobile (19px on narrow phones), with natural font kerning and zero CSS letter spacing. Controls are black. The reference's saturated blue/coral film palette informs the original photos, not a copied layout or brand.
+
+The homepage ends inside the alpine image: Try Nap and its download control are vertically and horizontally centered, while copyright and X remain anchored to its bottom edge. There is no separate footer band on the homepage; other routes retain the shared footer. Decorative photos all have a soft-focus treatment, including the closing panorama. Product screenshots and brand marks stay sharp for readability.
 
 ## Public download
 

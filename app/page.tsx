@@ -24,7 +24,7 @@ export default function Home() {
       <NapHeader />
 
       <section className={styles.intro} aria-labelledby="nap-title">
-        <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app, so you can follow the conversation and review the changes without switching apps.</h1>
+        <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app.</h1>
         <div className={styles.onboard}>
           <span>Onboard Your Agents</span>
           <ul aria-label="Supported agents">
@@ -61,10 +61,10 @@ export default function Home() {
         <NapDreamImage scene="alpine" className={styles.closingArt} />
         <div className={styles.closingCopy}>
           <h2 id="try-nap-title">Try Nap.</h2>
-          <NapDownloadCta location="closing" appearance="light" />
+          <NapDownloadCta location="closing" />
         </div>
+        <div className={styles.closingFooter}><NapFooter /></div>
       </section>
-      <NapFooter />
     </main>
   );
 }
