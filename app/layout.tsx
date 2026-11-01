@@ -1,13 +1,13 @@
 import { site, pages, pageMetadata, siteSchema, indexing } from "./lib/seo";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Fustat } from "next/font/google";
+import { Geist } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
 import "./halftone.css";
 import "./oniki.css";
 
-const sans = Fustat({ subsets: ["latin"], display: "swap", variable: "--font-fustat" });
+const sans = Geist({ subsets: ["latin"], display: "swap", variable: "--font-geist" });
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),

@@ -1,42 +1,42 @@
-html.oniki { --nap-background: #fff; --nap-foreground: #181b20; --nap-muted: #626a74; --nap-subtle: #707780; --nap-border: #e4e7eb; color-scheme: light; background: #fff; }
-.oniki body, .oniki .contrast-page { font-family: var(--font-fustat), Arial, sans-serif; }
-.oniki .contrast-page { background: #fff; color: #181b20; letter-spacing: 0; }
+html.oniki { --nap-background: #fff; --nap-foreground: #1b2b50; --nap-muted: #536580; --nap-subtle: #687893; --nap-border: #e3e7ed; color-scheme: light; background: #fff; }
+.oniki body, .oniki .contrast-page { font-family: var(--font-geist), Arial, sans-serif; }
+.oniki .contrast-page { background: #fff; color: #1b2b50; letter-spacing: 0; font-kerning: normal; }
 .oniki .contrast-page :is(h1, h2, h3, a, button, input) { letter-spacing: 0; }
-.oniki ::selection { background: #dce9f5; color: #162e43; }
-.oniki .contrast-page :is(a, button, input):focus-visible { outline: 2px solid #366c9a; outline-offset: 5px; }
-.oniki .contrast-page .nap-header { width: min(1120px, 90%); height: 82px; background: transparent; border: 0; }
+.oniki ::selection { background: #dce8ff; color: #153a7a; }
+.oniki .contrast-page :is(a, button, input):focus-visible { outline: 2px solid #1748ad; outline-offset: 5px; }
+.oniki .contrast-page .nap-header { width: min(1160px, 94%); height: 70px; background: transparent; border: 0; }
 .oniki .contrast-page .nap-wordmark { display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; }
-.oniki .nap-wordmark-mark { display: block; width: 44px; height: 44px; margin: 0; mask-image: none; background: url('/nap-ghost-source.png') center / 55px 55px no-repeat; filter: invert(1) contrast(100); mix-blend-mode: multiply; }
-.oniki .contrast-page .nap-header .nap-nav { gap: 27px; }
-.oniki .contrast-page .nap-header .nap-docs { font: 450 13px var(--font-fustat), sans-serif; color: #626a74 !important; }
-.oniki .contrast-page .nap-header .nap-docs:hover { color: #181b20 !important; }
-.oniki .contrast-page .nap-mac-download { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 47px; padding: 12px 20px; border: 1px solid #181b20; border-radius: 5px; color: #fff; background: #181b20; font: 500 13px var(--font-fustat), sans-serif; line-height: 1.5; white-space: nowrap; transition: background .18s ease, border-color .18s ease; }
-.oniki .contrast-page .nap-mac-download:hover { background: #343a43; border-color: #343a43; }
-.oniki .nap-mac-download img { display: block; width: 15px; height: 18px; object-fit: contain; filter: invert(1); }
-.oniki .contrast-page .nap-mac-download-light { background: #fff; border-color: #fff; color: #181b20; }
-.oniki .contrast-page .nap-mac-download-light:hover { background: #e9edf0; border-color: #e9edf0; }
+.oniki .nap-wordmark-mark { display: block; width: 32px; height: 32px; margin: 0; mask-image: none; background: url('/nap-ghost-source.png') center / 39px 39px no-repeat; filter: invert(1) contrast(100); mix-blend-mode: multiply; }
+.oniki .contrast-page .nap-header .nap-nav { gap: 23px; }
+.oniki .contrast-page .nap-header .nap-docs { font: 450 13px var(--font-geist), sans-serif; color: #4a5e82 !important; }
+.oniki .contrast-page .nap-header .nap-docs:hover { color: #173c8b !important; }
+.oniki .contrast-page .nap-mac-download { display: inline-flex; justify-content: center; align-items: center; gap: 11px; min-height: 39px; padding: 9px 14px; border: 1px solid #1746aa; border-radius: 12px; color: #fff; background: #1746aa; font: 500 13px var(--font-geist), sans-serif; line-height: 1.5; white-space: nowrap; transition: background .18s ease, border-color .18s ease; }
+.oniki .contrast-page .nap-mac-download:hover { background: #123a90; border-color: #123a90; }
+.oniki .nap-mac-download img { display: block; width: 13px; height: 16px; object-fit: contain; filter: invert(1); }
+.oniki .contrast-page .nap-mac-download-light { background: #fff; border-color: #fff; color: #1b2b50; }
+.oniki .contrast-page .nap-mac-download-light:hover { background: #eaf0fb; border-color: #eaf0fb; }
 .oniki .nap-mac-download-light img { filter: none; }
-.oniki .contrast-page .nap-nav-download { min-height: 35px; padding: 7px 13px; font-size: 12px; gap: 8px; }
-.oniki .nap-nav-download img { width: 12px; height: 15px; }
-.oniki .contrast-page .nap-site-footer { width: min(1120px, 90%); margin: auto auto 0; padding: 27px 0 29px; border: 0; }
-.oniki .contrast-page .nap-site-footer .nap-footer-copyright { color: #69717c; font: 400 12px var(--font-fustat), sans-serif; letter-spacing: 0; }
-.oniki .contrast-page .nap-site-footer .nap-footer-social { color: #5d6672; font-size: 12px; font-weight: 400; min-height: 32px; }
-.oniki .contrast-page.nap-article-page { font-family: var(--font-fustat), sans-serif; }
-.oniki .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1) { font-size: 43px; line-height: 1.2; }
-.oniki .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1, .nap-blog-article h2, .nap-blog-row h2, .nap-waitlist-intro h1, .nap-waitlist-success h1, .nap-apply-closed h1) { font-family: var(--font-fustat), sans-serif; }
-.oniki .contrast-page .nap-apply-closed h1 { font-size: 32px; }
+.oniki .contrast-page .nap-nav-download { min-height: 33px; padding: 6px 12px; font-size: 12px; gap: 9px; }
+.oniki .nap-nav-download img { width: 11px; height: 14px; }
+.oniki .contrast-page .nap-site-footer { width: min(1160px, 94%); margin: auto auto 0; padding: 21px 0 23px; border: 0; }
+.oniki .contrast-page .nap-site-footer .nap-footer-copyright { color: #596b87; font: 400 11px var(--font-geist), sans-serif; letter-spacing: 0; }
+.oniki .contrast-page .nap-site-footer .nap-footer-social { color: #4d6182; font-size: 11px; font-weight: 400; min-height: 32px; }
+.oniki .contrast-page.nap-article-page { font-family: var(--font-geist), sans-serif; }
+.oniki .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1) { font-size: 38px; line-height: 1.2; }
+.oniki .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1, .nap-blog-article h2, .nap-blog-row h2, .nap-waitlist-intro h1, .nap-waitlist-success h1, .nap-apply-closed h1) { font-family: var(--font-geist), sans-serif; }
+.oniki .contrast-page .nap-apply-closed h1 { font-size: 30px; }
 .oniki .contrast-page .nap-halftone-text { color: inherit; background: none; }
-.oniki .contrast-page .nap-blog-article .nap-inline-link { color: #315e83; text-decoration: underline; text-underline-offset: 4px; }
+.oniki .contrast-page .nap-blog-article .nap-inline-link { color: #19489d; text-decoration: underline; text-underline-offset: 4px; }
 .oniki .nap-guide-download { margin-top: 32px; }
-.oniki .contrast-page .nap-waitlist-field input { font-family: var(--font-fustat), sans-serif; font-size: 16px; }
-.oniki .contrast-page .nap-waitlist-form-wrap button { border-radius: 5px; font-family: var(--font-fustat), sans-serif; }
+.oniki .contrast-page .nap-waitlist-field input { font-family: var(--font-geist), sans-serif; font-size: 16px; }
+.oniki .contrast-page .nap-waitlist-form-wrap button { border-radius: 12px; font-family: var(--font-geist), sans-serif; }
 @media (max-width: 700px) {
-  .oniki .contrast-page .nap-header { height: 76px; }
+  .oniki .contrast-page .nap-header { height: 66px; }
   .oniki .contrast-page .nap-header .nap-docs { font-size: 12px; }
   .oniki .contrast-page .nap-header .nap-nav-download { display: none; }
-  .oniki .contrast-page .nap-site-footer { padding: 22px 0 25px; }
-  .oniki .contrast-page .nap-site-footer :is(.nap-footer-copyright, .nap-footer-social) { font-size: 11px; }
-  .oniki .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1) { font-size: 32px; }
-  .oniki .contrast-page .nap-apply-closed h1 { font-size: 28px; }
+  .oniki .contrast-page .nap-site-footer { padding: 18px 0 21px; }
+  .oniki .contrast-page .nap-site-footer :is(.nap-footer-copyright, .nap-footer-social) { font-size: 10px; }
+  .oniki .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1) { font-size: 30px; }
+  .oniki .contrast-page .nap-apply-closed h1 { font-size: 26px; }
 }
 @media (prefers-reduced-motion: reduce) { .oniki .contrast-page .nap-mac-download { transition: none; } }

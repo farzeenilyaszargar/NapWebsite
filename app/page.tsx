@@ -2,6 +2,7 @@ import { FolderOpen, MessagesSquare, GitCompareArrows } from "lucide-react";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
 import NapProductImage from "./components/nap-product-image";
+import NapDreamImage from "./components/nap-dream-image";
 import NapDownloadCta from "./components/nap-download-cta";
 import NapHeader from "./components/nap-header";
 import NapFooter from "./components/nap-footer";
@@ -28,7 +29,7 @@ export default function Home() {
           <span>Onboard Your Agents</span>
           <ul aria-label="Supported agents">
             <li><img src="/codex-logo-3366e2d2.webp" alt="Codex" width={25} height={25} /></li>
-            <li><img src="/anthropic-mark.svg" alt="Anthropic" width={25} height={25} /></li>
+            <li><img src="/claude-code-logo-5a6c64a5.webp" alt="Claude Code" width={25} height={25} /></li>
             <li><img src="/cursor-logo-8bc30dd7.webp" alt="Cursor" width={25} height={25} /></li>
           </ul>
         </div>
@@ -36,7 +37,8 @@ export default function Home() {
       </section>
 
       <figure className={styles.workspace} id="workspace">
-        <NapProductImage eager alt="Nap for Mac, with project spaces, an agent conversation, code review, and a terminal in one native workspace." sizes="(max-width: 700px) 94vw, (max-width: 1280px) 90vw, 1120px" />
+        <NapDreamImage scene="botanical" className={styles.workspaceArt} eager sizes="(max-width: 1280px) 94vw, 1160px" />
+        <NapProductImage eager alt="Nap for Mac, with project spaces, an agent conversation, code review, and a terminal in one native workspace." sizes="(max-width: 700px) 86vw, (max-width: 1280px) 83vw, 1040px" />
       </figure>
 
       <section className={styles.features} id="features" aria-label="Inside Nap">
@@ -48,14 +50,15 @@ export default function Home() {
               <p>{description}</p>
             </div>
             <figure className={styles.featureMedia}>
-              <NapProductImage alt={alt} sizes="(max-width: 700px) 170vw, 1600px" />
+              <NapDreamImage scene={name === "conversation" ? "alpine" : "botanical"} className={styles.featureArt} sizes="(max-width: 700px) 90vw, 760px" />
+              <div className={styles.featureCrop}><NapProductImage alt={alt} sizes="(max-width: 700px) 170vw, 1300px" /></div>
             </figure>
           </article>
         ))}
       </section>
 
       <section className={styles.closing} aria-labelledby="try-nap-title">
-        <img className={styles.closingArt} src="/nap-halftone-arch.webp" alt="" width={2172} height={724} loading="lazy" decoding="async" />
+        <NapDreamImage scene="alpine" className={styles.closingArt} />
         <div className={styles.closingCopy}>
           <h2 id="try-nap-title">Try Nap.</h2>
           <NapDownloadCta location="closing" appearance="light" />

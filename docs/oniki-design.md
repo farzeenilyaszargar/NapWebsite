@@ -6,7 +6,9 @@ Created directly from `main` (`4b7ad5d`), not from `potato`. The owner's require
 
 Reviewed [Keiki](https://onkeiki.com/) and [Cursor](https://cursor.com/) on November 1, 2026. Keiki informs the single-size paragraph and quiet action hierarchy; Cursor informs the large product-led feature panels. Nap copy, code, actual app screenshots, and brand identity remain its own. Competitor testimonials, assets, product capabilities, and pricing are not copied.
 
-The visual system uses Fustat, white surfaces, near-black controls, neutral feature panels, small Lucide icons, and an existing original halftone coastal arch in the closing section. No gradient hero, inflated counters, invented endorsements, fake interactive app controls, or hidden keyword block is included. Download controls are native anchors and require no client-side event handler to work.
+The refined visual system uses Geist, white surfaces, navy typography, compact blue controls with 12px corners, small Lucide icons, and original grainy dreamcore photography. The Nap ghost is smaller, and Apple marks sit to the right of download labels. No gradient hero, inflated counters, invented endorsements, fake interactive app controls, or hidden keyword block is included. Download controls are native anchors and require no client-side event handler to work.
+
+Rendered Keiki reference measurements included Geist, a 36px/45px hero at roughly 520px wide, and rounded compact controls. Nap retains the requested centered paragraph rather than copying Keiki's split hero: 30px desktop and 22px mobile, with natural font kerning and zero CSS letter spacing. The reference's saturated blue/coral film palette informs the original photos, not a copied layout or brand.
 
 ## Public download
 
@@ -22,9 +24,10 @@ Metadata, software schema, guide content, and primary actions all describe the s
 
 - App screenshots: existing responsive `nap-agent-workspace-*` WebPs, with real project/conversation/review crops in feature panels. Screenshot text is product imagery, not a live UI or an independently verified performance claim.
 - Ghost: the user-supplied Group 595 source from the existing `potato` assets, copied unchanged into this branch and rendered black with CSS.
-- Coastal arch: the existing original `nap-halftone-arch.webp` from the prior design, copied unchanged. It was generated for Nap, not taken from a competitor's site.
-- Codex and Cursor: existing supplied site logos.
-- Anthropic monogram: [Simple Icons primary repository](https://github.com/simple-icons/simple-icons/blob/develop/icons/anthropic.svg). Used to identify the provider, not to imply endorsement.
+- Botanical backdrop: original generated vintage-film flower photograph with orange flowers, ivory petals, dark foliage, cobalt sky, warm light leak, shallow focus, and print grain. Saved as `public/nap-dream-botanical-{720,1536}-*.webp`. Used behind the hero and two feature crops; CSS blur is decorative only.
+- Alpine footer: original generated panorama of an alpine lake, left-side village, evergreen slopes, coral alpenglow, cobalt water, and warm reflected windows. A second image-generation edit retained that composition while using Keiki's footer only as a palette/texture reference. No competitor image is shipped. Saved as `public/nap-dream-alpine-{720,1448,2172}-*.webp`; the full scene appears in the footer and a blurred detail behind one feature.
+- Both scenes were generated with the built-in image-generation tool, then encoded to responsive WebPs at quality 88 with content-versioned filenames. `app/components/nap-dream-image.tsx` centralizes their source sets. Actual Nap app imagery is never blurred.
+- Codex, Claude Code, and Cursor: existing supplied site logos. The Claude Code mark is restored unchanged, rather than substituted with an Anthropic monogram.
 - Apple mark: [Wikimedia Commons asset](https://commons.wikimedia.org/wiki/File:Apple_logo_black.svg). Only its viewport metadata is normalized; the path is unchanged. Used to identify macOS, not as Nap's own brand.
 - UI icons: Lucide React. Apple is the actual brand mark rather than an emoji or generic fruit icon.
 

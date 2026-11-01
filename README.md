@@ -2,7 +2,7 @@
 
 ## Oniki branch
 
-`oniki` branches directly from `main` at `4b7ad5d`. Its white, paragraph-led design takes inspiration from Keiki and Cursor while using Nap's own branding, real screenshots, and existing halftone landscape. The homepage has an Onboard Your Agents row, three large feature panels, and a minimal closing download section. Fustat is self-hosted through `next/font`; `app/oniki.css` provides the shared design and `app/home-brand.module.css` defines the homepage.
+`oniki` branches directly from `main` at `4b7ad5d`. Its white, compact paragraph-led design takes inspiration from Keiki and Cursor while using Nap's own branding, real screenshots, and original dreamcore photography. The homepage has an Onboard Your Agents row with the original colored Claude Code mark, three large feature panels, and a vivid alpine closing download section. Geist is self-hosted through `next/font`; `app/oniki.css` provides the shared design and `app/home-brand.module.css` defines the homepage. Download controls have rounded corners and the Apple mark on the right. Only decorative backgrounds are blurred; product screenshots remain sharp.
 
 The owner confirmed public macOS downloads for this branch. All download buttons use the latest-release DMG URL defined in `app/lib/releases.ts`, verified to resolve to an attachment with HTTP 200. The `/waitlist` form remains available for product/platform updates, with its existing Supabase persistence unchanged. Download availability, article copy, metadata, and SoftwareApplication schema agree. The homepage title remains **Nap | The Interface For All Your Agents**.
 
