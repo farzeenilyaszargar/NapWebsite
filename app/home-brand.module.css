@@ -2,7 +2,7 @@
 .intro { width: min(650px, 88%); margin: 0 auto; padding: 75px 0 45px; text-align: center; }
 .intro h1 { margin: 0 0 25px; color: #50617d; font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
 .intro h1 strong { color: #1a2c53; font-weight: 600; }
-.onboard { display: inline-flex; justify-content: center; align-items: center; gap: 10px; max-width: 100%; margin: 0 0 22px; padding: 7px 12px; border: 1px solid #e3e7ed; border-radius: 999px; background: #f8f9fc; }
+.onboard { display: inline-flex; justify-content: center; align-items: center; gap: 10px; max-width: 100%; margin: 0 0 22px; padding: 6px 12px; border: 1px solid #e3e7ed; border-radius: 999px; background: transparent; }
 .onboard > span { font-size: 10px; font-weight: 450; color: #53617b; white-space: nowrap; }
 .onboard ul { display: flex; align-items: center; gap: 9px; padding: 0; margin: 0; list-style: none; }
 .onboard li { display: flex; align-items: center; justify-content: center; width: 17px; height: 17px; }
