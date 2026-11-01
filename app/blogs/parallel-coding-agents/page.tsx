@@ -46,7 +46,7 @@ export default function ParallelCodingAgentsPost() {
 
       <h2 id="nap-parallel-agents">Nap and parallel agents: what to verify</h2>
       <p>Nap is a native Mac app for bringing coding agents, project conversations, and code review into one interface. The agent choices shown on the site are Claude Code, Codex, and Cursor. Read the <Link className="nap-inline-link" href={pages.ade.path}>Nap workspace guide</Link> for the distinction between the app and the agents it works with.</p>
-      <p>This workflow does not assume that Nap automatically provisions worktrees, schedules parallel tasks, or merges branches. Those capabilities should be verified in the build you use. Access is currently through the <Link className="nap-inline-link" href={pages.waitlist.path}>Nap waitlist</Link>.</p>
+      <p>This workflow does not assume that Nap automatically provisions worktrees, schedules parallel tasks, or merges branches. Those capabilities should be verified in the build you use. See the <Link className="nap-inline-link" href={pages.download.path}>official Mac download guide</Link> to get started.</p>
 
       <h2>Do parallel coding agents need different models?</h2>
       <p>No. Parallelism is about separate sessions and task boundaries, not necessarily different models. Choose agents for the work you need, and keep their file ownership and acceptance checks explicit.</p>

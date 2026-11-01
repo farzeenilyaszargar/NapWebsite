@@ -1,6 +1,6 @@
 # Search and AI discovery
 
-The canonical product website is https://www.nap.cx/. The homepage is the main destination for Nap, Nap Code, coding-agent, and Nap-download searches. Downloads remain paused and access is through the waitlist. Do not publish a download URL, price, release date, endorsement, review, or rating unless it is real and current.
+The canonical product website is https://www.nap.cx/. The homepage is the main destination for Nap, Nap Code, coding-agent, and Nap-download searches. On `oniki`, the owner confirmed public macOS downloads; the shared latest-release URL is verified and used by the visible actions and software schema. The updates form remains available for product/platform news. Other branches retain their own availability state. Do not invent a price, release date, endorsement, review, rating, or supported platform.
 
 ## Implemented
 
@@ -24,7 +24,7 @@ The canonical product website is https://www.nap.cx/. The homepage is the main d
 
 Keyword meta tags do not affect Google rankings. FAQ markup does not promise FAQ rich results, ranking improvements, or chatbot citations. Google does not require special AI files or special schema for its AI features. There is no documented switch that makes ChatGPT recommend a product, and enabling training crawlers does not guarantee recommendations.
 
-Keep factual availability consistent across the homepage description, product schema, waitlist, and articles when downloads resume. Do not create near-duplicate pages for each spelling of a search query.
+Keep factual availability consistent across the homepage description, product schema, updates form, and articles whenever distribution changes. Do not create near-duplicate pages for each spelling of a search query.
 
 ## Competitor observations: October 30, 2026
 
@@ -38,8 +38,8 @@ Nap's implementation keeps its approved homepage, focuses the blog on three dist
 
 ## External work, in priority order
 
-1. Inspect the current guide URLs in Search Console and submit the sitemap in Google and Bing. Track impressions, clicks, and waitlist signups by landing page rather than targeting a third-party authority score.
-2. Publish a real product walkthrough with captions and a descriptive link to the relevant Nap guide. Keep the waitlist status explicit everywhere.
+1. Inspect the current guide URLs in Search Console and submit the sitemap in Google and Bing. Track impressions, download clicks, and optional update signups by landing page rather than targeting a third-party authority score.
+2. Publish a real product walkthrough with captions and a descriptive link to the relevant Nap guide. Keep download availability and platform support explicit everywhere.
 3. Pitch one original, reproducible workflow or engineering finding to relevant developer publications and Mac reviewers. Provide a reviewable build when available; do not require a favourable review or a followed link in exchange for access.
 4. Publish a reusable technical artifact, such as a tested task-brief template or small open-source utility, that the parallel-agent guide can genuinely explain. Include methods and limitations for any measurements.
 5. Use competitor backlink reports to find relevant reviewers, curated resources, and newsletters, then assess the specific page and audience. Do not buy links on the basis of domain rating.

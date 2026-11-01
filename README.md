@@ -1,5 +1,13 @@
 # Nap Website
 
+## Oniki branch
+
+`oniki` branches directly from `main` at `4b7ad5d`. Its white, paragraph-led design takes inspiration from Keiki and Cursor while using Nap's own branding, real screenshots, and existing halftone landscape. The homepage has an Onboard Your Agents row, three large feature panels, and a minimal closing download section. Fustat is self-hosted through `next/font`; `app/oniki.css` provides the shared design and `app/home-brand.module.css` defines the homepage.
+
+The owner confirmed public macOS downloads for this branch. All download buttons use the latest-release DMG URL defined in `app/lib/releases.ts`, verified to resolve to an attachment with HTTP 200. The `/waitlist` form remains available for product/platform updates, with its existing Supabase persistence unchanged. Download availability, article copy, metadata, and SoftwareApplication schema agree. The homepage title remains **Nap | The Interface For All Your Agents**.
+
+See `docs/oniki-design.md` for reference sites, asset provenance, download verification, and test scope.
+
 Nap is a native app for building with coding agents: open a project, choose an agent, chat, and review code changes in the app. This repository contains the light product website, UI preview, liquid cursor interaction, and blog articles.
 
 ## Pages
@@ -10,7 +18,7 @@ Nap is a native app for building with coding agents: open a project, choose an a
 - `/blogs` — Topic-based guide index with reading times and publication dates.
 - `/blogs/parallel-coding-agents` — Parallel task ownership, Git worktrees, and integration.
 - `/blogs/nap-agentic-development-environment` — What Nap is and how to evaluate its workflow.
-- `/blogs/nap-download` — Official availability, early access, and installation checks.
+- `/blogs/nap-download` — Official macOS download, installation, and provider setup checks.
 
 The retired `/blogs/hello-nap` and `/blogs/why` URLs permanently redirect to the product-workflow guide. They are excluded from the blog index, article schema, and sitemap. Articles have server-rendered topic jump links and related reading; no client-side table-of-contents library is needed.
 
@@ -36,9 +44,10 @@ npm run start
 
 - Homepage: `app/page.tsx`
 - Shared navigation: `app/components/nap-header.tsx`
-- Waitlist CTA: `app/components/nap-waitlist-cta.tsx`
+- Download CTA: `app/components/nap-download-cta.tsx`
+- Download URL: `app/lib/releases.ts`
 - Liquid interaction: `app/components/liquid-field.tsx`
-- Site styles: `app/contrast.css`
+- Shared styles: `app/oniki.css`
 - Blog pages: `app/blogs/`
 - Static assets: `public/`
 - SEO configuration: `app/lib/seo.ts`
@@ -46,9 +55,9 @@ npm run start
 - Domain launch checklist: `docs/seo-launch.md`
 - Search and AI discovery guide: `docs/search-discovery.md`
 
-The homepage hero and closing CTA both link to `/waitlist`. Downloads are paused; release and installation verification remain deferred.
+The header, hero, closing section, and guides link directly to the official macOS DMG. The GitHub latest-release URL follows the latest published release as long as its DMG asset name is retained. A future asset rename requires updating the shared constant. A successful URL check does not establish signing, notarization, or compatibility on every Mac.
 
-Images are served from content-versioned WebP assets. The cursor effect draws native canvas contours in trail-sized surfaces, avoiding SVG blur/threshold filters. It pauses for hidden tabs, reduced motion, and touch-only devices, releases surfaces after the trail expires, and follows the display refresh rate up to 120 Hz. Canvas backing stores are capped at 2048 pixels per side and approximately two megapixels per layer. Sustained slow frames reduce the particle count and refresh rate; continued severe slowdown disables the decorative effect for that mount. Unsupported blending/Path2D, blocked canvases, failed optional chunk loads, and drawing errors fall back to the normal page. Lost canvas contexts pause the effect until restored.
+Images are served from content-versioned WebP assets. The retained liquid-renderer notes describe legacy components, not the `oniki` homepage. That renderer draws native canvas contours in trail-sized surfaces, avoiding SVG blur/threshold filters. It pauses for hidden tabs, reduced motion, and touch-only devices, releases surfaces after the trail expires, and follows the display refresh rate up to 120 Hz. Canvas backing stores are capped at 2048 pixels per side and approximately two megapixels per layer. Sustained slow frames reduce the particle count and refresh rate; continued severe slowdown disables the decorative effect for that mount. Unsupported blending/Path2D, blocked canvases, failed optional chunk loads, and drawing errors fall back to the normal page. Lost canvas contexts pause the effect until restored.
 
 Internal links use prefetched client navigation. Product screenshots use build-time responsive WebP variants, avoiding on-demand image resizing. Content-versioned WebP files have immutable year-long caching. The homepage screenshot is preloaded with the same responsive sizes as the rendered image; article screenshots and logos load lazily. Agent logos use native lazy-loaded images, so they add no image-component hydration code. The decorative cursor module downloads only after eligible mouse/pen movement, never during idle page loading; data-saving connections skip it. The supplied Nap icon is available as a multi-resolution ICO (16–256px), a browser PNG, a 180px Apple touch icon, and 192px/512px app icons in the web manifest. All versions are generated from the same artwork.
 
@@ -62,4 +71,4 @@ SEO work preserves the approved homepage design. Product information remains in 
 
 ## Mobile layout
 
-Phones and tablets use responsive spacing, stacked content and forms, and larger reading text. Waitlist CTAs are available on desktop, phones, and tablets, with full-width buttons on small screens. There are currently no download buttons. The 404 home button also stays visible. The liquid renderer is requested only on a viewport wider than 900px with a fine primary pointer and hover support; switching out of that mode unmounts it and removes its pointer activation listener. Touch input, reduced motion, and data-saving mode never activate it.
+Phones and tablets use responsive type, a compact header, and vertically stacked feature panels. The primary download explicitly says macOS on every viewport; it does not claim compatibility with a phone. The header download is hidden on mobile to keep navigation uncluttered. There is no decorative animation runtime on this design; legacy liquid-renderer files/tests remain in the repository but are not mounted by the homepage.

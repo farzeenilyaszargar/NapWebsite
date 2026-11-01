@@ -1,9 +1,13 @@
 import { site, pages, pageMetadata, siteSchema, indexing } from "./lib/seo";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Fustat } from "next/font/google";
 import StructuredData from "./components/structured-data";
 import "./globals.css";
 import "./halftone.css";
+import "./oniki.css";
+
+const sans = Fustat({ subsets: ["latin"], display: "swap", variable: "--font-fustat" });
 
 export const metadata: Metadata = {
   ...pageMetadata(pages.home),
@@ -29,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className={`oniki h-full antialiased ${sans.variable}`}
     >
       <head>
         <Script id="x-conversion-pixel" strategy="lazyOnload">{`

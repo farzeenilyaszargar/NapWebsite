@@ -12,7 +12,7 @@ const routes = [
   ["blogs", "/blogs", "Nap | Blog: Coding Agent Guides & Workflows"],
   ["blogs/parallel-coding-agents", "/blogs/parallel-coding-agents", "Nap | Parallel Coding Agents: A Practical Workflow Guide"],
   ["blogs/nap-agentic-development-environment", "/blogs/nap-agentic-development-environment", "Nap | Agentic Development Environment for Mac"],
-  ["blogs/nap-download", "/blogs/nap-download", "Nap | Download & Early Access for the Mac App"],
+  ["blogs/nap-download", "/blogs/nap-download", "Nap | Download Nap for macOS"],
   ["waitlist", "/waitlist", "Nap | Waitlist"],
   ["apply", "/apply", "Nap | Apply"],
 ];
@@ -60,8 +60,10 @@ for (const [file, path, title] of routes) {
     assert.ok(!entities.some((entity) => entity["@type"] === "FAQPage"), "no FAQ markup for content absent from the approved layout");
     const app = entities.find((entity) => entity["@type"] === "SoftwareApplication");
     assert.equal(app.operatingSystem, "macOS");
-    assert.equal(app.downloadUrl, undefined, "no public download claim while downloads are paused");
-    assert.equal(app.potentialAction.target, `${origin}/waitlist`);
+    assert.equal(app.downloadUrl, "https://github.com/farzeenilyaszargar/NotNap/releases/latest/download/NotNap-macos.dmg");
+    assert.equal(app.potentialAction["@type"], "DownloadAction");
+    assert.equal(app.potentialAction.target, app.downloadUrl);
+    assert.ok(html.includes(`href="${app.downloadUrl}"`), "the public download is visible, not just in schema");
   }
   if (path !== "/") {
     const breadcrumb = entities.find((entity) => entity["@type"] === "BreadcrumbList");
@@ -80,7 +82,7 @@ for (const [file, path, title] of routes) {
       assert.ok(html.includes(`<time dateTime="${article.datePublished}">`), `${path}: publication date is visible`);
       assert.equal(get("article:published_time"), article.datePublished);
       const body = html.match(/<article\b[^>]*>(.*?)<\/article>/s)[1];
-      assert.ok(body.includes('href="/waitlist"'), `${path}: article includes an accurate early-access action`);
+      assert.ok(body.includes('href="https://github.com/farzeenilyaszargar/NotNap/releases/latest/download/NotNap-macos.dmg"'), `${path}: article includes the official download action`);
       assert.ok(body.replace(/<[^>]*>/g, " ").split(/\s+/).length >= 450, `${path}: substantive guide content`);
     }
   }

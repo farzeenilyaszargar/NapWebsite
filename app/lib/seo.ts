@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { macDownloadUrl } from "./releases";
 
 export const pageTitle = (label: string) => `Nap | ${label}`;
 export const isIndexable = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production";
@@ -17,7 +18,7 @@ export const site = {
 export const pages = {
   home: {
     path: "/", title: site.title,
-    description: "Nap is a native Mac app for Claude Code, Codex, and Cursor. Bring your AI coding agents together and join the waitlist for Nap download updates.",
+    description: "Download Nap for macOS. Bring Claude Code, Codex, and Cursor into one native workspace for projects, agent conversations, and code review.",
     keywords: ["nap download", "download nap", "nap agents", "nap codes", "nap code download", "nap for mac", "nap macos download", "nap AI coding agents", "AI coding app for Mac", "AI coding workspace", "coding agent interface", "agentic coding", "Claude Code", "Codex", "Cursor"],
   },
   blogs: {
@@ -42,10 +43,10 @@ export const pages = {
     published: "2026-10-30",
   },
   download: {
-    category: "Early access", readingMinutes: 3,
-    headline: "Nap Download: Official Mac App and Early Access",
-    path: "/blogs/nap-download", title: pageTitle("Download & Early Access for the Mac App"),
-    description: "Looking to download Nap? Check the official Mac app's availability, join the early-access waitlist, and learn what to verify before installing agent tools.",
+    category: "Getting started", readingMinutes: 3,
+    headline: "Download Nap for macOS",
+    path: "/blogs/nap-download", title: pageTitle("Download Nap for macOS"),
+    description: "Download Nap for macOS from the official GitHub release. Find installation steps, provider setup, and advice for reviewing coding-agent changes.",
     keywords: ["Nap download", "download Nap", "Nap app", "Nap for Mac", "Nap early access"],
     published: "2026-10-30",
   },
@@ -56,7 +57,7 @@ export const pages = {
   },
   waitlist: {
     path: "/waitlist", title: pageTitle("Waitlist"),
-    description: "Join the Nap waitlist for availability and product updates. Bring your coding agents and ideas together in one native AI coding workspace for Mac.",
+    description: "Join Nap's updates list for product news and future platform availability. Nap for macOS is available to download from the official website.",
     keywords: ["Nap waitlist", "Nap Code early access", "AI coding app for Mac"],
   },
 
@@ -141,7 +142,7 @@ function webPageSchema(page: Page, type = "WebPage") {
 }
 
 function softwareSchema() {
-  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", applicationSubCategory: "AI coding agent workspace", operatingSystem: "macOS", description: site.description, disambiguatingDescription: "Nap at nap.cx is a native Mac workspace for AI coding agents, project conversations, and code review.", image: absolute(site.image), screenshot: absolute("/nap-agent-workspace-5306-059ac310.webp"), publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"], potentialAction: { "@type": "JoinAction", name: "Join the Nap waitlist", target: absolute(pages.waitlist.path) } };
+  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", applicationSubCategory: "AI coding agent workspace", operatingSystem: "macOS", description: site.description, disambiguatingDescription: "Nap at nap.cx is a native Mac workspace for AI coding agents, project conversations, and code review.", image: absolute(site.image), screenshot: absolute("/nap-agent-workspace-5306-059ac310.webp"), downloadUrl: macDownloadUrl, publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"], potentialAction: { "@type": "DownloadAction", name: "Download Nap for macOS", target: macDownloadUrl } };
 }
 
 export function homeSchema() {

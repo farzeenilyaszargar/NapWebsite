@@ -9,7 +9,7 @@ The canonical production origin is `https://www.nap.cx`. The apex `https://nap.c
 - Blog listing: Nap blog and practical coding-agent guides, organized by topic.
 - Parallel coding agents: task ownership, Git worktrees, and integration checks.
 - Agentic development environment: what Nap is, agent selection, conversations, and review.
-- Download guide: the official Mac product and waitlist-only availability.
+- Download guide: the official Mac release link and installation checks. On `oniki`, public macOS downloads are enabled by the owner's request.
 - Agent names appear where the published content discusses them: Claude Code, Codex, and Cursor.
 
 Each page has a focused keyword list and a unique description. Google does not use the meta keywords tag for ranking; the visible content, crawlability, relevance, and useful information matter. Titles follow `Nap | …`. The homepage title is `Nap | The Interface For All Your Agents`. Preserve this owner-approved title; SEO work must not replace it without explicit approval.

@@ -50,7 +50,7 @@ export default function NapAdePost() {
       <p>Also verify provider authentication, costs, permissions, and platform requirements against the actual build and provider documentation. Do not infer security guarantees or agent availability from a screenshot alone.</p>
 
       <h2 id="early-access">Can I download Nap now?</h2>
-      <p>Nap is currently waitlist-only. Visit the <Link className="nap-inline-link" href={pages.download.path}>official download and early-access guide</Link> or <Link className="nap-inline-link" href={pages.waitlist.path}>join the Nap waitlist</Link>. There is no public release date promised here.</p>
+      <p>Yes. Nap for macOS is available from the official GitHub release. Visit the <Link className="nap-inline-link" href={pages.download.path}>Nap download and installation guide</Link> for the download link and setup checks. You can also <Link className="nap-inline-link" href={pages.waitlist.path}>join the updates list</Link> for product news.</p>
     </NapGuide>
   );
 }

@@ -1,47 +1,43 @@
 import Link from "next/link";
 import NapGuide from "../../components/nap-guide";
 import { pages, pageMetadata } from "../../lib/seo";
+import { macDownloadUrl, macReleasesUrl } from "../../lib/releases";
 
 export const metadata = pageMetadata(pages.download, true);
 
 const contents = [
-  { id: "request-access", label: "Request early access" },
-  { id: "macos-availability", label: "Mac download status" },
-  { id: "installation-checks", label: "Installation checks" },
-  { id: "windows-linux", label: "Windows and Linux" },
+  { id: "download", label: "Official download" },
+  { id: "install", label: "Install on your Mac" },
+  { id: "first-project", label: "Your first project" },
+  { id: "other-platforms", label: "Other platforms" },
 ];
 
 export default function NapDownloadPost() {
   return (
     <NapGuide page={pages.download} contents={contents}>
-      <p>Looking to download Nap? As of October 30, 2026, Nap is waitlist-only. The official route is <Link className="nap-inline-link" href={pages.waitlist.path}>joining the Nap waitlist</Link> for availability and product updates. This page does not provide a public installer or promise an access date.</p>
-      <p>Nap is the native Mac app at <Link className="nap-inline-link" href={pages.home.path}>nap.cx</Link> that brings AI coding agents into one workspace. If you found another product with the same name, check the domain and product description before signing up or installing anything.</p>
+      <p>Nap for macOS is available to download. Get the app from the <a className="nap-inline-link" href={macDownloadUrl}>official latest-release download</a>, then open a project and work with your coding agents in one native Mac workspace. You do not need to join a waitlist before using the download link.</p>
+      <p>Nap brings Claude Code, Codex, and Cursor into one interface for project conversations and code review. Nap is the workspace around those agents, not a new AI model. Your provider still determines authentication, subscriptions, and usage limits.</p>
 
-      <h2>What is the Nap app?</h2>
-      <p>Nap brings project conversations, agent selection, and code-change review into one Mac interface. The agent choices shown on the official site are Claude Code, Codex, and Cursor. Nap is the workspace around those tools, not a new foundation model.</p>
-      <p>For a fuller explanation, read <Link className="nap-inline-link" href={pages.ade.path}>Nap and the agentic development environment</Link>. It describes the difference between an app, an agent, and the review process around generated changes.</p>
+      <h2 id="download">Where do I download Nap?</h2>
+      <p>Use the Download for macOS button on <Link className="nap-inline-link" href={pages.home.path}>nap.cx</Link> or the link in this guide. Both point to the same GitHub latest-release asset, so you do not need to find an old version number or choose a third-party mirror. The download follows the repository&apos;s latest published release.</p>
+      <p>The repository and installer retain an earlier name: the file is currently called <code>NotNap-macos.dmg</code>. The official link is under <code>farzeenilyaszargar/NotNap</code> on GitHub. You can inspect the <a className="nap-inline-link" href={macReleasesUrl}>release page</a> before downloading if you want to check the file, release notes, or publisher.</p>
 
-      <h2 id="request-access">How do I request early access?</h2>
-      <p>Open the <Link className="nap-inline-link" href={pages.waitlist.path}>official waitlist form</Link>, enter your name and an email address you can access, and submit it. Wait for the on-page confirmation before assuming the request was saved. If the form reports an error, correct the details or try again rather than repeatedly submitting.</p>
-      <p>Joining the waitlist records your interest. It is not a purchase, an immediate download, or a guarantee of an invitation by a particular date. You do not need to supply an agent API key to this form.</p>
+      <h2 id="install">How do I install Nap on a Mac?</h2>
+      <p>Download the disk image, open it in Finder, and follow the installation instructions included with that build. Keep the original file until you have checked that the app opens successfully. Consult the release notes for supported hardware, macOS requirements, and changes in the build you are installing.</p>
+      <p>A download link is not a reason to ignore a macOS security warning. Verify the source and publisher before opening downloaded software. If macOS blocks an app, read <a className="nap-inline-link" href="https://support.apple.com/en-us/102445">Apple&apos;s guide to safely opening apps</a> rather than disabling system protections or running a command copied from an unrelated page.</p>
+      <p>This guide does not assert that every Nap build is signed or notarized. Check the actual file and its release information when those properties matter to your environment, especially on a managed work computer.</p>
 
-      <h2 id="macos-availability">Is there a public macOS installer?</h2>
-      <p>Not through the current public website. Older links, cached pages, or third-party listings may describe a different availability state. Start from nap.cx for current information rather than assuming an old release link is still the supported installation route.</p>
-      <p>Minimum macOS versions, supported hardware, and installation instructions should be checked against the build offered when access becomes available. This guide does not invent requirements for an unreleased public build.</p>
+      <h2 id="first-project">What should I do with my first project?</h2>
+      <p>Start with a codebase you know and a small, bounded task. Choose an agent, describe the change or question, and read the response. A bug explanation, a focused test, or a small UI adjustment is easier to assess than an open-ended rewrite of an unfamiliar repository.</p>
+      <p>Keep a recoverable starting point in version control. Review the changed files and run the checks appropriate to the task. Ask a follow-up when the agent&apos;s explanation does not match the diff. The point of the workspace is to keep the conversation and evidence close together, not to remove your responsibility for accepting changes.</p>
+      <p>Read the <Link className="nap-inline-link" href={pages.ade.path}>Nap workspace guide</Link> for the distinction between an agent and the app around it. The <Link className="nap-inline-link" href={pages.parallel.path}>parallel coding agents guide</Link> covers task boundaries and Git worktrees without assuming that Nap automatically creates or merges them.</p>
 
-      <h2 id="installation-checks">What should I check before installing an agent app?</h2>
-      <p>Verify that the download comes from the developer&apos;s official distribution route. Inspect the publisher and the permissions the app requests. If a message unexpectedly asks for credentials, payment, or a security override, verify it independently before continuing.</p>
-      <p>macOS checks software downloaded outside the App Store using protections including Developer ID and notarization. Read <a className="nap-inline-link" href="https://support.apple.com/en-us/102445">Apple&apos;s guide to safely opening apps</a> if you encounter a warning. This is general installation advice, not a claim that a particular Nap build has been notarized.</p>
-      <p>Before giving any coding agent access to a repository, understand its file and command permissions. Keep credentials out of prompts and use a project you can safely inspect and recover. An agent interface should make review easier; it does not remove the need to review.</p>
+      <h2>Do I need an agent account?</h2>
+      <p>Check the requirements of the provider you choose. Access to the Nap app should not be confused with provider subscriptions, model credits, or unlimited usage. Review authentication and permissions in the integration you use, and never paste private keys into a website&apos;s updates form.</p>
 
-      <h2>Does Nap include the agents&apos; subscriptions?</h2>
-      <p>Do not assume that access to Nap includes a provider subscription, unlimited model usage, or API credits. Authentication, billing, and usage limits depend on the selected provider and the supported integration. Check the terms that apply when you receive access.</p>
-
-      <h2 id="windows-linux">Can I download Nap for Windows or Linux?</h2>
-      <p>The product currently described on this site is a native Mac app. There is no public Windows or Linux download offered here, and this article makes no release-timing promise for either platform.</p>
-
-      <h2>Where should I look for updates?</h2>
-      <p>Use the <Link className="nap-inline-link" href={pages.home.path}>Nap homepage</Link>, the <Link className="nap-inline-link" href={pages.blogs.path}>Nap blog</Link>, and <a className="nap-inline-link" href="https://x.com/nap_cx">@nap_cx on X</a>. For availability updates, <Link className="nap-inline-link" href={pages.waitlist.path}>join the waitlist</Link> with an address you check.</p>
+      <h2 id="other-platforms">What about Windows and Linux?</h2>
+      <p>The download offered here is for macOS. This website does not offer a public Windows or Linux installer or promise a release date for either platform. You can <Link className="nap-inline-link" href={pages.waitlist.path}>join the updates list</Link> for product and platform news.</p>
+      <p>For current product information, return to the <Link className="nap-inline-link" href={pages.home.path}>Nap homepage</Link> or follow <a className="nap-inline-link" href="https://x.com/nap_cx">Nap on X</a>. Use the official website and release page when checking availability rather than relying on an older cached article or an unaffiliated download listing.</p>
     </NapGuide>
   );
 }

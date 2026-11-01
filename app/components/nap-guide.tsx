@@ -4,6 +4,7 @@ import { articleSchema, pages } from "../lib/seo";
 import NapHeader from "./nap-header";
 import NapFooter from "./nap-footer";
 import NapReadingLinks from "./nap-reading-links";
+import NapDownloadCta from "./nap-download-cta";
 import StructuredData from "./structured-data";
 import "../contrast.css";
 import styles from "../blogs/blog.module.css";
@@ -25,6 +26,7 @@ export default function NapGuide({ page, contents, children }: { page: Guide; co
             <ul>{contents.map(({ id, label }) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ul>
           </nav>
           {children}
+          <div className="nap-guide-download"><NapDownloadCta location="guide" /></div>
           <NapReadingLinks current={page.path} />
         </article>
       </section>
