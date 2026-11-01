@@ -6,7 +6,7 @@ html.oniki { --nap-background: #fff; --nap-foreground: #1b2b50; --nap-muted: #53
 .oniki .contrast-page :is(a, button, input):focus-visible { outline: 2px solid #1748ad; outline-offset: 5px; }
 .oniki .contrast-page .nap-header { width: min(1160px, 94%); height: 70px; background: transparent; border: 0; }
 .oniki .contrast-page .nap-wordmark { display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; }
-.oniki .nap-wordmark-mark { display: block; width: 22px; height: 25px; margin: 0; object-fit: contain; mask-image: none; background: none; filter: brightness(0); }
+.oniki .nap-wordmark-mark { display: block; width: 20px; height: 23px; margin: 0; object-fit: contain; mask-image: none; background: none; filter: brightness(0); }
 .oniki .contrast-page .nap-header .nap-nav { gap: 23px; }
 .oniki .contrast-page .nap-header .nap-docs { font: 450 13px var(--font-geist), sans-serif; color: #4a5e82 !important; }
 .oniki .contrast-page .nap-header .nap-docs:hover { color: #173c8b !important; }
