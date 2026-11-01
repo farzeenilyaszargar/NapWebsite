@@ -12,7 +12,7 @@ export const site = {
   title: pageTitle("The Interface For All Your Agents"),
   description: "Nap is a native AI coding app for Mac. Bring your coding agents into one workspace to open projects, chat with agents, and review code changes.",
   image: "/opengraph-image",
-  logo: "/nap-icon-256-625b4c17.png",
+  logo: "/nap-ghost-icon-256.png",
 };
 
 export const pages = {
