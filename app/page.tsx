@@ -24,6 +24,14 @@ export default function Home() {
       <NapHeader />
 
       <section className={styles.intro} aria-labelledby="nap-title">
+        <div className={styles.onboard}>
+          <span>Onboard Your Agents</span>
+          <ul aria-label="Supported agents">
+            <li><img src="/codex-logo-3366e2d2.webp" alt="Codex" width={16} height={16} /></li>
+            <li><img src="/claude-code-logo-5a6c64a5.webp" alt="Claude Code" width={16} height={16} /></li>
+            <li><img src="/cursor-logo-8bc30dd7.webp" alt="Cursor" width={16} height={16} /></li>
+          </ul>
+        </div>
         <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app.</h1>
         <NapDownloadCta location="hero" />
       </section>
@@ -32,15 +40,6 @@ export default function Home() {
         <NapDreamImage scene="botanical" className={styles.workspaceArt} eager sizes="(max-width: 1280px) 94vw, 1160px" />
         <NapProductImage eager alt="Nap for Mac, with project spaces, an agent conversation, code review, and a terminal in one native workspace." sizes="(max-width: 700px) 86vw, (max-width: 1280px) 83vw, 1040px" />
       </figure>
-
-      <section className={styles.onboard} aria-label="Onboard your agents">
-        <span>Onboard Your Agents</span>
-        <ul aria-label="Supported agents">
-          <li><img src="/codex-logo-3366e2d2.webp" alt="Codex" width={25} height={25} /><span aria-hidden="true">Codex</span></li>
-          <li><img src="/claude-code-logo-5a6c64a5.webp" alt="Claude Code" width={25} height={25} /><span aria-hidden="true">Claude Code</span></li>
-          <li><img src="/cursor-logo-8bc30dd7.webp" alt="Cursor" width={25} height={25} /><span aria-hidden="true">Cursor</span></li>
-        </ul>
-      </section>
 
       <section className={styles.features} id="features" aria-label="Inside Nap">
         {features.map(({ name, icon: Icon, title, description, alt }) => (
