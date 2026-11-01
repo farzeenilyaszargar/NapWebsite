@@ -10,7 +10,7 @@ html.oniki { --nap-background: #fff; --nap-foreground: #1b2b50; --nap-muted: #53
 .oniki .contrast-page .nap-header .nap-nav { gap: 23px; }
 .oniki .contrast-page .nap-header .nap-docs { font: 450 13px var(--font-geist), sans-serif; color: #4a5e82 !important; }
 .oniki .contrast-page .nap-header .nap-docs:hover { color: #173c8b !important; }
-.oniki .contrast-page .nap-mac-download { display: inline-flex; justify-content: center; align-items: center; gap: 11px; min-height: 39px; padding: 9px 14px; border: 1px solid #111; border-radius: 12px; color: #fff; background: #111; font: 500 13px var(--font-geist), sans-serif; line-height: 1.5; white-space: nowrap; transition: background .18s ease, border-color .18s ease; }
+.oniki .contrast-page .nap-mac-download { display: inline-flex; justify-content: center; align-items: center; gap: 9px; min-height: 39px; padding: 9px 14px; border: 1px solid #111; border-radius: 12px; color: #fff; background: #111; font: 500 13px var(--font-geist), sans-serif; line-height: 1.5; white-space: nowrap; transition: background .18s ease, border-color .18s ease; }
 .oniki .contrast-page .nap-mac-download:hover { background: #303030; border-color: #303030; }
 .oniki .nap-mac-download img { display: block; flex-shrink: 0; align-self: center; width: 11px; height: 14px; object-fit: contain; filter: invert(1); transform: translateY(-2px); }
 .oniki .contrast-page .nap-mac-download-light { background: #fff; border-color: #fff; color: #1b2b50; }
