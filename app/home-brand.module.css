@@ -13,8 +13,9 @@
 .onboard img { display: block; object-fit: contain; width: 16px; height: 16px; }
 .workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 0 54px 46px; overflow: hidden; border-radius: 8px; background: #1c55a0; }
 .workspaceArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; object-position: center; filter: blur(4px); }
-.workspace > picture { display: block; position: relative; margin: 0; padding: 0; overflow: hidden; border-radius: 6px; box-shadow: 0 16px 50px #07142750; }
-.workspace > picture img { display: block; width: 100%; height: auto; filter: none; }
+.workspace > picture { display: block; position: relative; margin: 0; padding: 0; overflow: hidden; border-radius: 6px; }
+/* Crop the source screenshot's transparent strip above the app window. */
+.workspace > picture img { display: block; width: 100%; height: auto; margin-top: -2%; filter: none; }
 .features { width: min(1160px, 94%); margin: 0 auto; padding: 64px 0 68px; display: grid; gap: 28px; }
 .feature { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.45fr); align-items: center; gap: 40px; min-height: 390px; }
 .featureCopy { min-width: 0; padding: 22px 8px 22px 24px; }
