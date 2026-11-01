@@ -1,20 +1,13 @@
 import Link from "next/link";
 import NapGuide from "../../components/nap-guide";
-import NapProductImage from "../../components/nap-product-image";
+import NapArticleScreenshot from "../../components/nap-article-screenshot";
 import { pages, pageMetadata } from "../../lib/seo";
 
 export const metadata = pageMetadata(pages.ade, true);
 
-const contents = [
-  { id: "what-is-nap", label: "What Nap is" },
-  { id: "ade-vs-ide", label: "ADE versus IDE" },
-  { id: "evaluate-nap", label: "Evaluate the workflow" },
-  { id: "early-access", label: "Get early access" },
-];
-
 export default function NapAdePost() {
   return (
-    <NapGuide page={pages.ade} contents={contents}>
+    <NapGuide page={pages.ade}>
       <p>An agentic development environment, often shortened to ADE, is a workspace built around delegating coding tasks to agents and reviewing their work. The term is used in different ways. Here, it means keeping the project, conversation, commands, and resulting changes close enough that a developer can follow the whole task.</p>
       <p>Nap is a native Mac app being built around that workflow. It brings coding agents into one interface rather than asking you to treat every conversation as a separate place to work.</p>
 
@@ -22,10 +15,7 @@ export default function NapAdePost() {
       <p>Nap is the app around the coding workflow. The agent you choose supplies the coding behaviour; Nap provides the surrounding workspace. The agent choices currently shown on the Nap website are Claude Code, Codex, and Cursor.</p>
       <p>That distinction matters when evaluating an ADE. A convenient interface does not make an agent infallible, remove provider limits, or guarantee that generated code is correct. You still need to understand what access the selected agent has and review what it does.</p>
 
-      <figure className="nap-article-image">
-        <NapProductImage sizes="(max-width: 756px) 90vw, 680px" alt="Nap app showing project navigation, an agent conversation, code changes, and a terminal in one Mac workspace." />
-        <figcaption>The Nap workspace: project context, conversation, and the work to review.</figcaption>
-      </figure>
+      <NapArticleScreenshot detail="conversation" />
 
       <h2>What belongs in an agentic development environment?</h2>
       <p>Start with project context. Before giving an agent a task, you should know which repository and working directory it will use. A convincing answer about the wrong checkout is still the wrong answer.</p>

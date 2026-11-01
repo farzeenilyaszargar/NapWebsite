@@ -1,19 +1,13 @@
 import Link from "next/link";
 import NapGuide from "../../components/nap-guide";
+import NapArticleScreenshot from "../../components/nap-article-screenshot";
 import { pages, pageMetadata } from "../../lib/seo";
 
 export const metadata = pageMetadata(pages.parallel, true);
 
-const contents = [
-  { id: "task-ownership", label: "Divide tasks" },
-  { id: "worktree-isolation", label: "Isolate worktrees" },
-  { id: "review-and-integration", label: "Review and integrate" },
-  { id: "nap-parallel-agents", label: "Where Nap fits" },
-];
-
 export default function ParallelCodingAgentsPost() {
   return (
-    <NapGuide page={pages.parallel} contents={contents}>
+    <NapGuide page={pages.parallel}>
       <p>Parallel coding agents are separate agent sessions working on independent parts of a project at the same time. The useful part is not the number of agents. It is whether their work can be understood, tested, and combined without one session undoing another.</p>
       <p>Start with two bounded tasks, separate working directories, and one person responsible for integration. This guide describes a general Git-based workflow, then explains where Nap fits as an interface for working with coding agents.</p>
 
@@ -26,6 +20,8 @@ export default function ParallelCodingAgentsPost() {
       <p>Consider a settings screen that needs a new notification preference. Before delegating implementation, agree on the preference name, allowed values, and save behaviour. Otherwise the UI agent and the API agent may build different versions of the feature.</p>
       <p>A reasonable split is a UI task that uses the agreed interface, a persistence task that implements it, and a read-only review of the expected failure cases. If the interface is still undecided, resolve that first or keep the work sequential.</p>
       <p>Give each implementation task an owner, a list of files it may change, acceptance checks, and a stopping condition. Ask it to report unexpected dependencies instead of expanding its scope silently. Shared configuration and dependency lockfiles deserve an explicit owner.</p>
+
+      <NapArticleScreenshot detail="parallel" />
 
       <h2 id="worktree-isolation">Use Git worktrees to separate checkouts</h2>
       <p>Git worktrees let one repository have multiple working trees, with each task using its own branch and directory. From a repository with no uncommitted work you need to preserve in the task checkout, you can create a task branch with <code>git worktree add ../nap-ui -b task/ui</code>. Create a second task with a different directory and branch name.</p>

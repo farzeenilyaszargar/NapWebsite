@@ -142,7 +142,7 @@ function webPageSchema(page: Page, type = "WebPage") {
 }
 
 function softwareSchema() {
-  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", applicationSubCategory: "AI coding agent workspace", operatingSystem: "macOS", description: site.description, disambiguatingDescription: "Nap at nap.cx is a native Mac workspace for AI coding agents, project conversations, and code review.", image: absolute(site.image), screenshot: absolute("/nap-agent-workspace-5306-059ac310.webp"), downloadUrl: macDownloadUrl, publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"], potentialAction: { "@type": "DownloadAction", name: "Download Nap for macOS", target: macDownloadUrl } };
+  return { "@type": "SoftwareApplication", "@id": `${site.url}/#app`, name: site.name, alternateName: site.alternateName, url: site.url, applicationCategory: "DeveloperApplication", applicationSubCategory: "AI coding agent workspace", operatingSystem: "macOS", description: site.description, disambiguatingDescription: "Nap at nap.cx is a native Mac workspace for AI coding agents, project conversations, and code review.", image: absolute(site.image), screenshot: absolute("/nap-task-workspace-5183.webp"), downloadUrl: macDownloadUrl, publisher: { "@id": organizationId }, featureList: ["Native coding agent interface", "Project conversations", "Agent selection", "Code change review"], potentialAction: { "@type": "DownloadAction", name: "Download Nap for macOS", target: macDownloadUrl } };
 }
 
 export function homeSchema() {

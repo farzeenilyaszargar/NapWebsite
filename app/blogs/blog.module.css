@@ -17,11 +17,6 @@
 .guide :global(.nap-blog-article h2) { color: #1b2b50; font-size: 23px; line-height: 1.35; letter-spacing: 0; }
 .guide :global(.nap-blog-article p) { font-size: 15px; line-height: 1.85; color: #536580; }
 .byline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 10px; color: #687893; }
-.contents { margin: 28px 0 32px; padding: 18px 0; border-block: 1px solid #e3e7ed; }
-.contents > span { font-size: 10px; font-weight: 500; color: #536580; }
-.contents ul { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 12px 0 0; padding: 0; list-style: none; }
-.contents a { font-size: 11px; color: #536580; text-underline-offset: 4px; }
-.contents a:hover { text-decoration: underline; color: #1b2b50; }
 .guide :global(.nap-blog-article h2[id]) { scroll-margin-top: 24px; }
 @media (max-width: 700px) {
   .indexPage:global(.contrast-page.nap-article-page) > :global(.nap-hero) { width: 88%; padding: 45px 0 60px; }

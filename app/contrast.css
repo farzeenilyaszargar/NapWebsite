@@ -65,6 +65,7 @@
 .nap-blog-row p { grid-column: 2; color: var(--nap-muted); font-size: 13px; line-height: 1.8; }
 .nap-blog-row:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .nap-article-image { width: 100%; margin: 32px 0; }
+.nap-article-sidebar { max-width: 400px; margin-inline: auto; }
 .nap-article-image > picture { display: block; }
 .nap-article-image img { width: 100%; height: auto; display: block; border: 1px solid var(--nap-border); border-radius: 3px; }
 .nap-article-image figcaption { margin-top: 12px; font-size: 11px; line-height: 1.8; color: var(--nap-subtle); text-align: center; }

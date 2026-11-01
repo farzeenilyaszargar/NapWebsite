@@ -73,6 +73,8 @@ for (const [file, path, title] of routes) {
   }
   if (path.startsWith("/blogs/")) {
     const article = entities.find((entity) => entity["@type"] === "BlogPosting");
+    assert.ok(!html.includes("On this page"), `${path}: article contents navigation is removed`);
+    assert.ok(/src="\/nap-blog-(parallel|conversation|queue)\.webp"/.test(html), `${path}: contextual app screenshot is present`);
     const heading = decode(html.match(/<h1\b[^>]*>(.*?)<\/h1>/s)[1].replace(/<[^>]*>/g, ""));
     assert.equal(article.headline, heading, `${path}: schema matches the visible article title`);
     assert.ok(article.image.url.startsWith(origin));

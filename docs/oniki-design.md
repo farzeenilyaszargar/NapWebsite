@@ -26,7 +26,7 @@ Metadata, software schema, guide content, and primary actions all describe the s
 
 ## Assets
 
-- App screenshots: existing responsive `nap-agent-workspace-*` WebPs, with real project/conversation/review crops in feature panels. Screenshot text is product imagery, not a live UI or an independently verified performance claim.
+- App screenshots: responsive `nap-task-workspace-*` WebPs from the supplied task/queue screenshot, with contextual sidebar, conversation, and queue crops inside blog articles. Screenshot text is product imagery, not a live UI or an independently verified performance claim.
 - Ghost: the user-supplied Group 595 source from the existing `potato` assets, copied unchanged into this branch and rendered black with CSS.
 - Botanical backdrop: original generated vintage-film flower photograph with orange flowers, ivory petals, dark foliage, cobalt sky, warm light leak, shallow focus, and print grain. Saved as `public/nap-dream-botanical-{720,1536}-*.webp`. Used behind the hero and two feature crops; CSS blur is decorative only.
 - Alpine footer: original generated panorama of an alpine lake, left-side village, evergreen slopes, coral alpenglow, cobalt water, and warm reflected windows. A second image-generation edit retained that composition while using Keiki's footer only as a palette/texture reference. No competitor image is shipped. Saved as `public/nap-dream-alpine-{720,1448,2172}-*.webp`; the full scene appears in the footer and a blurred detail behind one feature.

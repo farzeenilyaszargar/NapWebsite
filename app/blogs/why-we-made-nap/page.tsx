@@ -1,20 +1,13 @@
 import Link from "next/link";
 import NapGuide from "../../components/nap-guide";
+import NapArticleScreenshot from "../../components/nap-article-screenshot";
 import { pages, pageMetadata } from "../../lib/seo";
 
 export const metadata = pageMetadata(pages.vision, true);
 
-const contents = [
-  { id: "why", label: "Why Nap exists" },
-  { id: "workspace", label: "A better place to work" },
-  { id: "cloud", label: "Looking toward the cloud" },
-  { id: "control", label: "Keeping you in control" },
-  { id: "next", label: "What comes next" },
-];
-
 export default function WhyWeMadeNap() {
   return (
-    <NapGuide page={pages.vision} contents={contents}>
+    <NapGuide page={pages.vision}>
       <p>We made Nap because working with coding agents should feel less scattered. The agents have become remarkably useful. The experience around them still asks you to keep track of too much: which conversation belongs to which project, what changed, and where you left off.</p>
       <p>Our starting point is simple: your coding agents, all together. Nap brings Claude Code, Codex, and Cursor into one native Mac app. It is a home for the work around an agent, not an attempt to replace every agent with one of our own.</p>
 
@@ -26,6 +19,8 @@ export default function WhyWeMadeNap() {
       <p>Different agents fit different people and different tasks. You might prefer one for exploring a codebase and another for a focused implementation. Choosing an interface should not mean giving up that choice. Nap starts with the agents you already use and brings project conversations and code review closer together.</p>
       <p>We care about the everyday details: finding the right project, returning to a conversation, and seeing what actually changed. Those moments are less spectacular than a benchmark, but they determine whether an app feels good after the first afternoon. A native Mac interface gives us a clear place to focus on them.</p>
       <p>That is also why we talk about review. More generated code is not automatically better work. An interface should help you inspect the result and make a decision, rather than encourage you to approve something simply because it appeared quickly.</p>
+
+      <NapArticleScreenshot detail="queue" />
 
       <h2 id="cloud">The longer vision: work that can continue beyond one machine.</h2>
       <p>Looking ahead, we are interested in what Nap could become with cloud workspaces. Imagine starting a bounded task on your Mac, letting it continue in an isolated remote environment, and returning to a clear account of what happened. The appeal is continuity: less setup to repeat, less context to reconstruct, and a consistent place to review the result.</p>
