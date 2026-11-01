@@ -11,7 +11,7 @@
 .onboard ul { display: flex; align-items: center; gap: 8px; padding: 0; margin: 0; list-style: none; }
 .onboard li { display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; }
 .onboard img { display: block; object-fit: contain; width: 16px; height: 16px; }
-.workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 0 54px 46px; overflow: hidden; border-radius: 8px; background: #1c55a0; }
+.workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 46px 54px; overflow: hidden; border-radius: 8px; background: #1c55a0; }
 .workspaceArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; object-position: center; filter: blur(4px); }
 .workspace > picture { display: block; position: relative; margin: 0; padding: 0; overflow: hidden; border-radius: 6px; }
 /* Crop the source screenshot's transparent strip above the app window. */
@@ -44,7 +44,7 @@
 .closingFooter :global(.nap-footer-social:focus-visible) { outline-color: #fff; }
 .closing h2 { margin: 0 0 22px; color: #fff; font-size: 55px; line-height: 1.08; font-weight: 500; letter-spacing: 0; }
 @media (max-width: 1000px) {
-  .workspace { padding: 0 35px 35px; }
+  .workspace { padding: 35px; }
   .intro { width: min(620px, 88%); padding-top: 65px; }
   .intro h1 { font-size: 24px; }
   .feature { gap: 28px; min-height: 330px; }
@@ -55,7 +55,7 @@
   .conversation .featureCopy { padding-right: 10px; }
 }
 @media (max-width: 700px) {
-  .workspace { padding: 0 18px 22px; }
+  .workspace { padding: 22px 18px; }
   .intro { width: 88%; padding: 50px 0 35px; text-align: left; }
   .intro h1 { font-size: 20px; line-height: 1.4; text-align: left; }
   .heroActions { justify-content: flex-start; }
