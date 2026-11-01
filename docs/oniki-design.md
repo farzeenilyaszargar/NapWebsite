@@ -20,7 +20,7 @@ https://github.com/farzeenilyaszargar/NotNap/releases/latest/download/NotNap-mac
 
 Verification: the GitHub latest-release API lists `v0.0.4-notnap.3` and its `NotNap-macos.dmg` asset. A HEAD request following redirects reaches HTTP 200 with an attachment header, 16,016,277 bytes. No installer is executed or mounted during website verification. The stable download URL retains the legacy file/repository name. No code-signing, notarization, minimum OS, pricing, automatic-update, or performance guarantee is invented.
 
-Navigation uses Blogs. The index shares the homepage's original photography, Geist typography, navy palette, and restrained spacing. Article pages omit the All guides link. Why We Made This App replaces the download article; the old URL permanently redirects to it and is absent from internal links and the sitemap. Cloud workspaces, remote continuity, and collaboration are explicitly described as aspirations, not available capabilities or commitments.
+Navigation uses Blogs. The index is a clean single-column text list without cover images, sharing the homepage's Geist typography, navy palette, and restrained spacing. Article pages omit the All guides link. Why We Made This App replaces the download article; the old URL permanently redirects to it and is absent from internal links and the sitemap. Cloud workspaces, remote continuity, and collaboration are explicitly described as aspirations, not available capabilities or commitments.
 
 Metadata, software schema, guide content, and primary actions all describe the same public Mac download. The previous signup form remains an updates list; its API, duplicate handling, server credentials, and Supabase table are unchanged.
 

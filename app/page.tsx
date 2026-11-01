@@ -1,4 +1,4 @@
-import { FolderOpen, MessagesSquare, GitCompareArrows } from "lucide-react";
+import { FolderOpen, MessagesSquare, GitCompareArrows, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
@@ -36,13 +36,13 @@ export default function Home() {
         <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app.</h1>
         <div className={styles.heroActions}>
           <NapDownloadCta location="hero" />
-          <Link className={styles.waitlistLink} href={pages.waitlist.path}>Join the waitlist</Link>
+          <Link className={styles.waitlistLink} href={pages.waitlist.path}><span>Join the waitlist</span><ArrowRight size={13} strokeWidth={1.5} aria-hidden="true" /></Link>
         </div>
       </section>
 
       <figure className={styles.workspace} id="workspace">
         <NapDreamImage scene="botanical" className={styles.workspaceArt} eager sizes="(max-width: 1280px) 94vw, 1160px" />
-        <NapProductImage eager alt="Nap for Mac, with project spaces, an agent conversation, code review, and a terminal in one native workspace." sizes="(max-width: 700px) 86vw, (max-width: 1280px) 83vw, 1040px" />
+        <NapProductImage eager alt="Nap for Mac, with project spaces, an agent conversation, code review, and a terminal in one native workspace." sizes="(max-width: 1280px) 94vw, 1160px" />
       </figure>
 
       <section className={styles.features} id="features" aria-label="Inside Nap">

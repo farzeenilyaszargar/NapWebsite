@@ -3,8 +3,6 @@ import StructuredData from "../components/structured-data";
 import { pages, pageMetadata, blogSchema, blogPosts } from "../lib/seo";
 import Link from "next/link";
 import NapHeader from "../components/nap-header";
-import NapDreamImage from "../components/nap-dream-image";
-import NapProductImage from "../components/nap-product-image";
 import { ArrowUpRight } from "lucide-react";
 import "../contrast.css";
 import styles from "./blog.module.css";
@@ -26,15 +24,12 @@ export default function BlogsPage() {
           {blogPosts.map((post) => (
             <article className={styles.post} key={post.path}>
               <Link className={styles.postLink} href={post.path}>
-                <div className={`${styles.postImage} ${post.path === pages.ade.path ? styles.productImage : ""}`}>
-                  {post.path === pages.ade.path ? <NapProductImage alt="Nap's native workspace with an agent conversation and code review." sizes="(max-width: 700px) 90vw, 370px" /> : <NapDreamImage scene={post.path === pages.vision.path ? "alpine" : "botanical"} sizes="(max-width: 700px) 90vw, 370px" />}
-                </div>
                 <div className={styles.postCopy}>
-                  <div className={styles.meta}><span>{post.category}</span><span>{post.readingMinutes} min read</span></div>
+                  <div className={styles.meta}><time dateTime={post.published}>{new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" }).format(new Date(post.published))}</time><span>{post.readingMinutes} min read</span></div>
                   <h2>{post.headline}</h2>
                   <p>{post.description}</p>
-                  <div className={styles.postEnd}><time dateTime={post.published}>{new Intl.DateTimeFormat("en-US", { dateStyle: "medium", timeZone: "UTC" }).format(new Date(post.published))}</time><ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" /></div>
                 </div>
+                <ArrowUpRight className={styles.postArrow} size={17} strokeWidth={1.5} aria-hidden="true" />
               </Link>
             </article>
           ))}

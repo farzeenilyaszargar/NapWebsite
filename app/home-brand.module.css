@@ -3,16 +3,17 @@
 .intro h1 { margin: 0 0 25px; color: #50617d; font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
 .intro h1 strong { color: #1a2c53; font-weight: 600; }
 .heroActions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
-.waitlistLink { display: inline-flex; align-items: center; min-height: 39px; color: #536580; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+.waitlistLink { display: inline-flex; align-items: center; gap: 6px; min-height: 39px; color: #536580; font-size: 11px; text-decoration: none; }
+.waitlistLink:hover span, .waitlistLink:focus-visible span { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .waitlistLink:hover { color: #1b2b50; }
 .onboard { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; margin: 0 0 24px; padding: 6px 12px; border: 1px solid #e6e8ed; border-radius: 999px; background: transparent; }
 .onboard > span { font-size: 10px; line-height: 16px; font-weight: 450; color: #65718a; white-space: nowrap; }
 .onboard ul { display: flex; align-items: center; gap: 8px; padding: 0; margin: 0; list-style: none; }
 .onboard li { display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; }
 .onboard img { display: block; object-fit: contain; width: 16px; height: 16px; }
-.workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 46px 54px; overflow: hidden; border-radius: 8px; background: #1c55a0; }
+.workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 0; overflow: hidden; border-radius: 8px; background: #1c55a0; }
 .workspaceArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; object-position: center; filter: blur(4px); }
-.workspace > picture { display: block; position: relative; overflow: hidden; border-radius: 6px; box-shadow: 0 16px 50px #07142750; }
+.workspace > picture { display: block; position: relative; margin: 0; padding: 0; overflow: hidden; border-radius: 6px; box-shadow: 0 16px 50px #07142750; }
 .workspace > picture img { display: block; width: 100%; height: auto; filter: none; }
 .features { width: min(1160px, 94%); margin: 0 auto; padding: 64px 0 68px; display: grid; gap: 28px; }
 .feature { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.45fr); align-items: center; gap: 40px; min-height: 390px; }
@@ -44,7 +45,6 @@
 @media (max-width: 1000px) {
   .intro { width: min(620px, 88%); padding-top: 65px; }
   .intro h1 { font-size: 24px; }
-  .workspace { padding: 35px; }
   .feature { gap: 28px; min-height: 330px; }
   .featureCopy { padding-left: 10px; }
   .featureCopy h2 { font-size: 23px; }
@@ -56,7 +56,6 @@
   .intro { width: 88%; padding: 50px 0 35px; }
   .intro h1 { font-size: 20px; line-height: 1.4; }
   .onboard { margin-bottom: 20px; }
-  .workspace { padding: 22px 18px; }
   .workspace > picture { border-radius: 5px; }
   .features { padding: 40px 0 48px; gap: 36px; }
   .feature, .conversation { display: flex; flex-direction: column; align-items: stretch; gap: 20px; min-height: 0; }
