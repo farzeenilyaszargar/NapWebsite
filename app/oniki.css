@@ -12,12 +12,12 @@ html.oniki { --nap-background: #fff; --nap-foreground: #1b2b50; --nap-muted: #53
 .oniki .contrast-page .nap-header .nap-docs:hover { color: #173c8b !important; }
 .oniki .contrast-page .nap-mac-download { display: inline-flex; justify-content: center; align-items: center; gap: 11px; min-height: 39px; padding: 9px 14px; border: 1px solid #111; border-radius: 12px; color: #fff; background: #111; font: 500 13px var(--font-geist), sans-serif; line-height: 1.5; white-space: nowrap; transition: background .18s ease, border-color .18s ease; }
 .oniki .contrast-page .nap-mac-download:hover { background: #303030; border-color: #303030; }
-.oniki .nap-mac-download img { display: block; flex-shrink: 0; align-self: center; width: 13px; height: 16px; object-fit: contain; filter: invert(1); transform: translateY(-1px); }
+.oniki .nap-mac-download img { display: block; flex-shrink: 0; align-self: center; width: 11px; height: 14px; object-fit: contain; filter: invert(1); transform: translateY(-2px); }
 .oniki .contrast-page .nap-mac-download-light { background: #fff; border-color: #fff; color: #1b2b50; }
 .oniki .contrast-page .nap-mac-download-light:hover { background: #eaf0fb; border-color: #eaf0fb; }
 .oniki .nap-mac-download-light img { filter: none; }
 .oniki .contrast-page .nap-nav-download { min-height: 33px; padding: 6px 12px; font-size: 12px; gap: 9px; }
-.oniki .nap-nav-download img { width: 11px; height: 14px; }
+.oniki .nap-nav-download img { width: 9px; height: 12px; }
 .oniki .contrast-page .nap-site-footer { width: min(1160px, 94%); margin: auto auto 0; padding: 21px 0 23px; border: 0; }
 .oniki .contrast-page .nap-site-footer .nap-footer-copyright { color: #596b87; font: 400 11px var(--font-geist), sans-serif; letter-spacing: 0; }
 .oniki .contrast-page .nap-site-footer .nap-footer-social { color: #4d6182; font-size: 11px; font-weight: 400; min-height: 32px; }
