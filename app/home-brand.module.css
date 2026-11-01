@@ -1,12 +1,12 @@
 .page { overflow: clip; }
-.intro { width: min(650px, 88%); margin: 0 auto; padding: 55px 0 45px; text-align: center; }
-.intro h1 { margin: 0; color: #50617d; font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
+.intro { width: min(650px, 88%); margin: 0 auto; padding: 75px 0 45px; text-align: center; }
+.intro h1 { margin: 0 0 25px; color: #50617d; font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
 .intro h1 strong { color: #1a2c53; font-weight: 600; }
-.onboard { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px; margin: 25px 0 21px; }
-.onboard > span { font-size: 12px; font-weight: 450; color: #53617b; }
-.onboard ul { display: flex; align-items: center; gap: 13px; padding: 0; margin: 0; list-style: none; }
-.onboard li { display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; }
-.onboard img { display: block; object-fit: contain; width: 21px; height: 21px; }
+.onboard { display: inline-flex; justify-content: center; align-items: center; gap: 10px; max-width: 100%; margin: 0 0 22px; padding: 7px 12px; border: 1px solid #e3e7ed; border-radius: 999px; background: #f8f9fc; }
+.onboard > span { font-size: 10px; font-weight: 450; color: #53617b; white-space: nowrap; }
+.onboard ul { display: flex; align-items: center; gap: 9px; padding: 0; margin: 0; list-style: none; }
+.onboard li { display: flex; align-items: center; justify-content: center; width: 17px; height: 17px; }
+.onboard img { display: block; object-fit: contain; width: 16px; height: 16px; }
 .workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 46px 54px; overflow: hidden; border-radius: 8px; background: #1c55a0; }
 .workspaceArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; object-position: center; filter: blur(4px); }
 .workspace > picture { display: block; position: relative; overflow: hidden; border-radius: 6px; box-shadow: 0 16px 50px #07142750; }
@@ -39,7 +39,7 @@
 .closingFooter :global(.nap-footer-social:focus-visible) { outline-color: #fff; }
 .closing h2 { margin: 0 0 22px; color: #fff; font-size: 55px; line-height: 1.08; font-weight: 500; letter-spacing: 0; }
 @media (max-width: 1000px) {
-  .intro { width: min(620px, 88%); padding-top: 45px; }
+  .intro { width: min(620px, 88%); padding-top: 65px; }
   .intro h1 { font-size: 24px; }
   .workspace { padding: 35px; }
   .feature { gap: 28px; min-height: 330px; }
@@ -50,13 +50,10 @@
   .conversation .featureCopy { padding-right: 10px; }
 }
 @media (max-width: 700px) {
-  .intro { width: 88%; padding: 35px 0 35px; }
+  .intro { width: 88%; padding: 50px 0 35px; }
   .intro h1 { font-size: 20px; line-height: 1.4; }
-  .onboard { gap: 12px; margin: 22px 0 20px; }
-  .onboard > span { font-size: 11px; }
-  .onboard ul { gap: 12px; }
-  .onboard li { width: 21px; height: 21px; }
-  .onboard img { width: 20px; height: 20px; }
+  .onboard { gap: 9px; margin: 0 0 20px; }
+  .onboard ul { gap: 8px; }
   .workspace { padding: 22px 18px; }
   .workspace > picture { border-radius: 5px; }
   .features { padding: 40px 0 48px; gap: 36px; }
@@ -73,4 +70,4 @@
   .closingCopy { padding: 76px 0; }
   .closing h2 { font-size: 45px; margin-bottom: 20px; }
 }
-@media (max-width: 360px) { .intro h1 { font-size: 19px; } .onboard { gap: 10px; } .onboard ul { gap: 10px; } .featureCopy h2 { font-size: 21px; } .featureMedia { padding: 20px; height: 260px; } }
+@media (max-width: 360px) { .intro h1 { font-size: 19px; } .featureCopy h2 { font-size: 21px; } .featureMedia { padding: 20px; height: 260px; } }

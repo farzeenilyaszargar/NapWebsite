@@ -24,7 +24,6 @@ export default function Home() {
       <NapHeader />
 
       <section className={styles.intro} aria-labelledby="nap-title">
-        <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app.</h1>
         <div className={styles.onboard}>
           <span>Onboard Your Agents</span>
           <ul aria-label="Supported agents">
@@ -33,6 +32,7 @@ export default function Home() {
             <li><img src="/cursor-logo-8bc30dd7.webp" alt="Cursor" width={25} height={25} /></li>
           </ul>
         </div>
+        <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app.</h1>
         <NapDownloadCta location="hero" />
       </section>
 
