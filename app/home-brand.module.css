@@ -2,11 +2,11 @@
 .intro { width: min(650px, 88%); margin: 0 auto; padding: 75px 0 45px; text-align: center; }
 .intro h1 { margin: 0 0 25px; color: #50617d; font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
 .intro h1 strong { color: #1a2c53; font-weight: 600; }
-.onboard { display: inline-flex; justify-content: center; align-items: center; gap: 10px; max-width: 100%; margin: 0 0 22px; padding: 6px 12px; border: 1px solid #e3e7ed; border-radius: 999px; background: transparent; }
-.onboard > span { font-size: 10px; font-weight: 450; color: #53617b; white-space: nowrap; }
-.onboard ul { display: flex; align-items: center; gap: 9px; padding: 0; margin: 0; list-style: none; }
-.onboard li { display: flex; align-items: center; justify-content: center; width: 17px; height: 17px; }
-.onboard img { display: block; object-fit: contain; width: 16px; height: 16px; }
+.onboard { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 94%; margin: 32px auto 0; }
+.onboard > span { font-size: 11px; font-weight: 450; color: #53617b; }
+.onboard ul { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 30px; padding: 0; margin: 0; list-style: none; }
+.onboard li { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #53617b; white-space: nowrap; }
+.onboard img { display: block; flex-shrink: 0; object-fit: contain; width: 21px; height: 21px; }
 .workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 46px 54px; overflow: hidden; border-radius: 8px; background: #1c55a0; }
 .workspaceArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; object-position: center; filter: blur(4px); }
 .workspace > picture { display: block; position: relative; overflow: hidden; border-radius: 6px; box-shadow: 0 16px 50px #07142750; }
@@ -52,8 +52,10 @@
 @media (max-width: 700px) {
   .intro { width: 88%; padding: 50px 0 35px; }
   .intro h1 { font-size: 20px; line-height: 1.4; }
-  .onboard { gap: 9px; margin: 0 0 20px; }
-  .onboard ul { gap: 8px; }
+  .onboard { gap: 12px; margin-top: 25px; }
+  .onboard ul { gap: 18px; }
+  .onboard li { gap: 6px; font-size: 11px; }
+  .onboard img { width: 18px; height: 18px; }
   .workspace { padding: 22px 18px; }
   .workspace > picture { border-radius: 5px; }
   .features { padding: 40px 0 48px; gap: 36px; }
