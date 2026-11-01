@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
     }));
     return [
       ...legacyHostRedirects,
+      { source: "/blogs/nap-download", destination: "/blogs/why-we-made-nap", permanent: true },
       ...["/blogs/hello-nap", "/blogs/why"].map((source) => ({
         source,
         destination: "/blogs/nap-agentic-development-environment",

@@ -6,7 +6,7 @@ export default function NapHeader({ showDownload = true }: { showDownload?: bool
     <header className="nap-header">
       <Link href="/" className="nap-wordmark" aria-label="Nap home"><span className="nap-wordmark-mark" aria-hidden="true" /></Link>
       <nav className="nap-nav" aria-label="Main navigation">
-        <Link className="nap-docs" href="/blogs">Guides</Link>
+        <Link className="nap-docs" href="/blogs">Blogs</Link>
         {showDownload && <NapDownloadCta compact location="header" />}
       </nav>
     </header>

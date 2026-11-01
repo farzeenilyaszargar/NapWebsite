@@ -22,8 +22,8 @@ export const pages = {
     keywords: ["nap download", "download nap", "nap agents", "nap codes", "nap code download", "nap for mac", "nap macos download", "nap AI coding agents", "AI coding app for Mac", "AI coding workspace", "coding agent interface", "agentic coding", "Claude Code", "Codex", "Cursor"],
   },
   blogs: {
-    path: "/blogs", title: pageTitle("Blog: Coding Agent Guides & Workflows"),
-    description: "Practical Nap guides to parallel coding agents, Git worktrees, agentic development environments, and official Mac app availability. Learn a review-first workflow.",
+    path: "/blogs", title: pageTitle("Blogs"),
+    description: "Ideas, workflows, and the thinking behind Nap. Read about coding agents, the native Mac workspace, and our vision for the future.",
     keywords: ["Nap blog", "AI coding agents", "native Mac app", "coding workspace"],
   },
   parallel: {
@@ -42,13 +42,13 @@ export const pages = {
     keywords: ["Nap ADE", "agentic development environment", "Nap agent", "Nap app", "AI coding workspace for Mac"],
     published: "2026-10-30",
   },
-  download: {
-    category: "Getting started", readingMinutes: 3,
-    headline: "Download Nap for macOS",
-    path: "/blogs/nap-download", title: pageTitle("Download Nap for macOS"),
-    description: "Download Nap for macOS from the official GitHub release. Find installation steps, provider setup, and advice for reviewing coding-agent changes.",
-    keywords: ["Nap download", "download Nap", "Nap app", "Nap for Mac", "Nap early access"],
-    published: "2026-10-30",
+  vision: {
+    category: "From the team", readingMinutes: 5,
+    headline: "Why We Made This App",
+    path: "/blogs/why-we-made-nap", title: pageTitle("Why We Made This App"),
+    description: "Why we are building Nap: a calmer home for coding agents today, and a long-term vision for cloud workspaces, continuity, and more thoughtful collaboration.",
+    keywords: ["Nap app", "why Nap", "Nap coding agents", "cloud coding workspace", "Nap vision"],
+    published: "2026-11-01",
   },
   apply: {
     path: "/apply", title: pageTitle("Apply"),
@@ -63,7 +63,7 @@ export const pages = {
 
 };
 
-export const blogPosts = [pages.parallel, pages.ade, pages.download];
+export const blogPosts = [pages.vision, pages.parallel, pages.ade];
 
 type Page = (typeof pages)[keyof typeof pages];
 const absolute = (path: string) => new URL(path, site.url).toString();

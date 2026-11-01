@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { articleSchema, pages } from "../lib/seo";
 import NapHeader from "./nap-header";
 import NapFooter from "./nap-footer";
@@ -9,7 +8,7 @@ import StructuredData from "./structured-data";
 import "../contrast.css";
 import styles from "../blogs/blog.module.css";
 
-type Guide = typeof pages.parallel | typeof pages.ade | typeof pages.download;
+type Guide = typeof pages.parallel | typeof pages.ade | typeof pages.vision;
 
 export default function NapGuide({ page, contents, children }: { page: Guide; contents: readonly { id: string; label: string }[]; children: ReactNode }) {
   return (
@@ -18,7 +17,6 @@ export default function NapGuide({ page, contents, children }: { page: Guide; co
       <NapHeader />
       <section className="nap-hero">
         <article className="nap-blog-article">
-          <Link className={styles.backLink} href={pages.blogs.path}>&larr; All guides</Link>
           <div className={styles.byline}><span>{page.category}</span><span>By <a href="https://x.com/farilyaz" className="nap-inline-link" target="_blank" rel="noopener noreferrer">@farilyaz</a></span><time dateTime={page.published}>{new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "UTC" }).format(new Date(page.published))}</time><span>{page.readingMinutes} min read</span></div>
           <h1>{page.headline}</h1>
           <nav className={styles.contents} aria-label="On this page">

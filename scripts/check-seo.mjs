@@ -9,10 +9,10 @@ const origin = "https://www.nap.cx";
 const preview = !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
 const routes = [
   ["index", "/", "Nap | The Interface For All Your Agents"],
-  ["blogs", "/blogs", "Nap | Blog: Coding Agent Guides & Workflows"],
+  ["blogs", "/blogs", "Nap | Blogs"],
   ["blogs/parallel-coding-agents", "/blogs/parallel-coding-agents", "Nap | Parallel Coding Agents: A Practical Workflow Guide"],
   ["blogs/nap-agentic-development-environment", "/blogs/nap-agentic-development-environment", "Nap | Agentic Development Environment for Mac"],
-  ["blogs/nap-download", "/blogs/nap-download", "Nap | Download Nap for macOS"],
+  ["blogs/why-we-made-nap", "/blogs/why-we-made-nap", "Nap | Why We Made This App"],
   ["waitlist", "/waitlist", "Nap | Waitlist"],
   ["apply", "/apply", "Nap | Apply"],
 ];
@@ -29,6 +29,8 @@ for (const [file, path, title] of routes) {
     .map((href) => new URL(href, origin + path))
     .filter((url) => url.origin === origin).map((url) => url.pathname);
   linkGraph.set(path, internal);
+  assert.ok(!internal.includes("/blogs/nap-download"), `${path}: retired download article is not linked`);
+  assert.ok(!html.includes("All guides"), `${path}: retired article back link is absent`);
   const anchorTargets = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
   for (const [, target] of html.matchAll(/href="#([^"]+)"/g)) {
     assert.ok(anchorTargets.has(target), `${path}: jump link #${target} has a target`);

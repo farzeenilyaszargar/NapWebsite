@@ -11,7 +11,7 @@ const scenes = {
   },
 } as const;
 
-export default function NapDreamImage({ scene, className, eager = false, sizes = "100vw" }: { scene: keyof typeof scenes; className: string; eager?: boolean; sizes?: string }) {
+export default function NapDreamImage({ scene, className, eager = false, sizes = "100vw" }: { scene: keyof typeof scenes; className?: string; eager?: boolean; sizes?: string }) {
   const asset = scenes[scene];
   return <img className={className} src={asset.src} srcSet={asset.srcSet} sizes={sizes} width={asset.width} height={asset.height} alt="" loading={eager ? "eager" : "lazy"} decoding="async" />;
 }
