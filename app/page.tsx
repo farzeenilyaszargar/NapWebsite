@@ -42,7 +42,7 @@ export default function Home() {
 
       <figure className={styles.workspace} id="workspace">
         <NapDreamImage scene="botanical" className={styles.workspaceArt} eager sizes="(max-width: 1280px) 94vw, 1160px" />
-        <NapProductImage eager alt="Nap for Mac, with project spaces, an agent conversation, code review, and a terminal in one native workspace." sizes="(max-width: 1280px) 94vw, 1160px" />
+        <NapProductImage eager alt="Nap for Mac, with project spaces, an agent conversation, code review, and a terminal in one native workspace." sizes="(max-width: 700px) 86vw, (max-width: 1280px) 83vw, 1040px" />
       </figure>
 
       <section className={styles.features} id="features" aria-label="Inside Nap">
