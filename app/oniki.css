@@ -31,6 +31,7 @@ html.oniki { --nap-background: #fff; --nap-foreground: #1b2b50; --nap-muted: #53
 .oniki .contrast-page .nap-waitlist-field input { font-family: var(--font-geist), sans-serif; font-size: 16px; }
 .oniki .contrast-page .nap-waitlist-form-wrap button { border-radius: 12px; font-family: var(--font-geist), sans-serif; }
 @media (max-width: 700px) {
+  .oniki .contrast-page .nap-mac-download { display: none; }
   .oniki .contrast-page .nap-header { height: 66px; }
   .oniki .contrast-page .nap-header .nap-docs { font-size: 12px; }
   .oniki .contrast-page .nap-header .nap-nav-download { display: none; }

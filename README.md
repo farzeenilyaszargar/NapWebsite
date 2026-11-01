@@ -71,4 +71,4 @@ SEO work preserves the approved homepage design. Product information remains in 
 
 ## Mobile layout
 
-Phones and tablets use responsive type, a compact header, and vertically stacked feature panels. The primary download explicitly says macOS on every viewport; it does not claim compatibility with a phone. The header download is hidden on mobile to keep navigation uncluttered. There is no decorative animation runtime on this design; legacy liquid-renderer files/tests remain in the repository but are not mounted by the homepage.
+Phones and tablets use responsive type, a compact header, and vertically stacked feature panels. At 700px and below, all macOS download buttons are hidden; the hero paragraph, agent pill, and waitlist action are left-aligned. The waitlist remains accessible without suggesting the Mac app runs on a phone. Desktop download controls and alignment are unchanged. There is no decorative animation runtime on this design; legacy liquid-renderer files/tests remain in the repository but are not mounted by the homepage.

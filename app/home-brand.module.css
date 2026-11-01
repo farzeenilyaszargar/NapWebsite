@@ -55,8 +55,9 @@
 }
 @media (max-width: 700px) {
   .workspace { padding: 0 18px 22px; }
-  .intro { width: 88%; padding: 50px 0 35px; }
-  .intro h1 { font-size: 20px; line-height: 1.4; }
+  .intro { width: 88%; padding: 50px 0 35px; text-align: left; }
+  .intro h1 { font-size: 20px; line-height: 1.4; text-align: left; }
+  .heroActions { justify-content: flex-start; }
   .onboard { margin-bottom: 20px; }
   .workspace > picture { border-radius: 5px; }
   .features { padding: 40px 0 48px; gap: 36px; }
