@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Temporary PostHog setup artifacts
 .posthog-wizard-cache/
+
+# Local Mac signing-test artifacts (never certificates or installers in Git)
+/tools/macos-signing-test/dist/
