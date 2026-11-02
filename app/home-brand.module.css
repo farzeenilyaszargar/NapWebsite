@@ -67,7 +67,9 @@
   .featureCopy > svg { margin-bottom: 13px; width: 18px; height: 18px; }
   .featureCopy h2 { max-width: 310px; font-size: 22px; }
   .featureCopy p { max-width: 350px; margin-top: 10px; font-size: 13px; line-height: 1.65; }
-  .featureMedia { height: 285px; padding: 24px; }
+  .featureMedia { height: auto; aspect-ratio: 1; padding: 24px; }
+  .featureCrop { position: absolute; inset: 24px; height: auto; }
+  .featureCrop img { object-fit: contain; }
   .projects .featureCrop picture { width: 210%; }
   .conversation .featureCrop picture { width: 185%; left: -43%; }
   .review .featureCrop picture { width: 245%; }
@@ -75,4 +77,4 @@
   .closingCopy { padding: 76px 0; }
   .closing h2 { font-size: 45px; margin-bottom: 20px; }
 }
-@media (max-width: 360px) { .intro h1 { font-size: 19px; } .featureCopy h2 { font-size: 21px; } .featureMedia { padding: 20px; height: 260px; } }
+@media (max-width: 360px) { .intro h1 { font-size: 19px; } .featureCopy h2 { font-size: 21px; } .featureMedia { padding: 20px; } .featureCrop { inset: 20px; } }
