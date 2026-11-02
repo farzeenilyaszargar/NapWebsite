@@ -14,4 +14,10 @@
 }
 body { margin: 0; background: var(--nap-background); color: var(--nap-foreground); }
 html { scroll-behavior: auto; }
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
 ::selection { background: #dedede; color: #111; }
