@@ -9,15 +9,18 @@ const { spawnSync } = require('node:child_process');
 function fixture(t, status) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'nap-release-test-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
-  const dist = path.join(root, 'dist');
+  const dist = path.join(root, 'dist/releases/0.2.0');
   const bin = path.join(root, 'bin');
   fs.mkdirSync(path.join(dist, 'Nap Signing Test.app'), { recursive: true });
   fs.mkdirSync(bin);
   fs.copyFileSync(path.join(__dirname, '../tools/macos-signing-test/release.sh'), path.join(root, 'release.sh'));
+  for (const name of ['config.sh', 'release-config.json']) {
+    fs.copyFileSync(path.join(__dirname, '../tools/macos-signing-test', name), path.join(root, name));
+  }
   for (const stage of ['app', 'dmg']) {
     fs.writeFileSync(path.join(dist, `${stage}-notarization.json`), JSON.stringify({ id: `${stage}-saved-id`, status }));
   }
-  fs.writeFileSync(path.join(dist, 'Nap-Signing-Test-0.1.0.dmg'), 'test artifact, not a real installer');
+  fs.writeFileSync(path.join(dist, 'Nap-Signing-Test-0.2.0.dmg'), 'test artifact, not a real installer');
   const log = path.join(root, 'calls.jsonl');
   const helper = path.join(bin, 'mock.cjs');
   fs.writeFileSync(helper, `#!/usr/bin/env node
@@ -47,7 +50,7 @@ test('resume preserves a pending submission without rebuilding or uploading agai
   assert.equal(JSON.parse(fs.readFileSync(path.join(dist, 'app-notarization.json'))).id, 'app-saved-id');
   assert.ok(calls.some(c => c.name === 'xcrun' && c.args[1] === 'wait' && c.args.includes('app-saved-id')));
   assert.ok(!calls.some(c => c.args.includes('submit') || c.args.includes('--force')));
-  assert.ok(!fs.existsSync(path.join(dist, 'Nap-Signing-Test-0.1.0.dmg.sha256')));
+  assert.ok(!fs.existsSync(path.join(dist, 'Nap-Signing-Test-0.2.0.dmg.sha256')));
 });
 
 test('resume of accepted submissions verifies and staples both artifacts before checksum', { skip: process.platform !== 'darwin' }, t => {
@@ -57,7 +60,7 @@ test('resume of accepted submissions verifies and staples both artifacts before 
   assert.equal(calls.filter(c => c.name === 'xcrun' && c.args[0] === 'stapler' && c.args[1] === 'validate').length, 2);
   assert.equal(calls.filter(c => c.name === 'spctl').length, 2);
   assert.ok(!calls.some(c => c.args.includes('submit') || c.args.includes('--force')));
-  assert.match(fs.readFileSync(path.join(dist, 'Nap-Signing-Test-0.1.0.dmg.sha256'), 'utf8'), /^[a-f0-9]{64} /);
+  assert.match(fs.readFileSync(path.join(dist, 'Nap-Signing-Test-0.2.0.dmg.sha256'), 'utf8'), /^[a-f0-9]{64} /);
 });
 
 test('resume refuses rejected submissions instead of retrying the upload', { skip: process.platform !== 'darwin' }, t => {

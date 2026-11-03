@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Nap Signing Test Updates</title>
+    <link>https://www.nap.cx/signing-test</link>
+    <description>Verified releases of the separate Nap signing and updater test app.</description>
+    <language>en</language>
+  </channel>
+</rss>

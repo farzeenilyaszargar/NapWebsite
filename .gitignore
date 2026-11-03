@@ -46,3 +46,4 @@ next-env.d.ts
 
 # Local Mac signing-test artifacts (never certificates or installers in Git)
 /tools/macos-signing-test/dist/
+/tools/macos-signing-test/vendor/

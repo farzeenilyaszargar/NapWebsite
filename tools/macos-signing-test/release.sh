@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")" && pwd)"
+source "$(dirname "$0")/config.sh"
 IDENTITY="${SIGNING_IDENTITY:-}"
 PROFILE="${NOTARY_PROFILE:-nap-signing-test}"
 TIMEOUT="${NOTARY_TIMEOUT:-10m}"
@@ -21,17 +21,22 @@ fi
 
 # Validate authentication before building or changing generated artifacts.
 xcrun notarytool history --keychain-profile "$PROFILE" --output-format json >/dev/null
-APP="$ROOT/dist/Nap Signing Test.app"
-DMG="$ROOT/dist/Nap-Signing-Test-0.1.0.dmg"
-ARCHIVE="$ROOT/dist/Nap-Signing-Test.zip"
 if [[ "$MODE" == '--resume' ]]; then
-  if [[ ! -d "$APP" || ! -s "$ROOT/dist/app-notarization.json" ]]; then
+  if [[ ! -d "$APP" || ! -s "$OUT/app-notarization.json" ]]; then
     printf '%s\n' 'No saved app submission to resume. Run without --resume for a new release.' >&2
     exit 1
   fi
 else
   bash "$ROOT/build.sh"
-  rm -f "$ROOT/dist/app-notarization.json" "$ROOT/dist/dmg-notarization.json" "$DMG.sha256"
+  rm -f "$OUT/app-notarization.json" "$OUT/dmg-notarization.json" "$DMG.sha256"
+  FRAMEWORK="$APP/Contents/Frameworks/Sparkle.framework"
+  if [[ -d "$FRAMEWORK" ]]; then
+    codesign --force --sign "$IDENTITY" --timestamp --options runtime --preserve-metadata=entitlements "$FRAMEWORK/Versions/B/XPCServices/Downloader.xpc"
+    for ITEM in XPCServices/Installer.xpc Autoupdate Updater.app; do
+      codesign --force --sign "$IDENTITY" --timestamp --options runtime "$FRAMEWORK/Versions/B/$ITEM"
+    done
+    codesign --force --sign "$IDENTITY" --timestamp --options runtime "$FRAMEWORK"
+  fi
   codesign --force --sign "$IDENTITY" --timestamp --options runtime "$APP"
   ditto -c -k --keepParent "$APP" "$ARCHIVE"
 fi
@@ -69,12 +74,12 @@ notarize() {
 }
 
 codesign --verify --deep --strict --verbose=2 "$APP"
-notarize "$ARCHIVE" "$ROOT/dist/app-notarization.json"
+notarize "$ARCHIVE" "$OUT/app-notarization.json"
 xcrun stapler staple "$APP"
 xcrun stapler validate "$APP"
 spctl --assess --type execute --verbose=2 "$APP"
 
-if [[ ! -s "$ROOT/dist/dmg-notarization.json" ]]; then
+if [[ ! -s "$OUT/dmg-notarization.json" ]]; then
   mkdir -p "$WORK/disk"
   ditto "$APP" "$WORK/disk/Nap Signing Test.app"
   ln -s /Applications "$WORK/disk/Applications"
@@ -82,7 +87,7 @@ if [[ ! -s "$ROOT/dist/dmg-notarization.json" ]]; then
   codesign --force --sign "$IDENTITY" --timestamp "$DMG"
 fi
 codesign --verify --verbose=2 "$DMG"
-notarize "$DMG" "$ROOT/dist/dmg-notarization.json"
+notarize "$DMG" "$OUT/dmg-notarization.json"
 xcrun stapler staple "$DMG"
 xcrun stapler validate "$DMG"
 spctl --assess --type open --context context:primary-signature --verbose=2 "$DMG"

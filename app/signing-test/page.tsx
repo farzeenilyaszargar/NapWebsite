@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import NapHeader from "../components/nap-header";
 import NapFooter from "../components/nap-footer";
-import { signingTest } from "../lib/signing-test";
+import { loadSigningTestRelease } from "../lib/signing-test";
 import "../contrast.css";
 import styles from "./signing-test.module.css";
 
@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   twitter: { title, description },
 };
 
-export default function SigningTestPage() {
+export default async function SigningTestPage() {
+  const signingTest = await loadSigningTestRelease();
   const { downloadUrl, sha256 } = signingTest;
   return (
     <main className={`contrast-page ${styles.page}`}>
@@ -40,6 +41,7 @@ export default function SigningTestPage() {
               <li>Click Test the app. A normal first-open confirmation is expected; a damaged-app or unidentified-developer warning is not.</li>
             </ol>
             <p>Do not disable Gatekeeper, remove quarantine, or use Open Anyway for this test.</p>
+            <p>Use Check for Updates in the app to test future signed releases.</p>
             <details className={styles.checksum}>
               <summary>SHA-256 checksum</summary>
               <code>{sha256}</code>
@@ -51,6 +53,7 @@ export default function SigningTestPage() {
             <p>The installer will appear here after Apple notarization and our final checks are complete.</p>
           </div>
         )}
+        <p className={styles.details}><a className="nap-inline-link" href={signingTest.feedUrl}>Signed update feed</a></p>
       </section>
       <NapFooter />
     </main>
