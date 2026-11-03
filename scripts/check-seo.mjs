@@ -148,3 +148,10 @@ for (const bot of ["OAI-SearchBot", "ChatGPT-User"]) {
 }
 assert.equal(robots.includes(`Sitemap: ${origin}/sitemap.xml`), !preview);
 console.log("✓ 404 noindex, sitemap coverage, and crawler access");
+const signingTest = readFileSync(resolve(output, "signing-test.html"), "utf8");
+assert.ok(signingTest.includes('<title>Nap | Signing Test</title>'));
+assert.ok(signingTest.includes('name="robots" content="noindex, nofollow"'));
+assert.ok(signingTest.includes("not the Nap product"));
+assert.ok(!locations.includes(`${origin}/signing-test`), "signing-test page is excluded from the sitemap");
+assert.ok(!readFileSync(resolve(output, "index.html"), "utf8").includes('href="/signing-test"'), "signing test stays separate from the public download flow");
+console.log("✓ Separate signing-test page is labeled, noindex, and excluded from public navigation");

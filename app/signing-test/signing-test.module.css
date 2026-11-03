@@ -1,0 +1,19 @@
+.page { display: flex; flex-direction: column; }
+.content { flex: 1; width: min(560px, 90%); margin: 0 auto; padding: 64px 0 80px; }
+.logo { display: block; object-fit: contain; filter: brightness(0); margin-bottom: 26px; }
+.content h1 { margin: 0; font-size: 30px; line-height: 1.2; font-weight: 600; letter-spacing: 0; color: #1a2c53; }
+.content p, .content li { color: #536580; font-size: 14px; line-height: 1.7; }
+.content p { margin: 16px 0 24px; }
+.content h2 { font-size: 17px; font-weight: 550; margin: 30px 0 12px; color: #1a2c53; }
+.content ol { list-style: decimal; padding-left: 20px; }
+.content li { padding-left: 4px; margin: 10px 0; }
+.content .details { font-size: 12px; }
+.pending { border-top: 1px solid #e6e8ed; margin-top: 30px; }
+.checksum { border-top: 1px solid #e6e8ed; padding-top: 18px; font-size: 12px; color: #536580; }
+.checksum summary { cursor: pointer; }
+.checksum code { display: block; overflow-wrap: anywhere; padding-top: 12px; user-select: text; }
+@media (max-width: 700px) {
+  .content { padding: 42px 0 56px; }
+  .content h1 { font-size: 26px; }
+  .content p, .content li { font-size: 13px; }
+}

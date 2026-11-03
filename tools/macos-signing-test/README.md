@@ -48,6 +48,15 @@ SIGNING_IDENTITY='Developer ID Application: Your Name (TEAMID)' \
 
 The script validates the identity and saved credentials, builds both architectures, signs the app with hardened runtime and a secure timestamp, notarizes and staples the app, packages it with an Applications shortcut, signs/notarizes/staples the DMG, and checks Gatekeeper assessments. Each notarization must return Accepted. The final SHA-256 is calculated after stapling. No certificate or secret is embedded in source; the public signature/certificate chain is embedded by codesign.
 
+Apple processing can take longer than the default ten-minute wait. Submission IDs are saved before waiting. If the script exits with code 75, Apple continues reviewing the existing upload. Resume without rebuilding or duplicating the submission:
+
+```sh
+SIGNING_IDENTITY='Developer ID Application: Your Name (TEAMID)' \
+  bash tools/macos-signing-test/release.sh --resume
+```
+
+Set `NOTARY_TIMEOUT=30m` to wait longer. Do not modify the signed artifacts between submission and resume. Rejected submissions require inspecting the Apple log and fixing the issue, not retrying the same upload blindly.
+
 Outputs (ignored by Git):
 
 - `dist/Nap Signing Test.app`
@@ -65,7 +74,7 @@ xcrun notarytool log SUBMISSION_ID --keychain-profile nap-signing-test
 
 Upload the final, unchanged DMG to a dedicated test release on GitHub or the R2 downloads bucket once it exists. Keep signing material private. Use a clearly named asset; do not overwrite the actual Nap installer with a test app under the same product filename.
 
-The website still uses the existing Nap download. After the DMG passes the checks and is hosted at a working HTTPS URL, update `app/lib/releases.ts` and the corresponding download assertion in `scripts/check-seo.mjs`. Clearly label the temporary download as a signing-test app wherever it is offered, rather than representing it as the functional Nap product; align the software metadata too. Alternatively, offer it on a dedicated test page to avoid replacing the public product CTA.
+The website keeps its existing Nap download. The separate `/signing-test` page is labeled as a test, noindex, and excluded from the sitemap and public navigation. Until verification is complete, it displays a pending message without an installer link. After the final DMG passes the checks and is hosted at a working HTTPS URL, populate `app/lib/signing-test.ts` with that URL and the final SHA-256. Do not change `app/lib/releases.ts` or the public product CTA for this test.
 
 ## 6. Test the real downloaded experience
 
