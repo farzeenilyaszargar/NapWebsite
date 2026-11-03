@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { macDownloadUrl } from "./releases";
+import images from "./image-assets.json";
 
 export const pageTitle = (label: string) => `Nap | ${label}`;
 export const isIndexable = !process.env.VERCEL_ENV || process.env.VERCEL_ENV === "production";
@@ -12,7 +13,7 @@ export const site = {
   title: pageTitle("The Interface For All Your Agents"),
   description: "Nap is a native AI coding app for Mac. Bring your coding agents into one workspace to open projects, chat with agents, and review code changes.",
   image: "/opengraph-image",
-  logo: "/nap-ghost-icon-256.png",
+  logo: images["nap-ghost-icon-256.png"].src,
 };
 
 export const pages = {

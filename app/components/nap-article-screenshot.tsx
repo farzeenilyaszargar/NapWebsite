@@ -1,3 +1,5 @@
+import images from "../lib/image-assets.json";
+
 const screenshots = {
   parallel: { width: 1000, height: 1488, alt: "Nap's project sidebar with multiple task threads grouped under sndbx, GTX, and fx.", caption: "Project spaces keep individual task threads together in the sidebar." },
   conversation: { width: 1440, height: 1133, alt: "A Codex security-review conversation in Nap, showing the task request and command activity.", caption: "The request, agent response, and command activity stay in the same conversation." },
@@ -8,7 +10,7 @@ export default function NapArticleScreenshot({ detail }: { detail: keyof typeof 
   const image = screenshots[detail];
   return (
     <figure className={`nap-article-image${detail === "parallel" ? " nap-article-sidebar" : ""}`}>
-      <img src={`/nap-blog-${detail}.webp`} width={image.width} height={image.height} alt={image.alt} loading="lazy" decoding="async" />
+      <img src={images[`nap-blog-${detail}.webp`].src} width={image.width} height={image.height} alt={image.alt} loading="lazy" decoding="async" fetchPriority="low" />
       <figcaption>{image.caption}</figcaption>
     </figure>
   );

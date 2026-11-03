@@ -1,0 +1,93 @@
+{
+  "apple-mark.svg": {
+    "src": "/apple-mark-264ba1e2.svg",
+    "width": 814,
+    "height": 1000,
+    "bytes": 637,
+    "originalBytes": 637
+  },
+  "nap-ghost-header.png": {
+    "src": "/nap-ghost-header-51f6a0f6.webp",
+    "width": 340,
+    "height": 379,
+    "bytes": 21634,
+    "originalBytes": 36496
+  },
+  "nap-ghost-icon-192.png": {
+    "src": "/nap-ghost-icon-192-c1bbd0eb.png",
+    "width": 192,
+    "height": 192,
+    "bytes": 7220,
+    "originalBytes": 7220
+  },
+  "nap-ghost-icon-256.png": {
+    "src": "/nap-ghost-icon-256-a1861ad9.png",
+    "width": 256,
+    "height": 256,
+    "bytes": 11252,
+    "originalBytes": 11252
+  },
+  "nap-ghost-icon-512.png": {
+    "src": "/nap-ghost-icon-512-4f8c73ba.png",
+    "width": 512,
+    "height": 512,
+    "bytes": 39069,
+    "originalBytes": 39069
+  },
+  "nap-task-workspace-480.webp": {
+    "src": "/nap-task-workspace-480-e7acc30a.webp",
+    "width": 480,
+    "height": 312,
+    "bytes": 23152,
+    "originalBytes": 23152
+  },
+  "nap-task-workspace-828.webp": {
+    "src": "/nap-task-workspace-828-30935a1e.webp",
+    "width": 828,
+    "height": 538,
+    "bytes": 51728,
+    "originalBytes": 51728
+  },
+  "nap-task-workspace-1448.webp": {
+    "src": "/nap-task-workspace-1448-c180acb5.webp",
+    "width": 1448,
+    "height": 941,
+    "bytes": 116914,
+    "originalBytes": 116914
+  },
+  "nap-task-workspace-2560.webp": {
+    "src": "/nap-task-workspace-2560-a2e2e703.webp",
+    "width": 2560,
+    "height": 1664,
+    "bytes": 239992,
+    "originalBytes": 239992
+  },
+  "nap-task-workspace-5183.webp": {
+    "src": "/nap-task-workspace-5183-9ac479bb.webp",
+    "width": 5183,
+    "height": 3369,
+    "bytes": 199490,
+    "originalBytes": 199490
+  },
+  "nap-blog-parallel.webp": {
+    "src": "/nap-blog-parallel-8aafc724.webp",
+    "width": 1000,
+    "height": 1488,
+    "bytes": 80032,
+    "originalBytes": 80368
+  },
+  "nap-blog-conversation.webp": {
+    "src": "/nap-blog-conversation-ba599522.webp",
+    "width": 1440,
+    "height": 1133,
+    "bytes": 141596,
+    "originalBytes": 141596
+  },
+  "nap-blog-queue.webp": {
+    "src": "/nap-blog-queue-303373d2.webp",
+    "width": 1440,
+    "height": 461,
+    "bytes": 35764,
+    "originalBytes": 35764
+  }
+}

@@ -1,3 +1,5 @@
+import { preload } from "react-dom";
+
 const scenes = {
   botanical: {
     src: "/nap-dream-botanical-1536-b496e896.webp",
@@ -13,5 +15,8 @@ const scenes = {
 
 export default function NapDreamImage({ scene, className, eager = false, sizes = "100vw" }: { scene: keyof typeof scenes; className?: string; eager?: boolean; sizes?: string }) {
   const asset = scenes[scene];
-  return <img className={className} src={asset.src} srcSet={asset.srcSet} sizes={sizes} width={asset.width} height={asset.height} alt="" loading={eager ? "eager" : "lazy"} decoding="async" />;
+  if (eager) {
+    preload(asset.src, { as: "image", type: "image/webp", imageSrcSet: asset.srcSet, imageSizes: sizes, fetchPriority: "high" });
+  }
+  return <img className={className} src={asset.src} srcSet={asset.srcSet} sizes={sizes} width={asset.width} height={asset.height} alt="" loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : "low"} decoding="async" />;
 }

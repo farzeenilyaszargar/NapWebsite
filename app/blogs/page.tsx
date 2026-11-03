@@ -13,7 +13,7 @@ export default function BlogsPage() {
   return (
     <main className={`contrast-page nap-article-page ${styles.indexPage}`}>
       <StructuredData data={blogSchema()} />
-      <NapHeader />
+      <NapHeader activePage="blogs" />
       <section className="nap-hero">
         <div className="nap-blog-index">
           <div className="nap-blog-intro">

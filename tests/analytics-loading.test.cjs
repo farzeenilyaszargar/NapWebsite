@@ -10,20 +10,22 @@ function startup({ readyState = 'loading', idle = true } = {}) {
   const listeners = [];
   const pending = [];
   let initialized = 0;
+  let pixelsInitialized = 0;
   const window = { addEventListener: (...args) => listeners.push(args) };
   if (idle) window.requestIdleCallback = (callback) => pending.push(callback);
   const source = fs.readFileSync(path.join(__dirname, '../instrumentation-client.ts'), 'utf8');
   const code = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
   new Function('exports', 'require', 'window', 'document', 'setTimeout', code)(
-    {}, () => ({ initializeAnalytics: () => { initialized++; return Promise.resolve(); } }),
+    {}, () => ({ initializeAnalytics: () => { initialized++; return Promise.resolve(); }, initializeXPixel: () => { pixelsInitialized++; } }),
     window, { readyState }, (callback) => pending.push(callback),
   );
-  return { listeners, pending, initialized: () => initialized };
+  return { listeners, pending, initialized: () => initialized, pixelsInitialized: () => pixelsInitialized };
 }
 
 test('background analytics wait for load and then idle', () => {
   const run = startup();
   assert.equal(run.initialized(), 0);
+  assert.equal(run.pixelsInitialized(), 0);
   assert.equal(run.pending.length, 0);
   assert.equal(run.listeners[0][0], 'load');
   assert.deepEqual(run.listeners[0][2], { once: true });
@@ -31,6 +33,7 @@ test('background analytics wait for load and then idle', () => {
   assert.equal(run.initialized(), 0);
   run.pending.shift()();
   assert.equal(run.initialized(), 1);
+  assert.equal(run.pixelsInitialized(), 1);
 });
 
 test('late hydration still schedules analytics when load already fired', () => {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import NapHeader from "../components/nap-header";
 import NapFooter from "../components/nap-footer";
 import { loadSigningTestRelease } from "../lib/signing-test";
+import images from "../lib/image-assets.json";
 import "../contrast.css";
 import styles from "./signing-test.module.css";
 
@@ -24,14 +25,14 @@ export default async function SigningTestPage() {
     <main className={`contrast-page ${styles.page}`}>
       <NapHeader showDownload={false} />
       <section className={styles.content} aria-labelledby="signing-test-title">
-        <img className={styles.logo} src="/nap-ghost-header.png" width={48} height={54} alt="" />
+        <img className={styles.logo} src={images["nap-ghost-header.png"].src} width={48} height={54} alt="" />
         <h1 id="signing-test-title">Nap signing test.</h1>
         <p>A small Mac app for testing our signed installer. This is a release-pipeline test, not the Nap product.</p>
         {downloadUrl && sha256 ? (
           <>
             <a className="nap-mac-download" href={downloadUrl}>
               <span>Download signing test</span>
-              <img src="/apple-mark.svg" width={11} height={14} alt="" />
+              <img src={images["apple-mark.svg"].src} width={11} height={14} alt="" />
             </a>
             <p className={styles.details}>Version {signingTest.version} · macOS 12 or later · Apple Silicon and Intel</p>
             <h2>Try it on your Mac.</h2>

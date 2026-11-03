@@ -1,13 +1,16 @@
 import { preload } from "react-dom";
+import images from "../lib/image-assets.json";
 
 type Props = { eager?: boolean; sizes: string; alt: string };
 
-const srcSet = "/nap-task-workspace-480.webp 480w, /nap-task-workspace-828.webp 828w, /nap-task-workspace-1448.webp 1448w, /nap-task-workspace-2560.webp 2560w, /nap-task-workspace-5183.webp 5183w";
+const srcSet = ([480, 828, 1448, 2560, 5183] as const)
+  .map(width => `${images[`nap-task-workspace-${width}.webp`].src} ${width}w`).join(", ");
+const fallback = images["nap-task-workspace-1448.webp"].src;
 
 // Lossless, build-time variants retain screenshot detail without on-demand resizing.
 export default function NapProductImage({ eager = false, sizes, alt }: Props) {
   if (eager) {
-    preload("/nap-task-workspace-1448.webp", {
+    preload(fallback, {
       as: "image",
       type: "image/webp",
       imageSrcSet: srcSet,
@@ -24,7 +27,7 @@ export default function NapProductImage({ eager = false, sizes, alt }: Props) {
         sizes={sizes}
       />
       <img
-        src="/nap-task-workspace-1448.webp"
+        src={fallback}
         alt={alt}
         width={5183}
         height={3369}

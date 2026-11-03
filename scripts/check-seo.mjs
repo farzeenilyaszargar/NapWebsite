@@ -74,7 +74,7 @@ for (const [file, path, title] of routes) {
   if (path.startsWith("/blogs/")) {
     const article = entities.find((entity) => entity["@type"] === "BlogPosting");
     assert.ok(!html.includes("On this page"), `${path}: article contents navigation is removed`);
-    assert.ok(/src="\/nap-blog-(parallel|conversation|queue)\.webp"/.test(html), `${path}: contextual app screenshot is present`);
+    assert.ok(/src="\/nap-blog-(parallel|conversation|queue)-[a-f0-9]{8}\.webp"/.test(html), `${path}: contextual app screenshot is present`);
     const heading = decode(html.match(/<h1\b[^>]*>(.*?)<\/h1>/s)[1].replace(/<[^>]*>/g, ""));
     assert.equal(article.headline, heading, `${path}: schema matches the visible article title`);
     assert.ok(article.image.url.startsWith(origin));
@@ -155,3 +155,10 @@ assert.ok(signingTest.includes("not the Nap product"));
 assert.ok(!locations.includes(`${origin}/signing-test`), "signing-test page is excluded from the sitemap");
 assert.ok(!readFileSync(resolve(output, "index.html"), "utf8").includes('href="/signing-test"'), "signing test stays separate from the public download flow");
 console.log("✓ Separate signing-test page is labeled, noindex, and excluded from public navigation");
+const optimizedImages = JSON.parse(readFileSync(resolve(root, "app/lib/image-assets.json"), "utf8"));
+const responseHeaders = JSON.parse(readFileSync(resolve(root, ".next/routes-manifest.json"), "utf8")).headers;
+for (const image of Object.values(optimizedImages)) {
+  const rule = responseHeaders.find(rule => rule.source === image.src);
+  assert.ok(rule?.headers.some(header => header.key === "Cache-Control" && header.value === "public, max-age=31536000, immutable"), `${image.src}: content-hashed image is immutable`);
+}
+console.log("✓ Optimized image URLs have long-lived, content-versioned browser caching");

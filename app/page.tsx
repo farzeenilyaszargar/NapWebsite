@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main className={`contrast-page ${styles.page}`}>
       <StructuredData data={homeSchema()} />
-      <NapHeader />
+      <NapHeader activePage="home" />
 
       <section className={styles.intro} aria-labelledby="nap-title">
         <div className={styles.onboard}>
