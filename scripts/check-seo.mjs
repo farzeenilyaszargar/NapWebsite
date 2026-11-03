@@ -6,6 +6,7 @@ import { resolve } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const output = resolve(root, ".next/server/app");
 const origin = "https://www.nap.cx";
+const downloadUrl = "https://pub-ab845f53d3fe41cca7cc63eb753149cd.r2.dev/releases/v0.0.4-notnap.3/NotNap-macos.dmg";
 const preview = !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
 const routes = [
   ["index", "/", "Nap | The Interface For All Your Agents"],
@@ -62,7 +63,7 @@ for (const [file, path, title] of routes) {
     assert.ok(!entities.some((entity) => entity["@type"] === "FAQPage"), "no FAQ markup for content absent from the approved layout");
     const app = entities.find((entity) => entity["@type"] === "SoftwareApplication");
     assert.equal(app.operatingSystem, "macOS");
-    assert.equal(app.downloadUrl, "https://github.com/farzeenilyaszargar/NotNap/releases/latest/download/NotNap-macos.dmg");
+    assert.equal(app.downloadUrl, downloadUrl);
     assert.equal(app.potentialAction["@type"], "DownloadAction");
     assert.equal(app.potentialAction.target, app.downloadUrl);
     assert.ok(html.includes(`href="${app.downloadUrl}"`), "the public download is visible, not just in schema");
@@ -86,7 +87,7 @@ for (const [file, path, title] of routes) {
       assert.ok(html.includes(`<time dateTime="${article.datePublished}">`), `${path}: publication date is visible`);
       assert.equal(get("article:published_time"), article.datePublished);
       const body = html.match(/<article\b[^>]*>(.*?)<\/article>/s)[1];
-      assert.ok(body.includes('href="https://github.com/farzeenilyaszargar/NotNap/releases/latest/download/NotNap-macos.dmg"'), `${path}: article includes the official download action`);
+      assert.ok(body.includes(`href="${downloadUrl}"`), `${path}: article includes the official download action`);
       assert.ok(body.replace(/<[^>]*>/g, " ").split(/\s+/).length >= 450, `${path}: substantive guide content`);
     }
   }
