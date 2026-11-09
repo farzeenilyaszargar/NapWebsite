@@ -56,12 +56,6 @@ export const pages = {
     description: "Applications to join the Nap team are closed at the moment. Visit Nap for product news and updates.",
     keywords: ["Nap team", "apply to Nap", "build with Nap"],
   },
-  waitlist: {
-    path: "/waitlist", title: pageTitle("Waitlist"),
-    description: "Join Nap's updates list for product news and future platform availability. Nap for macOS is available to download from the official website.",
-    keywords: ["Nap waitlist", "Nap Code early access", "AI coding app for Mac"],
-  },
-
 };
 
 export const blogPosts = [pages.vision, pages.parallel, pages.ade];
@@ -126,7 +120,6 @@ function breadcrumbSchema(page: Page) {
   const post = blogPosts.find((post) => post.path === page.path);
   if (post) items.push({ name: post.headline, item: absolute(page.path) });
   if (page === pages.apply) items.push({ name: "Apply", item: absolute(page.path) });
-  if (page === pages.waitlist) items.push({ name: "Waitlist", item: absolute(page.path) });
   return {
     "@type": "BreadcrumbList", "@id": `${absolute(page.path)}#breadcrumbs`,
     itemListElement: items.map((item, index) => ({ "@type": "ListItem", position: index + 1, ...item })),
@@ -190,10 +183,6 @@ export function articleSchema(page: (typeof blogPosts)[number]) {
       softwareSchema(),
     ],
   };
-}
-
-export function waitlistSchema() {
-  return { "@context": "https://schema.org", "@graph": [webPageSchema(pages.waitlist), breadcrumbSchema(pages.waitlist)] };
 }
 
 export function applySchema() {

@@ -87,8 +87,6 @@ for (const scheduler of [true, false]) {
     run.pending.shift().callback();
     await first;
     assert.equal(run.initialized(), 1);
-    await run.api.captureWaitlistSignup();
-    assert.deepEqual(run.events, ['waitlist_joined']);
   });
 }
 

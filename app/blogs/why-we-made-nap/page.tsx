@@ -35,7 +35,7 @@ export default function WhyWeMadeNap() {
       <h2 id="next">Build the useful thing. Then earn the next step.</h2>
       <p>For now, we are building the foundation: a focused native workspace for coding with agents. We want it to be useful for the ordinary, repeatable work of opening a project, having a conversation, and reviewing a change. The larger ideas matter only if that everyday experience is worth coming back to.</p>
       <p>That is why we made this app. Not because developers need more places to manage, but because the tools around agents can be more considerate of their time and attention. We want Nap to grow from that idea, whether the work happens on your Mac or, eventually, somewhere beyond it.</p>
-      <p>You can try the current Mac app from the <Link className="nap-inline-link" href={pages.home.path}>Nap homepage</Link>, <Link className="nap-inline-link" href={pages.waitlist.path}>join the updates list</Link>, or tell us what you are building on <a className="nap-inline-link" href="https://x.com/nap_cx">X</a>. For practical context, read about <Link className="nap-inline-link" href={pages.parallel.path}>working with parallel coding agents</Link>.</p>
+      <p>You can try the current Mac app from the <Link className="nap-inline-link" href={pages.home.path}>Nap homepage</Link> or tell us what you are building on <a className="nap-inline-link" href="https://x.com/nap_cx">X</a>. For practical context, read about <Link className="nap-inline-link" href={pages.parallel.path}>working with parallel coding agents</Link>.</p>
     </NapGuide>
   );
 }

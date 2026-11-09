@@ -14,7 +14,6 @@ const routes = [
   ["blogs/parallel-coding-agents", "/blogs/parallel-coding-agents", "Nap | Parallel Coding Agents: A Practical Workflow Guide"],
   ["blogs/nap-agentic-development-environment", "/blogs/nap-agentic-development-environment", "Nap | Agentic Development Environment for Mac"],
   ["blogs/why-we-made-nap", "/blogs/why-we-made-nap", "Nap | Why We Made This App"],
-  ["waitlist", "/waitlist", "Nap | Waitlist"],
   ["apply", "/apply", "Nap | Apply"],
 ];
 const decode = (value) => value.replaceAll("&amp;", "&").replaceAll("&quot;", '"').replaceAll("&#x27;", "'");
@@ -30,6 +29,7 @@ for (const [file, path, title] of routes) {
     .map((href) => new URL(href, origin + path))
     .filter((url) => url.origin === origin).map((url) => url.pathname);
   linkGraph.set(path, internal);
+  assert.ok(!internal.includes("/waitlist"), `${path}: no links to the retired waitlist`);
   assert.ok(!internal.includes("/blogs/nap-download"), `${path}: retired download article is not linked`);
   assert.ok(!html.includes("All guides"), `${path}: retired article back link is absent`);
   const anchorTargets = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
@@ -60,6 +60,7 @@ for (const [file, path, title] of routes) {
   assert.ok(entities.some((entity) => entity["@type"] === "WebSite"));
   assert.ok(entities.some((entity) => entity["@id"] === `${origin}${path}#webpage`));
   if (path === "/") {
+    assert.ok(!html.includes("If you are searching for Nap download"), "the hidden SEO paragraph is removed");
     assert.ok(!entities.some((entity) => entity["@type"] === "FAQPage"), "no FAQ markup for content absent from the approved layout");
     const app = entities.find((entity) => entity["@type"] === "SoftwareApplication");
     assert.equal(app.operatingSystem, "macOS");

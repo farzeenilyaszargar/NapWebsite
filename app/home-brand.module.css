@@ -2,11 +2,7 @@
 .intro { width: min(650px, 88%); margin: 0 auto; padding: 75px 0 45px; text-align: center; }
 .intro h1 { margin: 0 0 25px; color: #50617d; font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
 .intro h1 strong { color: #1a2c53; font-weight: 600; }
-.productEssay { margin: 0; padding: 0; color: #fff; background: #fff; font-size: 0.1px; line-height: 1; user-select: none; -webkit-user-select: none; }
 .heroActions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
-.waitlistLink { display: inline-flex; align-items: center; gap: 6px; min-height: 39px; color: #536580; font-size: 11px; text-decoration: none; }
-.waitlistLink:hover span, .waitlistLink:focus-visible span { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-.waitlistLink:hover { color: #1b2b50; }
 .onboard { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; margin: 0 0 24px; padding: 6px 12px; border: 1px solid #e6e8ed; border-radius: 999px; background: transparent; }
 .onboard > span { font-size: 10px; line-height: 16px; font-weight: 450; color: #65718a; white-space: nowrap; }
 .onboard ul { display: flex; align-items: center; gap: 8px; padding: 0; margin: 0; list-style: none; }

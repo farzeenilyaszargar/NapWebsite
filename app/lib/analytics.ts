@@ -33,10 +33,6 @@ export function initializeAnalytics() {
   return client;
 }
 
-export async function captureWaitlistSignup() {
-  try { (await initializeAnalytics())?.capture("waitlist_joined"); } catch { /* Signup already succeeded. */ }
-}
-
 export async function captureClientException(error: Error) {
   try { (await initializeAnalytics())?.captureException(error); } catch { /* Preserve the error UI. */ }
 }
