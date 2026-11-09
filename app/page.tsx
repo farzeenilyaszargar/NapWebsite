@@ -12,9 +12,9 @@ import styles from "./home-brand.module.css";
 export const metadata = pageMetadata(pages.home);
 
 const features = [
-  { name: "projects", icon: FolderOpen, title: "A home for every project.", description: "Keep your tasks and conversations with the codebase they belong to. Pick up the right thread without searching through terminal windows.", alt: "Nap project spaces and conversations organized in the sidebar." },
-  { name: "conversation", icon: MessagesSquare, title: "The conversation stays with the work.", description: "Give your agent a task, follow its progress, and ask a follow-up. Your project and the conversation stay in the same workspace.", alt: "An agent conversation in Nap with its response and code-change summary." },
-  { name: "review", icon: GitCompareArrows, title: "See the changes. Make the call.", description: "Keep changed files and review controls in view. Inspect the result, ask for another pass, and decide what to keep before you commit.", alt: "Nap code review with changed files, line counts, and an integrated terminal." },
+  { name: "projects", icon: FolderOpen, title: "Run parallel agents", description: "Keep your tasks and conversations with the codebase they belong to. Pick up the right thread without searching through terminal windows.", alt: "Nap project spaces and conversations organized in the sidebar." },
+  { name: "conversation", icon: MessagesSquare, title: "Agent handoff", description: "Give your agent a task, follow its progress, and ask a follow-up. Your project and the conversation stay in the same workspace.", alt: "An agent conversation in Nap with its response and code-change summary." },
+  { name: "review", icon: GitCompareArrows, title: "Thread communication", description: "Keep changed files and review controls in view. Inspect the result, ask for another pass, and decide what to keep before you commit.", alt: "Nap code review with changed files, line counts, and an integrated terminal." },
 ];
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
           <ul aria-label="Supported agents">
             <li><img src="/codex-logo-3366e2d2.webp" alt="Codex" width={16} height={16} /></li>
             <li><img src="/claude-code-logo-5a6c64a5.webp" alt="Claude Code" width={16} height={16} /></li>
-            <li><img src="/cursor-logo-8bc30dd7.webp" alt="Cursor" width={16} height={16} /></li>
+            <li><img className={styles.cursorLogo} src="/cursor-logo-8bc30dd7.webp" alt="Cursor" width={16} height={16} /></li>
           </ul>
         </div>
         <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app.</h1>

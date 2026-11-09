@@ -8,6 +8,7 @@
 .onboard ul { display: flex; align-items: center; gap: 8px; padding: 0; margin: 0; list-style: none; }
 .onboard li { display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; }
 .onboard img { display: block; object-fit: contain; width: 16px; height: 16px; }
+.cursorLogo { filter: brightness(0) invert(1); }
 .workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 46px 54px; overflow: hidden; border-radius: 8px; background: #343434; }
 .workspaceArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; object-position: center; filter: blur(4px); }
 .workspace > picture { display: block; position: relative; margin: 0; padding: 0; overflow: hidden; border-radius: 6px; }
