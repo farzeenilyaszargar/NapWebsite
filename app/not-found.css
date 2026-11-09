@@ -1,4 +1,4 @@
-.nap-not-found { min-height: 100svh; display: flex; flex-direction: column; }
+.nap-not-found { min-height: var(--nap-page-height); display: flex; flex-direction: column; }
 .nap-lost { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px 130px; text-align: center; }
 .nap-lost-code { font-size: 52px; font-weight: 500; letter-spacing: -.05em; line-height: 1; color: var(--nap-subtle); }
 .nap-lost h2 { margin-top: 22px; font-size: 25px; font-weight: 500; letter-spacing: -.035em; }
