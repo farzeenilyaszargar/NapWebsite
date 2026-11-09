@@ -52,7 +52,7 @@ export default function Home() {
               <p>{description}</p>
             </div>
             <figure className={styles.featureMedia}>
-              <NapDreamImage scene={name === "conversation" ? "alpine" : "botanical"} className={styles.featureArt} sizes="(max-width: 700px) 90vw, 760px" />
+              <NapDreamImage scene={name === "conversation" ? "mist" : "botanical"} className={styles.featureArt} sizes="(max-width: 700px) 90vw, 760px" />
               <div className={styles.featureCrop}><NapProductImage alt={alt} sizes="(max-width: 700px) 170vw, 1300px" /></div>
             </figure>
           </article>
@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       <section className={styles.closing} aria-labelledby="try-nap-title">
-        <NapDreamImage scene="alpine" className={styles.closingArt} />
+        <NapDreamImage scene="mist" className={styles.closingArt} />
         <div className={styles.closingCopy}>
           <h2 id="try-nap-title">Try Nap.</h2>
           <NapDownloadCta location="closing" />
