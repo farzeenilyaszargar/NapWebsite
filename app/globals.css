@@ -14,6 +14,7 @@
 }
 body { margin: 0; background: var(--nap-background); color: var(--nap-foreground); }
 html { scroll-behavior: auto; }
+html, body { overscroll-behavior-y: none; }
 img {
   user-select: none;
   -webkit-user-select: none;
