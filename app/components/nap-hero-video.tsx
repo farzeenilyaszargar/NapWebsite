@@ -27,7 +27,6 @@ export default function NapHeroVideo() {
       height={1080}
       aria-label="Nap workspace demo showing coding agents working in project threads"
       preload="none"
-      controls
       muted
       loop
       playsInline
