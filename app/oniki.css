@@ -18,7 +18,7 @@
 .oniki .contrast-page .nap-nav-download { min-height: 33px; padding: 6px 12px; font-size: 12px; gap: 9px; }
 .oniki .nap-nav-download img { width: 9px; height: 12px; }
 .oniki .contrast-page .nap-site-footer { width: min(1160px, 94%); margin: auto auto 0; padding: 21px 0 23px; border: 0; }
-.oniki .contrast-page .nap-site-footer .nap-footer-copyright { color: var(--nap-subtle); font: 400 11px var(--font-geist), sans-serif; letter-spacing: 0; }
+.oniki .contrast-page .nap-site-footer .nap-footer-copyright { color: var(--nap-foreground); font: 400 11px var(--font-geist), sans-serif; letter-spacing: 0; }
 .oniki .contrast-page .nap-site-footer .nap-footer-social { color: var(--nap-muted); font-size: 11px; font-weight: 400; min-height: 32px; }
 .oniki .contrast-page.nap-article-page { font-family: var(--font-geist), sans-serif; }
 .oniki .contrast-page :is(.nap-blog-intro h1, .nap-blog-article h1) { font-size: 38px; line-height: 1.2; }
