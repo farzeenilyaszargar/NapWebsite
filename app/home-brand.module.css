@@ -11,8 +11,7 @@
 .cursorLogo { filter: brightness(0) invert(1); }
 .workspace { position: relative; isolation: isolate; width: min(1160px, 94%); margin: 0 auto; padding: 46px 54px; overflow: hidden; border-radius: 8px; background: #343434; }
 .workspaceArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; object-position: center; filter: blur(4px); }
-.workspace > picture { display: block; position: relative; margin: 0; padding: 0; overflow: hidden; border-radius: 6px; }
-.workspace > picture img { display: block; width: 100%; height: auto; filter: none; }
+.workspace > video { display: block; position: relative; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 6px; background: #101010; }
 .features { width: min(1160px, 94%); margin: 0 auto; padding: 64px 0 68px; display: grid; gap: 28px; }
 .feature { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.45fr); align-items: center; gap: 40px; min-height: 390px; }
 .featureCopy { min-width: 0; padding: 22px 8px 22px 24px; }
@@ -57,7 +56,7 @@
   .intro h1 { font-size: 20px; line-height: 1.4; text-align: left; }
   .heroActions { justify-content: flex-start; }
   .onboard { margin-bottom: 20px; }
-  .workspace > picture { border-radius: 5px; }
+  .workspace > video { border-radius: 5px; }
   .features { padding: 40px 0 48px; gap: 36px; }
   .feature, .conversation { display: flex; flex-direction: column; align-items: stretch; gap: 20px; min-height: 0; }
   .featureCopy, .conversation .featureCopy { padding: 0 12px; }

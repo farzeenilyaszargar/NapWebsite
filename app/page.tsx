@@ -2,6 +2,7 @@ import { FolderOpen, MessagesSquare, GitCompareArrows } from "lucide-react";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
 import NapProductImage from "./components/nap-product-image";
+import NapHeroVideo from "./components/nap-hero-video";
 import NapDreamImage from "./components/nap-dream-image";
 import NapDownloadCta from "./components/nap-download-cta";
 import NapHeader from "./components/nap-header";
@@ -40,7 +41,7 @@ export default function Home() {
 
       <figure className={styles.workspace} id="workspace">
         <NapDreamImage scene="botanical" className={styles.workspaceArt} eager sizes="(max-width: 1280px) 94vw, 1160px" />
-        <NapProductImage eager alt="Nap for Mac with project task threads, a Codex conversation, queued follow-ups, and a file browser in one workspace." sizes="(max-width: 700px) 86vw, (max-width: 1280px) 83vw, 1040px" />
+        <NapHeroVideo />
       </figure>
 
       <section className={styles.features} id="features" aria-label="Inside Nap">
