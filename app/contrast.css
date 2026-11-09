@@ -3,7 +3,6 @@
   background: var(--nap-background);
   color: var(--nap-foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  color-scheme: light;
 }
 .contrast-page a { color: inherit; text-decoration: none; }
 .contrast-page :focus-visible { outline: 2px solid #bfc1ca; outline-offset: 4px; }

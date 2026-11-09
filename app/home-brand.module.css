@@ -1,10 +1,10 @@
 .page { overflow: clip; }
 .intro { width: min(650px, 88%); margin: 0 auto; padding: 75px 0 45px; text-align: center; }
-.intro h1 { margin: 0 0 25px; color: #545454; font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
-.intro h1 strong { color: #171717; font-weight: 600; }
+.intro h1 { margin: 0 0 25px; color: var(--nap-muted); font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
+.intro h1 strong { color: var(--nap-foreground); font-weight: 600; }
 .heroActions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
-.onboard { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; margin: 0 0 24px; padding: 6px 12px; border: 1px solid #dedede; border-radius: 999px; background: transparent; }
-.onboard > span { font-size: 10px; line-height: 16px; font-weight: 450; color: #545454; white-space: nowrap; }
+.onboard { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; margin: 0 0 24px; padding: 6px 12px; border: 1px solid var(--nap-border); border-radius: 999px; background: transparent; }
+.onboard > span { font-size: 10px; line-height: 16px; font-weight: 450; color: var(--nap-muted); white-space: nowrap; }
 .onboard ul { display: flex; align-items: center; gap: 8px; padding: 0; margin: 0; list-style: none; }
 .onboard li { display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; }
 .onboard img { display: block; object-fit: contain; width: 16px; height: 16px; }
@@ -15,9 +15,9 @@
 .features { width: min(1160px, 94%); margin: 0 auto; padding: 64px 0 68px; display: grid; gap: 28px; }
 .feature { display: grid; grid-template-columns: minmax(0, .74fr) minmax(0, 1.45fr); align-items: center; gap: 40px; min-height: 390px; }
 .featureCopy { min-width: 0; padding: 22px 8px 22px 24px; }
-.featureCopy > svg { color: #656565; margin-bottom: 17px; }
+.featureCopy > svg { color: var(--nap-subtle); margin-bottom: 17px; }
 .featureCopy h2 { max-width: 290px; font-size: 25px; line-height: 1.27; font-weight: 600; margin: 0; letter-spacing: 0; text-wrap: balance; }
-.featureCopy p { max-width: 290px; margin: 14px 0 0; color: #545454; font-size: 14px; line-height: 1.65; }
+.featureCopy p { max-width: 290px; margin: 14px 0 0; color: var(--nap-muted); font-size: 14px; line-height: 1.65; }
 .featureMedia { position: relative; isolation: isolate; width: 100%; height: 390px; min-width: 0; margin: 0; padding: 32px; overflow: hidden; border-radius: 8px; background: #343434; }
 .featureArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; filter: blur(6px); }
 .featureCrop { position: relative; height: 100%; overflow: hidden; border-radius: 5px; background: #101010; box-shadow: 0 12px 35px #0005; }
