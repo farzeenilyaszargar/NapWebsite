@@ -3,6 +3,7 @@
 .intro h1 { margin: 0 0 25px; color: var(--nap-muted); font-size: 26px; font-weight: 500; line-height: 1.35; letter-spacing: 0; text-align: justify; text-wrap: wrap; font-kerning: normal; }
 .intro h1 strong { color: var(--nap-foreground); font-weight: 600; }
 .heroActions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
+.mobileWishlist { display: none; }
 .onboard { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; margin: 0 0 24px; padding: 6px 12px; border: 1px solid var(--nap-border); border-radius: 999px; background: transparent; }
 .onboard > span { font-size: 10px; line-height: 16px; font-weight: 450; color: var(--nap-muted); white-space: nowrap; }
 .onboard ul { display: flex; align-items: center; gap: 8px; padding: 0; margin: 0; list-style: none; }
@@ -51,6 +52,8 @@
   .intro { width: 88%; padding: 50px 0 35px; text-align: left; }
   .intro h1 { font-size: 20px; line-height: 1.4; text-align: left; }
   .heroActions { justify-content: flex-start; }
+  .heroActions .mobileWishlist { display: inline-flex; align-items: center; gap: 8px; min-height: 39px; padding: 9px 14px; border-radius: 12px; background: var(--nap-foreground); color: var(--nap-background); font-size: 13px; font-weight: 500; }
+  .heroActions .mobileWishlist:hover { background: #ccc; }
   .onboard { margin-bottom: 20px; }
   .workspace > video { border-radius: 5px; }
   .features { padding: 40px 0 48px; gap: 36px; }

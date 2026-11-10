@@ -29,7 +29,7 @@ for (const [file, path, title] of routes) {
     .map((href) => new URL(href, origin + path))
     .filter((url) => url.origin === origin).map((url) => url.pathname);
   linkGraph.set(path, internal);
-  assert.ok(!internal.includes("/waitlist"), `${path}: no links to the retired waitlist`);
+  assert.equal(internal.filter((url) => url === "/waitlist").length, path === "/" ? 1 : 0, `${path}: wishlist is linked only from the homepage`);
   assert.ok(!internal.includes("/blogs/nap-download"), `${path}: retired download article is not linked`);
   assert.ok(!html.includes("All guides"), `${path}: retired article back link is absent`);
   const anchorTargets = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
@@ -116,7 +116,7 @@ for (const removed of ["blogs/hello-nap", "blogs/why"]) {
   assert.equal(redirect?.destination, "/blogs/nap-agentic-development-environment");
   assert.equal(redirect.statusCode, 308);
 }
-const knownPages = new Set(routes.map(([, path]) => path));
+const knownPages = new Set([...routes.map(([, path]) => path), "/waitlist"]);
 for (const [path, links] of linkGraph) for (const link of links) {
   assert.ok(knownPages.has(link), `${path}: internal content link ${link} resolves to a known page`);
 }
@@ -140,6 +140,8 @@ assert.ok(missing.includes('content="noindex'));
 assert.ok(!missing.includes('rel="canonical"'), "404 must not canonicalize to the homepage");
 const sitemap = readFileSync(resolve(output, "sitemap.xml.body"), "utf8");
 const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
+const wishlist = readFileSync(resolve(output, "waitlist.html"), "utf8");
+assert.match(wishlist, /<meta name="robots" content="noindex, follow"/, "wishlist is a non-indexable utility page");
 assert.deepEqual([...locations].sort(), preview ? [] : routes.map(([, path]) => origin + path).sort());
 const robots = readFileSync(resolve(output, "robots.txt.body"), "utf8");
 assert.ok(robots.includes("Allow: /"));

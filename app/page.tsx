@@ -1,4 +1,5 @@
-import { FolderOpen, MessagesSquare, GitCompareArrows } from "lucide-react";
+import { ArrowRight, FolderOpen, MessagesSquare, GitCompareArrows } from "lucide-react";
+import Link from "next/link";
 import { preload } from "react-dom";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
@@ -38,6 +39,9 @@ export default function Home() {
         <h1 id="nap-title"><strong>Your coding agents, all together.</strong> Nap brings Claude Code, Codex, and Cursor into one native Mac app.</h1>
         <div className={styles.heroActions}>
           <NapDownloadCta location="hero" />
+          <Link className={styles.mobileWishlist} href="/waitlist" prefetch={false}>
+            Join the Wishlist <ArrowRight size={14} aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
