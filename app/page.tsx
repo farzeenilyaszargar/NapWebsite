@@ -14,9 +14,9 @@ import styles from "./home-brand.module.css";
 export const metadata = pageMetadata(pages.home);
 
 const features = [
-  { name: "projects", icon: FolderOpen, title: "Run parallel agents", description: "Keep your tasks and conversations with the codebase they belong to. Pick up the right thread without searching through terminal windows.", video: { src: "/nap-feature-parallel-52c3081c.mp4", poster: "/nap-feature-parallel-3ce83461.webp" } },
-  { name: "conversation", icon: MessagesSquare, title: "Agent handoff", description: "Give your agent a task, follow its progress, and ask a follow-up. Your project and the conversation stay in the same workspace.", video: { src: "/nap-feature-handoff-0a249ae9.mp4", poster: "/nap-feature-handoff-ad61e9cf.webp" } },
-  { name: "review", icon: GitCompareArrows, title: "Thread communication", description: "Keep changed files and review controls in view. Inspect the result, ask for another pass, and decide what to keep before you commit.", video: { src: "/nap-feature-threads-80a56068.mp4", poster: "/nap-feature-threads-f5aae1af.webp" } },
+  { name: "projects", icon: FolderOpen, title: "Run parallel agents", description: "Pick an agent for each task and run them side by side. Start a refactor with Codex while Claude works on a bug in another thread.", video: { src: "/nap-feature-parallel-52c3081c.mp4", poster: "/nap-feature-parallel-3ce83461.webp", startAt: 0 } },
+  { name: "conversation", icon: MessagesSquare, title: "Agent handoff", description: "Hand a task from Codex to Claude without starting over. The conversation, plan, code changes, and branch go with it.", video: { src: "/nap-feature-handoff-0a249ae9.mp4", poster: "/nap-feature-handoff-ad61e9cf.webp", startAt: 3 } },
+  { name: "review", icon: GitCompareArrows, title: "Thread communication", description: "Send a message from one agent thread to another. Claude can ask Codex to add tests where the code lives, with a link back to the original conversation.", video: { src: "/nap-feature-threads-80a56068.mp4", poster: "/nap-feature-threads-f5aae1af.webp", startAt: 6 } },
 ];
 
 export default function Home() {
@@ -56,7 +56,7 @@ export default function Home() {
             </div>
             <figure className={styles.featureMedia}>
               <NapDreamImage scene={name === "conversation" ? "alpine" : "botanical"} className={styles.featureArt} sizes="(max-width: 700px) 90vw, 760px" />
-              <div className={styles.featureCrop}><NapLoopVideo {...video} label={title + " demo in Nap"} pauseOffscreen /></div>
+              <div className={styles.featureCrop}><NapLoopVideo {...video} label={title + " demo in Nap"} playbackRate={0.9} pauseOffscreen /></div>
             </figure>
           </article>
         ))}

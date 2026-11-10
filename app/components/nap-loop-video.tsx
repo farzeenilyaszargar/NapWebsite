@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-type Props = { src: string; poster: string; label: string; pauseOffscreen?: boolean };
+type Props = { src: string; poster: string; label: string; pauseOffscreen?: boolean; startAt?: number; playbackRate?: number };
 
-export default function NapLoopVideo({ src, poster, label, pauseOffscreen = false }: Props) {
+export default function NapLoopVideo({ src, poster, label, pauseOffscreen = false, startAt = 0, playbackRate = 1 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -22,7 +22,12 @@ export default function NapLoopVideo({ src, poster, label, pauseOffscreen = fals
           return;
         }
         if (!pauseOffscreen) observer?.disconnect();
-        if (video.getAttribute("src") !== src) video.src = src;
+        if (video.getAttribute("src") !== src) {
+          video.defaultPlaybackRate = playbackRate;
+          video.src = src;
+          video.currentTime = startAt;
+        }
+        video.playbackRate = playbackRate;
         void video.play().catch(() => {});
       }, { threshold: 0.2 });
       observer.observe(video);
@@ -34,7 +39,7 @@ export default function NapLoopVideo({ src, poster, label, pauseOffscreen = fals
       window.removeEventListener("load", start);
       observer?.disconnect();
     };
-  }, [src, pauseOffscreen]);
+  }, [src, pauseOffscreen, startAt, playbackRate]);
 
   return (
     <video
