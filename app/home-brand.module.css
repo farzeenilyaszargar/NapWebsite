@@ -18,18 +18,14 @@
 .featureCopy > svg { color: var(--nap-subtle); margin-bottom: 17px; }
 .featureCopy h2 { max-width: 290px; font-size: 25px; line-height: 1.27; font-weight: 600; margin: 0; letter-spacing: 0; text-wrap: balance; }
 .featureCopy p { max-width: 290px; margin: 14px 0 0; color: var(--nap-muted); font-size: 14px; line-height: 1.65; }
-.featureMedia { position: relative; isolation: isolate; width: 100%; height: 390px; min-width: 0; margin: 0; padding: 32px; overflow: hidden; border-radius: 8px; background: #343434; }
+.featureMedia { position: relative; isolation: isolate; width: 100%; min-width: 0; margin: 0; padding: 32px; overflow: hidden; border-radius: 8px; background: #343434; }
 .featureArt { position: absolute; inset: -8px; z-index: -1; width: calc(100% + 16px); height: calc(100% + 16px); object-fit: cover; filter: blur(6px); }
-.featureCrop { position: relative; height: 100%; overflow: hidden; border-radius: 5px; background: #101010; box-shadow: 0 12px 35px #0005; }
-.featureCrop picture { display: block; position: absolute; max-width: none; }
-.featureCrop img { display: block; width: 100%; height: auto; filter: none; }
-.projects .featureCrop picture { width: 190%; top: -2%; left: 0; }
+.featureCrop { position: relative; overflow: hidden; border-radius: 5px; background: #101010; box-shadow: 0 12px 35px #0005; }
+.featureCrop video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
 .projects .featureArt { object-position: left center; }
 .conversation { grid-template-columns: minmax(0, 1.45fr) minmax(0, .74fr); }
 .conversation .featureCopy { grid-column: 2; grid-row: 1; padding-left: 0; padding-right: 24px; }
 .conversation .featureMedia { grid-column: 1; grid-row: 1; }
-.conversation .featureCrop picture { width: 165%; top: -5%; left: -33%; }
-.review .featureCrop picture { width: 235%; top: -3%; right: 0; }
 .review .featureArt { object-position: right bottom; }
 .closing { position: relative; isolation: isolate; min-height: 485px; display: grid; place-items: center; overflow: hidden; background: #262626; }
 .closingArt { display: block; position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; object-position: center; }
@@ -47,7 +43,7 @@
   .featureCopy { padding-left: 10px; }
   .featureCopy h2 { font-size: 23px; }
   .featureCopy p { font-size: 13px; }
-  .featureMedia { height: 330px; padding: 26px; }
+  .featureMedia { padding: 26px; }
   .conversation .featureCopy { padding-right: 10px; }
 }
 @media (max-width: 700px) {
@@ -63,14 +59,9 @@
   .featureCopy > svg { margin-bottom: 13px; width: 18px; height: 18px; }
   .featureCopy h2 { max-width: 310px; font-size: 22px; }
   .featureCopy p { max-width: 350px; margin-top: 10px; font-size: 13px; line-height: 1.65; }
-  .featureMedia { height: auto; aspect-ratio: 1; padding: 24px; }
-  .featureCrop { position: absolute; inset: 24px; height: auto; }
-  .featureCrop img { object-fit: contain; }
-  .projects .featureCrop picture { width: 210%; }
-  .conversation .featureCrop picture { width: 185%; left: -43%; }
-  .review .featureCrop picture { width: 245%; }
+  .featureMedia { padding: 24px; }
   .closing { min-height: 390px; }
   .closingCopy { padding: 76px 0; }
   .closing h2 { font-size: 45px; margin-bottom: 20px; }
 }
-@media (max-width: 360px) { .intro h1 { font-size: 19px; } .featureCopy h2 { font-size: 21px; } .featureMedia { padding: 20px; } .featureCrop { inset: 20px; } }
+@media (max-width: 360px) { .intro h1 { font-size: 19px; } .featureCopy h2 { font-size: 21px; } .featureMedia { padding: 20px; } }

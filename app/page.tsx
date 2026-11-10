@@ -1,8 +1,9 @@
 import { FolderOpen, MessagesSquare, GitCompareArrows } from "lucide-react";
+import { preload } from "react-dom";
 import StructuredData from "./components/structured-data";
 import { pages, pageMetadata, homeSchema } from "./lib/seo";
-import NapProductImage from "./components/nap-product-image";
-import NapHeroVideo from "./components/nap-hero-video";
+import NapLoopVideo from "./components/nap-loop-video";
+import { heroMedia } from "./lib/hero-media";
 import NapDreamImage from "./components/nap-dream-image";
 import NapDownloadCta from "./components/nap-download-cta";
 import NapHeader from "./components/nap-header";
@@ -13,12 +14,13 @@ import styles from "./home-brand.module.css";
 export const metadata = pageMetadata(pages.home);
 
 const features = [
-  { name: "projects", icon: FolderOpen, title: "Run parallel agents", description: "Keep your tasks and conversations with the codebase they belong to. Pick up the right thread without searching through terminal windows.", alt: "Nap project spaces and conversations organized in the sidebar." },
-  { name: "conversation", icon: MessagesSquare, title: "Agent handoff", description: "Give your agent a task, follow its progress, and ask a follow-up. Your project and the conversation stay in the same workspace.", alt: "An agent conversation in Nap with its response and code-change summary." },
-  { name: "review", icon: GitCompareArrows, title: "Thread communication", description: "Keep changed files and review controls in view. Inspect the result, ask for another pass, and decide what to keep before you commit.", alt: "Nap code review with changed files, line counts, and an integrated terminal." },
+  { name: "projects", icon: FolderOpen, title: "Run parallel agents", description: "Keep your tasks and conversations with the codebase they belong to. Pick up the right thread without searching through terminal windows.", video: { src: "/nap-feature-parallel-52c3081c.mp4", poster: "/nap-feature-parallel-3ce83461.webp" } },
+  { name: "conversation", icon: MessagesSquare, title: "Agent handoff", description: "Give your agent a task, follow its progress, and ask a follow-up. Your project and the conversation stay in the same workspace.", video: { src: "/nap-feature-handoff-0a249ae9.mp4", poster: "/nap-feature-handoff-ad61e9cf.webp" } },
+  { name: "review", icon: GitCompareArrows, title: "Thread communication", description: "Keep changed files and review controls in view. Inspect the result, ask for another pass, and decide what to keep before you commit.", video: { src: "/nap-feature-threads-80a56068.mp4", poster: "/nap-feature-threads-f5aae1af.webp" } },
 ];
 
 export default function Home() {
+  preload(heroMedia.poster, { as: "image", type: "image/webp", fetchPriority: "high" });
   return (
     <main className={`contrast-page ${styles.page}`}>
       <StructuredData data={homeSchema()} />
@@ -41,11 +43,11 @@ export default function Home() {
 
       <figure className={styles.workspace} id="workspace">
         <NapDreamImage scene="botanical" className={styles.workspaceArt} eager sizes="(max-width: 1280px) 94vw, 1160px" />
-        <NapHeroVideo />
+        <NapLoopVideo {...heroMedia} label="Nap workspace demo showing coding agents working in project threads" />
       </figure>
 
       <section className={styles.features} id="features" aria-label="Inside Nap">
-        {features.map(({ name, icon: Icon, title, description, alt }) => (
+        {features.map(({ name, icon: Icon, title, description, video }) => (
           <article className={`${styles.feature} ${styles[name]}`} key={name}>
             <div className={styles.featureCopy}>
               <Icon size={21} strokeWidth={1.5} aria-hidden="true" />
@@ -54,7 +56,7 @@ export default function Home() {
             </div>
             <figure className={styles.featureMedia}>
               <NapDreamImage scene={name === "conversation" ? "alpine" : "botanical"} className={styles.featureArt} sizes="(max-width: 700px) 90vw, 760px" />
-              <div className={styles.featureCrop}><NapProductImage alt={alt} sizes="(max-width: 700px) 170vw, 1300px" /></div>
+              <div className={styles.featureCrop}><NapLoopVideo {...video} label={title + " demo in Nap"} pauseOffscreen /></div>
             </figure>
           </article>
         ))}
