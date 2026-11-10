@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-type Props = { src: string; poster: string; label: string; pauseOffscreen?: boolean; startAt?: number; playbackRate?: number };
+type Props = { src: string; mobileSrc: string; poster: string; label: string; pauseOffscreen?: boolean; startAt?: number; playbackRate?: number };
 
-export default function NapLoopVideo({ src, poster, label, pauseOffscreen = false, startAt = 0, playbackRate = 1 }: Props) {
+export default function NapLoopVideo({ src, mobileSrc, poster, label, pauseOffscreen = false, startAt = 0, playbackRate = 1 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -16,20 +16,22 @@ export default function NapLoopVideo({ src, poster, label, pauseOffscreen = fals
 
     let observer: IntersectionObserver | undefined;
     const start = () => {
+      const compact = window.matchMedia("(max-width: 700px)").matches;
+      const threshold = pauseOffscreen ? 0.65 : 0.2;
       observer = new IntersectionObserver(([entry]) => {
-        if (entry.intersectionRatio < 0.2 || motion.matches || connection?.saveData) {
+        if (motion.matches || connection?.saveData || !entry.isIntersecting || entry.intersectionRatio < threshold) {
           if (pauseOffscreen) video.pause();
           return;
         }
         if (!pauseOffscreen) observer?.disconnect();
-        if (video.getAttribute("src") !== src) {
+        if (!video.getAttribute("src")) {
           video.defaultPlaybackRate = playbackRate;
-          video.src = src;
+          video.src = compact ? mobileSrc : src;
           video.currentTime = startAt;
         }
         video.playbackRate = playbackRate;
         void video.play().catch(() => {});
-      }, { threshold: 0.2 });
+      }, { threshold, rootMargin: compact && pauseOffscreen ? "0px 0px -96px 0px" : "0px" });
       observer.observe(video);
     };
     // Let the poster and initial page assets finish before fetching motion.
@@ -39,7 +41,7 @@ export default function NapLoopVideo({ src, poster, label, pauseOffscreen = fals
       window.removeEventListener("load", start);
       observer?.disconnect();
     };
-  }, [src, pauseOffscreen, startAt, playbackRate]);
+  }, [src, mobileSrc, pauseOffscreen, startAt, playbackRate]);
 
   return (
     <video
