@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import NapRunner from "./nap-runner";
+import NapMaze from "./nap-maze";
 
 export const metadata: Metadata = {
   description: "Download Nap for macOS. Claude Code, Codex, Cursor, and OpenCode in one native interface. Fewer terminal tabs. More actual work.",
@@ -17,7 +17,7 @@ export default function Home() {
         <nav aria-label="Main navigation"><a className="blogs-link" href="https://www.nap.cx/blogs">Blogs <ArrowUpRight size={13} aria-hidden="true" /></a></nav>
       </header>
       <main className="landing">
-        <NapRunner />
+        <NapMaze />
         <section className="hero-copy" aria-labelledby="nap-title">
           <h1 id="nap-title">Your agents. All together.</h1>
           <p>Claude Code, Codex, Cursor, and OpenCode in one native Mac app.

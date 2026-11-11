@@ -10,14 +10,14 @@
   },
   "dependencies": {
     "lucide-react": "^1.72.0",
-    "matter-js": "^0.20.0",
     "next": "16.4.5",
+    "pathfinding": "^0.4.18",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@types/matter-js": "^0.20.2",
     "@types/node": "^20",
+    "@types/pathfinding": "^0.1.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

@@ -15,18 +15,33 @@ img { object-fit: contain; user-select: none; -webkit-user-drag: none; }
 .blogs-link { display: inline-flex; align-items: center; gap: 6px; padding: 12px 0 12px 12px; color: #a7a7a7; font-size: 13px; }
 .blogs-link:hover { color: #fff; }
 .landing { width: min(960px, 100%); margin: 0 auto; padding: 0 24px 80px; }
-.runner { position: relative; width: min(760px, 100%); height: 330px; margin: 12px auto 0; }
-.runner-hud { position: absolute; top: 28px; inset-inline: 0; display: flex; justify-content: space-between; gap: 20px; font: 11px ui-monospace, monospace; color: #858585; }
-.runner-hud b { display: inline-block; min-width: 20px; margin-left: 5px; color: #ccc; font-weight: 400; font-variant-numeric: tabular-nums; }
-.runner-canvas { display: block; width: 100%; height: 230px; position: absolute; top: 39px; left: 0; cursor: pointer; touch-action: manipulation; }
-.runner-preview { position: absolute; top: 176px; left: 0; right: 0; height: 39px; pointer-events: none; }
-.runner-preview img { position: absolute; left: 75px; filter: brightness(0) invert(1); }
-.runner-preview span { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: #363636; }
-.runner-menu { position: absolute; left: 0; right: 0; top: 84px; text-align: center; pointer-events: none; }
-.runner-menu p { margin: 0 12px 17px; font-size: 12px; line-height: 1.6; color: #a7a7a7; }
-.runner-start { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; padding: 8px 12px; border: 1px solid #393939; border-radius: 6px; background: #191919; color: #ddd; font-size: 12px; cursor: pointer; pointer-events: auto; }
-.runner-start:hover { background: #242424; border-color: #666; }
-.runner-start:disabled { cursor: wait; color: #888; }
+.ghost-shift { width: min(500px, 100%); margin: 16px auto 40px; }
+.maze-hud { display: flex; align-items: center; justify-content: space-between; height: 46px; font: 10px ui-monospace, monospace; color: #7d7f82; }
+.maze-label { margin-right: 14px; }
+.maze-score { color: #e2e2dd; font-size: 14px; font-variant-numeric: tabular-nums; }
+.maze-tools { display: flex; align-items: center; gap: 4px; }
+.maze-best { margin-right: 8px; font-variant-numeric: tabular-nums; }
+.maze-icon { width: 32px; height: 36px; display: grid; place-items: center; border: 0; background: transparent; color: #8c8e92; cursor: pointer; }
+.maze-icon:hover { color: #fff; }
+.maze-icon:disabled { opacity: .3; cursor: default; }
+.maze-board { position: relative; aspect-ratio: 25 / 17; }
+.maze-canvas, .maze-preview { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.maze-canvas { touch-action: none; outline-offset: 3px; border-radius: 3px; }
+.maze-overlay { position: absolute; inset: 0; display: grid; place-items: center; background: #10101070; }
+.maze-menu { width: min(310px, calc(100% - 32px)); padding: 24px 8px; text-align: center; background: #101010f5; box-shadow: 0 0 36px 24px #101010ed; }
+.maze-menu h2 { margin: 0 0 9px; font-size: 20px; line-height: 1.25; font-weight: 500; }
+.maze-menu p { margin: 0 0 20px; color: #929398; font-size: 12px; line-height: 1.5; }
+.maze-play { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 38px; padding: 10px 17px; border: 1px solid #494a4d; border-radius: 5px; background: #202123; color: #eee; font-size: 12px; cursor: pointer; }
+.maze-play:hover { background: #2d2e31; border-color: #777; }
+.maze-play:disabled { opacity: .5; cursor: wait; }
+.maze-bottom { display: flex; justify-content: space-between; align-items: center; min-height: 35px; gap: 12px; color: #85878a; font: 10px ui-monospace, monospace; }
+.maze-bottom > span:last-child { display: flex; align-items: center; gap: 4px; flex-shrink: 0; color: #b1b3b3; }
+.shift-level { margin-left: 8px; color: #73767a; }
+.maze-directions { display: none; justify-content: center; gap: 8px; padding-top: 8px; }
+.maze-directions button { display: grid; place-items: center; width: 42px; height: 38px; border: 1px solid #303236; border-radius: 5px; background: transparent; color: #bbb; touch-action: manipulation; }
+.maze-directions button:active { background: #27282b; }
+.maze-directions button:disabled { opacity: .3; }
+@media (pointer: coarse) { .maze-directions { display: flex; } }
 .hero-copy { max-width: 650px; margin: 0 auto; text-align: center; }
 .hero-copy h1 { margin: 10px 0 20px; font-size: 48px; line-height: 1.15; font-weight: 550; letter-spacing: 0; }
 .hero-copy p { max-width: 470px; margin: 0 auto; font-size: 16px; line-height: 1.65; color: #a7a7a7; }
@@ -37,8 +52,12 @@ body > main p { line-height: 1.5; color: #a7a7a7; }
 @media (max-width: 700px) {
   .site-header { width: calc(100% - 40px); height: 74px; }
   .landing { padding-inline: 20px; padding-bottom: 64px; }
-  .runner { height: 300px; margin-top: 20px; }
-  .runner-preview img { left: 35px; }
+  .ghost-shift { margin-top: 4px; margin-bottom: 30px; }
+  .maze-label { margin-right: 8px; font-size: 9px; }
+  .maze-best { font-size: 9px; margin-right: 2px; }
+  .maze-bottom { font-size: 9px; }
+  .maze-menu h2 { font-size: 18px; }
+  .maze-menu { padding-block: 14px; width: min(280px, calc(100% - 32px)); box-shadow: 0 0 20px 10px #101010ed; }
   .hero-copy h1 { margin-top: 0; font-size: 34px; line-height: 1.2; }
   .hero-copy p { max-width: 340px; font-size: 14px; line-height: 1.65; }
   .download { margin-top: 25px; }
