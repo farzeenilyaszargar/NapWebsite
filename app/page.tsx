@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import NapPlayground from "./nap-playground";
+import NapRunner from "./nap-runner";
 
 export const metadata: Metadata = {
   description: "Download Nap for macOS. Claude Code, Codex, Cursor, and OpenCode in one native interface. Fewer terminal tabs. More actual work.",
@@ -13,11 +13,11 @@ export default function Home() {
   return (
     <div className="site">
       <header className="site-header">
-        <Link className="brand" href="/" prefetch={false} aria-label="Nap home"><Image unoptimized src="/nap-ghost.webp" alt="" width={22} height={25} /><span>Nap</span></Link>
+        <Link className="brand" href="/" prefetch={false} aria-label="Nap home"><Image unoptimized src="/nap-ghost.webp" alt="" width={22} height={25} /></Link>
         <nav aria-label="Main navigation"><a className="blogs-link" href="https://www.nap.cx/blogs">Blogs <ArrowUpRight size={13} aria-hidden="true" /></a></nav>
       </header>
       <main className="landing">
-        <NapPlayground />
+        <NapRunner />
         <section className="hero-copy" aria-labelledby="nap-title">
           <h1 id="nap-title">Your agents. All together.</h1>
           <p>Claude Code, Codex, Cursor, and OpenCode in one native Mac app.
@@ -27,7 +27,6 @@ export default function Home() {
           </a>
         </section>
       </main>
-      <footer><span>© Nap Inc. 2026</span><a href="https://x.com/nap_cx">Follow us on X <ArrowUpRight size={12} aria-hidden="true" /></a></footer>
     </div>
   );
 }
