@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary", title: "Nap | The Interface For All Your Agents" },
   robots: { index: true, follow: true },
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#ffffff" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#101010" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en"><body>{children}</body></html>;

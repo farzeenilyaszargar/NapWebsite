@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import NapPlayground from "./nap-playground";
 
 export const metadata: Metadata = {
   description: "Download Nap for macOS. Claude Code, Codex, Cursor, and OpenCode in one native interface. Fewer terminal tabs. More actual work.",
@@ -7,14 +11,23 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
-      <h1>nap.</h1>
-      <p>
-        Claude Code, Codex, Cursor, and OpenCode in one Mac app.
-        Run agents in parallel, hand off tasks, and keep threads talking.
-      </p>
-      <p>We spent all our time on the app. As you can see.</p>
-      <p><a className="download" href="https://pub-ab845f53d3fe41cca7cc63eb753149cd.r2.dev/releases/v0.0.4-notnap.3/NotNap-macos.dmg">download for macOS</a></p>
-    </main>
+    <div className="site">
+      <header className="site-header">
+        <Link className="brand" href="/" prefetch={false} aria-label="Nap home"><Image unoptimized src="/nap-ghost.webp" alt="" width={22} height={25} /><span>Nap</span></Link>
+        <nav aria-label="Main navigation"><a className="blogs-link" href="https://www.nap.cx/blogs">Blogs <ArrowUpRight size={13} aria-hidden="true" /></a></nav>
+      </header>
+      <main className="landing">
+        <NapPlayground />
+        <section className="hero-copy" aria-labelledby="nap-title">
+          <h1 id="nap-title">Your agents. All together.</h1>
+          <p>Claude Code, Codex, Cursor, and OpenCode in one native Mac app.
+            Run them side by side, hand off the work, and take the credit.</p>
+          <a className="download" href="https://pub-ab845f53d3fe41cca7cc63eb753149cd.r2.dev/releases/v0.0.4-notnap.3/NotNap-macos.dmg">
+            <span>Download for macOS</span><Image unoptimized src="/apple.svg" width={14} height={17} alt="" />
+          </a>
+        </section>
+      </main>
+      <footer><span>© Nap Inc. 2026</span><a href="https://x.com/nap_cx">Follow us on X <ArrowUpRight size={12} aria-hidden="true" /></a></footer>
+    </div>
   );
 }
