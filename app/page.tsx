@@ -9,18 +9,12 @@ export default function Home() {
   return (
     <main>
       <h1>nap.</h1>
-      <p>Your agents write the code. You take the credit.</p>
       <p>
-        Claude Code, Codex, Cursor, and OpenCode. One native Mac app.
-        Because switching between four terminals isn&apos;t a workflow. It&apos;s cardio.
+        Claude Code, Codex, Cursor, and OpenCode in one Mac app.
+        Run agents in parallel, hand off tasks, and keep threads talking.
       </p>
-      <ul>
-        <li>Run agents in parallel. Look suspiciously productive.</li>
-        <li>Hand off the work. Keep your last remaining brain cell.</li>
-        <li>Let your threads talk. You&apos;ve said enough.</li>
-      </ul>
-      <p><a className="download" href="https://pub-ab845f53d3fe41cca7cc63eb753149cd.r2.dev/releases/v0.0.4-notnap.3/NotNap-macos.dmg">Download for macOS →</a></p>
-      <p><small>No 47-step onboarding. You&apos;ve suffered enough.</small></p>
+      <p>We spent all our time on the app. As you can see.</p>
+      <p><a className="download" href="https://pub-ab845f53d3fe41cca7cc63eb753149cd.r2.dev/releases/v0.0.4-notnap.3/NotNap-macos.dmg">download for macOS</a></p>
     </main>
   );
 }
