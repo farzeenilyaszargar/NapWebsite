@@ -1,72 +1,7 @@
-# Nap Website
+# Nap
 
-Landing website for Nap, a native interface for running coding agents from one focused workspace.
+[nap.cx](https://nap.cx) is the website for Nap, a native Mac interface for coding agents.
 
-## Tech Stack
+The `funny` branch is a single, deliberately plain landing page with a direct macOS download. No forms, database, custom fonts, or marketing machinery.
 
-- Next.js App Router
-- React
-- TypeScript
-- Tailwind CSS
-- `next/font` with Fustat and Ma Shan Zheng
-
-## Pages
-
-- `/` - A centered white HTML page with default serif text, a short product introduction, and a prominent blue macOS download link.
-- `/docs` - Documentation-style page with a left topic nav and scroll-aware active section.
-- `/waitlist` - Waitlist form for Windows/Linux interest.
-
-The old `/download` page has been removed. The homepage links directly to the latest macOS DMG on GitHub. Other pages retain the shared download modal, with Windows/Linux interest collected through the waitlist.
-
-## Getting Started
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run the development server on port 3000:
-
-```bash
-npm run dev -- --port 3000
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## Scripts
-
-```bash
-npm run dev
-npm run build
-npm run start
-npm run lint
-```
-
-## Project Notes
-
-- Main page: `app/page.tsx`
-- Shared download modal: `app/components/download-modal.tsx`
-- Docs interactive content: `app/docs/docs-client.tsx`
-- Waitlist form logic: `app/waitlist/waitlist-form.tsx`
-- Waitlist API route: `app/api/waitlist/route.ts`
-- Supabase migration: `supabase/migrations/20260824170000_create_wishlist_saves.sql`
-- Static assets live in `public/`
-
-## Supabase
-
-The waitlist form writes to the `public.wishlist_saves` table in Supabase project `ywfkomtyadqkyugiibhi`.
-
-Required environment variables:
-
-```bash
-SUPABASE_URL=https://ywfkomtyadqkyugiibhi.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-```
-
-Apply the migration with Supabase CLI after linking the project:
-
-```bash
-supabase link --project-ref ywfkomtyadqkyugiibhi
-supabase db push
-```
+Run `npm ci`, then `npm run dev -- --port 3000`. Use `npm run build` to verify the production build.

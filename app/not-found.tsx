@@ -1,12 +1,5 @@
 import Link from "next/link";
-import PlainShell from "./components/plain-shell";
 
 export default function NotFound() {
-  return (
-    <PlainShell>
-      <h1>this page took a nap.</h1>
-      <p>404. There&apos;s nothing at this address. The link might be old, or the page might have moved.</p>
-      <p><Link href="/">back to nap →</Link></p>
-    </PlainShell>
-  );
+  return <main><h1>404.</h1><p>This page went outside. You should try it.</p><p><Link href="/">Back to Nap →</Link></p></main>;
 }

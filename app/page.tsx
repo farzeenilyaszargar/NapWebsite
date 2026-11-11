@@ -1,33 +1,26 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import "./reveal.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Nap | Your coding agents. One interface." },
-  description: "Claude Code, Codex, Cursor, and OpenCode in one native Mac app. Less switching, more building. Join the Nap wishlist.",
+  description: "Download Nap for macOS. Claude Code, Codex, Cursor, and OpenCode in one native interface. Fewer terminal tabs. More actual work.",
   alternates: { canonical: "/" },
-  openGraph: { title: "Nap | Your coding agents. One interface." },
-  twitter: { title: "Nap | Your coding agents. One interface." },
 };
 
 export default function Home() {
   return (
-    <main className="nap-reveal compact-home">
-      <div className="compact-page">
-        <h1>nap.</h1>
-        <p>good software doesn&apos;t need all that.</p>
-        <p>
-          All your coding agents. One interface. A native Mac app for Claude Code,
-          Codex, Cursor, and OpenCode.
-        </p>
-        <ul>
-          <li>Bring your project. Pick your agent.</li>
-          <li>Keep conversations and code changes together.</li>
-          <li>Build things. Not a collection of open windows.</li>
-        </ul>
-        <p><Link href="/wishlist">join the wishlist →</Link></p>
-        <p><small>Still cooking. We&apos;ll email you when it&apos;s ready.</small></p>
-      </div>
+    <main>
+      <h1>nap.</h1>
+      <p>Your agents write the code. You take the credit.</p>
+      <p>
+        Claude Code, Codex, Cursor, and OpenCode. One native Mac app.
+        Because switching between four terminals isn&apos;t a workflow. It&apos;s cardio.
+      </p>
+      <ul>
+        <li>Run agents in parallel. Look suspiciously productive.</li>
+        <li>Hand off the work. Keep your last remaining brain cell.</li>
+        <li>Let your threads talk. You&apos;ve said enough.</li>
+      </ul>
+      <p><a className="download" href="https://pub-ab845f53d3fe41cca7cc63eb753149cd.r2.dev/releases/v0.0.4-notnap.3/NotNap-macos.dmg">Download for macOS →</a></p>
+      <p><small>No 47-step onboarding. You&apos;ve suffered enough.</small></p>
     </main>
   );
 }
